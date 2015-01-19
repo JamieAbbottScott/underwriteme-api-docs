@@ -17,86 +17,91 @@ Create new underwriting details with customer and product information contained 
 
 ### Retrieve an existing Application [GET]
 + Response 200 (application/json)
-  + Body
-        {
-          "customers":[
+    
+    + Body
+    
             {
-              "id":"101",
-              "name":"John",
-              "surname":"Doe",
-              "title":"MR",
-              "gender":"MALE",
-              "dateOfBirth":"1980-01-01",
-              "smoker":false,
-              "email":"john.doe@domain.com"
+                "id":"UME00000000", 
+                "customers":[
+                    {
+                        "id":"101",
+                        "name":"John",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "type":"WHOLE_OF_LIFE",
+                        "coverAmount":100000,
+                        "livesAssured":[
+                            {
+                              "id":"101"
+                            }
+                        ]
+                    }
+                ]
             }
-          ],
-          "products":[
-            {
-              "type":"WHOLE_OF_LIFE",
-              "coverAmount":100000,
-              "livesAssured":[
-                {
-                  "id":"101"
-                }
-              ]
-            }
-          ]
-        }
 
 ### Create new Application [POST]
 + Request (application/json)
-        {
-          "customers":[
+
             {
-              "id":"cus-001",
-              "name":"John",
-              "surname":"Doe",
-              "title":"MR",
-              "gender":"MALE",
-              "dateOfBirth":"1980-01-01",
-              "smoker":false,
-              "email":"john.doe@domain.com"
+                "customers":[
+                    {
+                        "id":"cus-001",
+                        "name":"John",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "type":"WHOLE_OF_LIFE",
+                        "coverAmount":100000,
+                        "livesAssured":[
+                            {
+                                "id":"cus-001"
+                            }
+                        ]
+                    }
+                ]
             }
-          ],
-          "products":[
-            {
-              "type":"WHOLE_OF_LIFE",
-              "coverAmount":100000,
-              "livesAssured":[
-                {
-                  "id":"cus-001"
-                }
-              ]
-            }
-          ]
-        }
 
 + Response 201 (application/json)
-        {
-          "id":"UME00000000",
-          "customers":[
+
             {
-              "id":"101",
-              "name":"John",
-              "surname":"Doe",
-              "title":"MR",
-              "gender":"MALE",
-              "dateOfBirth":"1980-01-01",
-              "smoker":false,
-              "email":"john.doe@domain.com"
+                "id":"UME00000000",
+                "customers":[
+                    {
+                        "id":"101",
+                        "name":"John",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "id":"0001-0001",
+                        "type":"WHOLE_OF_LIFE",
+                        "coverAmount":100000,
+                        "livesAssured":[
+                            {
+                                "id":"101"
+                            }
+                        ]
+                    }
+                ]
             }
-          ],
-          "products":[
-            {
-              "id":"0001-0001",
-              "type":"WHOLE_OF_LIFE",
-              "coverAmount":100000,
-              "livesAssured":[
-                {
-                  "id":"101"
-                }
-              ]
-            }
-          ]
-        }
