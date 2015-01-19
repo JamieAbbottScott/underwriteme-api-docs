@@ -12,7 +12,7 @@ UnderwriteMe API is a set of REST endpoints which allows you to interact with un
 # Group Application
 Notes related resources of the **Application API**
 
-## New Application [/application]
+## Create new Application [/application]
 Creating new Application based on sent Customers and Products JSON data. 
 
 ### Create new Application [POST]
@@ -75,14 +75,14 @@ Creating new Application based on sent Customers and Products JSON data.
             }
 
 
-## Existing Application [/application/{id}]
-Interactions on existing Application identified by unique ID.
+## Retrieve existing Application [/application/{id}]
+Retrieving existing Application identified by unique ID.
 
 + Parameters
 
     + id (required, string, `UME00000000`) ... Text `id` of the Application to perform action with. Has example value.
 
-### Retrieve an existing Application [GET]
+### Retrieve existing Application [GET]
 + Response 200 (application/json)
     
     + Body
