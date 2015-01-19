@@ -2,7 +2,7 @@ FORMAT: 1A
 
 # UnderwriteMe API
 UnderwriteMe API is a set of REST endpoints which allows you to interact with underwriting workflow which consists of following components:
-
+  
   * Application
   * Enquiry
   * Quote
@@ -16,7 +16,7 @@ Notes related resources of the **Application API**
 Creating new Application based on sent Customers and Products JSON data. 
 
 ### Create new Application [POST]
-+ Request (application/json)
++ Request Valid Application (application/json)
 
             {
                 "customers":[
@@ -74,6 +74,45 @@ Creating new Application based on sent Customers and Products JSON data.
                 ]
             }
 
++ Request Invalid Product amount (application/json)
+
+            {
+                "customers":[
+                    {
+                        "id":"cus-001",
+                        "name":"John",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "type":"WHOLE_OF_LIFE",
+                        "coverAmount":1000,
+                        "livesAssured":[
+                            {
+                                "id":"cus-001"
+                            }
+                        ]
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "products":[
+                    {
+                        "coverAmount":{
+                            "message":"Minimum cover amount is £10000"
+                        }
+                    }
+                ]
+            }
 
 ## Retrieve existing Application [/application/{id}]
 Retrieving existing Application identified by unique ID.
