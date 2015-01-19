@@ -25,7 +25,22 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***gender*** `String` *(required)* : Customer gender. Allowed values: `FEMALE`, `MALE`.
     - ***dateOfBirth*** `String` *(required)* : Customer date of birth. ISO date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `Boolean` *(required)* : `true` if Customer smokes, `false` otherwise.
-    - ***contactDetails*** `Object` (optional) : Customer contact details. Not required but cannot be empty.
+    - ***contactDetails*** `Object` *(optional)* : Customer contact details. Not required but cannot be empty.
+        - ***telephoneNumber*** `String` *(required)* : Customer main telephone number.
+        - ***alternateTelephoneNumber*** `String` *(optional)* : Customer alternative telephone number.
+        - ***address*** `Object` *(optional)* : Customer address details. Not required but cannot be empty.
+            - ***line1*** `String` *(required)* : Address first line.
+            - ***line2*** `String` *(optional)* : Address second line.
+            - ***town*** `String` *(required)* : Address town.
+            - ***county*** `String` *(optional)* : Address county.
+            - ***postcode*** `String` *(required)* : Address postcode.
+- ***products*** `Array` *(required)* : List of Products (represented as `Object`) for the Application.
+    - ***type*** `String` *(required)* : Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
+    - ***coverAmount*** `Number` *(required/optional)* : Product cover amount. Required if ***premium*** not specified.
+    - ***premium*** `Number` *(required/optional)* : Product premium. Required if ***coverAmount*** not specified.
+    - ***coverPeriod*** `Number` *(required/optional)* : Product cover period in years. Required if ***coverUntilAge*** not specified.
+    - ***coverUntilAge*** `Number` *(required/optional)* : Product cover until age in years. Required if ***coverPeriod*** not specified.
+    - ***coverBasis*** `String` *(required/optional)* : TODO.
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
