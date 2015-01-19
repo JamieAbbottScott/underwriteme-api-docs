@@ -1,46 +1,102 @@
 FORMAT: 1A
 
-# umeapi
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+# UnderwriteMe API
+UnderwriteMe API is a set of REST endpoints which allows you to interact with underwriting workflow which consists of following components:
 
-# Group Notes
-Notes related resources of the **Notes API**
+  * Application
+  * Enquiry
+  * Quote
+  * Basket
+  * Activation
 
-## Notes Collection [/notes]
-### List all Notes [GET]
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
+## Application [/application/{id}]
+Create new underwriting details with customer and product information contained in JSON message.
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + id (required, string, `UME00000000`) ... Text `id` of the Application to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+### Retrieve an existing Application [GET]
 + Response 200 (application/json)
+  + Body
+        {
+          "customers":[
+            {
+              "id":"101",
+              "name":"John",
+              "surname":"Doe",
+              "title":"MR",
+              "gender":"MALE",
+              "dateOfBirth":"1980-01-01",
+              "smoker":false,
+              "email":"john.doe@domain.com"
+            }
+          ],
+          "products":[
+            {
+              "type":"WHOLE_OF_LIFE",
+              "coverAmount":100000,
+              "livesAssured":[
+                {
+                  "id":"101"
+                }
+              ]
+            }
+          ]
+        }
 
-    + Header
+### Create new Application [POST]
++ Request (application/json)
+        {
+          "customers":[
+            {
+              "id":"cus-001",
+              "name":"John",
+              "surname":"Doe",
+              "title":"MR",
+              "gender":"MALE",
+              "dateOfBirth":"1980-01-01",
+              "smoker":false,
+              "email":"john.doe@domain.com"
+            }
+          ],
+          "products":[
+            {
+              "type":"WHOLE_OF_LIFE",
+              "coverAmount":100000,
+              "livesAssured":[
+                {
+                  "id":"cus-001"
+                }
+              ]
+            }
+          ]
+        }
 
-            X-My-Header: The Value
-
-    + Body
-
-            { "id": 2, "title": "Pick-up posters from post-office" }
-
-### Remove a Note [DELETE]
-+ Response 204
++ Response 201 (application/json)
+        {
+          "id":"UME00000000",
+          "customers":[
+            {
+              "id":"101",
+              "name":"John",
+              "surname":"Doe",
+              "title":"MR",
+              "gender":"MALE",
+              "dateOfBirth":"1980-01-01",
+              "smoker":false,
+              "email":"john.doe@domain.com"
+            }
+          ],
+          "products":[
+            {
+              "id":"0001-0001",
+              "type":"WHOLE_OF_LIFE",
+              "coverAmount":100000,
+              "livesAssured":[
+                {
+                  "id":"101"
+                }
+              ]
+            }
+          ]
+        }
