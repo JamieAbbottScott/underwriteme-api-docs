@@ -4,7 +4,7 @@ FORMAT: 1A
 
 ## Overview
 **UnderwriteMe API** is a set of REST endpoints which allows you to interact with underwriting workflow. Workflow consist of following components:
-  
+
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Quote** - Retrieving Decisions and Quotes for Products.
@@ -27,7 +27,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-        - ***alternateTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
+        - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
         - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
             - ***line1*** `string` *(required)* - Address first line.
             - ***line2*** `string` *(optional)* - Address second line.
@@ -37,7 +37,7 @@ Creating new Application based on sent Customers and Products JSON data.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals. 
+    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required/optional)* - Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
@@ -107,6 +107,47 @@ Creating new Application based on sent Customers and Products JSON data.
                 ]
             }
 
++ Request Customer name cannot contain numbers. (application/json)
+
+            {
+                "customers":[
+                    {
+                        "id":"cus-001",
+                        "name":"J0hn",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "type":"WHOLE_OF_LIFE",
+                        "coverAmount":100000,
+                        "livesAssured":[
+                            {
+                                "id":"cus-001"
+                            }
+                        ]
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "customers":[
+                    {
+                        "id":"cus-001",
+                        "name":{
+                            "errorMessage":"Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
+                        }
+                    }
+                ]
+            }
+
 + Request Invalid cover amount for Product. (application/json)
 
             {
@@ -141,7 +182,7 @@ Creating new Application based on sent Customers and Products JSON data.
                 "products":[
                     {
                         "coverAmount":{
-                            "message":"Minimum cover amount is £10000"
+                            "errorMessage":"Minimum cover amount is £10000"
                         }
                     }
                 ]
@@ -156,11 +197,11 @@ Retrieving existing Application identified by unique ID.
 
 ### Retrieve existing Application [GET]
 + Response 200 (application/json)
-    
+
     + Body
-    
+
             {
-                "id":"UME00000000", 
+                "id":"UME00000000",
                 "customers":[
                     {
                         "id":"101",
