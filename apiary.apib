@@ -5,11 +5,11 @@ FORMAT: 1A
 ## Overview
 **UnderwriteMe API** is a set of REST endpoints which allows you to interact with underwriting workflow. Workflow consist of following components:
   
-  * Application
-  * Enquiry
-  * Quote
-  * Basket
-  * Activation
+  * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
+  * **Enquiry** - Filling in Customer Enquiry.
+  * **Quote** - Retrieving Decisions and Quotes for Products.
+  * **Basket** - Choosing Products for Activation.
+  * **Activation** - Retrieving state of activated Products.
 
 # Group Application
 Notes related resources of the Application API
@@ -17,36 +17,39 @@ Notes related resources of the Application API
 ## Create new Application [/application]
 Creating new Application based on sent Customers and Products JSON data.
 
-- ***customers*** `Array` *(required)* : List of Customers (represented as `Object`) for the Application.
-    - ***id*** `String` *(required)* : Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product.
-    - ***name*** `String` *(required)* : Customer name.
-    - ***surname*** `String` *(required)* : Customer surname.
-    - ***title*** `String` *(required)* : Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***gender*** `String` *(required)* : Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `String` *(required)* : Customer date of birth. ISO date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - ***smoker*** `Boolean` *(required)* : `true` if Customer smokes, `false` otherwise.
-    - ***contactDetails*** `Object` *(optional)* : Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `String` *(required)* : Customer main telephone number.
-        - ***alternateTelephoneNumber*** `String` *(optional)* : Customer alternative telephone number.
-        - ***address*** `Object` *(optional)* : Customer address details. Not required but cannot be empty.
-            - ***line1*** `String` *(required)* : Address first line.
-            - ***line2*** `String` *(optional)* : Address second line.
-            - ***town*** `String` *(required)* : Address town.
-            - ***county*** `String` *(optional)* : Address county.
-            - ***postcode*** `String` *(required)* : Address postcode.
-- ***products*** `Array` *(required)* : List of Products (represented as `Object`) for the Application.
-    - ***type*** `String` *(required)* : Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
-    - ***coverAmount*** `Number` *(required/optional)* : Product cover amount. Required if ***premium*** not specified.
-    - ***premium*** `Number` *(required/optional)* : Product premium. Required if ***coverAmount*** not specified.
-    - ***coverPeriod*** `Number` *(required/optional)* : Product cover period in years. Required if ***coverUntilAge*** not specified.
-    - ***coverUntilAge*** `Number` *(required/optional)* : Product cover until age in years. Required if ***coverPeriod*** not specified.
-    - ***coverBasis*** `String` *(required/optional)* : Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***deferredPeriodInWeeks*** `Number` *(required/optional)* : Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `4`, `8`, `13`, `26`, `52`.
-    - ***livesAssured*** `Array` *(required)* : List of Customers (represented as `Object`) for whom the Product is.
-        - ***id*** `String` *(required)* : Temporary ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `Boolean` *(optional)* : Flag to mark waiver of premium for Customer.
-        - ***totalPermanentDisability*** `Boolean` *(optional)* : Flag to mark total permanent disability for Customer.
-- ***policyStartDate*** `String` *(optional)* : Policy start date. ISO date format (`YYYY-MM-DD`) required. Example: `2015-01-01`.
+- ***customers*** `Array` *(required)* - List of Customers (represented as `Object`) for the Application.
+    - ***id*** `String` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product.
+    - ***name*** `String` *(required)* - Customer name.
+    - ***surname*** `String` *(required)* - Customer surname.
+    - ***title*** `String` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+    - ***gender*** `String` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+    - ***dateOfBirth*** `String` *(required)* - Customer date of birth. ISO date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+    - ***smoker*** `Boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+    - ***contactDetails*** `Object` *(optional)* - Customer contact details. Not required but cannot be empty.
+        - ***telephoneNumber*** `String` *(required)* - Customer main telephone number.
+        - ***alternateTelephoneNumber*** `String` *(optional)* - Customer alternative telephone number.
+        - ***address*** `Object` *(optional)* - Customer address details. Not required but cannot be empty.
+            - ***line1*** `String` *(required)* - Address first line.
+            - ***line2*** `String` *(optional)* - Address second line.
+            - ***town*** `String` *(required)* - Address town.
+            - ***county*** `String` *(optional)* - Address county.
+            - ***postcode*** `String` *(required)* - Address postcode.
+- ***products*** `Array` *(required)* - List of Products (represented as `Object`) for the Application.
+    - ***type*** `String` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
+    - ***coverAmount*** `integer` *(required/optional)* - Product cover amount. Required if ***premium*** not specified.
+    - ***premium*** `Number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified.
+    - ***coverPeriod*** `Number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified.
+    - ***coverUntilAge*** `Number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.
+    - ***coverBasis*** `String` *(required/optional)* - Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - ***deferredPeriodInWeeks*** `Number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `4`, `8`, `13`, `26`, `52`.
+    - ***livesAssured*** `Array` *(required)* - List of Customers (represented as `Object`) for whom the Product is.
+        - ***id*** `String` *(required)* - Temporary ID of the Customer. Object with the same value must be available in ***customers*** list.
+        - ***waiverOfPremium*** `Boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***totalPermanentDisability*** `Boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***policyStartDate*** `String` *(optional)* - Policy start date. ISO date format (`YYYY-MM-DD`) required. Example: `2015-01-01`.
+
++ Model
+
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
