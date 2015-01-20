@@ -18,7 +18,7 @@ Notes related resources of the Application API
 Creating new Application based on sent Customers and Products JSON data.
 
 - ***customers*** `Array` *(required)* : List of Customers (represented as `Object`) for the Application.
-    - ***id*** `String` *(required)* : Temporary ID for the Customer to be used when referencing to ***livesAsssured*** for the Product.
+    - ***id*** `String` *(required)* : Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product.
     - ***name*** `String` *(required)* : Customer name.
     - ***surname*** `String` *(required)* : Customer surname.
     - ***title*** `String` *(required)* : Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
@@ -40,7 +40,13 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***premium*** `Number` *(required/optional)* : Product premium. Required if ***coverAmount*** not specified.
     - ***coverPeriod*** `Number` *(required/optional)* : Product cover period in years. Required if ***coverUntilAge*** not specified.
     - ***coverUntilAge*** `Number` *(required/optional)* : Product cover until age in years. Required if ***coverPeriod*** not specified.
-    - ***coverBasis*** `String` *(required/optional)* : TODO.
+    - ***coverBasis*** `String` *(required/optional)* : Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - ***deferredPeriodInWeeks*** `Number` *(required/optional)* : Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `4`, `8`, `13`, `26`, `52`.
+    - ***livesAssured*** `Array` *(required)* : List of Customers (represented as `Object`) for whom the Product is.
+        - ***id*** `String` *(required)* : Temporary ID of the Customer. Object with the same value must be available in ***customers*** list.
+        - ***waiverOfPremium*** `Boolean` *(optional)* : Flag to mark waiver of premium for Customer.
+        - ***totalPermanentDisability*** `Boolean` *(optional)* : Flag to mark total permanent disability for Customer.
+- ***policyStartDate*** `String` *(optional)* : Policy start date. ISO date format (`YYYY-MM-DD`) required. Example: `2015-01-01`.
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
