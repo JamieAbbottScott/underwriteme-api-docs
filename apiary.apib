@@ -32,7 +32,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***line1*** `string` *(required)* - Address first line.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(required)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
+            - ***county*** `string` *(required)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
@@ -42,11 +42,11 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required/optional)* - Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `4`, `8`, `13`, `26`, `52`.
-    - ***livesAssured*** `Array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***id*** `String` *(required)* - Temporary ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `Boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***totalPermanentDisability*** `Boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-- ***policyStartDate*** `String` *(optional)* - Policy start date. ISO date format (`YYYY-MM-DD`) required. Example: `2015-01-01`.
+    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - ***id*** `string` *(required)* - Temporary ID of the Customer. Object with the same value must be available in ***customers*** list.
+        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***policyStartDate*** `string` *(optional)* - Policy start date. ISO date format (`YYYY-MM-DD`) required. Example: `2015-01-01`.
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
