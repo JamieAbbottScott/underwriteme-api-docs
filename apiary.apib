@@ -18,7 +18,7 @@ Application related resources of the **UnderwriteMe API**.
 Creating new Application based on sent Customers and Products JSON data.
 
 - ***customers*** `array` *(required)* - List of Customers (represented as `object`) for the Application.
-    - ***id*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product.
+    - ***id*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
     - ***name*** `string` *(required)* - Customer name.
     - ***surname*** `string` *(required)* - Customer surname.
     - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
@@ -35,6 +35,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***county*** `string` *(required)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
+    - ***id*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
     - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
@@ -66,6 +67,7 @@ Creating new Application based on sent Customers and Products JSON data.
                 ],
                 "products":[
                     {
+                        "id":"pro-001",
                         "type":"WHOLE_OF_LIFE",
                         "coverAmount":100000,
                         "livesAssured":[
@@ -124,6 +126,7 @@ Creating new Application based on sent Customers and Products JSON data.
                 ],
                 "products":[
                     {
+                        "id":"pro-001",
                         "type":"WHOLE_OF_LIFE",
                         "coverAmount":100000,
                         "livesAssured":[
@@ -165,6 +168,7 @@ Creating new Application based on sent Customers and Products JSON data.
                 ],
                 "products":[
                     {
+                        "id":"pro-001",
                         "type":"WHOLE_OF_LIFE",
                         "coverAmount":1000,
                         "livesAssured":[
@@ -181,6 +185,7 @@ Creating new Application based on sent Customers and Products JSON data.
             {
                 "products":[
                     {
+                        "id":"pro-001",
                         "coverAmount":{
                             "errorMessage":"Minimum cover amount is £10000"
                         }
