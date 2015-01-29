@@ -5,11 +5,31 @@ FORMAT: 1A
 ## Overview
 **UnderwriteMe API** is a set of REST endpoints which allows you to interact with underwriting workflow. Workflow consist of following components:
 
+  * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Quote** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
   * **Activation** - Retrieving state of activated Products.
+
+# Group Authentication
+
+## Login and retrieve access token [/auth]
+Authentication related resources of the **UnderwriteMe API**.
+
+### Login and retrive access token [POST]
++ Request Valid Authentication. (application/json)
+
+            {
+                "username":"username",
+                "password":"password"
+            }
+            
++ Response 200
+
+            {
+                "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8"
+            }
 
 # Group Application
 Application related resources of the **UnderwriteMe API**.
