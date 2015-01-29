@@ -13,9 +13,16 @@ FORMAT: 1A
   * **Activation** - Retrieving state of activated Products.
 
 # Group Authentication
+Authentication related resources of the **UnderwriteMe API**.
 
 ## Login and retrieve access token [/auth]
-Authentication related resources of the **UnderwriteMe API**.
+Logging in and retrieving access token that must be added to each request made to **UnderwriteMe API** resources.
+
+**Authentication API** is using small subset of OAuth2 protocol rules.
+
+In order to authenticate using retrieved access token send it along with your resource request in `Authentication` HTTP header using `Bearer` authentication scheme. Examples are attached along with the examples of other resource usages.
+
+Token is valid for one hour after it has been requested. **Authentication API** is using JWT (http://jwt.io) format to represent tokens.
 
 ### Login and retrive access token [POST]
 + Request Valid Authentication. (application/json)
@@ -30,6 +37,24 @@ Authentication related resources of the **UnderwriteMe API**.
             {
                 "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8"
             }
+            
++ Request Invalid username/password format. (application/json)
+
+            {
+                "u":"username",
+                "p":"password"
+            }
+            
++ Response 400
+            
++ Request Invalid username/password. (application/json)
+
+            {
+                "username":"alice",
+                "password":"wonderland"
+            }
+            
++ Response 401
 
 # Group Application
 Application related resources of the **UnderwriteMe API**.
@@ -71,6 +96,12 @@ Creating new Application based on sent Customers and Products JSON data.
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
+
+    + Headers
+    
+            Authentication: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+    
+    + Body
 
             {
                 "customers":[
