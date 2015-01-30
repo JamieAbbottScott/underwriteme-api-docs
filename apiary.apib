@@ -22,7 +22,7 @@ Logging in and retrieving access token that must be added to each request made t
 
 Token is valid for one hour after it has been requested. **Authentication API** is using JWT (http://jwt.io) format to represent tokens.
 
-In order to authenticate using retrieved access token send it along with your resource request in `Authentication` HTTP header using `Bearer` authentication scheme. Examples are attached along with the examples of other resources usage.
+In order to authenticate using retrieved access token send it along with your resource request in `Authorization` HTTP header using `Bearer` authorization scheme. Examples are attached along with the examples of other resources usage.
 
 Expected authentication JSON format:
 
@@ -104,7 +104,7 @@ Creating new Application based on sent Customers and Products JSON data.
 
     + Headers
     
-            Authentication: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
     
     + Body
 
@@ -169,7 +169,7 @@ Creating new Application based on sent Customers and Products JSON data.
 
     + Headers
     
-            Authentication: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
     
     + Body
 
@@ -217,7 +217,7 @@ Creating new Application based on sent Customers and Products JSON data.
 
     + Headers
     
-            Authentication: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
     
     + Body
 
@@ -273,7 +273,7 @@ Retrieving existing Application identified by unique ID.
 
     + Headers
     
-            Authentication: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
     + Body
 
