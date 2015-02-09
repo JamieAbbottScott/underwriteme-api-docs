@@ -89,6 +89,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
     - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required/optional)* - Product cover basis. Optional if ***type*** is `WHOLE_OF_LIFE`. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
