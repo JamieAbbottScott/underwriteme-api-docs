@@ -86,7 +86,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***id*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `FAMILY_INCOME_BENEFIT`, `INCOME_PROTECTION`, `WHOLE_OF_LIFE`.
+    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
     - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
@@ -110,27 +110,27 @@ Creating new Application based on sent Customers and Products JSON data.
     + Body
 
             {
-                "customers":[
+                "customers": [
                     {
-                        "id":"cus-001",
-                        "name":"John",
-                        "surname":"Doe",
-                        "title":"MR",
-                        "gender":"MALE",
-                        "dateOfBirth":"1980-01-01",
-                        "smoker":false,
-                        "email":"john.doe@domain.com"
+                        "id": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
                     }
                 ],
-                "products":[
+                "products": [
                     {
-                        "id":"pro-001",
-                        "type":"WHOLE_OF_LIFE",
-                        "coverAmount":100000,
-                        "livesAssured":[
-                            {
-                                "id":"cus-001"
-                            }
+                        "id": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "livesAssured": [
+                            { "id": "cus-001" }
                         ]
                     }
                 ]
@@ -139,28 +139,28 @@ Creating new Application based on sent Customers and Products JSON data.
 + Response 201 (application/json)
 
             {
-                "id":"UME00000000",
-                "customers":[
+                "id": "UME00000000",
+                "customers": [
                     {
-                        "id":"1001",
-                        "name":"John",
-                        "surname":"Doe",
-                        "title":"MR",
-                        "gender":"MALE",
-                        "dateOfBirth":"1980-01-01",
-                        "smoker":false,
-                        "email":"john.doe@domain.com"
+                        "id": "1001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
                     }
                 ],
-                "products":[
+                "products": [
                     {
-                        "id":"0001-0001",
-                        "type":"WHOLE_OF_LIFE",
-                        "coverAmount":100000,
-                        "livesAssured":[
-                            {
-                                "id":"1001"
-                            }
+                        "id": "0001-0001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "livesAssured": [
+                            { "id": "1001" }
                         ]
                     }
                 ]
@@ -175,27 +175,27 @@ Creating new Application based on sent Customers and Products JSON data.
     + Body
 
             {
-                "customers":[
+                "customers": [
                     {
-                        "id":"cus-001",
-                        "name":"J0hn",
-                        "surname":"Doe",
-                        "title":"MR",
-                        "gender":"MALE",
-                        "dateOfBirth":"1980-01-01",
-                        "smoker":false,
-                        "email":"john.doe@domain.com"
+                        "id": "cus-001",
+                        "name": "J0hn",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
                     }
                 ],
-                "products":[
+                "products": [
                     {
-                        "id":"pro-001",
-                        "type":"WHOLE_OF_LIFE",
-                        "coverAmount":100000,
-                        "livesAssured":[
-                            {
-                                "id":"cus-001"
-                            }
+                        "id": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "livesAssured": [
+                            { "id": "cus-001" }
                         ]
                     }
                 ]
@@ -204,11 +204,11 @@ Creating new Application based on sent Customers and Products JSON data.
 + Response 400 (application/json)
 
             {
-                "customers":[
+                "customers": [
                     {
-                        "id":"cus-001",
-                        "name":{
-                            "errorMessage":"Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
+                        "id": "cus-001",
+                        "name": {
+                            "errorMessage": "Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
                         }
                     }
                 ]
@@ -223,27 +223,27 @@ Creating new Application based on sent Customers and Products JSON data.
     + Body
 
             {
-                "customers":[
+                "customers": [
                     {
-                        "id":"cus-001",
-                        "name":"John",
-                        "surname":"Doe",
-                        "title":"MR",
-                        "gender":"MALE",
-                        "dateOfBirth":"1980-01-01",
-                        "smoker":false,
-                        "email":"john.doe@domain.com"
+                        "id": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
                     }
                 ],
-                "products":[
+                "products": [
                     {
-                        "id":"pro-001",
-                        "type":"WHOLE_OF_LIFE",
-                        "coverAmount":1000,
-                        "livesAssured":[
-                            {
-                                "id":"cus-001"
-                            }
+                        "id": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 0,
+                        "livesAssured": [
+                            { "id": "cus-001" }
                         ]
                     }
                 ]
@@ -252,11 +252,11 @@ Creating new Application based on sent Customers and Products JSON data.
 + Response 400 (application/json)
 
             {
-                "products":[
+                "products": [
                     {
-                        "id":"pro-001",
-                        "coverAmount":{
-                            "errorMessage":"Minimum cover amount is £10000"
+                        "id": "pro-001",
+                        "coverAmount": {
+                            "errorMessage": "Minimum cover amount is £1"
                         }
                     }
                 ]
@@ -279,28 +279,28 @@ Retrieving existing Application identified by unique ID.
     + Body
 
             {
-                "id":"UME00000000",
-                "customers":[
+                "id": "UME00000000",
+                "customers": [
                     {
-                        "id":"101",
-                        "name":"John",
-                        "surname":"Doe",
-                        "title":"MR",
-                        "gender":"MALE",
-                        "dateOfBirth":"1980-01-01",
-                        "smoker":false,
-                        "email":"john.doe@domain.com"
+                        "id": "1001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
                     }
                 ],
-                "products":[
+                "products": [
                     {
-                        "id":"0001-0001",
-                        "type":"WHOLE_OF_LIFE",
-                        "coverAmount":100000,
-                        "livesAssured":[
-                            {
-                              "id":"1001"
-                            }
+                        "id": "0001-0001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "livesAssured": [
+                            { "id": "1001" }
                         ]
                     }
                 ]
