@@ -7,6 +7,7 @@ FORMAT: 1A
 
   * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
+  * **Declaration** - Accepting Enquiry Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Quote** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
@@ -307,4 +308,23 @@ Retrieving existing Application identified by unique ID.
                         ]
                     }
                 ]
+            }
+
+# Group Declaration
+Declaration related resources of the **UnderwriteMe API**.
+
+## Retrieve Declaration [/application/{applicationId}/enquiry/{enquiryId}/declaration]
+TODO: Write description.
+
+### Retrieve Declaration [GET]
++ Request Valid (application/json)
+
+    + Headers
+    
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            
++ Response 200
+
+            {
+                "TODO":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8"
             }
