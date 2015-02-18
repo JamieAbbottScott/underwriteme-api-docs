@@ -16,7 +16,7 @@ FORMAT: 1A
 # Group Authentication
 Authentication related resources of the **UnderwriteMe API**.
 
-## Login and retrieve access token [/auth]
+## Authenticate [/auth]
 Logging in and retrieving access token that must be added to each request made to **UnderwriteMe API** resources.
 
 **Authentication API** is using small subset of OAuth2 protocol (http://oauth.net/2) rules.
@@ -65,7 +65,7 @@ Expected authentication JSON format:
 # Group Application
 Application related resources of the **UnderwriteMe API**.
 
-## Create new Application [/application]
+## New [/application]
 Creating new Application based on sent Customers and Products JSON data.
 
 - ***customers*** `array` *(required)* - List of Customers (represented as `object`) for the Application.
@@ -267,8 +267,8 @@ Creating new Application based on sent Customers and Products JSON data.
                 ]
             }
 
-## Retrieve existing Application [/application/{id}]
-Retrieving existing Application identified by unique ID.
+## Existing [/application/{id}]
+Operations on existing Application identified by unique ID.
 
 + Parameters
 
@@ -316,8 +316,8 @@ Retrieving existing Application identified by unique ID.
 # Group Declaration
 Declaration related resources of the **UnderwriteMe API**.
 
-## Retrieve Declaration [/application/{applicationId}/enquiry/{enquiryId}/declaration]
-TODO: Write description.
+## Existing [/application/{applicationId}/enquiry/{enquiryId}/declaration]
+Operations on existing Declaration associated with Application and Customer Enquiry.
 
 + Parameters
 
@@ -325,7 +325,7 @@ TODO: Write description.
     + enquiryId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb742`) ... Unique ID of existing Enquiry associated with Application Customer.
 
 ### Retrieve Declaration [GET]
-+ Request Valid (application/json)
++ Request Valid Declaration (application/json)
 
     + Headers
     
@@ -335,5 +335,19 @@ TODO: Write description.
 
             {
                 "accepted": false,
+                "text": "<p>HTML formatted Declaration text.</p>"
+            }
+
+### Accept Declaration [PUT]
++ Request Accept Declaration(application/json)
+
+    + Headers
+    
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            
++ Response 200
+
+            {
+                "accepted": true,
                 "text": "<p>HTML formatted Declaration text.</p>"
             }
