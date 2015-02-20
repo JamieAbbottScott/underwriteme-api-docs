@@ -7,7 +7,7 @@ FORMAT: 1A
 
   * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
-  * **Declaration** - Accepting Enquiry Declaration in order start filling in Enquiry.
+  * **Pre-Declaration** - Accepting Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Quote** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
@@ -313,19 +313,19 @@ Operations on existing Application identified by unique ID.
                 ]
             }
 
-# Group Declaration
-Declaration related resources of the **UnderwriteMe API**.
+# Group Pre-Declaration
+Pre-Declaration related resources of the **UnderwriteMe API**.
 
-## Existing [/application/{applicationId}/enquiry/{enquiryId}/declaration]
-Operations on existing Declaration associated with Application and Customer Enquiry.
+## Existing [/application/{applicationId}/enquiry/{enquiryId}/pre-declaration]
+Operations on existing Pre-Declaration associated with Application and Customer Enquiry.
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + enquiryId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb742`) ... Unique ID of existing Enquiry associated with Application Customer.
 
-### Retrieve Declaration [GET]
-+ Request Valid Declaration (application/json)
+### Retrieve Pre-Declaration [GET]
++ Request Valid Pre-Declaration (application/json)
 
     + Headers
     
@@ -338,8 +338,8 @@ Operations on existing Declaration associated with Application and Customer Enqu
                 "text": "<p>HTML formatted Declaration text.</p>"
             }
 
-### Accept Declaration [PUT]
-+ Request Accept Declaration(application/json)
+### Accept Pre-Declaration [PUT]
++ Request Accept Pre-Declaration (application/json)
 
     + Headers
     
