@@ -9,6 +9,7 @@ FORMAT: 1A
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
   * **Pre-Declaration** - Accepting Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
+  * **Question** - Retrieving information about Enquiry Question.
   * **Post-Declaration** - Accepting Enquiry Post-Declaration in order to finish filling in Enquiry.
   * **Comparison** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
@@ -1078,3 +1079,35 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                     ]
                 }
             }
+
+# Group Question
+Question related resources of the **UnderwriteMe API**.
+
+## Definition [/question/{branch}/{tag}/{name}]
+Operations on existing Pre-Declaration associated with Application and Customer Enquiry.
+
++ Parameters
+
+    + branch (required, string, `PLR`) ... Name of Enquiry Definition branch.
+    + tag (required, string, `bootstrap`) ... Name of Enquiry Definition tag.
+    + name (required, string, `FAMILY_HISTORY_LIFE`) ... Unique name of Enquiry Question.
+
+### Retrieve Question Definition [GET]
++ Request Question Definition (application/json)
+
+    + Headers
+    
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+            
++ Response 200
+
+            {
+                "name": "FAMILY_HISTORY_LIFE",
+                "text": "Have your natural <b>parents, brothers</b> or <b>sisters</b> had any of the following conditions <b>before the age of 65</b>?",
+                "type": "OPTION_GROUP",
+                "isMultiValued": true,
+                "optionListName": "FamilyAilments",
+                "isLenient": false,
+                "isBounded": false
+            }
+
