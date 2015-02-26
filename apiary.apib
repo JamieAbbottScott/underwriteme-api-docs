@@ -9,7 +9,7 @@ FORMAT: 1A
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
   * **Pre-Declaration** - Accepting Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
-  * **Question** - Retrieving information about Enquiry Question.
+  * **Question** - Retrieving information about Enquiry Question like it's Definition, available Option List and partial Option Lookup.
   * **Post-Declaration** - Accepting Enquiry Post-Declaration in order to finish filling in Enquiry.
   * **Comparison** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
@@ -39,29 +39,29 @@ Expected authentication JSON format:
                 "username":"username",
                 "password":"password"
             }
-            
+
 + Response 200
 
             {
                 "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8"
             }
-            
+
 + Request Invalid username/password format. (application/json)
 
             {
                 "u":"username",
                 "p":"password"
             }
-            
+
 + Response 400
-            
+
 + Request Invalid username/password. (application/json)
 
             {
                 "username":"alice",
                 "password":"wonderland"
             }
-            
+
 + Response 401
 
 # Group Application
@@ -107,9 +107,9 @@ Creating new Application based on sent Customers and Products JSON data.
 + Request Valid Application. (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-    
+
     + Body
 
             {
@@ -175,9 +175,9 @@ Creating new Application based on sent Customers and Products JSON data.
 + Request Customer name cannot contain numbers. (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-    
+
     + Body
 
             {
@@ -223,9 +223,9 @@ Creating new Application based on sent Customers and Products JSON data.
 + Request Invalid cover amount for Product. (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-    
+
     + Body
 
             {
@@ -279,7 +279,7 @@ Operations on existing Application identified by unique ID.
 + Response 200 (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
     + Body
@@ -329,9 +329,9 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 + Request Valid Pre-Declaration (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-            
+
 + Response 200
 
             {
@@ -343,9 +343,9 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 + Request Accept Pre-Declaration (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-            
+
 + Response 200
 
             {
@@ -370,9 +370,9 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
 + Request Newly initialized Enquiry (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-            
+
 + Response 200
 
             {
@@ -398,7 +398,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "Life"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
@@ -408,7 +408,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "120000"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
@@ -418,7 +418,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "Male"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
@@ -428,7 +428,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "01/01/1980"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
@@ -438,7 +438,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "Non-smoker"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
@@ -448,20 +448,20 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                     "Telephone"
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -478,63 +478,63 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"HEIGHT",
                                 "path":"HEIGHT",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"WEIGHT_MALE",
                                 "path":"WEIGHT_MALE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"NON_SMOKER_STATUS",
                                 "path":"NON_SMOKER_STATUS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"OCCUPATION",
                                 "path":"OCCUPATION",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"FAMILY_HISTORY_LIFE",
                                 "path":"FAMILY_HISTORY_LIFE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -551,93 +551,93 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"BP_LIPID_CHEST",
                                 "path":"BP_LIPID_CHEST",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"DIABETES",
                                 "path":"DIABETES",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"MENTAL_MINOR",
                                 "path":"MENTAL_MINOR",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"LUNG",
                                 "path":"LUNG",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"BOWEL",
                                 "path":"BOWEL",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"KIDNEY_MALE",
                                 "path":"KIDNEY_MALE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"LIVER",
                                 "path":"LIVER",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"NEURO",
                                 "path":"NEURO",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -654,63 +654,63 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"MENTAL_SERIOUS",
                                 "path":"MENTAL_SERIOUS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"CANCER",
                                 "path":"CANCER",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"HEART",
                                 "path":"HEART",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"STROKE",
                                 "path":"STROKE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"HIV_HEP",
                                 "path":"HIV_HEP",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -727,43 +727,43 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"TREATMENT",
                                 "path":"TREATMENT",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"ONGOING_REVIEWS",
                                 "path":"ONGOING_REVIEWS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"INVESTIGATIONS",
                                 "path":"INVESTIGATIONS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -780,23 +780,23 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"SYMPTOMS",
                                 "path":"SYMPTOMS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -813,53 +813,53 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"PURSUITS",
                                 "path":"PURSUITS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"MOTOR_BIKE",
                                 "path":"MOTOR_BIKE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"DRIVING_BAN",
                                 "path":"DRIVING_BAN",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"TRAVEL",
                                 "path":"TRAVEL",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -876,73 +876,73 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                                 "name":"ALCOHOL_BEER",
                                 "path":"ALCOHOL_BEER",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"ALCOHOL_WINE",
                                 "path":"ALCOHOL_WINE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"ALCOHOL_SPIRITS",
                                 "path":"ALCOHOL_SPIRITS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"ALCOHOL_OTHER",
                                 "path":"ALCOHOL_OTHER",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"ALCOHOL_ADVICE",
                                 "path":"ALCOHOL_ADVICE",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             },
                             {
                                 "name":"DRUGS",
                                 "path":"DRUGS",
                                 "answers":[
-            
+
                                 ],
                                 "validationErrors":{
-            
+
                                 }
                             }
                         ],
                         "hasQuestions":true,
                         "buckets":{
                             "PLR":{
-            
+
                             },
                             "InsurerY":{
-            
+
                             },
                             "InsurerX":{
-            
+
                             }
                         },
                         "isWrapUpLine":false
@@ -950,13 +950,13 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                 ],
                 "buckets":{
                     "PLR":{
-            
+
                     },
                     "InsurerY":{
-            
+
                     },
                     "InsurerX":{
-            
+
                     }
                 },
                 "allAnswers":{
@@ -976,106 +976,106 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                         "Telephone"
                     ],
                     "IP_DEFERRED_PERIOD":[
-            
+
                     ],
                     "TOTAL_LIFE_COVER":[
                         "120000"
                     ],
                     "HEIGHT":[
-            
+
                     ],
                     "OCCUPATION":[
-            
+
                     ],
                     "WEIGHT_MALE":[
-            
+
                     ],
                     "NON_SMOKER_STATUS":[
-            
+
                     ],
                     "FAMILY_HISTORY_LIFE":[
-            
+
                     ],
                     "DIABETES":[
-            
+
                     ],
                     "LUNG":[
-            
+
                     ],
                     "BOWEL":[
-            
+
                     ],
                     "LIVER":[
-            
+
                     ],
                     "BP_LIPID_CHEST":[
-            
+
                     ],
                     "MENTAL_MINOR":[
-            
+
                     ],
                     "KIDNEY_MALE":[
-            
+
                     ],
                     "NEURO":[
-            
+
                     ],
                     "MENTAL_SERIOUS":[
-            
+
                     ],
                     "CANCER":[
-            
+
                     ],
                     "HEART":[
-            
+
                     ],
                     "STROKE":[
-            
+
                     ],
                     "HIV_HEP":[
-            
+
                     ],
                     "TREATMENT":[
-            
+
                     ],
                     "ONGOING_REVIEWS":[
-            
+
                     ],
                     "INVESTIGATIONS":[
-            
+
                     ],
                     "SYMPTOMS":[
-            
+
                     ],
                     "MOTOR_BIKE":[
-            
+
                     ],
                     "DRIVING_BAN":[
-            
+
                     ],
                     "TRAVEL":[
-            
+
                     ],
                     "PURSUITS":[
-            
+
                     ],
                     "ALCOHOL_BEER":[
-            
+
                     ],
                     "ALCOHOL_WINE":[
-            
+
                     ],
                     "ALCOHOL_SPIRITS":[
-            
+
                     ],
                     "ALCOHOL_OTHER":[
-            
+
                     ],
                     "ALCOHOL_ADVICE":[
-            
+
                     ],
                     "DRUGS":[
-            
+
                     ]
                 }
             }
@@ -1083,7 +1083,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
 # Group Question
 Question related resources of the **UnderwriteMe API**.
 
-## Definition [/question/{branch}/{tag}/{name}]
+## Definition [/enquiry/question/{branch}/{tag}/{name}]
 Operations on Question Definition.
 
 + Parameters
@@ -1096,9 +1096,9 @@ Operations on Question Definition.
 + Request Question Definition (application/json)
 
     + Headers
-    
+
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-            
+
 + Response 200
 
             {
@@ -1111,3 +1111,65 @@ Operations on Question Definition.
                 "isBounded": false
             }
 
+## Option List [/enquiry/option-list/{branch}/{tag}/{name}]
+Operations on Question Option List.
+
++ Parameters
+
+    + branch (required, string, `PLR`) ... Name of Enquiry Definition branch.
+    + tag (required, string, `bootstrap`) ... Name of Enquiry Definition tag.
+    + name (required, string, `FamilyAilments`) ... Unique name of Enquiry Option List.
+
+### Retrieve Question Option List [GET]
++ Request Question Option List (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            [
+                {
+                    "name":"HEART",
+                    "text":"Heart attack, angina or stroke"
+                },
+                {
+                    "name":"DIABETES",
+                    "text":"Diabetes"
+                },
+                {
+                    "name":"CANCERS",
+                    "text":"Breast, ovarian or bowel cancer or familial bowel polyps"
+                },
+                {
+                    "name":"DYST_HUNT",
+                    "text":"Muscular dystrophy or Huntington's disease"
+                },
+                {
+                    "name":"PKD",
+                    "text":"Polycystic kidney disease"
+                },
+                {
+                    "name":"MS",
+                    "text":"Multiple sclerosis"
+                },
+                {
+                    "name":"ANY_OTHER",
+                    "text":"Any other condition, which runs in your family that you have been investigated for"
+                },
+                {
+                    "name":"NO_CONTACT",
+                    "text":"No contact with family members / Don't know",
+                    "tags":[
+                        "EXCLUSIVE"
+                    ]
+                },
+                {
+                    "name":"NONE_OF",
+                    "text":"None of these",
+                    "tags":[
+                        "EXCLUSIVE"
+                    ]
+                }
+            ]
