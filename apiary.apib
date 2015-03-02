@@ -7,10 +7,10 @@ FORMAT: 1A
 
   * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
-  * **Pre-Declaration** - Accepting Enquiry Pre-Declaration in order start filling in Enquiry.
+  * **Pre-Declaration** - Confirming Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Question** - Retrieving information about Enquiry Question like its Definition, available Option List and partial Option Lookup.
-  * **Post-Declaration** - Accepting Enquiry Post-Declaration in order to finish filling in Enquiry.
+  * **Post-Declaration** - Confirming Enquiry Post-Declaration in order to finish filling in Enquiry.
   * **Comparison** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
   * **Activation** - Retrieving Activation state of selected Products.
@@ -335,12 +335,12 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 + Response 200
 
             {
-                "accepted": false,
+                "confirmed": false,
                 "text": "<p>HTML formatted Declaration text.</p>"
             }
 
-### Accept Pre-Declaration [PUT]
-+ Request Accept Pre-Declaration (application/json)
+### Confirm Pre-Declaration [PUT]
++ Request Confirm Pre-Declaration (application/json)
 
     + Headers
 
@@ -349,7 +349,7 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 + Response 200
 
             {
-                "accepted": true,
+                "confirmed": true,
                 "text": "<p>HTML formatted Declaration text.</p>"
             }
 
@@ -359,7 +359,7 @@ Enquiry related resources of the **UnderwriteMe API**.
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}]
 Operations on existing Enquiry associated with Application.
 
-In order to read or update Enquiry a Pre-Declaration has to be accepted.
+In order to read or update Enquiry a Pre-Declaration has to be confirmed.
 
 + Parameters
 
@@ -1254,7 +1254,7 @@ In order to read or update Enquiry a Pre-Declaration has to be accepted.
                 }
             }
 
-### Update [PUT]
+### Update Enquiry [PUT]
 + Request Invalid Enquiry answers give validation errors (application/json)
 
     + Headers
