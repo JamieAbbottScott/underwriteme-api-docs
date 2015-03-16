@@ -4475,3 +4475,167 @@ Confirming Post-Declaration means closing all Customer Enquiries. Any changes to
                 "confirmed": true,
                 "text": "<p>HTML formatted Post-Declaration text.</p>"
             }
+
+# Group Comparison
+Comparison related resources of the **UnderwriteMe API**.
+
+## List [/application/{applicationId}/comparison]
+Operations on existing Comparison associated with Application.
+
+Until all Enquiries are open Comparison contains only estimated decisions and quotes.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve Comparison [GET]
++ Request Estimated Comparison with unknown decisions for new Application (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "estimated":true,
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"UNKNOWN",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"UNKNOWN",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    }
+                ]
+            }
+
++ Request Estimated Comparison with referred decisions for non-satisfied Enquiry (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+               "estimated":true,
+               "items":[
+                   {
+                       "provider":"PLR",
+                       "product":{
+                           "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                           "type":"TERM"
+                       },
+                       "decision":"REFER",
+                       "quote":{
+                           "status":"IN_PROGRESS"
+                       },
+                       "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                   },
+                   {
+                       "provider":"InsurerX",
+                       "product":{
+                           "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                           "type":"TERM"
+                       },
+                       "decision":"REFER",
+                       "quote":{
+                           "status":"IN_PROGRESS"
+                       },
+                       "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                   }
+               ]
+           }
+
++ Request Estimated Comparison with standard decisions for satisfied Enquiry (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "estimated":true,
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"STANDARD",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"STANDARD",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    }
+                ]
+            }
+
++ Request Valid Comparison with standard decisions for satisfied and closed Enquiry (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"STANDARD",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "type":"TERM"
+                        },
+                        "decision":"STANDARD",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                    }
+                ]
+            }
