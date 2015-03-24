@@ -367,7 +367,7 @@ In order to read or update Enquiry a Pre-Declaration has to be confirmed.
     + enquiryId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb742`) ... Unique ID of existing Enquiry associated with Application.
 
 ### Retrieve Enquiry [GET]
-+ Request Newly initialized Enquiry (application/json)
++ Request Newly initialized Enquiry. (application/json)
 
     + Headers
 
@@ -380,758 +380,648 @@ In order to read or update Enquiry a Pre-Declaration has to be confirmed.
                 "branch":"trunk",
                 "tag":"bootstrap",
                 "isVoid":false,
-                "isSatisfied":false,
                 "isOpen":true,
-                "enquiryLines":[
+                "isSatisfied":false,
+                "sections":[
                     {
+                        "name":"Your Basic Details",
                         "isSatisfied":true,
-                        "name":"Your_Basic_Details",
-                        "path":"Your_Basic_Details",
-                        "section":"Your Basic Details",
-                        "preamble":"Please tell us your basic quote information",
-                        "alias":"Your Basic Details",
-                        "questions":[
-                            {
-                                "name":"PRODUCT",
-                                "path":"PRODUCT",
-                                "answers":[
-                                    "Life"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"TOTAL_LIFE_COVER",
-                                "path":"TOTAL_LIFE_COVER",
-                                "answers":[
-                                    "120000"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"GENDER",
-                                "path":"GENDER",
-                                "answers":[
-                                    "Male"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"BIRTHDATE",
-                                "path":"BIRTHDATE",
-                                "answers":[
-                                    "01/01/1980"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"SMOKING",
-                                "path":"SMOKING",
-                                "answers":[
-                                    "Non-smoker"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"SALES_CHANNEL",
-                                "path":"SALES_CHANNEL",
-                                "answers":[
-                                    "Telephone"
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":true,
+                                "name":"Your_Basic_Details",
+                                "path":"Your_Basic_Details",
+                                "section":"Your Basic Details",
+                                "preamble":"Please tell us your basic quote information",
+                                "alias":"Your Basic Details",
+                                "triggers":[
+                                    "Your Basic Details"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"PRODUCT",
+                                        "path":"PRODUCT",
+                                        "answers":[
+                                            "Life"
+                                        ],
+                                        "validationErrors":{
 
-                            },
-                            "InsurerX":{
+                                        }
+                                    },
+                                    {
+                                        "name":"TOTAL_LIFE_COVER",
+                                        "path":"TOTAL_LIFE_COVER",
+                                        "answers":[
+                                            "120000"
+                                        ],
+                                        "validationErrors":{
 
+                                        }
+                                    },
+                                    {
+                                        "name":"GENDER",
+                                        "path":"GENDER",
+                                        "answers":[
+                                            "Male"
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"BIRTHDATE",
+                                        "path":"BIRTHDATE",
+                                        "answers":[
+                                            "01/01/1980"
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"SMOKING",
+                                        "path":"SMOKING",
+                                        "answers":[
+                                            "Non-smoker"
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"SALES_CHANNEL",
+                                        "path":"SALES_CHANNEL",
+                                        "answers":[
+                                            "Telephone"
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
                     },
                     {
+                        "name":"Personal details",
                         "isSatisfied":false,
-                        "name":"Key_Info",
-                        "path":"Key_Info",
-                        "section":"Personal details",
-                        "preamble":"Please tell us some things about yourself:",
-                        "alias":"Key Info",
-                        "questions":[
-                            {
-                                "name":"HEIGHT",
-                                "path":"HEIGHT",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"WEIGHT_MALE",
-                                "path":"WEIGHT_MALE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"NON_SMOKER_STATUS",
-                                "path":"NON_SMOKER_STATUS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"OCCUPATION",
-                                "path":"OCCUPATION",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"FAMILY_HISTORY_LIFE",
-                                "path":"FAMILY_HISTORY_LIFE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Key_Info",
+                                "path":"Key_Info",
+                                "section":"Personal details",
+                                "preamble":"Please tell us some things about yourself:",
+                                "alias":"Key Info",
+                                "triggers":[
+                                    "Key Info"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"HEIGHT",
+                                        "path":"HEIGHT",
+                                        "answers":[
 
-                            },
-                            "InsurerX":{
+                                        ],
+                                        "validationErrors":{
 
+                                        }
+                                    },
+                                    {
+                                        "name":"WEIGHT_MALE",
+                                        "path":"WEIGHT_MALE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"NON_SMOKER_STATUS",
+                                        "path":"NON_SMOKER_STATUS",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"OCCUPATION",
+                                        "path":"OCCUPATION",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"FAMILY_HISTORY_LIFE",
+                                        "path":"FAMILY_HISTORY_LIFE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
                     },
                     {
+                        "name":"Last 5 year's health",
                         "isSatisfied":false,
-                        "name":"Detailed_Medical",
-                        "path":"Detailed_Medical",
-                        "section":"Last 5 year's health",
-                        "preamble":"In the last 5 years have you had:",
-                        "alias":"Detailed Medical",
-                        "questions":[
-                            {
-                                "name":"BP_LIPID_CHEST",
-                                "path":"BP_LIPID_CHEST",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"DIABETES",
-                                "path":"DIABETES",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"MENTAL_MINOR",
-                                "path":"MENTAL_MINOR",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"LUNG",
-                                "path":"LUNG",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"BOWEL",
-                                "path":"BOWEL",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"KIDNEY_MALE",
-                                "path":"KIDNEY_MALE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"LIVER",
-                                "path":"LIVER",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"NEURO",
-                                "path":"NEURO",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Detailed_Medical",
+                                "path":"Detailed_Medical",
+                                "section":"Last 5 year's health",
+                                "preamble":"In the last 5 years have you had:",
+                                "alias":"Detailed Medical",
+                                "triggers":[
+                                    "Detailed Medical"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"BP_LIPID_CHEST",
+                                        "path":"BP_LIPID_CHEST",
+                                        "answers":[
 
-                            },
-                            "InsurerX":{
+                                        ],
+                                        "validationErrors":{
 
+                                        }
+                                    },
+                                    {
+                                        "name":"DIABETES",
+                                        "path":"DIABETES",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"MENTAL_MINOR",
+                                        "path":"MENTAL_MINOR",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"LUNG",
+                                        "path":"LUNG",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"BOWEL",
+                                        "path":"BOWEL",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"KIDNEY_MALE",
+                                        "path":"KIDNEY_MALE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"LIVER",
+                                        "path":"LIVER",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"NEURO",
+                                        "path":"NEURO",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
                     },
                     {
+                        "name":"Have you ever had",
                         "isSatisfied":false,
-                        "name":"Health_Major",
-                        "path":"Health_Major",
-                        "section":"Have you ever had",
-                        "preamble":"Have you ever had:",
-                        "alias":"Health Major",
-                        "questions":[
-                            {
-                                "name":"MENTAL_SERIOUS",
-                                "path":"MENTAL_SERIOUS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"CANCER",
-                                "path":"CANCER",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"HEART",
-                                "path":"HEART",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"STROKE",
-                                "path":"STROKE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"HIV_HEP",
-                                "path":"HIV_HEP",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Health_Major",
+                                "path":"Health_Major",
+                                "section":"Have you ever had",
+                                "preamble":"Have you ever had:",
+                                "alias":"Health Major",
+                                "triggers":[
+                                    "Health Major"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"MENTAL_SERIOUS",
+                                        "path":"MENTAL_SERIOUS",
+                                        "answers":[
 
-                            },
-                            "InsurerX":{
+                                        ],
+                                        "validationErrors":{
 
+                                        }
+                                    },
+                                    {
+                                        "name":"CANCER",
+                                        "path":"CANCER",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"HEART",
+                                        "path":"HEART",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"STROKE",
+                                        "path":"STROKE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"HIV_HEP",
+                                        "path":"HIV_HEP",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
                     },
                     {
+                        "name":"Recent health",
                         "isSatisfied":false,
-                        "name":"Health_Other",
-                        "path":"Health_Other",
-                        "section":"Recent health",
-                        "preamble":"Other than for conditions that you have already told us about, in the last 2 years have you:",
-                        "alias":"Health Other",
-                        "questions":[
-                            {
-                                "name":"TREATMENT",
-                                "path":"TREATMENT",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"ONGOING_REVIEWS",
-                                "path":"ONGOING_REVIEWS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"INVESTIGATIONS",
-                                "path":"INVESTIGATIONS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Health_Other",
+                                "path":"Health_Other",
+                                "section":"Recent health",
+                                "preamble":"Other than for conditions that you have already told us about, in the last 2 years have you:",
+                                "alias":"Health Other",
+                                "triggers":[
+                                    "Health Other"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"TREATMENT",
+                                        "path":"TREATMENT",
+                                        "answers":[
 
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"ONGOING_REVIEWS",
+                                        "path":"ONGOING_REVIEWS",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"INVESTIGATIONS",
+                                        "path":"INVESTIGATIONS",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             },
-                            "InsurerX":{
+                            {
+                                "isSatisfied":false,
+                                "name":"Health_Recent",
+                                "path":"Health_Recent",
+                                "section":"Recent health",
+                                "preamble":"Other than for conditions that you have already told us about, in the last 3 months have you:",
+                                "alias":"Health Recent",
+                                "triggers":[
+                                    "Health Recent"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"SYMPTOMS",
+                                        "path":"SYMPTOMS",
+                                        "answers":[
 
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
                     },
                     {
-                        "isSatisfied":false,
-                        "name":"Health_Recent",
-                        "path":"Health_Recent",
-                        "section":"Recent health",
-                        "preamble":"Other than for conditions that you have already told us about, in the last 3 months have you:",
-                        "alias":"Health Recent",
-                        "questions":[
-                            {
-                                "name":"SYMPTOMS",
-                                "path":"SYMPTOMS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
-                        "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
-
-                            },
-                            "InsurerX":{
-
-                            }
-                        },
-                        "isWrapUpLine":false
-                    },
-                    {
-                        "isSatisfied":false,
                         "name":"Lifestyle",
-                        "path":"Lifestyle",
-                        "section":"Lifestyle",
-                        "preamble":"Please tell us some general things about your lifestyle:",
-                        "alias":"Lifestyle",
-                        "questions":[
-                            {
-                                "name":"PURSUITS",
-                                "path":"PURSUITS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"MOTOR_BIKE",
-                                "path":"MOTOR_BIKE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"DRIVING_BAN",
-                                "path":"DRIVING_BAN",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"TRAVEL",
-                                "path":"TRAVEL",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
-                        "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
-
-                            },
-                            "InsurerX":{
-
-                            }
-                        },
-                        "isWrapUpLine":false
-                    },
-                    {
                         "isSatisfied":false,
-                        "name":"Alcohol_Drugs",
-                        "path":"Alcohol_Drugs",
-                        "section":"Lifestyle continued...",
-                        "preamble":"Please tell us some general things about your lifestyle:",
-                        "alias":"Alcohol Drugs",
-                        "questions":[
-                            {
-                                "name":"ALCOHOL_BEER",
-                                "path":"ALCOHOL_BEER",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"ALCOHOL_WINE",
-                                "path":"ALCOHOL_WINE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"ALCOHOL_SPIRITS",
-                                "path":"ALCOHOL_SPIRITS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"ALCOHOL_OTHER",
-                                "path":"ALCOHOL_OTHER",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"ALCOHOL_ADVICE",
-                                "path":"ALCOHOL_ADVICE",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            },
-                            {
-                                "name":"DRUGS",
-                                "path":"DRUGS",
-                                "answers":[
-
-                                ],
-                                "validationErrors":{
-
-                                }
-                            }
-                        ],
                         "hasQuestions":true,
-                        "buckets":{
-                            "PLR":{
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Lifestyle",
+                                "path":"Lifestyle",
+                                "section":"Lifestyle",
+                                "preamble":"Please tell us some general things about your lifestyle:",
+                                "alias":"Lifestyle",
+                                "triggers":[
+                                    "Lifestyle"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"PURSUITS",
+                                        "path":"PURSUITS",
+                                        "answers":[
 
-                            },
-                            "InsurerX":{
+                                        ],
+                                        "validationErrors":{
 
-                            }
-                        },
-                        "isWrapUpLine":false
-                    },
-                    {
-                        "isSatisfied":true,
-                        "name":"Tobacco_Use",
-                        "path":"Tobacco_Use",
-                        "section":"Personal details",
-                        "preamble":"Please tell us more about your tobacco use",
-                        "alias":"Tobacco Use",
-                        "questions":[
+                                        }
+                                    },
+                                    {
+                                        "name":"MOTOR_BIKE",
+                                        "path":"MOTOR_BIKE",
+                                        "answers":[
 
-                        ],
-                        "hasQuestions":false,
-                        "buckets":{
-                            "PLR":{
-                                "DECISION_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":"STANDARD"
-                                        }
-                                    ],
-                                    "min":"STANDARD",
-                                    "max":"STANDARD"
-                                }
-                            },
-                            "InsurerX":{
-                                "DECISION_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":"STANDARD"
-                                        }
-                                    ],
-                                    "min":"STANDARD",
-                                    "max":"STANDARD"
-                                }
-                            }
-                        },
-                        "isWrapUpLine":false
-                    },
-                    {
-                        "isSatisfied":true,
-                        "name":"Occupation_General",
-                        "path":"Occupation_General",
-                        "section":"Your Occupation",
-                        "preamble":"Please tell us more about your occupation",
-                        "alias":"Occupation General",
-                        "questions":[
+                                        ],
+                                        "validationErrors":{
 
-                        ],
-                        "hasQuestions":false,
-                        "buckets":{
-                            "PLR":{
-                                "PM_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":0
                                         }
-                                    ],
-                                    "sum":0,
-                                    "min":0,
-                                    "max":0
-                                }
-                            },
-                            "InsurerX":{
-                                "PM_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":0
-                                        }
-                                    ],
-                                    "sum":0,
-                                    "min":0,
-                                    "max":0
-                                }
-                            }
-                        },
-                        "isWrapUpLine":false
-                    },
-                    {
-                        "isSatisfied":true,
-                        "name":"Build",
-                        "path":"Build",
-                        "section":"Lifestyle",
-                        "preamble":"Please tell us more about your Build",
-                        "alias":"Build",
-                        "questions":[
+                                    },
+                                    {
+                                        "name":"DRIVING_BAN",
+                                        "path":"DRIVING_BAN",
+                                        "answers":[
 
-                        ],
-                        "hasQuestions":false,
-                        "buckets":{
-                            "PLR":{
-                                "BMI":{
-                                    "contributions":[
-                                        {
-                                            "of":24
+                                        ],
+                                        "validationErrors":{
+
                                         }
-                                    ],
-                                    "sum":24,
-                                    "min":24,
-                                    "max":24
+                                    },
+                                    {
+                                        "name":"TRAVEL",
+                                        "path":"TRAVEL",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
                                 },
-                                "DECISION_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":"STANDARD"
-                                        }
-                                    ],
-                                    "min":"STANDARD",
-                                    "max":"STANDARD"
-                                }
-                            },
-                            "InsurerX":{
-                                "BMI":{
-                                    "contributions":[
-                                        {
-                                            "of":24
-                                        }
-                                    ],
-                                    "sum":24,
-                                    "min":24,
-                                    "max":24
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
                                 },
-                                "DECISION_LIFE":{
-                                    "contributions":[
-                                        {
-                                            "of":"STANDARD"
-                                        }
-                                    ],
-                                    "min":"STANDARD",
-                                    "max":"STANDARD"
-                                }
+                                "isWrapUpLine":false
                             }
-                        },
-                        "isWrapUpLine":false
+                        ]
+                    },
+                    {
+                        "name":"Lifestyle continued...",
+                        "isSatisfied":false,
+                        "hasQuestions":true,
+                        "enquiryLines":[
+                            {
+                                "isSatisfied":false,
+                                "name":"Alcohol_Drugs",
+                                "path":"Alcohol_Drugs",
+                                "section":"Lifestyle continued...",
+                                "preamble":"Please tell us some general things about your lifestyle:",
+                                "alias":"Alcohol Drugs",
+                                "triggers":[
+                                    "Alcohol Drugs"
+                                ],
+                                "questions":[
+                                    {
+                                        "name":"ALCOHOL_BEER",
+                                        "path":"ALCOHOL_BEER",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"ALCOHOL_WINE",
+                                        "path":"ALCOHOL_WINE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"ALCOHOL_SPIRITS",
+                                        "path":"ALCOHOL_SPIRITS",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"ALCOHOL_OTHER",
+                                        "path":"ALCOHOL_OTHER",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"ALCOHOL_ADVICE",
+                                        "path":"ALCOHOL_ADVICE",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    },
+                                    {
+                                        "name":"DRUGS",
+                                        "path":"DRUGS",
+                                        "answers":[
+
+                                        ],
+                                        "validationErrors":{
+
+                                        }
+                                    }
+                                ],
+                                "hasQuestions":true,
+                                "optionBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "numericBuckets":{
+                                    "PLR":[
+
+                                    ]
+                                },
+                                "isWrapUpLine":false
+                            }
+                        ]
                     }
                 ],
-                "buckets":{
-                    "PLR":{
-                        "PM_LIFE":{
-                            "contributions":[
-                                {
-                                    "of":0
-                                }
-                            ],
-                            "sum":0,
-                            "min":0,
-                            "max":0
-                        },
-                        "DECISION_LIFE":{
-                            "contributions":[
-                                {
-                                    "of":"STANDARD"
-                                },
-                                {
-                                    "of":"STANDARD"
-                                },
-                                {
-                                    "of":"STANDARD"
-                                }
-                            ],
-                            "min":"STANDARD",
-                            "max":"STANDARD"
-                        },
-                        "BMI":{
-                            "contributions":[
-                                {
-                                    "of":24
-                                }
-                            ],
-                            "sum":24,
-                            "min":24,
-                            "max":24
-                        }
-                    },
-                    "InsurerX":{
-                        "PM_LIFE":{
-                            "contributions":[
-                                {
-                                    "of":0
-                                }
-                            ],
-                            "sum":0,
-                            "min":0,
-                            "max":0
-                        },
-                        "DECISION_LIFE":{
-                            "contributions":[
-                                {
-                                    "of":"STANDARD"
-                                },
-                                {
-                                    "of":"STANDARD"
-                                },
-                                {
-                                    "of":"STANDARD"
-                                }
-                            ],
-                            "min":"STANDARD",
-                            "max":"STANDARD"
-                        },
-                        "BMI":{
-                            "contributions":[
-                                {
-                                    "of":24
-                                }
-                            ],
-                            "sum":24,
-                            "min":24,
-                            "max":24
-                        }
-                    }
+                "optionBuckets":{
+                    "PLR":[
+
+                    ]
+                },
+                "numericBuckets":{
+                    "PLR":[
+
+                    ]
                 },
                 "allAnswers":{
                     "PRODUCT":[
@@ -1156,19 +1046,19 @@ In order to read or update Enquiry a Pre-Declaration has to be confirmed.
                         "120000"
                     ],
                     "HEIGHT":[
-                        "1.82"
+
                     ],
                     "OCCUPATION":[
-                        "Programmer"
+
                     ],
                     "WEIGHT_MALE":[
-                        "81"
+
                     ],
                     "NON_SMOKER_STATUS":[
-                        "Life-long non smoker"
+
                     ],
                     "FAMILY_HISTORY_LIFE":[
-                        "None of these"
+
                     ],
                     "DIABETES":[
 
