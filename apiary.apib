@@ -4800,26 +4800,41 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                     {
                         "provider":"PLR",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"UNKNOWN",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
                     {
                         "provider":"InsurerX",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"UNKNOWN",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
                 ]
             }
@@ -4833,34 +4848,49 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
 + Response 200
 
             {
-               "estimated":true,
-               "items":[
-                   {
-                       "provider":"PLR",
-                       "product":{
-                           "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
-                           "type":"TERM"
-                       },
-                       "decision":"REFER",
-                       "quote":{
-                           "status":"IN_PROGRESS"
-                       },
-                       "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
-                   },
-                   {
-                       "provider":"InsurerX",
-                       "product":{
-                           "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
-                           "type":"TERM"
-                       },
-                       "decision":"REFER",
-                       "quote":{
-                           "status":"IN_PROGRESS"
-                       },
-                       "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
-                   }
-               ]
-           }
+                "estimated":true,
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":"REFER",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":"REFER",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    }
+                ]
+            }
 
 + Request Estimated Comparison with standard decisions for satisfied Enquiry (application/json)
 
@@ -4876,26 +4906,41 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                     {
                         "provider":"PLR",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"STANDARD",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
                     {
                         "provider":"InsurerX",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"STANDARD",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
                 ]
             }
@@ -4913,26 +4958,41 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                     {
                         "provider":"PLR",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"STANDARD",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"plr-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
                     {
                         "provider":"InsurerX",
                         "product":{
-                            "id":"2774498c-d0b8-4d40-8429-b00bf0fc0056",
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "type":"TERM"
                         },
                         "decision":"STANDARD",
                         "quote":{
                             "status":"IN_PROGRESS"
                         },
-                        "id":"insurerx-2774498c-d0b8-4d40-8429-b00bf0fc0056"
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
                 ]
             }
