@@ -4997,6 +4997,76 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                 ]
             }
 
++ Request Valid Comparison for 2 Products with refer and decline decisions. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"19847ae9-281e-4eec-98a2-a6142d8a58c8",
+                            "type":"TERM"
+                        },
+                        "decision":"REFER",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-19847ae9-281e-4eec-98a2-a6142d8a58c8"
+                    },
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"c6964245-283b-4e3e-ae78-1a336fb2ea06",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                        },
+                        "decision":"DECLINE",
+                        "id":"plr-c6964245-283b-4e3e-ae78-1a336fb2ea06"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"19847ae9-281e-4eec-98a2-a6142d8a58c8",
+                            "type":"TERM"
+                        },
+                        "decision":"REFER",
+                        "quote":{
+                            "status":"IN_PROGRESS"
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-19847ae9-281e-4eec-98a2-a6142d8a58c8"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"c6964245-283b-4e3e-ae78-1a336fb2ea06",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                        },
+                        "decision":"DECLINE",
+                        "id":"insurerx-c6964245-283b-4e3e-ae78-1a336fb2ea06"
+                    }
+                ]
+            }
+
 ## List [/application/{applicationId}/comparison/{comparisonId}]
 Operations on single Comparison Item associated with Application.
 
