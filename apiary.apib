@@ -5084,7 +5084,36 @@ Operations on single Comparison Item associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "type":"TERM"
+                },
+                "decision":"UNKNOWN",
+                "quote":{
+                    "status":"RETRIEVED",
+                    "date":"2015-03-26T11:37:32.000",
+                    "premium":{
+                        "from":10.14,
+                        "to":10.14
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.54,
+                        "renewal":8.42
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+            }
 
 + Request Single Comparison Item with decline decision and no premium. (application/json)
 
@@ -5094,7 +5123,15 @@ Operations on single Comparison Item associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"129dfa62-1994-401c-af6d-4fb6fc455ea3",
+                    "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                },
+                "decision":"DECLINE",
+                "id":"plr-129dfa62-1994-401c-af6d-4fb6fc455ea3"
+            }
 
 + Request Single Comparison Item with refer decision and ranged premium. (application/json)
 
@@ -5104,7 +5141,36 @@ Operations on single Comparison Item associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "type":"TERM"
+                },
+                "decision":"REFER",
+                "quote":{
+                    "status":"RETRIEVED",
+                    "date":"2015-03-26T13:33:21.000",
+                    "premium":{
+                        "from":9.64,
+                        "to":10.64
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":29.99,
+                        "renewal":8.00
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+            }
 
 + Request Single Comparison Item with standard decision and fixed premium. (application/json)
 
@@ -5114,4 +5180,33 @@ Operations on single Comparison Item associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "type":"TERM"
+                },
+                "decision":"STANDARD",
+                "quote":{
+                    "status":"RETRIEVED",
+                    "date":"2015-03-26T13:37:35.000",
+                    "premium":{
+                        "from":10.12,
+                        "to":10.12
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.47,
+                        "renewal":8.40
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+            }
