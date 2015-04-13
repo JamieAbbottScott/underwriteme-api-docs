@@ -4959,7 +4959,7 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                                     },
                                     "decisions":[
                                         {
-                                            "type":"STANDARD",
+                                            "type":"REFER",
                                             "componentType":"LIFE",
                                             "extraMorbidityContributions":[
                                                 {
@@ -4970,6 +4970,32 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
                                                     "value":{
                                                         "sum":50
                                                     }
+                                                }
+                                            ],
+                                            "indicativePermilleContributions":[
+                                                {
+                                                    "contributor":{
+                                                        "enquiryLine":"Suicide",
+                                                        "triggerTag":"Suicide attempt"
+                                                    },
+                                                    "value":{
+                                                        "from":5,
+                                                        "to":5
+                                                    }
+                                                }
+                                            ],
+                                            "evidenceContributions":[
+                                                {
+                                                    "contributor":{
+                                                        "enquiryLine":"Suicide",
+                                                        "triggerTag":"Suicide attempt"
+                                                    },
+                                                    "value":[
+                                                        {
+                                                            "code":"TGPR",
+                                                            "description":"Targeted GP Report"
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         },
@@ -5484,21 +5510,40 @@ Operations on single Comparison Item associated with Application.
             {
                 "provider":"PLR",
                 "product":{
-                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
                     "type":"TERM"
                 },
-                "decision":"UNKNOWN",
+                "decision":{
+                    "type":"UNKNOWN",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4330"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"UNKNOWN",
+                                    "componentType":"LIFE"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 "quote":{
                     "status":"RETRIEVED",
-                    "date":"2015-03-26T11:37:32.000",
+                    "date":"2015-01-01T00:00:00.000",
                     "premium":{
-                        "from":10.14,
-                        "to":10.14
+                        "from":9.84,
+                        "to":9.84
                     },
                     "sumAssured":120000,
                     "commission":{
-                        "initial":31.54,
-                        "renewal":8.42
+                        "initial":30.61,
+                        "renewal":8.17,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
                     }
                 },
                 "rating":{
@@ -5509,7 +5554,7 @@ Operations on single Comparison Item associated with Application.
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
-                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+                "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
             }
 
 + Request Single Comparison Item with decline decision and no premium. (application/json)
@@ -5523,11 +5568,26 @@ Operations on single Comparison Item associated with Application.
             {
                 "provider":"PLR",
                 "product":{
-                    "id":"129dfa62-1994-401c-af6d-4fb6fc455ea3",
-                    "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                    "id":"bf8ac9c5-5d8e-4991-8028-8768eef2b94d",
+                    "type":"CRITICAL_ILLNESS"
                 },
-                "decision":"DECLINE",
-                "id":"plr-129dfa62-1994-401c-af6d-4fb6fc455ea3"
+                "decision":{
+                    "type":"DECLINE",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4333"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"DECLINE",
+                                    "componentType":"CI"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "id":"plr-bf8ac9c5-5d8e-4991-8028-8768eef2b94d"
             }
 
 + Request Single Comparison Item with refer decision and ranged premium. (application/json)
@@ -5541,21 +5601,66 @@ Operations on single Comparison Item associated with Application.
             {
                 "provider":"PLR",
                 "product":{
-                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "id":"0fc0b51a-82ba-4508-838e-86aea8110a48",
                     "type":"TERM"
                 },
-                "decision":"REFER",
+                "decision":{
+                    "type":"REFER",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4335"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"REFER",
+                                    "componentType":"LIFE",
+                                    "indicativeExtraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Rheumatoid Arthritis",
+                                                "triggerTag":"Rheumatoid arthritis"
+                                            },
+                                            "value":{
+                                                "from":150,
+                                                "to":250
+                                            }
+                                        }
+                                    ],
+                                    "evidenceContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Rheumatoid Arthritis",
+                                                "triggerTag":"Rheumatoid arthritis"
+                                            },
+                                            "value":[
+                                                {
+                                                    "code":"TGPR",
+                                                    "description":"Targeted GP Report"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
                 "quote":{
                     "status":"RETRIEVED",
-                    "date":"2015-03-26T13:33:21.000",
+                    "date":"2015-01-01T00:00:00.000",
                     "premium":{
-                        "from":9.64,
-                        "to":10.64
+                        "from":26.00,
+                        "to":27.00
                     },
                     "sumAssured":120000,
                     "commission":{
-                        "initial":29.99,
-                        "renewal":8.00
+                        "initial":80.86,
+                        "renewal":21.58,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
                     }
                 },
                 "rating":{
@@ -5566,7 +5671,7 @@ Operations on single Comparison Item associated with Application.
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
-                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+                "id":"plr-0fc0b51a-82ba-4508-838e-86aea8110a48"
             }
 
 + Request Single Comparison Item with standard decision and fixed premium. (application/json)
@@ -5580,21 +5685,60 @@ Operations on single Comparison Item associated with Application.
             {
                 "provider":"PLR",
                 "product":{
-                    "id":"6478f24c-5113-4982-a4a1-482b16572324",
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
                     "type":"TERM"
                 },
-                "decision":"STANDARD",
+                "decision":{
+                    "type":"STANDARD",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
                 "quote":{
                     "status":"RETRIEVED",
-                    "date":"2015-03-26T13:37:35.000",
+                    "date":"2015-01-01T00:00:00.000",
                     "premium":{
-                        "from":10.12,
-                        "to":10.12
+                        "from":10.26,
+                        "to":10.26
                     },
                     "sumAssured":120000,
                     "commission":{
-                        "initial":31.47,
-                        "renewal":8.40
+                        "initial":31.90,
+                        "renewal":8.51,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
                     }
                 },
                 "rating":{
@@ -5605,5 +5749,60 @@ Operations on single Comparison Item associated with Application.
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
-                "id":"plr-6478f24c-5113-4982-a4a1-482b16572324"
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }
+
++ Request Single Comparison Item with postpone decision and fixed premium. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"50418718-acb5-4b4e-a4e5-60cb4320f5d5",
+                    "type":"TERM"
+                },
+                "decision":{
+                    "type":"POSTPONE",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4338"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"POSTPONE",
+                                    "componentType":"LIFE",
+                                    "durationContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Rheumatoid Arthritis",
+                                                "triggerTag":"Rheumatoid arthritis"
+                                            },
+                                            "value":[
+                                                {
+                                                    "code":"SURGERY",
+                                                    "description":"Postpone until after surgery"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
