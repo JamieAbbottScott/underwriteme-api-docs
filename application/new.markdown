@@ -1,6 +1,3 @@
-# Group Application
-Application related resources of the **UnderwriteMe API**.
-
 ## New [/application]
 Creating new Application based on sent Customers and Products JSON data.
 
@@ -198,52 +195,6 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverAmount": {
                             "errorMessage": "Minimum cover amount is £1"
                         }
-                    }
-                ]
-            }
-
-## Existing [/application/{id}]
-Operations on existing Application identified by unique ID.
-
-+ Parameters
-
-    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-
-### Retrieve existing Application [GET]
-+ Response 200 (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-    + Body
-
-            {
-                "id": "1502181407123020689",
-                "customers": [
-                    {
-                        "id": "1001",
-                        "referenceId": "cus-001",
-                        "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
-                        "name": "John",
-                        "surname": "Doe",
-                        "title": "MR",
-                        "gender": "MALE",
-                        "dateOfBirth": "1980-01-01",
-                        "smoker": false,
-                        "email": "john.doe@domain.com"
-                    }
-                ],
-                "products": [
-                    {
-                        "referenceId": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                        "type": "TERM",
-                        "coverBasis": "LEVEL",
-                        "coverPeriod": 20,
-                        "coverAmount": 120000,
-                        "livesAssured": [
-                            { "refersTo": "1001" }
-                        ]
                     }
                 ]
             }

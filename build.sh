@@ -12,7 +12,11 @@ function clear {
 clear
 append overview.markdown
 append authentication.markdown
-append application.markdown
+
+append application/overview.markdown
+append application/new.markdown
+append application/existing.markdown
+
 append pre-declaration.markdown
 append enquiry.markdown
 append question.markdown
