@@ -1,6 +1,3 @@
-# Group Pre-Declaration
-Pre-Declaration related resources of the **UnderwriteMe API**.
-
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}/pre-declaration]
 Operations on existing Pre-Declaration associated with Application and Customer Enquiry.
 

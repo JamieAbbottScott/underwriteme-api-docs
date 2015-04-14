@@ -1,6 +1,3 @@
-# Group Enquiry
-Enquiry related resources of the **UnderwriteMe API**.
-
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}]
 Operations on existing Enquiry associated with Application.
 
