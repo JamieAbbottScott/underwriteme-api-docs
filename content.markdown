@@ -1,69 +1,3 @@
-FORMAT: 1A
-
-# UnderwriteMe API
-
-## Overview
-**UnderwriteMe API** is a set of REST endpoints which allows you to interact with underwriting workflow. Workflow consist of following components:
-
-  * **Authentication** - Receiving access token after giving valid authentication details.
-  * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
-  * **Pre-Declaration** - Confirming Enquiry Pre-Declaration in order start filling in Enquiry.
-  * **Enquiry** - Filling in Customer Enquiry.
-  * **Question** - Retrieving information about Enquiry Question like its Definition, available Option List and partial Option Lookup.
-  * **Post-Declaration** - Confirming Application Post-Declaration in order to finish filling in Customer Enquiries.
-  * **Comparison** - Retrieving Decisions and Quotes for Products.
-  * **Basket** - Choosing Products for Activation.
-  * **Activation** - Retrieving Activation state of selected Products.
-
-# Group Authentication
-Authentication related resources of the **UnderwriteMe API**.
-
-## Authenticate [/auth]
-Logging in and retrieving access token that must be added to each request made to **UnderwriteMe API** resources.
-
-**Authentication API** is using small subset of OAuth2 protocol (http://oauth.net/2) rules.
-
-Token is valid for one hour after it has been requested. **Authentication API** is using JWT (http://jwt.io) format to represent tokens.
-
-In order to authenticate using retrieved access token send it along with your resource request in `Authorization` HTTP header using `Bearer` authorization scheme. Examples are attached along with the examples of other resources usage.
-
-Expected authentication JSON format:
-
-- ***username*** `string` *(required)* - User's login in the system.
-- ***password*** `string` *(required)* - User's password in the system.
-
-### Login and retrive access token [POST]
-+ Request Valid Authentication. (application/json)
-
-            {
-                "username":"username",
-                "password":"password"
-            }
-
-+ Response 200
-
-            {
-                "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8"
-            }
-
-+ Request Invalid username/password format. (application/json)
-
-            {
-                "u":"username",
-                "p":"password"
-            }
-
-+ Response 400
-
-+ Request Invalid username/password. (application/json)
-
-            {
-                "username":"alice",
-                "password":"wonderland"
-            }
-
-+ Response 401
-
 # Group Application
 Application related resources of the **UnderwriteMe API**.
 
@@ -5806,4 +5740,3 @@ Operations on single Comparison Item associated with Application.
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
-
