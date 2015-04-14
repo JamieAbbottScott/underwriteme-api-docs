@@ -13,4 +13,5 @@ clear
 append overview.markdown
 append authentication.markdown
 append application.markdown
+append pre-declaration.markdown
 append content.markdown
