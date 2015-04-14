@@ -1,6 +1,3 @@
-# Group Post-Declaration
-Post-Declaration related resources of the **UnderwriteMe API**.
-
 ## Existing [/application/{applicationId}/post-declaration]
 Operations on existing Post-Declaration associated with Application.
 
