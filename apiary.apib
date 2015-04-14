@@ -76,7 +76,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***surname*** `string` *(required)* - Customer surname.
     - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
@@ -4781,6 +4781,11 @@ Operations on existing Comparison associated with Application.
 
 Until all Enquiries are open Comparison contains only estimated decisions and quotes.
 
+JSON response has following structure:
+
+- ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response when all enquiries are not closed.
+- ***items*** `array` *(required)* - A list for Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following section.
+
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
@@ -5492,6 +5497,77 @@ Until all Enquiries are open Comparison contains only estimated decisions and qu
 
 ## Item [/application/{applicationId}/comparison/{comparisonId}]
 Operations on single Comparison Item associated with Application.
+
+JSON response has following structure:
+
+- ***provider*** `string` *(required)* - Unique Provider ID used across the system.
+- ***product*** `object` *(required)* - Subset of Application Product properties created at the beginning of the underwriting process.
+    - ***id*** `string` *(required)* - Unique Product ID.
+    - ***type**** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- ***decision*** `object` *(required)* - Underwriting Decision.
+    - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
+    - ***details*** `array` *(required)* - Decision details. It consist of Product Component Decisions per Customer (represented as `object` type).
+        - ***customer*** `object` *(required)* - Subset of Application Customer properties created at the beginning of the underwriting process.
+            - ***id*** `string` *(required)* - Unique Customer ID.
+        - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
+            - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
+            - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
+            - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `object` *(required)* - Contribution value (represented as `object` type).
+                    - ***sum*** `number` *(required)* - Numeric value of Contribution.
+                    - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
+            - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `object` *(required)* - Contribution value (represented as `object` type).
+                    - ***sum*** `number` *(required)* - Numeric value of Contribution.
+                    - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
+            - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
+                    - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to `ExclusionOptions` value.
+                    - ***description*** `string` *(required)* - Human readable description.
+            - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `object` *(required)* - Contribution range (represented as `object` type).
+                    - ***from*** `number` *(required)* - Start of the range.
+                    - ***to*** `number` *(required)* - End of the range.
+            - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `object` *(required)* - Contribution range (represented as `object` type).
+                    - ***from*** `number` *(required)* - Start of the range.
+                    - ***to*** `number` *(required)* - End of the range.
+            - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
+                    - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to `ExclusionOptions` value.
+                    - ***description*** `string` *(required)* - Human readable description.
+            - ***evidenceContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
+                    - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to `EvidenceCodesOptions` value.
+                    - ***description*** `string` *(required)* - Human readable description.
+            - ***durationContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type).
+                - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+                    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
+                    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+                - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
+                    - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to `PostponeCodeOptions` value.
+                    - ***description*** `string` *(required)* - Human readable description.
 
 + Parameters
 
