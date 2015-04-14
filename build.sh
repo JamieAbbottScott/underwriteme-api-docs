@@ -25,6 +25,10 @@ append pre-declaration/existing.markdown
 append enquiry/overview.markdown
 append enquiry/existing.markdown
 
-append question.markdown
+append question/overview.markdown
+append question/definition.markdown
+append question/option-list.markdown
+append question/option-lookup.markdown
+
 append post-declaration.markdown
 append comparison.markdown
