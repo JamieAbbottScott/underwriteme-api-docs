@@ -35,4 +35,6 @@ append question/option-lookup.markdown
 append post-declaration/overview.markdown
 append post-declaration/existing.markdown
 
-append comparison.markdown
+append comparison/overview.markdown
+append comparison/list.markdown
+append comparison/item.markdown
