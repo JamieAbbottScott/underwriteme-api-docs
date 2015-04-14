@@ -16,4 +16,5 @@ append application.markdown
 append pre-declaration.markdown
 append enquiry.markdown
 append question.markdown
+append post-declaration.markdown
 append content.markdown
