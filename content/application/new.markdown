@@ -7,7 +7,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***surname*** `string` *(required)* - Customer surname.
     - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.

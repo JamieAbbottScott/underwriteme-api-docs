@@ -3,6 +3,11 @@ Operations on existing Comparison associated with Application.
 
 Until all Enquiries are open Comparison contains only estimated decisions and quotes.
 
+Response JSON has following structure:
+
+- ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response when all enquiries are not closed.
+- ***items*** `array` *(required)* - A list for Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following section.
+
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
