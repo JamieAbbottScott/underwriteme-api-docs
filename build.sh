@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function append {
-    cat $1 >> apiary.apib
+    cat content/$1 >> apiary.apib
     echo "" >> apiary.apib
 }
 
