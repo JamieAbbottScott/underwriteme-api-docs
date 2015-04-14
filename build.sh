@@ -13,7 +13,9 @@ function clear {
 clear
 
 append overview.markdown
-append authentication.markdown
+
+append authentication/overview.markdown
+append authentication/authenticate.markdown
 
 append application/overview.markdown
 append application/new.markdown

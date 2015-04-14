@@ -1,6 +1,3 @@
-# Group Authentication
-Authentication related resources of the **UnderwriteMe API**.
-
 ## Authenticate [/auth]
 Logging in and retrieving access token that must be added to each request made to **UnderwriteMe API** resources.
 
