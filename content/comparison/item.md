@@ -1,4 +1,4 @@
-## Item [/application/{applicationId}/comparison/{comparisonId}]
+## Item [/application/{applicationId}/comparison/item/{itemId}]
 Operations on single Comparison Item associated with Application.
 
 JSON response has following structure:
@@ -51,7 +51,7 @@ Code and description:
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + comparisonId (required, string, `plr-2774498c-d0b8-4d40-8429-b00bf0fc0056`) ... Unique ID of existing Comparison Item.
+    + itemId (required, string, `plr-2774498c-d0b8-4d40-8429-b00bf0fc0056`) ... Unique ID of existing Comparison Item.
 
 ### Retrieve Comparison Item [GET]
 + Request Single Comparison Item with unknown decision. (application/json)
