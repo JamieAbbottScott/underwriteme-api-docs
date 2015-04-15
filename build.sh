@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function append {
-    cat content/$1 >> apiary.apib
+    cat content/$1.md >> apiary.apib
     echo "" >> apiary.apib
 }
 
@@ -12,29 +12,29 @@ function clear {
 
 clear
 
-append overview.markdown
+append overview
 
-append authentication/overview.markdown
-append authentication/authenticate.markdown
+append authentication/overview
+append authentication/authenticate
 
-append application/overview.markdown
-append application/new.markdown
-append application/existing.markdown
+append application/overview
+append application/new
+append application/existing
 
-append pre-declaration/overview.markdown
-append pre-declaration/existing.markdown
+append pre-declaration/overview
+append pre-declaration/existing
 
-append enquiry/overview.markdown
-append enquiry/existing.markdown
+append enquiry/overview
+append enquiry/existing
 
-append question/overview.markdown
-append question/definition.markdown
-append question/option-list.markdown
-append question/option-lookup.markdown
+append question/overview
+append question/definition
+append question/option-list
+append question/option-lookup
 
-append post-declaration/overview.markdown
-append post-declaration/existing.markdown
+append post-declaration/overview
+append post-declaration/existing
 
-append comparison/overview.markdown
-append comparison/list.markdown
-append comparison/item.markdown
+append comparison/overview
+append comparison/list
+append comparison/item
