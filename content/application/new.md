@@ -198,3 +198,105 @@ Creating new Application based on sent Customers and Products JSON data.
                     }
                 ]
             }
+
++ Request Application for two Customers (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "customers": [
+                    {
+                        "referenceId": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    },
+                    {
+                        "referenceId": "cus-002",
+                        "name": "Jane",
+                        "surname": "Doe",
+                        "title": "MRS",
+                        "gender": "FEMALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": true,
+                        "email": "jane.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 0,
+                        "livesAssured": [
+                            {
+                                "refersTo": "cus-001",
+                                "waiverOfPremium": true
+                            },
+                            {
+                                "refersTo": "cus-002"
+                            }
+                        ]
+                    }
+                ]
+            }
+
++ Response 201 (application/json)
+
+            {
+                "id":"1504221314246790121",
+                "customers":[
+                    {
+                        "id":"6261",
+                        "enquiryId":"6c6f61cb-127d-4890-b3b3-d3c58425b0b0",
+                        "referenceId":"cus-001",
+                        "name":"John",
+                        "surname":"Doe",
+                        "title":"MR",
+                        "gender":"MALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":false,
+                        "email":"john.doe@domain.com"
+                    },
+                    {
+                        "id":"6262",
+                        "enquiryId":"a0d4080d-3ef2-417a-b504-9725efa2d1cb",
+                        "referenceId":"cus-002",
+                        "name":"Jane",
+                        "surname":"Doe",
+                        "title":"MRS",
+                        "gender":"FEMALE",
+                        "dateOfBirth":"1980-01-01",
+                        "smoker":true,
+                        "email":"jane.doe@domain.com"
+                    }
+                ],
+                "products":[
+                    {
+                        "id":"173c6b6d-0381-4e05-a532-895557c9a67a",
+                        "referenceId":"pro-001",
+                        "type":"TERM",
+                        "coverBasis":"LEVEL",
+                        "coverPeriod":20,
+                        "coverAmount":100000,
+                        "livesAssured":[
+                            {
+                                "refersTo":"6261",
+                                "waiverOfPremium":true
+                            },
+                            {
+                                "refersTo":"6262"
+                            }
+                        ]
+                    }
+                ]
+            }
