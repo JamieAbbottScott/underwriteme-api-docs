@@ -6,13 +6,13 @@ Operations on existing Application identified by unique ID.
     + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Retrieve existing Application [GET]
-+ Response 200 (application/json)
++ Request Retrieve existing Application. (application/json)
 
     + Headers
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
-    + Body
++ Response 200
 
             {
                 "id": "1502181407123020689",
@@ -43,3 +43,11 @@ Operations on existing Application identified by unique ID.
                     }
                 ]
             }
+
++ Request Not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404

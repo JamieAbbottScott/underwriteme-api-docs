@@ -378,13 +378,13 @@ Operations on existing Application identified by unique ID.
     + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Retrieve existing Application [GET]
-+ Response 200 (application/json)
++ Request Retrieve existing Application. (application/json)
 
     + Headers
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
-    + Body
++ Response 200
 
             {
                 "id": "1502181407123020689",
@@ -415,6 +415,14 @@ Operations on existing Application identified by unique ID.
                     }
                 ]
             }
+
++ Request Not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
 
 # Group Pre-Declaration
 Pre-Declaration related resources of the **UnderwriteMe API**.
@@ -5959,5 +5967,58 @@ Code and description:
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
+            }
+
+# Group Basket
+Basket related resources of the **UnderwriteMe API**.
+
+## List [/application/{applicationId}/basket]
+Operations on existing Basket associated with Application.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve Basket [GET]
++ Request Retrieve empty Basket (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+
++ Response 200
+
+            {}
+
++ Request Retrieve Basket with one Item. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+
++ Response 200
+
+            {
+                "items":[
+                    { "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057" }
+                ]
+            }
+
++ Request Retrieve Basket with two Items. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+
++ Response 200
+
+            {
+                "items":[
+                    { "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057" },
+                    { "id": "insurerx-029ab8d8-0a62-423e-8e84-6e8d505bb742" }
+                ]
             }
 
