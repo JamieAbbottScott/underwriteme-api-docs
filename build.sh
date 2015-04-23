@@ -41,3 +41,5 @@ append comparison/item
 
 append basket/overview
 append basket/list
+append basket/items
+append basket/item
