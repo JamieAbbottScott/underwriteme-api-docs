@@ -1,6 +1,8 @@
 ## List [/application/{applicationId}/comparison]
 Operations on existing Comparison associated with Application.
 
+In order to get quote values for the Comparison an PUT method has to be used in order to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
+
 Until all Enquiries are open Comparison contains only estimated decisions and quotes.
 
 JSON response has following structure:
@@ -12,8 +14,8 @@ JSON response has following structure:
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
-### Retrieve Comparison [GET]
-+ Request Estimated Comparison with unknown decisions for new Application (application/json)
+### Request Comparison [PUT]
++ Request Comparison with pending, succeeded, failed and no quotes. (application/json)
 
     + Headers
 
@@ -47,7 +49,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":5,
@@ -82,7 +84,170 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"SUCCEEDED",
+                            "date":"2015-01-01T00:00:00.000",
+                            "premium":{
+                                "from":9.84,
+                                "to":9.84
+                            },
+                            "sumAssured":120000,
+                            "commission":{
+                                "initial":30.61,
+                                "renewal":8.17,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    },
+                    {
+                        "provider":"InsurerY",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":{
+                            "type":"DECLINE",
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4083"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"DECLINE",
+                                            "componentType":"LIFE"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurery.com/term/key-facts.pdf"
+                        },
+                        "id":"insurery-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    },
+                    {
+                        "provider":"InsurerZ",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":{
+                            "type":"NON_STANDARD",
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4083"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"NON_STANDARD",
+                                            "componentType":"LIFE"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"FAILED"
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerz.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerz-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    }
+                ]
+            }
+
+### Retrieve Comparison [GET]
++ Request Estimated Comparison with unknown decisions for new Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "estimated":true,
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":{
+                            "type":"UNKNOWN",
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4083"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"UNKNOWN",
+                                            "componentType":"LIFE"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"PENDING"
+                        },
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "type":"TERM"
+                        },
+                        "decision":{
+                            "type":"UNKNOWN",
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4083"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"UNKNOWN",
+                                            "componentType":"LIFE"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":4,
@@ -159,7 +324,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":5,
@@ -249,7 +414,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":4,
@@ -321,7 +486,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":5,
@@ -367,7 +532,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":4,
@@ -468,7 +633,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":5,
@@ -557,7 +722,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":4,
@@ -604,7 +769,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":4,
@@ -638,7 +803,7 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "status":"IN_PROGRESS"
+                            "state":"PENDING"
                         },
                         "rating":{
                             "value":5,

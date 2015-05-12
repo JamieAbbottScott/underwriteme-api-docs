@@ -23,6 +23,19 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
             - ***evidenceContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+- ***quote*** `object` *(optional)* - Provider quote. This property does not exist if provider does not allow quotation of particular decision type (like `POSTPONE` or `DECLINE` in most cases).
+    - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
+    - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
+    - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
+        - ***from*** `number` *(required)* - Lower bound of the premium value.
+        - ***to*** `number` *(required)* - Upper bound of the premium value.
+    - ***sumAssured*** `number` *(optional)* - Quote sum assured.
+    - ***commission*** `object` *(optional)* - Commission value.
+        - ***initial*** `number` *(required)* - Initial commission value.
+        - ***renewal*** `number` *(required)* - Renewal commission value.
+        - ***sacrifice*** `object` *(required)* - Commission sacrifice which drives commission.
+            - ***initial*** `number` *(required)* - Initial commission sacrifice. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+            - ***renewal*** `number` *(required)* - Renewal commission value. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
 
 Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
@@ -85,7 +98,7 @@ Code and description:
                     ]
                 },
                 "quote":{
-                    "status":"RETRIEVED",
+                    "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":9.84,
@@ -202,7 +215,7 @@ Code and description:
                     ]
                 },
                 "quote":{
-                    "status":"RETRIEVED",
+                    "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":26.00,
@@ -280,7 +293,7 @@ Code and description:
                     ]
                 },
                 "quote":{
-                    "status":"RETRIEVED",
+                    "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":10.26,
