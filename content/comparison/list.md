@@ -1,7 +1,7 @@
 ## List [/application/{applicationId}/comparison]
 Operations on existing Comparison associated with Application.
 
-In order to get quote values for the Comparison an PUT method has to be used in order to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
+In order to get quote values for the Comparison PUT method has to be used to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
 
 Until all Enquiries are open Comparison contains only estimated decisions and quotes.
 
