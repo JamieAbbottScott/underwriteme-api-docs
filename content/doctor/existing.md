@@ -1,16 +1,16 @@
 ## Existing [/application/{applicationId}/customer/{customerId}/doctor]
 Operations on existing Doctor details associated with Application Customer.
 
-Doctor details are required if any of Provider Products in the Basket has supervised Decision type (`REFER` or `EVIDENCE_REQUIRED`). This information must be provided for Customers to whom the supervised Provider Products belong to.
+Doctor details are required if any of Provider Products in the Basket have supervised Decision type (`REFER` or `EVIDENCE_REQUIRED`). This information must be provided for Customers to whom the supervised Provider Products belong to.
 
 JSON request and response have following structure:
 
 - ***name*** `string` *(required)* - Doctor's name.
 - ***surgery*** `object` *(required)* - Surgery details.
     - ***name*** `string` *(required)* - Surgery's name.
-    - ***contactDetails*** `object` *(required)* - Customer contact details.
+    - ***contactDetails*** `object` *(required)* - Surgery contact details.
         - ***telephoneNumber*** `string` *(required)* - Surgery telephone number.
-        - ***address*** `object` *(required)* - Customer address details. Not required but cannot be empty.
+        - ***address*** `object` *(required)* - Surgery address details.
             - ***line1*** `string` *(required)* - Address first line.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(required)* - Address town.
