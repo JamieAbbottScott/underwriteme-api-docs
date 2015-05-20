@@ -13,8 +13,9 @@ FORMAT: 1A
   * **Post-Declaration** - Confirming Application Post-Declaration in order to finish filling in Customer Enquiries.
   * **Comparison** - Retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
-  * **GP Details** - Filling in GP Details if Provider Products require that.
-  * **Payment Details** - Filling in Payment Details for Provider Products.
+  * **Doctor** - Filling in Doctor details if Provider Products require that.
+  * **Payment** - Filling in Payment details for Provider Products.
+  * **Legals** - Filling in Payment details for Provider Products.
   * **Activation** - Retrieving Activation state of selected Products.
 
 # Group Authentication
@@ -6304,5 +6305,137 @@ Operations on Basket Item associated with Application.
 
             {
                 "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
+            }
+
+# Group Doctor
+Doctor related resources of the **UnderwriteMe API**.
+
+## Existing [/application/{applicationId}/customer/{customerId}/doctor]
+Operations on existing Doctor details associated with Application Customer.
+
+Doctor details are required if any of Provider Products in the Basket has supervised Decision type (`REFER` or `EVIDENCE_REQUIRED`). This information must be provided for Customers to whom the supervised Provider Products belong to.
+
+JSON request and response have following structure:
+
+- ***name*** `string` *(required)* - Doctor's name.
+- ***surgery*** `object` *(required)* - Surgery details.
+    - ***name*** `string` *(required)* - Surgery's name.
+    - ***contactDetails*** `object` *(required)* - Customer contact details.
+        - ***telephoneNumber*** `string` *(required)* - Surgery telephone number.
+        - ***address*** `object` *(required)* - Customer address details. Not required but cannot be empty.
+            - ***line1*** `string` *(required)* - Address first line.
+            - ***line2*** `string` *(optional)* - Address second line.
+            - ***town*** `string` *(required)* - Address town.
+            - ***county*** `string` *(required)* - Address county.
+            - ***postcode*** `string` *(required)* - Address postcode.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + customerId (required, string, `1234`) ... Unique ID of existing Customer.
+
+### Retrieve Doctor [GET]
++ Request Empty Doctor details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {}
+
++ Request Full Doctor details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "name": "Adam Smith",
+                "surgery": {
+                    "name": "Adam Smith Surgery",
+                    "contactDetails": {
+                        "telephoneNumber": "01234 567890",
+                        "address": {
+                            "line1": "21 King's Road",
+                            "line2": "Queen Avenue",
+                            "town": "London",
+                            "county": "London",
+                            "postcode": "AB1 2CD"
+                        }
+                    }
+                }
+            }
+
+### Confirm Post-Declaration [PUT]
++ Request Fill in Doctor details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "name": "Adam Smith",
+                "surgery": {
+                    "name": "Adam Smith Surgery",
+                    "contactDetails": {
+                        "telephoneNumber": "01234 567890",
+                        "address": {
+                            "line1": "21 King's Road",
+                            "line2": "Queen Avenue",
+                            "town": "London",
+                            "county": "London",
+                            "postcode": "AB1 2CD"
+                        }
+                    }
+                }
+            }
+
++ Response 200
+
+            {
+                "name": "Adam Smith",
+                "surgery": {
+                    "name": "Adam Smith Surgery",
+                    "contactDetails": {
+                        "telephoneNumber": "01234 567890",
+                        "address": {
+                            "line1": "21 King's Road",
+                            "line2": "Queen Avenue",
+                            "town": "London",
+                            "county": "London",
+                            "postcode": "AB1 2CD"
+                        }
+                    }
+                }
+            }
+
++ Request Doctor name and surgery details are required. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "name": null,
+                "surgery": null
+            }
+
++ Response 400
+
+            {
+                "name": {
+                    "errorMessage": "Value is required."
+                },
+                "surgery": {
+                    "errorMessage": "Value is required."
+                }
             }
 

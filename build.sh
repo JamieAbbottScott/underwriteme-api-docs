@@ -43,3 +43,6 @@ append basket/overview
 append basket/list
 append basket/items
 append basket/item
+
+append doctor/overview
+append doctor/existing
