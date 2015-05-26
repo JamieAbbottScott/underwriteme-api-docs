@@ -1,7 +1,7 @@
 ## Advised Sale Declaration [/application/{applicationId}/declaration/advised-sale]
 Operations on Advised Sale Declaration associated with Application.
 
-Activation will not be possible without answering this Declaration.
+Activation will not be possible without giving an answer to this Declaration.
 
 JSON request and response have following structure:
 

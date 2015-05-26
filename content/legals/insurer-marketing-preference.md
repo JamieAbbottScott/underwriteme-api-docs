@@ -43,7 +43,7 @@ JSON request and response have following structure:
             }
 
 ### Update Insurer Marketing Preference [PUT]
-+ Request Update Insurer Marketing Preference to true. (application/json)
++ Request Update Customer's Insurer Marketing Preference to true. (application/json)
 
     + Headers
 

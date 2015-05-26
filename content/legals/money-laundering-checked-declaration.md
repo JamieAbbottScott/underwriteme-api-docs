@@ -1,7 +1,7 @@
 ## Money Laundering Checked Declaration [/application/{applicationId}/declaration/money-laundering-checked]
 Operations on Money Laundering Checked Declaration associated with Application.
 
-Activation will not be possible without answering this Declaration.
+Activation will not be possible without giving an answer to this Declaration.
 
 JSON request and response have following structure:
 

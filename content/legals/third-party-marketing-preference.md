@@ -43,7 +43,7 @@ JSON request and response have following structure:
             }
 
 ### Update Third Party Marketing Preference [PUT]
-+ Request Update Third Party Marketing Preference to true. (application/json)
++ Request Update Customer's Third Party Marketing Preference to true. (application/json)
 
     + Headers
 
