@@ -46,3 +46,10 @@ append basket/item
 
 append doctor/overview
 append doctor/existing
+
+append legals/advised-sale-declaration
+append legals/money-laundering-checked-declaration
+append legals/adviser-declaration
+append legals/client-declaration
+append legals/insurer-marketing-preference
+append legals/third-party-marketing-preference

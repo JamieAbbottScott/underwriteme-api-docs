@@ -15,5 +15,5 @@ FORMAT: 1A
   * **Basket** - Choosing Products for Activation.
   * **Doctor** - Filling in Doctor details if Provider Products require that.
   * **Payment** - Filling in Payment details for Provider Products.
-  * **Legals** - Filling in Payment details for Provider Products.
+  * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Retrieving Activation state of selected Products.
