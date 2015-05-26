@@ -47,6 +47,7 @@ append basket/item
 append doctor/overview
 append doctor/existing
 
+append legals/overview
 append legals/advised-sale-declaration
 append legals/money-laundering-checked-declaration
 append legals/adviser-declaration
