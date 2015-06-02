@@ -6155,6 +6155,8 @@ Basket related resources of the **UnderwriteMe API**.
 
 Basket consist of Basket Items. Basket Items correspond to Comparison Items. Same ID value is used. Items can be added to Basket only after Comparison was requested and quotes are retrieved.
 
+Operations on Basket Items always result in returning Basket state after operation has been made.
+
 ## List [/application/{applicationId}/basket]
 Operations on existing Basket associated with Application.
 
@@ -6256,7 +6258,9 @@ Operations on Basket Items associated with Application.
 + Response 200
 
             {
-                "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
+                "items": [
+                    { "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057" }
+                ]
             }
 
 ### Remove All Items from Basket [DELETE]
@@ -6303,9 +6307,7 @@ Operations on Basket Item associated with Application.
 
 + Response 200
 
-            {
-                "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
-            }
+            {}
 
 # Group Doctor
 Doctor related resources of the **UnderwriteMe API**.

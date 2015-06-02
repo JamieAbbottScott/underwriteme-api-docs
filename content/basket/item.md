@@ -31,6 +31,4 @@ Operations on Basket Item associated with Application.
 
 + Response 200
 
-            {
-                "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
-            }
+            {}

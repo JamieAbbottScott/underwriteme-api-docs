@@ -49,7 +49,9 @@ Operations on Basket Items associated with Application.
 + Response 200
 
             {
-                "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
+                "items": [
+                    { "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057" }
+                ]
             }
 
 ### Remove All Items from Basket [DELETE]
