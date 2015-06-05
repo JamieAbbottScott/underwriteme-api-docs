@@ -3,7 +3,7 @@ Operations on existing Comparison associated with Application.
 
 In order to get quote values for the Comparison PUT method has to be used to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
 
-Until all Enquiries are open Comparison contains only estimated decisions and quotes.
+Until all Enquiries are closed Comparison contains only estimated decisions and quotes.
 
 JSON response has following structure:
 
