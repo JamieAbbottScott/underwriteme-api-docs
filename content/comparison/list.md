@@ -30,7 +30,16 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"UNKNOWN",
@@ -65,7 +74,16 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"UNKNOWN",
@@ -113,7 +131,16 @@ JSON response has following structure:
                         "provider":"InsurerY",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"DECLINE",
@@ -144,7 +171,16 @@ JSON response has following structure:
                         "provider":"InsurerZ",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"NON_STANDARD",
@@ -193,7 +229,16 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"UNKNOWN",
@@ -228,7 +273,16 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4083"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"UNKNOWN",
@@ -276,7 +330,16 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4084"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"REFER",
@@ -340,7 +403,16 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4084"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"REFER",
@@ -443,7 +515,16 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4085"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"STANDARD",
@@ -502,7 +583,16 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4085"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"STANDARD",
@@ -560,7 +650,17 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                            "referenceId":"pro-001",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "premiumBasis":"GUARANTEED",
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4086"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"STANDARD",
@@ -649,7 +749,17 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
-                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                            "referenceId":"pro-001",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "premiumBasis":"GUARANTEED",
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4086"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"STANDARD",
@@ -750,7 +860,16 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"acf83c43-2079-4b5e-a6f9-2a9421536cc4",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4088"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"REFER",
@@ -784,7 +903,16 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"acf83c43-2079-4b5e-a6f9-2a9421536cc4",
-                            "type":"TERM"
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4088"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"REFER",
@@ -819,7 +947,17 @@ JSON response has following structure:
                         "provider":"InsurerX",
                         "product":{
                             "id":"7044b1fa-6fb5-46fb-b8fc-d785cac42112",
-                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                            "referenceId":"pro-001",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "premiumBasis":"GUARANTEED",
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4088"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"DECLINE",
@@ -851,7 +989,17 @@ JSON response has following structure:
                         "provider":"PLR",
                         "product":{
                             "id":"7044b1fa-6fb5-46fb-b8fc-d785cac42112",
-                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER"
+                            "referenceId":"pro-001",
+                            "type":"CRITICAL_ILLNESS_WITH_LIFE_COVER",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "premiumBasis":"GUARANTEED",
+                            "livesAssured":[
+                                {
+                                    "refersTo":"4088"
+                                }
+                            ]
                         },
                         "decision":{
                             "type":"DECLINE",

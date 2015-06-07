@@ -4,9 +4,21 @@ Operations on single Comparison Item associated with Application.
 JSON response has following structure:
 
 - ***provider*** `string` *(required)* - Unique Provider ID.
-- ***product*** `object` *(required)* - Subset of Application Product properties created at the beginning of the underwriting process.
+- ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
     - ***id*** `string` *(required)* - Unique Product ID.
+    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
+    - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
+    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
+    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
+    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
+    - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
+        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***decision*** `object` *(required)* - Underwriting Decision.
     - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
     - ***details*** `array` *(required)* - Decision details. It consists of Product Component Decisions per Customer (represented as `object` type).
@@ -137,7 +149,17 @@ Code and description:
                 "provider":"PLR",
                 "product":{
                     "id":"bf8ac9c5-5d8e-4991-8028-8768eef2b94d",
-                    "type":"CRITICAL_ILLNESS"
+                    "referenceId":"pro-001",
+                    "type":"CRITICAL_ILLNESS",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "premiumBasis":"GUARANTEED",
+                    "livesAssured":[
+                        {
+                            "refersTo":"4333"
+                        }
+                    ]
                 },
                 "decision":{
                     "type":"DECLINE",
@@ -170,7 +192,16 @@ Code and description:
                 "provider":"PLR",
                 "product":{
                     "id":"0fc0b51a-82ba-4508-838e-86aea8110a48",
-                    "type":"TERM"
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "refersTo":"4335"
+                        }
+                    ]
                 },
                 "decision":{
                     "type":"REFER",
@@ -254,7 +285,16 @@ Code and description:
                 "provider":"PLR",
                 "product":{
                     "id":"96402071-3646-4c75-b50a-f06586516fed",
-                    "type":"TERM"
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "refersTo":"4336"
+                        }
+                    ]
                 },
                 "decision":{
                     "type":"STANDARD",
@@ -332,7 +372,16 @@ Code and description:
                 "provider":"PLR",
                 "product":{
                     "id":"50418718-acb5-4b4e-a4e5-60cb4320f5d5",
-                    "type":"TERM"
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"LEVEL",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "refersTo":"4338"
+                        }
+                    ]
                 },
                 "decision":{
                     "type":"POSTPONE",
