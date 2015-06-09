@@ -37,6 +37,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -46,7 +48,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -81,6 +85,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -90,7 +96,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -138,6 +146,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -147,7 +157,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -178,6 +190,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -187,7 +201,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -236,6 +252,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -245,7 +263,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -280,6 +300,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4083"
                                 }
                             ]
@@ -289,7 +311,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4083"
+                                        "id":"4083",
+                                        "name":"John",
+                                        "surname":"Doe",
                                     },
                                     "decisions":[
                                         {
@@ -337,6 +361,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4084"
                                 }
                             ]
@@ -346,7 +372,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4084"
+                                        "id":"4084",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -410,6 +438,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4084"
                                 }
                             ]
@@ -419,7 +449,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4084"
+                                        "id":"4084",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -522,6 +554,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4085"
                                 }
                             ]
@@ -531,7 +565,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4085"
+                                        "id":"4085",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -590,6 +626,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4085"
                                 }
                             ]
@@ -599,7 +637,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4085"
+                                        "id":"4085",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -658,6 +698,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4086"
                                 }
                             ]
@@ -667,7 +709,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4086"
+                                        "id":"4086",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -757,6 +801,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe"
                                     "refersTo":"4086"
                                 }
                             ]
@@ -766,7 +812,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4086"
+                                        "id":"4086",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -867,6 +915,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4088"
                                 }
                             ]
@@ -876,7 +926,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4088"
+                                        "id":"4088",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -910,6 +962,8 @@ JSON response has following structure:
                             "coverAmount":110000,
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4088"
                                 }
                             ]
@@ -919,7 +973,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4088"
+                                        "id":"4088",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -955,6 +1011,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4088"
                                 }
                             ]
@@ -964,7 +1022,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4088"
+                                        "id":"4088",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
@@ -997,6 +1057,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "livesAssured":[
                                 {
+                                    "name":"John",
+                                    "surname":"Doe",
                                     "refersTo":"4088"
                                 }
                             ]
@@ -1006,7 +1068,9 @@ JSON response has following structure:
                             "details":[
                                 {
                                     "customer":{
-                                        "id":"4088"
+                                        "id":"4088",
+                                        "name":"John",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {

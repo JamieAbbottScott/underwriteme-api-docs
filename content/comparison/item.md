@@ -16,6 +16,8 @@ JSON response has following structure:
     - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
     - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - ***name*** `string` *(required)* - Customer name.
+        - ***surname*** `string` *(required)* - Customer surname.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
@@ -24,6 +26,8 @@ JSON response has following structure:
     - ***details*** `array` *(required)* - Decision details. It consists of Product Component Decisions per Customer (represented as `object` type).
         - ***customer*** `object` *(required)* - Subset of Application Customer properties created at the beginning of the underwriting process.
             - ***id*** `string` *(required)* - Unique Customer ID.
+            - ***name*** `string` *(required)* - Customer name.
+            - ***surname*** `string` *(required)* - Customer surname.
         - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
@@ -91,14 +95,27 @@ Code and description:
                 "provider":"PLR",
                 "product":{
                     "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
-                    "type":"TERM"
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336"
+                        }
+                    ]
                 },
                 "decision":{
                     "type":"UNKNOWN",
                     "details":[
                         {
                             "customer":{
-                                "id":"4330"
+                                "id":"4330",
+                                "name":"John",
+                                "surname":"Doe"
                             },
                             "decisions":[
                                 {
@@ -157,6 +174,8 @@ Code and description:
                     "premiumBasis":"GUARANTEED",
                     "livesAssured":[
                         {
+                            "name":"John",
+                            "surname":"Doe",
                             "refersTo":"4333"
                         }
                     ]
@@ -166,7 +185,9 @@ Code and description:
                     "details":[
                         {
                             "customer":{
-                                "id":"4333"
+                                "id":"4333",
+                                "name":"John",
+                                "surname":"Doe"
                             },
                             "decisions":[
                                 {
@@ -199,6 +220,8 @@ Code and description:
                     "coverAmount":110000,
                     "livesAssured":[
                         {
+                            "name":"John",
+                            "surname":"Doe",
                             "refersTo":"4335"
                         }
                     ]
@@ -208,7 +231,9 @@ Code and description:
                     "details":[
                         {
                             "customer":{
-                                "id":"4335"
+                                "id":"4335",
+                                "name":"John",
+                                "surname":"Doe"
                             },
                             "decisions":[
                                 {
@@ -292,6 +317,8 @@ Code and description:
                     "coverAmount":110000,
                     "livesAssured":[
                         {
+                            "name":"John",
+                            "surname":"Doe",
                             "refersTo":"4336"
                         }
                     ]
@@ -301,7 +328,9 @@ Code and description:
                     "details":[
                         {
                             "customer":{
-                                "id":"4336"
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
                             },
                             "decisions":[
                                 {
@@ -379,6 +408,8 @@ Code and description:
                     "coverAmount":110000,
                     "livesAssured":[
                         {
+                            "name":"John",
+                            "surname":"Doe",
                             "refersTo":"4338"
                         }
                     ]
@@ -388,7 +419,9 @@ Code and description:
                     "details":[
                         {
                             "customer":{
-                                "id":"4338"
+                                "id":"4338",
+                                "name":"John",
+                                "surname":"Doe"
                             },
                             "decisions":[
                                 {
