@@ -50,8 +50,53 @@ Operations on Basket Items associated with Application.
 
             {
                 "items": [
-                    { "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057" }
-                ]
+                    {
+                        "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "provider":"PLR",
+                        "product":{
+                            "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Doe",
+                                    "refersTo":"4336"
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"SUCCEEDED",
+                            "date":"2015-01-01T00:00:00.000",
+                            "premium":{
+                                "from":9.84,
+                                "to":9.84
+                            },
+                            "sumAssured":120000,
+                            "commission":{
+                                "initial":30.61,
+                                "renewal":8.17,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        }
+                    }
+                ],
+                "total":{
+                    "premium":{
+                        "from":9.84,
+                        "to":9.84
+                    },
+                    "commission":{
+                        "initial":30.61,
+                        "renewal":8.17
+                    }
+                }
             }
 
 ### Remove All Items from Basket [DELETE]
