@@ -802,7 +802,7 @@ JSON response has following structure:
                             "livesAssured":[
                                 {
                                     "name":"John",
-                                    "surname":"Doe"
+                                    "surname":"Doe",
                                     "refersTo":"4086"
                                 }
                             ]

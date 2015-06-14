@@ -89,7 +89,7 @@ Operations on existing Basket associated with Application.
             {
                 "items":[
                     {
-                        "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
                         "product":{
                             "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
@@ -125,7 +125,7 @@ Operations on existing Basket associated with Application.
                         }
                     },
                     {
-                        "id": "insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                         "provider":"InsurerX",
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
@@ -138,7 +138,7 @@ Operations on existing Basket associated with Application.
                             "livesAssured":[
                                 {
                                     "name":"John",
-                                    "surname":"Doe"
+                                    "surname":"Doe",
                                     "refersTo":"4336"
                                 }
                             ]
