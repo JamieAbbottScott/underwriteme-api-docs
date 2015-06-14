@@ -66,7 +66,7 @@ JSON response has following structure:
                         },
                         "rating":{
                             "value":5,
-                            "description":"<strong>Recommended</strong>"
+                            "description":"Recommended"
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
