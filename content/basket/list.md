@@ -169,7 +169,7 @@ Operations on existing Basket associated with Application.
                     },
                     "commission":{
                         "initial":151.12,
-                        "renewal":14.08,
+                        "renewal":14.08
                     }
                 }
             }
