@@ -66,7 +66,7 @@ JSON response has following structure:
                         },
                         "rating":{
                             "value":5,
-                            "description":"Recommended"
+                            "description":"<strong>Recommended</strong>"
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
@@ -313,7 +313,7 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"4083",
                                         "name":"John",
-                                        "surname":"Doe",
+                                        "surname":"Doe"
                                     },
                                     "decisions":[
                                         {
