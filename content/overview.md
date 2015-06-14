@@ -11,9 +11,9 @@ FORMAT: 1A
   * **Enquiry** - Filling in Customer Enquiry.
   * **Question** - Retrieving information about Enquiry Question like its Definition, available Option List and partial Option Lookup.
   * **Post-Declaration** - Confirming Application Post-Declaration in order to finish filling in Customer Enquiries.
-  * **Comparison** - Retrieving Decisions and Quotes for Products.
+  * **Comparison** - Requesting and retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
   * **Doctor** - Filling in Doctor details if Provider Products require that.
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
-  * **Activation** - Retrieving Activation state of selected Products.
+  * **Activation** - Requesting and retrieving Activation state of selected Products.
