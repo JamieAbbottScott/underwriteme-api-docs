@@ -15,7 +15,18 @@ Operations on existing Basket associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "total":{
+                    "premium":{
+                        "from":0.0,
+                        "to":0.0
+                    },
+                    "commission":{
+                        "initial":0.0,
+                        "renewal":0.0
+                    }
+                }
+            }
 
 + Request Retrieve Basket with one Item. (application/json)
 
@@ -27,9 +38,9 @@ Operations on existing Basket associated with Application.
 + Response 200
 
             {
-                "items": [
+                "items":[
                     {
-                        "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
                         "product":{
                             "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
