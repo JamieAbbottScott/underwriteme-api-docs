@@ -108,15 +108,4 @@ Operations on Basket Items associated with Application.
 
 + Response 200
 
-            {
-                "total":{
-                    "premium":{
-                        "from":0.0,
-                        "to":0.0
-                    },
-                    "commission":{
-                        "initial":0.0,
-                        "renewal":0.0
-                    }
-                }
-            }
+            {}
