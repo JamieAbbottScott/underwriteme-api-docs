@@ -74,7 +74,8 @@ Operations on existing Basket associated with Application.
                         "initial":30.61,
                         "renewal":8.17
                     }
-                }
+                },
+                "paymentBasis":"MONTHLY"
             }
 
 + Request Retrieve Basket with two Items. (application/json)
@@ -171,5 +172,6 @@ Operations on existing Basket associated with Application.
                         "initial":151.12,
                         "renewal":14.08
                     }
-                }
+                },
+                "paymentBasis":"MONTHLY"
             }

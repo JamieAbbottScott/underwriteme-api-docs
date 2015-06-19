@@ -96,7 +96,8 @@ Operations on Basket Items associated with Application.
                         "initial":30.61,
                         "renewal":8.17
                     }
-                }
+                },
+                "paymentBasis":"MONTHLY"
             }
 
 ### Remove All Items from Basket [DELETE]
