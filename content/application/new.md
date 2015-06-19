@@ -100,7 +100,8 @@ Creating new Application based on sent Customers and Products JSON data.
                             { "refersTo": "1001" }
                         ]
                     }
-                ]
+                ],
+                "paymentBasis": "MONTHLY"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -298,5 +299,6 @@ Creating new Application based on sent Customers and Products JSON data.
                             }
                         ]
                     }
-                ]
+                ],
+                "paymentBasis": "MONTHLY"
             }
