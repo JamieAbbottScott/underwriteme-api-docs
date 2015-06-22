@@ -29,6 +29,9 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - ***commissionSacrifice `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
+        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
     - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
@@ -63,6 +66,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
                         ]
@@ -96,6 +103,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             { "refersTo": "1001" }
                         ]
@@ -132,6 +143,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
                         ]
@@ -180,6 +195,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 0,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
                         ]
@@ -238,6 +257,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 0,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             {
                                 "refersTo": "cus-001",
@@ -289,6 +312,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         "coverBasis":"LEVEL",
                         "coverPeriod":20,
                         "coverAmount":100000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured":[
                             {
                                 "refersTo":"6261",
