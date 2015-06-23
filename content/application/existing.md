@@ -37,6 +37,10 @@ Operations on existing Application identified by unique ID.
                         "coverBasis": "LEVEL",
                         "coverPeriod": 20,
                         "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
                         "livesAssured": [
                             { "refersTo": "1001" }
                         ]
