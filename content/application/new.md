@@ -14,10 +14,10 @@ Creating new Application based on sent Customers and Products JSON data.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
         - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - ***line1*** `string` *(required)* - Address first line.
+            - ***line1*** `string` *(optional)* - Address first line.
             - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(required)* - Address town.
-            - ***county*** `string` *(required)* - Address county.
+            - ***town*** `string` *(optional)* - Address town.
+            - ***county*** `string` *(optional)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.

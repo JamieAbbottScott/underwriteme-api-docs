@@ -11,10 +11,10 @@ JSON request and response have following structure:
     - ***contactDetails*** `object` *(required)* - Surgery contact details.
         - ***telephoneNumber*** `string` *(required)* - Surgery telephone number.
         - ***address*** `object` *(required)* - Surgery address details.
-            - ***line1*** `string` *(required)* - Address first line.
+            - ***line1*** `string` *(optional)* - Address first line.
             - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(required)* - Address town.
-            - ***county*** `string` *(required)* - Address county.
+            - ***town*** `string` *(optional)* - Address town.
+            - ***county*** `string` *(optional)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
 
 + Parameters
