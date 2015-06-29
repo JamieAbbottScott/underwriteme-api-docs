@@ -35,6 +35,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Create new Application [POST]
@@ -245,7 +246,7 @@ Creating new Application based on sent Customers and Products JSON data.
                         "surname": "Doe",
                         "title": "MRS",
                         "gender": "FEMALE",
-                        "dateOfBirth": "1980-01-01",
+                        "dateOfBirth": "1980-01-02",
                         "smoker": true,
                         "email": "jane.doe@domain.com"
                     }
@@ -264,10 +265,12 @@ Creating new Application based on sent Customers and Products JSON data.
                         "livesAssured": [
                             {
                                 "refersTo": "cus-001",
-                                "waiverOfPremium": true
+                                "waiverOfPremium": true,
+                                "determinesCeaseAge": true
                             },
                             {
-                                "refersTo": "cus-002"
+                                "refersTo": "cus-002",
+                                "determinesCeaseAge": false
                             }
                         ]
                     }
@@ -319,10 +322,12 @@ Creating new Application based on sent Customers and Products JSON data.
                         "livesAssured":[
                             {
                                 "refersTo":"6261",
-                                "waiverOfPremium":true
+                                "waiverOfPremium":true,
+                                "determinesCeaseAge": true
                             },
                             {
-                                "refersTo":"6262"
+                                "refersTo":"6262",
+                                "determinesCeaseAge": false
                             }
                         ]
                     }
