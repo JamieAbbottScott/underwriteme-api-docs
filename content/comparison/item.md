@@ -20,6 +20,7 @@ JSON response has following structure:
         - ***surname*** `string` *(required)* - Customer surname.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.       
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***decision*** `object` *(required)* - Underwriting Decision.
     - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
