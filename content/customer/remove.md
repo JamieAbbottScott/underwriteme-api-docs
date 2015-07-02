@@ -1,4 +1,4 @@
-## Read [/application/{applicationId}/customer/{customerId}]
+## Delete [/application/{applicationId}/customer/{customerId}]
 Operations on existing Customer identified by unique ID associated with Application.
 
 + Parameters
@@ -6,7 +6,7 @@ Operations on existing Customer identified by unique ID associated with Applicat
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
-### Retrieve existing Customer for the Application [GET]
+### Delete existing Customer for the Application [GET]
 + Request Retrieve existing Customer. (application/json)
 
     + Headers
