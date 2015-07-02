@@ -32,5 +32,3 @@ Deletes Customer associated with Application.
 + Response 200
 
             {}
-
-**Warning:** This action **permanently** removes Customer from the database.
