@@ -59,3 +59,4 @@ append customer/overview
 append customer/create
 append customer/read
 append customer/list
+append customer/update
