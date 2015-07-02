@@ -1,4 +1,4 @@
-## Create [/application/{existing-application-id}/customer]
+## Create [/application/{existingApplicationId}/customer]
 Creating new Customer for Application based on JSON data.
 
 - ***customer*** `object` *(required)* - Customer (represented as `object`) for the Application.
