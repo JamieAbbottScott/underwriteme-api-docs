@@ -1,5 +1,5 @@
-## Read [/application/{applicationId}/{customer}/{customerId}]
-Operations on existing Customer identified by unique ID.
+## Read [/application/{applicationId}/customer/{customerId}]
+Operations on existing Customer identified by unique ID associated with Application.
 
 + Parameters
 
