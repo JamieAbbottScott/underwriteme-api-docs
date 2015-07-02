@@ -54,3 +54,6 @@ append legals/adviser-declaration
 append legals/client-declaration
 append legals/insurer-marketing-preference
 append legals/third-party-marketing-preference
+
+append customer/overview.md
+append customer/create.md

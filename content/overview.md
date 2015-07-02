@@ -17,3 +17,4 @@ FORMAT: 1A
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Requesting and retrieving Activation state of selected Products.
+  * **Customer** - Creating Customer and associates him with Application. Provides CRUD operations
