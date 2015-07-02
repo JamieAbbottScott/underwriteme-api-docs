@@ -1,4 +1,4 @@
-## Read [/application/{applicationId}/customer]
+## List [/application/{applicationId}/customer]
 Operations on existing Customers associated with Application.
 
 + Parameters
