@@ -57,7 +57,7 @@ append legals/third-party-marketing-preference
 
 append customer/overview
 append customer/create
+append customer/read2
 append customer/read
 append customer/list
 append customer/update
-append customer/read2
