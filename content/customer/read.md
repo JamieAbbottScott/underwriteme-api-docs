@@ -1,12 +1,12 @@
 ## Existing [/application/{applicationId}/{customer}/{customerId}]
-Operations on existing Application identified by unique ID.
+Operations on existing Customer identified by unique ID.
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
-### Retrieve existing Application [GET]
+### Retrieve existing Customer for the Application [GET]
 + Request Retrieve existing Application. (application/json)
 
     + Headers
