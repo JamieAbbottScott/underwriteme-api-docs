@@ -1,5 +1,5 @@
 ## List [/application/{applicationId}/customer]
-Operations on existing Customers associated with Application.
+Operations on existing Customers associated with Application identified by unique ID .
 
 + Parameters
 
