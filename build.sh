@@ -61,3 +61,10 @@ append customer/read
 append customer/list
 append customer/update
 append customer/remove
+
+append product/overview
+append product/create
+append product/read
+append product/list
+append product/update
+append product/delete
