@@ -7703,7 +7703,363 @@ Creating new Product based on sent JSON data.
                     "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
                 }
             }
+## Read [/application/{applicationId}/product/{productId}]
+Operations on existing Product identified by unique ID associated with Application.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
+
+### Retrieve existing Product for the Application [GET]
++ Request Retrieve existing Product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+           {
+               "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+               "referenceId": "pro-001",
+               "type": "TERM",
+               "coverBasis": "LEVEL",
+               "coverPeriod": 20,
+               "coverAmount": 120000,
+               "commissionSacrifice": {
+                   "initial": 10,
+                   "renewal": 1.0
+               },
+               "livesAssured": [
+                   { "refersTo": "1001" }
+               ]
+           }
+
++ Request Not existing Product for the Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+## List [/application/{applicationId}/product]
+Operations on existing Products associated with Application identified by unique ID .
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve existing Products for the Application [GET]
++ Request Retrieve existing Product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            "products": [
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-001",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 20,
+                    "coverAmount": 120000,
+                    "commissionSacrifice": {
+                        "initial": 10,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1001" }
+                    ]
+                },
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-002",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 30,
+                    "coverAmount": 130000,
+                    "commissionSacrifice": {
+                        "initial": 0,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1002" }
+                    ]
+                },
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-003",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 40,
+                    "coverAmount": 140000,
+                    "commissionSacrifice": {
+                        "initial": 0,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1003" }
+                    ]
+                }
+            ]
+
++ Request Not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
 
 
+## List [/application/{applicationId}/product/customer/{customerId}]
+Operations on existing Products associated with Application identified by unique ID .
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
+
+### Retrieve existing Products for the Application [GET]
++ Request Retrieve existing Product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            "products": [
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-001",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 20,
+                    "coverAmount": 120000,
+                    "commissionSacrifice": {
+                        "initial": 10,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1001" }
+                    ]
+                },
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-002",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 30,
+                    "coverAmount": 130000,
+                    "commissionSacrifice": {
+                        "initial": 0,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1002" }
+                    ]
+                }
+            ]
+
++ Request Not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+## Update [/application/{existingApplicationId}/product/{productId}/customer/{customerId}]
+Updating existing Product for Application based on JSON data identified by unique ID.
+
+- ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
+    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
+    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
+    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
+        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
+    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
+        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+
+### Update existing Product [PUT]
++ Request Valid Product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "commissionSacrifice": {
+                    "initial": 10,
+                    "renewal": 1.0
+                },
+                "livesAssured": [
+                    { "refersTo": "existing-customer-id" }
+                ]
+            }
+
++ Response 201 (application/json)
+
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "commissionSacrifice": {
+                    "initial": 10,
+                    "renewal": 1.0
+                },
+                "livesAssured": [
+                    { "refersTo": "1001" }
+                ]
+            }
+
++ Request Product type must be valid. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "term",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "livesAssured": [
+                    { "refersTo": "existing-customer-id" }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "referenceId": "pro-001",
+                "name": {
+                    "errorMessage": "Product type can only be set to the following values: [TERM, CRITICAL_ILLNESS, CRITICAL_ILLNESS_WITH_LIFE_COVER, INCOME_PROTECTION, FAMILY_INCOME_BENEFIT]"
+                }
+            }
+
++ Request Product coverBasis must be valid. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "level",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "livesAssured": [
+                    { "refersTo": "existing-customer-id" }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "referenceId": "pro-001",
+                "name": {
+                    "errorMessage": "Product cover basis can only be set to the following values: [DECREASING, LEVEL, INCREASING]"
+                }
+            }
+
++ Request Product premiumBasis must be valid. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "premiumBasis": "rev",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "livesAssured": [
+                    { "refersTo": "existing-customer-id" }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "referenceId": "pro-001",
+                "name": {
+                    "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
+                }
+            }
+
+## Delete [/application/{applicationId}/product/{productId}]
+Operations on Product associated with Application.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + productId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Product.
+
+### Remove Product from Application [DELETE]
++ Request Removing Product from not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Removing not existing Product from Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Removing valid Product from Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {}
 
 
