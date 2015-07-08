@@ -1,5 +1,5 @@
-## Delete [/application/{applicationId}/product/{productId}]
-Operations on Product associated with Application.
+## Remove Product [/application/{applicationId}/product/{productId}]
+Operations on Product associated with Application. Deletes Product even if Customer is associated with it.
 
 + Parameters
 
