@@ -1,5 +1,6 @@
 ## Delete [/application/{applicationId}/product/{existingProductId}]
 Operations on Product associated with Application.
+**Product will be deleted even if Customer is associated with it.**
 
 + Parameters
 
