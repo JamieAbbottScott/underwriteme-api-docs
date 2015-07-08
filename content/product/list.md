@@ -1,4 +1,4 @@
-## List [/application/{applicationId}/product]
+## List All [/application/{applicationId}/product]
 Operations on existing Products associated with Application identified by unique ID .
 
 + Parameters
@@ -71,7 +71,7 @@ Operations on existing Products associated with Application identified by unique
 + Response 404
 
 
-## List [/application/{applicationId}/product/customer/{customerId}]
+## List For Customer [/application/{applicationId}/product/customer/{customerId}]
 Operations on existing Products associated with Application identified by unique ID .
 
 + Parameters
