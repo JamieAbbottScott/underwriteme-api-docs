@@ -72,7 +72,7 @@ Operations on existing Products associated with Application identified by unique
 
 
 ## List For Customer [/application/{applicationId}/product/customer/{customerId}]
-Operations on existing Products associated with Application identified by unique ID .
+Operations on existing Products and Customer associated with Application identified by unique ID .
 
 + Parameters
 
@@ -80,7 +80,7 @@ Operations on existing Products associated with Application identified by unique
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
 ### Retrieve existing Products for the Application [GET]
-+ Request Retrieve existing Product. (application/json)
++ Request Retrieve existing Product for Customer. (application/json)
 
     + Headers
 
