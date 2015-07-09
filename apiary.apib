@@ -6072,6 +6072,9 @@ JSON response has following structure:
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
+        - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
+                - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
+                - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -6158,7 +6161,11 @@ Code and description:
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":9.84,
-                        "to":9.84
+                        "to":9.84,
+                        "unloaded":{
+                            "from":7.84,
+                            "to":7.84,
+                        }
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -6302,7 +6309,11 @@ Code and description:
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":26.00,
-                        "to":27.00
+                        "to":27.00,
+                        "unloaded":{
+                            "from":7.00,
+                            "to":6.00,
+                        }
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -6393,7 +6404,11 @@ Code and description:
                     "date":"2015-01-01T00:00:00.000",
                     "premium":{
                         "from":10.26,
-                        "to":10.26
+                        "to":10.26,
+                        "unloaded":{
+                            "from":8.05,
+                            "to":8.05,
+                        }
                     },
                     "sumAssured":120000,
                     "commission":{
