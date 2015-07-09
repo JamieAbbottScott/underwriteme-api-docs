@@ -79,7 +79,7 @@ Operations on existing Products and Customer associated with Application identif
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
-### Retrieve existing Products for the Application [GET]
+### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
 
     + Headers
