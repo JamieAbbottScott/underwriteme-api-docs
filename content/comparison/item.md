@@ -47,8 +47,8 @@ JSON response has following structure:
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
-                - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
-                - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
+            - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
+            - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
