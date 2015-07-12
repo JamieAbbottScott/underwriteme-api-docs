@@ -1,8 +1,6 @@
 ## Update [/application/{existingApplicationId}]
 Updating Payment Basis for existing Application based on JSON data identified by unique ID.
 
-    + ***paymentBasis*** `string` *(required)* - Payment basis. Allowed values: `MONTHLY`, `ANNUAL`.
-
 + Parameters
 
     + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
