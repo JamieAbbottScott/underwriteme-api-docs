@@ -20,6 +20,7 @@ append authentication/authenticate
 append application/overview
 append application/new
 append application/existing
+append application/update
 
 append pre-declaration/overview
 append pre-declaration/existing
