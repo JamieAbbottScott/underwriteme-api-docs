@@ -22,6 +22,20 @@ append application/new
 append application/existing
 append application/update
 
+append customer/overview
+append customer/create
+append customer/read
+append customer/list
+append customer/update
+append customer/remove
+
+append product/overview
+append product/create
+append product/read
+append product/list
+append product/update
+append product/delete
+
 append pre-declaration/overview
 append pre-declaration/existing
 
@@ -56,16 +70,3 @@ append legals/client-declaration
 append legals/insurer-marketing-preference
 append legals/third-party-marketing-preference
 
-append customer/overview
-append customer/create
-append customer/read
-append customer/list
-append customer/update
-append customer/remove
-
-append product/overview
-append product/create
-append product/read
-append product/list
-append product/update
-append product/delete
