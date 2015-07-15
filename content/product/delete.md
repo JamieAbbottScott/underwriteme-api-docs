@@ -32,5 +32,18 @@ Operations on Product associated with Application.
 
 + Response 200
 
-            {}
-
+             {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "commissionSacrifice": {
+                    "initial": 10,
+                    "renewal": 1.0
+                },
+                "livesAssured": [
+                    { "refersTo": "1001" }
+                ]
+            }

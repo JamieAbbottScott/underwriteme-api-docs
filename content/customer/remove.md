@@ -31,5 +31,16 @@ Operations on Customer associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "id": "1001",
+                "referenceId": "cus-001",
+                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                "name": "John",
+                "surname": "Doe",
+                "title": "MR",
+                "gender": "MALE",
+                "dateOfBirth": "1980-01-01",
+                "smoker": false,
+                "email": "john.doe@domain.com"
+            }
 

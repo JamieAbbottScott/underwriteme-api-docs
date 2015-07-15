@@ -664,32 +664,30 @@ Operations on existing Customers associated with Application identified by uniqu
 
 + Response 200
 
-            "customers": [
-                {
-                    "id": "1001",
-                    "referenceId": "cus-001",
-                    "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
-                    "name": "John",
-                    "surname": "Doe",
-                    "title": "MR",
-                    "gender": "MALE",
-                    "dateOfBirth": "1980-01-01",
-                    "smoker": false,
-                    "email": "john.doe@domain.com"
-                },
-                {
-                    "id": "1002",
-                    "referenceId": "cus-002",
-                    "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
-                    "name": "Merry",
-                    "surname": "Jones",
-                    "title": "DR",
-                    "gender": "FEMALE",
-                    "dateOfBirth": "1970-01-01",
-                    "smoker": false,
-                    "email": "merry.jones@domain.com"
-                }
-            ]
+            {
+                "id": "1001",
+                "referenceId": "cus-001",
+                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                "name": "John",
+                "surname": "Doe",
+                "title": "MR",
+                "gender": "MALE",
+                "dateOfBirth": "1980-01-01",
+                "smoker": false,
+                "email": "john.doe@domain.com"
+            },
+            {
+                "id": "1002",
+                "referenceId": "cus-002",
+                "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
+                "name": "Merry",
+                "surname": "Jones",
+                "title": "DR",
+                "gender": "FEMALE",
+                "dateOfBirth": "1970-01-01",
+                "smoker": false,
+                "email": "merry.jones@domain.com"
+            }
 
 + Request Not existing Application. (application/json)
 
@@ -817,12 +815,23 @@ Operations on Customer associated with Application.
 
 + Response 200
 
-            {}
+            {
+                "id": "1001",
+                "referenceId": "cus-001",
+                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                "name": "John",
+                "surname": "Doe",
+                "title": "MR",
+                "gender": "MALE",
+                "dateOfBirth": "1980-01-01",
+                "smoker": false,
+                "email": "john.doe@domain.com"
+            }
 
 
 # Group Product
 Product related resources of the **UnderwriteMe API**.
-## New [/application/{existingApplicationId}/product/customer/{existingCustomerId}]
+## New [/application/{existingApplicationId}/product]
 Creating new Product based on sent JSON data.
 
 - ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
@@ -1087,13 +1096,13 @@ Operations on existing Products associated with Application identified by unique
 + Response 404
 
 
-## List For Customer [/application/{applicationId}/product/customer/{customerId}]
+## List For Customer [/application/{applicationId}/product?lifeAssured={lifeAssuredId}]
 Operations on existing Products and Customer associated with Application identified by unique ID .
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
+    + lifeAssuredId  (required, string, `1502181407123020689`) ... Unique ID of existing LifeAssured customer.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
@@ -1104,38 +1113,36 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 200
 
-            "products": [
-                {
-                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                    "referenceId": "pro-001",
-                    "type": "TERM",
-                    "coverBasis": "LEVEL",
-                    "coverPeriod": 20,
-                    "coverAmount": 120000,
-                    "commissionSacrifice": {
-                        "initial": 10,
-                        "renewal": 1.0
-                    },
-                    "livesAssured": [
-                        { "refersTo": "1001" }
-                    ]
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "commissionSacrifice": {
+                    "initial": 10,
+                    "renewal": 1.0
                 },
-                {
-                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                    "referenceId": "pro-002",
-                    "type": "TERM",
-                    "coverBasis": "LEVEL",
-                    "coverPeriod": 30,
-                    "coverAmount": 130000,
-                    "commissionSacrifice": {
-                        "initial": 0,
-                        "renewal": 1.0
-                    },
-                    "livesAssured": [
-                        { "refersTo": "1002" }
-                    ]
-                }
-            ]
+                "livesAssured": [
+                    { "refersTo": "1001" }
+                ]
+            },
+            {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-002",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 30,
+                "coverAmount": 130000,
+                "commissionSacrifice": {
+                    "initial": 0,
+                    "renewal": 1.0
+                },
+                "livesAssured": [
+                    { "refersTo": "1002" }
+                ]
+            }
 
 + Request Not existing Application. (application/json)
 
@@ -1331,8 +1338,21 @@ Operations on Product associated with Application.
 
 + Response 200
 
-            {}
-
+             {
+                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                "referenceId": "pro-001",
+                "type": "TERM",
+                "coverBasis": "LEVEL",
+                "coverPeriod": 20,
+                "coverAmount": 120000,
+                "commissionSacrifice": {
+                    "initial": 10,
+                    "renewal": 1.0
+                },
+                "livesAssured": [
+                    { "refersTo": "1001" }
+                ]
+            }
 
 # Group Pre-Declaration
 Pre-Declaration related resources of the **UnderwriteMe API**.

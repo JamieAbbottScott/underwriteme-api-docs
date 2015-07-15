@@ -1,4 +1,4 @@
-## New [/application/{existingApplicationId}/product/customer/{existingCustomerId}]
+## New [/application/{existingApplicationId}/product]
 Creating new Product based on sent JSON data.
 
 - ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
