@@ -14,7 +14,7 @@ Creating new Product based on sent JSON data.
     - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
         - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
         - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
-    - ***livesAssured*** `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is. ***If not specified*** - product will be associated with Customer using {existingCustomerId}
+    - ***livesAssured*** `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
         - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
