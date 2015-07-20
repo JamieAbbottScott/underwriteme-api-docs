@@ -6,7 +6,7 @@ Remove operations on Customer identified by unique ID associated with Applicatio
     + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
-### Remove Customer from Application [DELETE]
+### Remove existing Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
 
     + Headers
