@@ -1,4 +1,4 @@
-## List For Customer [/application/{existingApplicationId}/product?lifeAssured={customerId}]
+## List For Customer [/application/{existingApplicationId}/product/{lifeAssured}{?customerId}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
