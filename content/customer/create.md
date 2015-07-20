@@ -1,6 +1,5 @@
 ## Create and List [/application/{existingApplicationId}/customer]
-Creating new Customer for Application based on JSON data.
-Lists Customers for Application.
+Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
 - ***name*** `string` *(required)* - Customer name.
@@ -20,7 +19,7 @@ Lists Customers for Application.
         - ***county*** `string` *(optional)* - Address county.
         - ***postcode*** `string` *(required)* - Address postcode.
 
-### Create new Customer [POST]
+### Create new Customer for Application [POST]
 + Request Valid Customer. (application/json)
 
     + Headers
