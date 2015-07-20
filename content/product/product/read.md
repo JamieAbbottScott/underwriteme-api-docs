@@ -1,5 +1,5 @@
 ## Read [/application/{applicationId}/product/{productId}]
-Operations on existing Product identified by unique ID associated with Application.
+Read operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 

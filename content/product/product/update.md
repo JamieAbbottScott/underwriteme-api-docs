@@ -1,5 +1,5 @@
 ## Update [/application/{existingApplicationId}/product/{productId}]
-Updating existing Product for Application based on JSON data identified by unique ID.
+Remove operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
 - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.

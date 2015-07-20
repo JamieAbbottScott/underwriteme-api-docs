@@ -610,8 +610,7 @@ Creating new Customer for Application based on JSON data.
                 }
             }
 ## Read [/application/{applicationId}/customer/{customerId}]
-Operations on existing Customer identified by unique ID associated with Application.
-//TODO: create subfolder and create structure
+Read operations on existing Customer identified by unique ID associated with Application.
 
 + Parameters
 
@@ -701,8 +700,7 @@ Operations on existing Customers associated with Application identified by uniqu
 + Response 404
 
 ## Update [/application/{existingApplicationId}/customer/{customerId}]
-Updating existing Customer for Application based on JSON data identified by unique ID.
-//TODO: create subfolder and create structure
+Update operations on Customer identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
 - ***name*** `string` *(required)* - Customer name.
@@ -786,13 +784,12 @@ Updating existing Customer for Application based on JSON data identified by uniq
             }
 
 ## Delete [/application/{applicationId}/customer/{customerId}]
-Operations on Customer associated with Application.
-//TODO: create subfolder and create structure
+Remove operations on Customer identified by unique ID associated with Application.
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
+    + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
@@ -987,7 +984,7 @@ Creating new Product based on sent JSON data.
                 }
             }
 ## Read [/application/{applicationId}/product/{productId}]
-Operations on existing Product identified by unique ID associated with Application.
+Read operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
@@ -1027,85 +1024,13 @@ Operations on existing Product identified by unique ID associated with Applicati
 
 + Response 404
 
-## List All [/application/{applicationId}/product]
-Operations on existing Products associated with Application identified by unique ID .
-
-+ Parameters
-
-    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-
-### Retrieve existing Products for the Application [GET]
-+ Request Retrieve existing Product. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 200
-
-            [
-                {
-                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                    "referenceId": "pro-001",
-                    "type": "TERM",
-                    "coverBasis": "LEVEL",
-                    "coverPeriod": 20,
-                    "coverAmount": 120000,
-                    "commissionSacrifice": {
-                        "initial": 10,
-                        "renewal": 1.0
-                    },
-                    "livesAssured": [
-                        { "refersTo": "1001" }
-                    ]
-                },
-                {
-                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                    "referenceId": "pro-002",
-                    "type": "TERM",
-                    "coverBasis": "LEVEL",
-                    "coverPeriod": 30,
-                    "coverAmount": 130000,
-                    "commissionSacrifice": {
-                        "initial": 0,
-                        "renewal": 1.0
-                    },
-                    "livesAssured": [
-                        { "refersTo": "1002" }
-                    ]
-                },
-                {
-                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                    "referenceId": "pro-003",
-                    "type": "TERM",
-                    "coverBasis": "LEVEL",
-                    "coverPeriod": 40,
-                    "coverAmount": 140000,
-                    "commissionSacrifice": {
-                        "initial": 0,
-                        "renewal": 1.0
-                    },
-                    "livesAssured": [
-                        { "refersTo": "1003" }
-                    ]
-                }
-            ]
-
-+ Request Not existing Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 404
-
 ## List For Customer [/application/{applicationId}/product?lifeAssured={customerId}]
-Operations on existing Products and Customer associated with Application identified by unique ID .
+Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Product Life Assured.
+    + customerId  (required, string, `1502181407123020689`) ... Optional unique ID of existing Product Life Assured.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
@@ -1158,7 +1083,7 @@ Operations on existing Products and Customer associated with Application identif
 + Response 404
 
 ## Update [/application/{existingApplicationId}/product/{productId}]
-Updating existing Product for Application based on JSON data identified by unique ID.
+Remove operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
 - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
@@ -1309,7 +1234,7 @@ Updating existing Product for Application based on JSON data identified by uniqu
             }
 
 ## Delete [/application/{applicationId}/product/{productId}]
-Operations on Product associated with Application.
+Delete operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 

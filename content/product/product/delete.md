@@ -1,5 +1,5 @@
 ## Delete [/application/{applicationId}/product/{productId}]
-Operations on Product associated with Application.
+Delete operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 

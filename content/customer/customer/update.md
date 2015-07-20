@@ -1,6 +1,5 @@
 ## Update [/application/{existingApplicationId}/customer/{customerId}]
-Updating existing Customer for Application based on JSON data identified by unique ID.
-//TODO: create subfolder and create structure
+Update operations on Customer identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
 - ***name*** `string` *(required)* - Customer name.
