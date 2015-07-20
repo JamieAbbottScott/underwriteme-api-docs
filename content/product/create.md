@@ -1,4 +1,4 @@
-## New [/application/{existingApplicationId}/product]
+## Create [/application/{existingApplicationId}/product]
 Creating new Product based on sent JSON data.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.

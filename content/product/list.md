@@ -1,9 +1,9 @@
-## List For Customer [/application/{applicationId}/product?lifeAssured={customerId}]
+## List For Customer [/application/{existingApplicationId}/product?lifeAssured={customerId}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
 
-    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Optional unique ID of existing Product Life Assured.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
