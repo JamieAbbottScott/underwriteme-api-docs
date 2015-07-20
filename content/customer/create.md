@@ -1,4 +1,4 @@
-## Create [/application/{existingApplicationId}/customer]
+## Create and Read [/application/{existingApplicationId}/customer]
 Creating new Customer for Application based on JSON data.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
