@@ -698,6 +698,9 @@ Operations on existing Customers associated with Application identified by uniqu
 
 + Response 404
 
+## Update [/application/{existingApplicationId}/customer/{customerId}]
+Update operations on Customer identified by unique ID associated with Application.
+
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
 - ***name*** `string` *(required)* - Customer name.
 - ***surname*** `string` *(required)* - Customer surname.
@@ -778,6 +781,14 @@ Operations on existing Customers associated with Application identified by uniqu
                     "errorMessage": "Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
                 }
             }
+
+## Delete [/application/{existingApplicationId}/customer/{customerId}]
+Remove operations on Customer identified by unique ID associated with Application.
+
++ Parameters
+
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
@@ -1070,6 +1081,9 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 404
 
+## Update [/application/{existingApplicationId}/product/{productId}]
+Update operations on existing Product identified by unique ID associated with Application.
+
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
 - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
 - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
@@ -1217,6 +1231,14 @@ Operations on existing Products and Customer associated with Application identif
                     "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
                 }
             }
+
+## Delete [/application/{existingApplicationId}/product/{productId}]
+Delete operations on existing Product identified by unique ID associated with Application.
+
++ Parameters
+
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove Product from Application [DELETE]
 + Request Removing Product from not existing Application. (application/json)
