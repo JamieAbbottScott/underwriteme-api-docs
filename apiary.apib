@@ -609,44 +609,6 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                     "errorMessage": "Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
                 }
             }
-## Existing [/application/{existingApplicationId}/customer/{customerId}]
-Operations on existing Customer identified by unique ID associated with Application.
-
-+ Parameters
-
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
-
-### Retrieve existing Customer for Application [GET]
-+ Request Retrieve existing Customer. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 200
-
-            {
-                "id": "1001",
-                "referenceId": "cus-001",
-                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
-                "name": "John",
-                "surname": "Doe",
-                "title": "MR",
-                "gender": "MALE",
-                "dateOfBirth": "1980-01-01",
-                "smoker": false,
-                "email": "john.doe@domain.com"
-            }
-
-+ Request Not existing Customer for the Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 404
-
 ## List [/application/{existingApplicationId}/customer]
 Operations on existing Customers associated with Application identified by unique ID .
 
@@ -691,6 +653,44 @@ Operations on existing Customers associated with Application identified by uniqu
             ]
 
 + Request Not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+## Existing [/application/{existingApplicationId}/customer/{customerId}]
+Operations on existing Customer identified by unique ID associated with Application.
+
++ Parameters
+
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
+
+### Retrieve existing Customer for Application [GET]
++ Request Retrieve existing Customer. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "id": "1001",
+                "referenceId": "cus-001",
+                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                "name": "John",
+                "surname": "Doe",
+                "title": "MR",
+                "gender": "MALE",
+                "dateOfBirth": "1980-01-01",
+                "smoker": false,
+                "email": "john.doe@domain.com"
+            }
+
++ Request Not existing Customer for the Application. (application/json)
 
     + Headers
 
@@ -982,47 +982,6 @@ Creating new Product based on sent JSON data.
                     "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
                 }
             }
-## Existing [/application/{existingApplicationId}/product/{productId}]
-Operations on existing Product identified by unique ID associated with Application.
-
-+ Parameters
-
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
-
-### Retrieve existing Product for Application [GET]
-+ Request Retrieve existing Product. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 200
-
-           {
-               "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-               "referenceId": "pro-001",read.md
-               "type": "TERM",
-               "coverBasis": "LEVEL",
-               "coverPeriod": 20,
-               "coverAmount": 120000,
-               "commissionSacrifice": {
-                   "initial": 10,
-                   "renewal": 1.0
-               },
-               "livesAssured": [
-                   { "refersTo": "1001" }
-               ]
-           }
-
-+ Request Not existing Product for the Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 404
-
 ## List For Customer [/application/{existingApplicationId}/product{?lifeAssured}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
@@ -1074,6 +1033,47 @@ Operations on existing Products and Customer associated with Application identif
             ]
 
 + Lists Products for not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+## Existing [/application/{existingApplicationId}/product/{productId}]
+Operations on existing Product identified by unique ID associated with Application.
+
++ Parameters
+
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
+
+### Retrieve existing Product for Application [GET]
++ Request Retrieve existing Product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+           {
+               "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+               "referenceId": "pro-001",read.md
+               "type": "TERM",
+               "coverBasis": "LEVEL",
+               "coverPeriod": 20,
+               "coverAmount": 120000,
+               "commissionSacrifice": {
+                   "initial": 10,
+                   "renewal": 1.0
+               },
+               "livesAssured": [
+                   { "refersTo": "1001" }
+               ]
+           }
+
++ Request Not existing Product for the Application. (application/json)
 
     + Headers
 
