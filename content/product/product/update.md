@@ -1,6 +1,3 @@
-## Update [/application/{existingApplicationId}/product/{productId}]
-Remove operations on existing Product identified by unique ID associated with Application.
-
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
 - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
 - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.

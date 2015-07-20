@@ -1,5 +1,5 @@
-## Read [/application/{existingApplicationId}/product/{productId}]
-Read operations on existing Product identified by unique ID associated with Application.
+## Existing [/application/{existingApplicationId}/product/{productId}]
+Operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
