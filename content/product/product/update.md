@@ -19,7 +19,7 @@ Update operations on existing Product identified by unique ID associated with Ap
     - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
     - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
-### Update existing Product [PUT]
+### Update existing Product for the Application [PUT]
 + Request Valid Product. (application/json)
 
     + Headers

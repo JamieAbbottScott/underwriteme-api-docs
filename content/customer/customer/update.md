@@ -19,7 +19,7 @@ Update operations on Customer identified by unique ID associated with Applicatio
         - ***county*** `string` *(optional)* - Address county.
         - ***postcode*** `string` *(required)* - Address postcode.
 
-### Update existing Customer [PUT]
+### Update existing Customer for the Application [PUT]
 + Request Valid Customer. (application/json)
 
     + Headers
