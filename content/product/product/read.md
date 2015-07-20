@@ -6,7 +6,7 @@ Operations on existing Product identified by unique ID associated with Applicati
     + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
 
-### Retrieve existing Product for the Application [GET]
+### Retrieve existing Product for Application [GET]
 + Request Retrieve existing Product. (application/json)
 
     + Headers

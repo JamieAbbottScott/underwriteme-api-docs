@@ -6,7 +6,7 @@ Operations on existing Customer identified by unique ID associated with Applicat
     + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
-### Retrieve existing Customer for the Application [GET]
+### Retrieve existing Customer for Application [GET]
 + Request Retrieve existing Customer. (application/json)
 
     + Headers
