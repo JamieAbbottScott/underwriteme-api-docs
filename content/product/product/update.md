@@ -1,24 +1,23 @@
-## Update [/application/{existingApplicationId}/product/{productId}/customer/{customerId}]
+## Update [/application/{existingApplicationId}/product/{productId}]
 Updating existing Product for Application based on JSON data identified by unique ID.
 
-- ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
+- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
+- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
+    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
+- ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
+    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Update existing Product [PUT]
 + Request Valid Product. (application/json)
@@ -86,12 +85,12 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product type can only be set to the following values: [TERM, CRITICAL_ILLNESS, CRITICAL_ILLNESS_WITH_LIFE_COVER, INCOME_PROTECTION, FAMILY_INCOME_BENEFIT]"
                 }
             }
 
-+ Request Product coverBasis must be valid. (application/json)
++ Request Product cover basis must be valid. (application/json)
 
     + Headers
 
@@ -115,7 +114,7 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product cover basis can only be set to the following values: [DECREASING, LEVEL, INCREASING]"
                 }
             }
@@ -145,7 +144,7 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
                 }
             }

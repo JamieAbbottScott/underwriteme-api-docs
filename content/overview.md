@@ -7,8 +7,8 @@ FORMAT: 1A
 
   * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
-  * **Customer** - Creating Customer and associates him with Application. Provides CRUD operations
-  * **Product** - Creating Product for Application. Provides CRUD operations
+  * **Customer** - Managing Customer for Application. Provides CRUD operations.
+  * **Product** - Managing Product for Application. Provides CRUD operations.
   * **Pre-Declaration** - Confirming Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Question** - Retrieving information about Enquiry Question like its Definition, available Option List and partial Option Lookup.

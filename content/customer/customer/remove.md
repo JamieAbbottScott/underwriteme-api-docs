@@ -1,10 +1,11 @@
-## Delete [/application/{applicationId}/customer/{id}]
+## Delete [/application/{applicationId}/customer/{customerId}]
 Operations on Customer associated with Application.
+//TODO: create subfolder and create structure
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + id (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
+    + customerId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)

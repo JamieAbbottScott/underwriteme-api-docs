@@ -1,11 +1,10 @@
-## Delete [/application/{applicationId}/product/{existingProductId}]
+## Delete [/application/{applicationId}/product/{productId}]
 Operations on Product associated with Application.
-**Product will be deleted even if Customer is associated with it.**
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + existingProductId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Product.
+    + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove Product from Application [DELETE]
 + Request Removing Product from not existing Application. (application/json)

@@ -1,5 +1,6 @@
 ## List [/application/{applicationId}/customer]
 Operations on existing Customers associated with Application identified by unique ID .
+//TODO: Specify what the section is all about
 
 + Parameters
 
@@ -14,30 +15,32 @@ Operations on existing Customers associated with Application identified by uniqu
 
 + Response 200
 
-            {
-                "id": "1001",
-                "referenceId": "cus-001",
-                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
-                "name": "John",
-                "surname": "Doe",
-                "title": "MR",
-                "gender": "MALE",
-                "dateOfBirth": "1980-01-01",
-                "smoker": false,
-                "email": "john.doe@domain.com"
-            },
-            {
-                "id": "1002",
-                "referenceId": "cus-002",
-                "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
-                "name": "Merry",
-                "surname": "Jones",
-                "title": "DR",
-                "gender": "FEMALE",
-                "dateOfBirth": "1970-01-01",
-                "smoker": false,
-                "email": "merry.jones@domain.com"
-            }
+            [
+                {
+                    "id": "1001",
+                    "referenceId": "cus-001",
+                    "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                    "name": "John",
+                    "surname": "Doe",
+                    "title": "MR",
+                    "gender": "MALE",
+                    "dateOfBirth": "1980-01-01",
+                    "smoker": false,
+                    "email": "john.doe@domain.com"
+                },
+                {
+                    "id": "1002",
+                    "referenceId": "cus-002",
+                    "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
+                    "name": "Merry",
+                    "surname": "Jones",
+                    "title": "DR",
+                    "gender": "FEMALE",
+                    "dateOfBirth": "1970-01-01",
+                    "smoker": false,
+                    "email": "merry.jones@domain.com"
+                }
+            ]
 
 + Request Not existing Application. (application/json)
 

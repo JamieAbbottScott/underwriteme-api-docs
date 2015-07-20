@@ -1,5 +1,5 @@
 ## Update [/application/{existingApplicationId}]
-Updating only Payment Basis for existing Application based on JSON data identified by unique ID.
+Operations on existing Application details. Updates Payment Basis.
 
 + Parameters
 

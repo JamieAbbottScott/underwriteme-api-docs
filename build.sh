@@ -24,17 +24,17 @@ append application/update
 
 append customer/overview
 append customer/create
-append customer/read
+append customer/customer/read
 append customer/list
-append customer/update
-append customer/remove
+append customer/customer/update
+append customer/customer/remove
 
 append product/overview
 append product/create
-append product/read
+append product/product/read
 append product/list
-append product/update
-append product/delete
+append product/product/update
+append product/product/delete
 
 append pre-declaration/overview
 append pre-declaration/existing

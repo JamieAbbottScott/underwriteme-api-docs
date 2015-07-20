@@ -7,8 +7,8 @@ FORMAT: 1A
 
   * **Authentication** - Receiving access token after giving valid authentication details.
   * **Application** - Creating Application which contains basic information about Customers and Products they apply for.
-  * **Customer** - Creating Customer and associates him with Application. Provides CRUD operations
-  * **Product** - Creating Product for Application. Provides CRUD operations
+  * **Customer** - Managing Customer for Application. Provides CRUD operations.
+  * **Product** - Managing Product for Application. Provides CRUD operations.
   * **Pre-Declaration** - Confirming Enquiry Pre-Declaration in order start filling in Enquiry.
   * **Enquiry** - Filling in Customer Enquiry.
   * **Question** - Retrieving information about Enquiry Question like its Definition, available Option List and partial Option Lookup.
@@ -468,7 +468,7 @@ Operations on existing Application identified by unique ID.
 + Response 404
 
 ## Update [/application/{existingApplicationId}]
-Updating only Payment Basis for existing Application based on JSON data identified by unique ID.
+Operations on existing Application details. Updates Payment Basis.
 
 + Parameters
 
@@ -529,24 +529,23 @@ Customer related resources of the **UnderwriteMe API**.
 ## Create [/application/{existingApplicationId}/customer]
 Creating new Customer for Application based on JSON data.
 
-- ***customer*** `object` *(required)* - Customer (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-    - ***name*** `string` *(required)* - Customer name.
-    - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-    - ***email*** `string` *(required)* - Customer email address.
-    - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-        - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-        - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
+- ***name*** `string` *(required)* - Customer name.
+- ***surname*** `string` *(required)* - Customer surname.
+- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+- ***email*** `string` *(required)* - Customer email address.
+- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
+    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
+    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
+    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
+        - ***line1*** `string` *(optional)* - Address first line.
+        - ***line2*** `string` *(optional)* - Address second line.
+        - ***town*** `string` *(optional)* - Address town.
+        - ***county*** `string` *(optional)* - Address county.
+        - ***postcode*** `string` *(required)* - Address postcode.
 
 ### Create new Customer [POST]
 + Request Valid Customer. (application/json)
@@ -612,6 +611,7 @@ Creating new Customer for Application based on JSON data.
             }
 ## Read [/application/{applicationId}/customer/{customerId}]
 Operations on existing Customer identified by unique ID associated with Application.
+//TODO: create subfolder and create structure
 
 + Parameters
 
@@ -650,6 +650,7 @@ Operations on existing Customer identified by unique ID associated with Applicat
 
 ## List [/application/{applicationId}/customer]
 Operations on existing Customers associated with Application identified by unique ID .
+//TODO: Specify what the section is all about
 
 + Parameters
 
@@ -664,30 +665,32 @@ Operations on existing Customers associated with Application identified by uniqu
 
 + Response 200
 
-            {
-                "id": "1001",
-                "referenceId": "cus-001",
-                "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
-                "name": "John",
-                "surname": "Doe",
-                "title": "MR",
-                "gender": "MALE",
-                "dateOfBirth": "1980-01-01",
-                "smoker": false,
-                "email": "john.doe@domain.com"
-            },
-            {
-                "id": "1002",
-                "referenceId": "cus-002",
-                "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
-                "name": "Merry",
-                "surname": "Jones",
-                "title": "DR",
-                "gender": "FEMALE",
-                "dateOfBirth": "1970-01-01",
-                "smoker": false,
-                "email": "merry.jones@domain.com"
-            }
+            [
+                {
+                    "id": "1001",
+                    "referenceId": "cus-001",
+                    "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                    "name": "John",
+                    "surname": "Doe",
+                    "title": "MR",
+                    "gender": "MALE",
+                    "dateOfBirth": "1980-01-01",
+                    "smoker": false,
+                    "email": "john.doe@domain.com"
+                },
+                {
+                    "id": "1002",
+                    "referenceId": "cus-002",
+                    "enquiryId": "029ab9d8-0a52-a23e-7e54-7a8d505bb742",
+                    "name": "Merry",
+                    "surname": "Jones",
+                    "title": "DR",
+                    "gender": "FEMALE",
+                    "dateOfBirth": "1970-01-01",
+                    "smoker": false,
+                    "email": "merry.jones@domain.com"
+                }
+            ]
 
 + Request Not existing Application. (application/json)
 
@@ -699,25 +702,25 @@ Operations on existing Customers associated with Application identified by uniqu
 
 ## Update [/application/{existingApplicationId}/customer/{customerId}]
 Updating existing Customer for Application based on JSON data identified by unique ID.
+//TODO: create subfolder and create structure
 
-- ***customer*** `object` *(required)* - Customer (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-    - ***name*** `string` *(required)* - Customer name.
-    - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-    - ***email*** `string` *(required)* - Customer email address.
-    - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-        - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-        - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
+- ***name*** `string` *(required)* - Customer name.
+- ***surname*** `string` *(required)* - Customer surname.
+- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+- ***email*** `string` *(required)* - Customer email address.
+- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
+    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
+    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
+    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
+        - ***line1*** `string` *(optional)* - Address first line.
+        - ***line2*** `string` *(optional)* - Address second line.
+        - ***town*** `string` *(optional)* - Address town.
+        - ***county*** `string` *(optional)* - Address county.
+        - ***postcode*** `string` *(required)* - Address postcode.
 
 ### Update existing Customer [PUT]
 + Request Valid Customer. (application/json)
@@ -782,13 +785,14 @@ Updating existing Customer for Application based on JSON data identified by uniq
                 }
             }
 
-## Delete [/application/{applicationId}/customer/{id}]
+## Delete [/application/{applicationId}/customer/{customerId}]
 Operations on Customer associated with Application.
+//TODO: create subfolder and create structure
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + id (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
+    + customerId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
@@ -834,24 +838,23 @@ Product related resources of the **UnderwriteMe API**.
 ## New [/application/{existingApplicationId}/product]
 Creating new Product based on sent JSON data.
 
-- ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
-    - ***livesAssured*** `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is. ***If not specified*** - product will be associated with Customer using {existingCustomerId}
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
+- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
+- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
+    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
+- ***livesAssured*** `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is.
+    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
+    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Create new Product [POST]
 + Request Valid Product. (application/json)
@@ -919,6 +922,7 @@ Creating new Product based on sent JSON data.
 
             {
                 "referenceId": "pro-001",
+                //TODO error examples have copy and paste mistakes - FIX ALL OF THEM
                 "name": {
                     "errorMessage": "Product type can only be set to the following values: [TERM, CRITICAL_ILLNESS, CRITICAL_ILLNESS_WITH_LIFE_COVER, INCOME_PROTECTION, FAMILY_INCOME_BENEFIT]"
                 }
@@ -1001,7 +1005,7 @@ Operations on existing Product identified by unique ID associated with Applicati
 
            {
                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-               "referenceId": "pro-001",
+               "referenceId": "pro-001",read.md
                "type": "TERM",
                "coverBasis": "LEVEL",
                "coverPeriod": 20,
@@ -1039,7 +1043,7 @@ Operations on existing Products associated with Application identified by unique
 
 + Response 200
 
-            "products": [
+            [
                 {
                     "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
                     "referenceId": "pro-001",
@@ -1095,14 +1099,13 @@ Operations on existing Products associated with Application identified by unique
 
 + Response 404
 
-
-## List For Customer [/application/{applicationId}/product?lifeAssured={lifeAssuredId}]
+## List For Customer [/application/{applicationId}/product?lifeAssured={customerId}]
 Operations on existing Products and Customer associated with Application identified by unique ID .
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + lifeAssuredId  (required, string, `1502181407123020689`) ... Unique ID of existing LifeAssured customer.
+    + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Product Life Assured.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
@@ -1113,38 +1116,40 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 200
 
-            {
-                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                "referenceId": "pro-001",
-                "type": "TERM",
-                "coverBasis": "LEVEL",
-                "coverPeriod": 20,
-                "coverAmount": 120000,
-                "commissionSacrifice": {
-                    "initial": 10,
-                    "renewal": 1.0
+            [
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-001",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 20,
+                    "coverAmount": 120000,
+                    "commissionSacrifice": {
+                        "initial": 10,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1001" }
+                    ]
                 },
-                "livesAssured": [
-                    { "refersTo": "1001" }
-                ]
-            },
-            {
-                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-                "referenceId": "pro-002",
-                "type": "TERM",
-                "coverBasis": "LEVEL",
-                "coverPeriod": 30,
-                "coverAmount": 130000,
-                "commissionSacrifice": {
-                    "initial": 0,
-                    "renewal": 1.0
-                },
-                "livesAssured": [
-                    { "refersTo": "1002" }
-                ]
-            }
+                {
+                    "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                    "referenceId": "pro-002",
+                    "type": "TERM",
+                    "coverBasis": "LEVEL",
+                    "coverPeriod": 30,
+                    "coverAmount": 130000,
+                    "commissionSacrifice": {
+                        "initial": 0,
+                        "renewal": 1.0
+                    },
+                    "livesAssured": [
+                        { "refersTo": "1002" }
+                    ]
+                }
+            ]
 
-+ Request Not existing Application. (application/json)
++ Lists Products for not existing Application. (application/json)
 
     + Headers
 
@@ -1152,27 +1157,26 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 404
 
-## Update [/application/{existingApplicationId}/product/{productId}/customer/{customerId}]
+## Update [/application/{existingApplicationId}/product/{productId}]
 Updating existing Product for Application based on JSON data identified by unique ID.
 
-- ***product*** `object` *(required)* - Product (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
+- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
+- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
+    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
+- ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
+    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Update existing Product [PUT]
 + Request Valid Product. (application/json)
@@ -1240,12 +1244,12 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product type can only be set to the following values: [TERM, CRITICAL_ILLNESS, CRITICAL_ILLNESS_WITH_LIFE_COVER, INCOME_PROTECTION, FAMILY_INCOME_BENEFIT]"
                 }
             }
 
-+ Request Product coverBasis must be valid. (application/json)
++ Request Product cover basis must be valid. (application/json)
 
     + Headers
 
@@ -1269,7 +1273,7 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product cover basis can only be set to the following values: [DECREASING, LEVEL, INCREASING]"
                 }
             }
@@ -1299,19 +1303,18 @@ Updating existing Product for Application based on JSON data identified by uniqu
 
             {
                 "referenceId": "pro-001",
-                "name": {
+                "type": {
                     "errorMessage": "Product premium basis can only be set to the following values: [GUARANTEED, REVIEWABLE]"
                 }
             }
 
-## Delete [/application/{applicationId}/product/{existingProductId}]
+## Delete [/application/{applicationId}/product/{productId}]
 Operations on Product associated with Application.
-**Product will be deleted even if Customer is associated with it.**
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + existingProductId (required, string, `plr-eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Product.
+    + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove Product from Application [DELETE]
 + Request Removing Product from not existing Application. (application/json)

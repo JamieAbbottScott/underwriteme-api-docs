@@ -1,5 +1,6 @@
 ## Read [/application/{applicationId}/customer/{customerId}]
 Operations on existing Customer identified by unique ID associated with Application.
+//TODO: create subfolder and create structure
 
 + Parameters
 
