@@ -1,9 +1,9 @@
-## Read [/application/{applicationId}/product/{productId}]
+## Read [/application/{existingApplicationId}/product/{productId}]
 Read operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
-    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
 
 ### Retrieve existing Product for the Application [GET]

@@ -1,9 +1,9 @@
-## Delete [/application/{applicationId}/product/{productId}]
+## Delete [/application/{existingApplicationId}/product/{productId}]
 Delete operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
-    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove Product from Application [DELETE]
