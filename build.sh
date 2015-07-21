@@ -70,3 +70,5 @@ append legals/client-declaration
 append legals/insurer-marketing-preference
 append legals/third-party-marketing-preference
 
+append message/overview
+append message/list
