@@ -30,8 +30,8 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
     - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals.
+        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
     - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
