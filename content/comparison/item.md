@@ -14,7 +14,7 @@ JSON response has following structure:
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. Default value: `FULL`.
+    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
     - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
         - ***name*** `string` *(required)* - Customer name.

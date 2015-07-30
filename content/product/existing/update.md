@@ -9,6 +9,7 @@ Update operations on existing Product identified by unique ID associated with Ap
 - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
 - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
 - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`.
 - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
 - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
     - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
