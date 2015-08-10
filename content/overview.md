@@ -19,3 +19,4 @@ FORMAT: 1A
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Requesting and retrieving Activation state of selected Products.
+  * **Message** - Retrieve all i18n messages.
