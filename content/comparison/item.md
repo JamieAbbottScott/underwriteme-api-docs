@@ -25,6 +25,8 @@ JSON response has following structure:
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***decision*** `object` *(required)* - Underwriting Decision.
     - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
+    - ***immediateCover*** `boolean` *(required)* - Flag to indicate whether cover is immediately available.
+    - ***nonIndicative*** `boolean` *(required)* - Flag to indicate whether this decision is non indicative.
     - ***details*** `array` *(required)* - Decision details. It consists of Product Component Decisions per Customer (represented as `object` type).
         - ***customer*** `object` *(required)* - Subset of Application Customer properties created at the beginning of the underwriting process.
             - ***id*** `string` *(required)* - Unique Customer ID.
@@ -33,6 +35,7 @@ JSON response has following structure:
         - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
+            - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
             - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
@@ -115,6 +118,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"UNKNOWN",
+                    "immediateCover":true,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -125,7 +130,8 @@ Code and description:
                             "decisions":[
                                 {
                                     "type":"UNKNOWN",
-                                    "componentType":"LIFE"
+                                    "componentType":"LIFE",
+                                    "optional":false
                                 }
                             ]
                         }
@@ -191,6 +197,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"DECLINE",
+                    "immediateCover":false,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -201,7 +209,8 @@ Code and description:
                             "decisions":[
                                 {
                                     "type":"DECLINE",
-                                    "componentType":"CI"
+                                    "componentType":"CI",
+                                    "optional":false
                                 }
                             ]
                         }
@@ -237,6 +246,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"REFER",
+                    "immediateCover":false,
+                    "nonIndicative":true,
                     "details":[
                         {
                             "customer":{
@@ -248,6 +259,7 @@ Code and description:
                                 {
                                     "type":"REFER",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "indicativeExtraMorbidityContributions":[
                                         {
                                             "contributor":{
@@ -338,6 +350,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -349,6 +363,7 @@ Code and description:
                                 {
                                     "type":"STANDARD",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "extraMorbidityContributions":[
                                         {
                                             "contributor":{
@@ -433,6 +448,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"POSTPONE",
+                    "immediateCover":false,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -444,6 +461,7 @@ Code and description:
                                 {
                                     "type":"POSTPONE",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "durationContributions":[
                                         {
                                             "contributor":{

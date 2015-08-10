@@ -45,6 +45,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -55,7 +57,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -93,6 +96,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -103,7 +108,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -154,6 +160,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -164,7 +172,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -198,6 +207,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"NON_STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -208,7 +219,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"NON_STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -260,6 +272,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":false,
+                            "nonIndicative":true,
                             "details":[
                                 {
                                     "customer":{
@@ -270,7 +284,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -308,6 +323,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -318,7 +335,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -369,6 +387,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -380,6 +400,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -395,6 +416,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -446,6 +468,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -457,6 +481,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -498,6 +523,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -562,6 +588,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -573,6 +601,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -634,6 +663,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -645,6 +676,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -706,6 +738,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -716,11 +750,13 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -739,6 +775,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -757,6 +794,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"CI",
+                                            "optional":false,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -809,6 +847,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -819,11 +859,13 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -842,6 +884,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -860,6 +903,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"CI",
+                                            "optional":false,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -923,6 +967,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -933,7 +979,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -970,6 +1017,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -980,7 +1029,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -1019,6 +1069,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -1029,15 +1081,18 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"CI"
+                                            "componentType":"CI",
+                                            "optional":false
                                         },
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"CI_DECREASING"
+                                            "componentType":"CI_DECREASING",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -1065,6 +1120,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -1075,15 +1132,18 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"CI"
+                                            "componentType":"CI",
+                                            "optional":false
                                         },
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"CI_DECREASING"
+                                            "componentType":"CI_DECREASING",
+                                            "optional":false
                                         }
                                     ]
                                 }
