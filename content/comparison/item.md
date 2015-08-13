@@ -36,6 +36,7 @@ JSON response has following structure:
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
             - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
+	    - ***disabilityDefinition*** `boolean` *(optional)* - Disability definition value. Possible values: `OWN`, `SUITED`, `ANY`, `WORK_TASKS`, `ACTIVITIES`.
             - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.

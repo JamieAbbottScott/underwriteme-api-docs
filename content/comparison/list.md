@@ -416,6 +416,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+					    "disabilityDefinition":"OWN",
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -523,6 +524,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+					    "disabilityDefinition":"OWN",
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -756,6 +758,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+					    "disabilityDefinition":"OWN",
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -775,6 +778,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+					    "disabilityDefinition":"OWN",
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -865,6 +869,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+					    "disabilityDefinition":"OWN",
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -1150,6 +1155,158 @@ JSON response has following structure:
                             ]
                         },
                         "id":"plr-7044b1fa-6fb5-46fb-b8fc-d785cac42112"
+                    }
+                ]
+            }
+
+### Retrieve Comparison [GET]
++ Request Comparison for an IP product. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "items":[
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"153a6779-cf28-4d9e-a906-91594652c939",
+                            "type":"INCOME_PROTECTION",
+                            "coverBasis":"LEVEL",
+                            "coverUntilAge":51,
+                            "coverAmount":1000,
+                            "deferredPeriodInWeeks":4,
+                            "premiumBasis":"GUARANTEED",
+                            "commissionSacrifice":{
+                                "initial":0,
+                                "renewal":2.50
+                            },
+                            "extendedCoverType":"FULL",
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Do",
+                                    "refersTo":"527"
+                                }
+                            ]
+                        },
+                        "decision":{
+                            "type":"STANDARD",
+                            "details":[
+                                {
+                                    “customer":{
+                                        "id":"527",
+                                        "name":"John",
+                                        "surname":"Do"
+                                    },
+                                    “decisions”:[
+                                        {
+                                            "type":"STANDARD",
+                                            "componentType":"IP_4",
+                                            "optional":false,
+                                            "disabilityDefinition":"OWN"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "immediateCover":true,
+                            "nonIndicative":false
+                        },
+                        "quote":{
+                            "state":"SUCCEEDED",
+                            "date":"2015-08-13T10:45:31.000",
+                            "premium":{
+                                "from":45.44,
+                                "to":45.44,
+                                "unloaded":{
+                                    "from":45.44,
+                                    "to":45.44
+                                },
+                                "lifetime":5452.85
+                            },
+                            "sumAssured":1000,
+                            "commission":{
+                                "initial":959.25,
+                                "renewal":1.14,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        },
+                        "id":"insurerx-153a6779-cf28-4d9e-a906-91594652c939"
+                    },
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"153a6779-cf28-4d9e-a906-91594652c939",
+                            "type":"INCOME_PROTECTION",
+                            "coverBasis":"LEVEL",
+                            "coverUntilAge":51,
+                            "coverAmount":1000,
+                            "deferredPeriodInWeeks":4,
+                            "premiumBasis":"GUARANTEED",
+                            "commissionSacrifice":{
+                                "initial":0,
+                                "renewal":2.50
+                            },
+                            "extendedCoverType":"FULL",
+                            "livesAssured":
+                                {
+                                    "name":"John",
+                                    "surname":"Do",
+                                    "refersTo":"527"
+                                }
+                            ]
+                        },
+                        "decision":{
+                            "type":"STANDARD",
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"527",
+                                        "name":"John",
+                                        "surname":"Do"
+                                    },
+                                    "decisions":[
+			                {
+				            "type":"STANDARD",
+				            "componentType":"IP_4",
+				            "optional":false,
+				            "disabilityDefinition":"OWN"
+			                }
+                                    ]
+                                }
+                            ],
+                            "immediateCover":true,
+                            "nonIndicative":false
+                        },
+                        "quote":{
+                            "state":"SUCCEEDED",
+                            "date":"2015-08-13T10:45:31.000",
+                            "premium":{
+                                "from":53.86,
+                                "to":53.86,
+                                "unloaded":{
+                                    "from":53.86,
+                                    "to":53.86
+                                },
+                                "lifetime":6463.50
+                            },
+                            "sumAssured":1000,
+                            "commission":{
+                                "initial":1137.04,
+                                "renewal":1.35,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        },
+                        "id":"plr-153a6779-cf28-4d9e-a906-91594652c939"
                     }
                 ]
             }
