@@ -47,6 +47,7 @@ JSON response has following structure:
 - ***quote*** `object` *(optional)* - Provider quote. This property does not exist if provider does not allow quotation of particular decision type (like `POSTPONE` or `DECLINE` in most cases).
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
+    - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
@@ -141,6 +142,7 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":9.84,
                         "to":9.84,
@@ -296,6 +298,7 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":26.00,
                         "to":27.00,
@@ -395,6 +398,7 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":10.26,
                         "to":10.26,

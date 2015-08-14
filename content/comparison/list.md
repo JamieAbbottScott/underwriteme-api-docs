@@ -118,6 +118,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"SUCCEEDED",
                             "date":"2015-01-01T00:00:00.000",
+                            "expiryDate":"2015-02-01",
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
