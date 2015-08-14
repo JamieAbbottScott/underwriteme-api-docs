@@ -19,7 +19,7 @@ FORMAT: 1A
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Requesting and retrieving Activation state of selected Products.
-
+  * **Message** - Retrieve all i18n messages.
 # Group Authentication
 Authentication related resources of the **UnderwriteMe API**.
 
@@ -5793,6 +5793,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -5803,7 +5805,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -5841,6 +5844,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -5851,7 +5856,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -5862,7 +5868,8 @@ JSON response has following structure:
                             "date":"2015-01-01T00:00:00.000",
                             "premium":{
                                 "from":9.84,
-                                "to":9.84
+                                "to":9.84,
+                                "lifetime":1180.80
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -5902,6 +5909,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -5912,7 +5921,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -5946,6 +5956,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"NON_STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -5956,7 +5968,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"NON_STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6008,6 +6021,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":false,
+                            "nonIndicative":true,
                             "details":[
                                 {
                                     "customer":{
@@ -6018,7 +6033,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6056,6 +6072,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"UNKNOWN",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6066,7 +6084,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6117,6 +6136,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6128,6 +6149,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -6143,6 +6165,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6194,6 +6217,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6205,6 +6230,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -6246,6 +6272,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6310,6 +6337,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6321,6 +6350,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -6382,6 +6412,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6393,6 +6425,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"LIFE",
+                                            "optional":false,
                                             "extraMorbidityContributions":[
                                                 {
                                                     "contributor":{
@@ -6454,6 +6487,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6464,11 +6499,13 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6487,6 +6524,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6505,6 +6543,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"CI",
+                                            "optional":false,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6557,6 +6596,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6567,11 +6608,13 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"STANDARD",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6590,6 +6633,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+                                            "optional":true,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6608,6 +6652,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"CI",
+                                            "optional":false,
                                             "exclusionContributions":[
                                                 {
                                                     "contributor":{
@@ -6671,6 +6716,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6681,7 +6728,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6718,6 +6766,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"REFER",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6728,7 +6778,8 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6767,6 +6818,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6777,15 +6830,18 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"CI"
+                                            "componentType":"CI",
+                                            "optional":false
                                         },
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"CI_DECREASING"
+                                            "componentType":"CI_DECREASING",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6813,6 +6869,8 @@ JSON response has following structure:
                         },
                         "decision":{
                             "type":"DECLINE",
+                            "immediateCover":false,
+                            "nonIndicative":false,
                             "details":[
                                 {
                                     "customer":{
@@ -6823,15 +6881,18 @@ JSON response has following structure:
                                     "decisions":[
                                         {
                                             "type":"REFER",
-                                            "componentType":"LIFE"
+                                            "componentType":"LIFE",
+                                            "optional":false
                                         },
                                         {
                                             "type":"DECLINE",
-                                            "componentType":"CI"
+                                            "componentType":"CI",
+                                            "optional":false
                                         },
                                         {
                                             "type":"UNKNOWN",
-                                            "componentType":"CI_DECREASING"
+                                            "componentType":"CI_DECREASING",
+                                            "optional":false
                                         }
                                     ]
                                 }
@@ -6894,6 +6955,7 @@ JSON response has following structure:
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
+        - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
@@ -6962,6 +7024,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"UNKNOWN",
+                    "immediateCover":true,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -6972,7 +7036,8 @@ Code and description:
                             "decisions":[
                                 {
                                     "type":"UNKNOWN",
-                                    "componentType":"LIFE"
+                                    "componentType":"LIFE",
+                                    "optional":false
                                 }
                             ]
                         }
@@ -6987,7 +7052,8 @@ Code and description:
                         "unloaded":{
                             "from":7.84,
                             "to":7.84,
-                        }
+                        },
+                        "lifetime":1180.80
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -7038,6 +7104,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"DECLINE",
+                    "immediateCover":false,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -7048,7 +7116,8 @@ Code and description:
                             "decisions":[
                                 {
                                     "type":"DECLINE",
-                                    "componentType":"CI"
+                                    "componentType":"CI",
+                                    "optional":false
                                 }
                             ]
                         }
@@ -7084,6 +7153,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"REFER",
+                    "immediateCover":false,
+                    "nonIndicative":true,
                     "details":[
                         {
                             "customer":{
@@ -7095,6 +7166,7 @@ Code and description:
                                 {
                                     "type":"REFER",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "indicativeExtraMorbidityContributions":[
                                         {
                                             "contributor":{
@@ -7135,7 +7207,8 @@ Code and description:
                         "unloaded":{
                             "from":7.00,
                             "to":6.00,
-                        }
+                        },
+                        "lifetime":3120.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -7185,6 +7258,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -7196,6 +7271,7 @@ Code and description:
                                 {
                                     "type":"STANDARD",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "extraMorbidityContributions":[
                                         {
                                             "contributor":{
@@ -7230,7 +7306,8 @@ Code and description:
                         "unloaded":{
                             "from":8.05,
                             "to":8.05,
-                        }
+                        },
+                        "lifetime":1231.20
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -7280,6 +7357,8 @@ Code and description:
                 },
                 "decision":{
                     "type":"POSTPONE",
+                    "immediateCover":false,
+                    "nonIndicative":false,
                     "details":[
                         {
                             "customer":{
@@ -7291,6 +7370,7 @@ Code and description:
                                 {
                                     "type":"POSTPONE",
                                     "componentType":"LIFE",
+                                    "optional":false,
                                     "durationContributions":[
                                         {
                                             "contributor":{
