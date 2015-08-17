@@ -416,7 +416,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"OWN",
+					    "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -524,7 +524,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"OWN",
+					    "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -758,7 +758,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"OWN",
+					    "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -778,7 +778,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
-					    "disabilityDefinition":"OWN",
+					    "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -869,7 +869,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"OWN",
+					    "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -1207,7 +1207,7 @@ JSON response has following structure:
                                             "type":"STANDARD",
                                             "componentType":"IP_4",
                                             "optional":false,
-                                            "disabilityDefinition":"OWN"
+                                            "disabilityDefinition":"Own Occupation”
                                         }
                                     ]
                                 }
@@ -1276,7 +1276,7 @@ JSON response has following structure:
 				            "type":"STANDARD",
 				            "componentType":"IP_4",
 				            "optional":false,
-				            "disabilityDefinition":"OWN"
+				            "disabilityDefinition":"Own Occupation”
 			                }
                                     ]
                                 }
