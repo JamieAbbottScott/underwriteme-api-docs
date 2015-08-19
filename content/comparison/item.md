@@ -21,7 +21,7 @@ JSON response has following structure:
         - ***surname*** `string` *(required)* - Customer surname.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.       
+        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***decision*** `object` *(required)* - Underwriting Decision.
     - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
@@ -42,8 +42,8 @@ JSON response has following structure:
             - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as number range.
             - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as number range.
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
-            - ***evidenceContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
-            - ***durationContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+            - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
+            - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
 - ***quote*** `object` *(optional)* - Provider quote. This property does not exist if provider does not allow quotation of particular decision type (like `POSTPONE` or `DECLINE` in most cases).
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
