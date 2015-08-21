@@ -416,7 +416,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"Own Occupation”,
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -524,7 +524,7 @@ JSON response has following structure:
                                         {
                                             "type":"REFER",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"Own Occupation”,
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "indicativeExclusionContributions":[
                                                 {
@@ -758,7 +758,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"Own Occupation”,
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -778,7 +778,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
-					    "disabilityDefinition":"Own Occupation”,
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -869,7 +869,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"WOP",
-					    "disabilityDefinition":"Own Occupation”,
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -889,6 +889,7 @@ JSON response has following structure:
                                         {
                                             "type":"STANDARD",
                                             "componentType":"TPD",
+                                            "disabilityDefinition":"Own Occupation”,
                                             "optional":true,
                                             "exclusionContributions":[
                                                 {
@@ -1188,7 +1189,7 @@ JSON response has following structure:
                             "livesAssured":[
                                 {
                                     "name":"John",
-                                    "surname":"Do",
+                                    "surname":"Doe”,
                                     "refersTo":"527"
                                 }
                             ]
@@ -1200,7 +1201,7 @@ JSON response has following structure:
                                     “customer":{
                                         "id":"527",
                                         "name":"John",
-                                        "surname":"Do"
+                                        "surname":"Doe”
                                     },
                                     “decisions”:[
                                         {
@@ -1257,7 +1258,7 @@ JSON response has following structure:
                             "livesAssured":
                                 {
                                     "name":"John",
-                                    "surname":"Do",
+                                    "surname":"Doe”,
                                     "refersTo":"527"
                                 }
                             ]
@@ -1269,7 +1270,7 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"527",
                                         "name":"John",
-                                        "surname":"Do"
+                                        "surname":"Doe”
                                     },
                                     "decisions":[
 			                {
