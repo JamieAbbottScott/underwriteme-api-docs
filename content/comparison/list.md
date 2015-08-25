@@ -1273,12 +1273,12 @@ JSON response has following structure:
                                         "surname":"Doe”
                                     },
                                     "decisions":[
-			                {
-				            "type":"STANDARD",
-				            "componentType":"IP_4",
-				            "optional":false,
-				            "disabilityDefinition":"Own Occupation”
-			                }
+                                        {
+                                            "type":"STANDARD",
+                                            "componentType":"IP_4",
+                                            "optional":false,
+                                            "disabilityDefinition":"Own Occupation”
+                                        }
                                     ]
                                 }
                             ],
@@ -1311,3 +1311,4 @@ JSON response has following structure:
                     }
                 ]
             }
+
