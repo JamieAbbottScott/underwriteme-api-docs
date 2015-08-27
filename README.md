@@ -14,6 +14,6 @@ To build documentation from content files run:
 $ make
 ```
 
-## Do not modify apiary.apib file.
+## Do not modify apiary.apib file manually.
 
 This file is hosted by Apiary.io. Changes to it will be lost if documentation is generated from content files.
