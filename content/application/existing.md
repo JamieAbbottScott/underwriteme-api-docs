@@ -45,7 +45,8 @@ Operations on existing Application identified by unique ID.
                             { "refersTo": "1001" }
                         ]
                     }
-                ]
+                ],
+                "owner": "owner"
             }
 
 + Request Not existing Application. (application/json)
