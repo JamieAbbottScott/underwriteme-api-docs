@@ -21,7 +21,7 @@ JSON response has following structure:
         - ***surname*** `string` *(required)* - Customer surname.
         - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.       
+        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***decision*** `object` *(required)* - Underwriting Decision.
     - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
@@ -43,14 +43,16 @@ JSON response has following structure:
             - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as number range.
             - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as number range.
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
-            - ***evidenceContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
-            - ***durationContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+            - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
+            - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
 - ***quote*** `object` *(optional)* - Provider quote. This property does not exist if provider does not allow quotation of particular decision type (like `POSTPONE` or `DECLINE` in most cases).
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
+    - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
+        - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
@@ -141,13 +143,15 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":9.84,
                         "to":9.84,
                         "unloaded":{
                             "from":7.84,
                             "to":7.84,
-                        }
+                        },
+                        "lifetime":1180.80
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -295,13 +299,15 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":26.00,
                         "to":27.00,
                         "unloaded":{
                             "from":7.00,
                             "to":6.00,
-                        }
+                        },
+                        "lifetime":3120.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -393,13 +399,15 @@ Code and description:
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
                     "premium":{
                         "from":10.26,
                         "to":10.26,
                         "unloaded":{
                             "from":8.05,
                             "to":8.05,
-                        }
+                        },
+                        "lifetime":1231.20
                     },
                     "sumAssured":120000,
                     "commission":{
