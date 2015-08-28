@@ -305,7 +305,7 @@ Code and description:
                         "to":27.00,
                         "unloaded":{
                             "from":7.00,
-                            "to":6.00,
+                            "to":6.00
                         },
                         "lifetime":3120.00
                     },
@@ -405,7 +405,7 @@ Code and description:
                         "to":10.26,
                         "unloaded":{
                             "from":8.05,
-                            "to":8.05,
+                            "to":8.05
                         },
                         "lifetime":1231.20
                     },
