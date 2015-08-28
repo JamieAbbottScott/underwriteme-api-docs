@@ -1162,7 +1162,6 @@ JSON response has following structure:
                 ]
             }
 
-### Retrieve Comparison [GET]
 + Request Comparison for an IP product. (application/json)
 
     + Headers
