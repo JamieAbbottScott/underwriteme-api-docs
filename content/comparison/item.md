@@ -149,7 +149,7 @@ Code and description:
                         "to":9.84,
                         "unloaded":{
                             "from":7.84,
-                            "to":7.84,
+                            "to":7.84
                         },
                         "lifetime":1180.80
                     },
