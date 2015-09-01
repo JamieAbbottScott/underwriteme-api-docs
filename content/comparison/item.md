@@ -49,6 +49,7 @@ JSON response has following structure:
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
     - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
+    - ***expired*** `boolean` *(optional)* - Flag to mark whether this quote has expired.
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
@@ -500,3 +501,104 @@ Code and description:
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
+            
++ Request Single Comparison Item with standard decision and expired quote. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336"
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2014-02-01",
+                    "expired":true,
+                    "premium":{
+                        "from":10.26,
+                        "to":10.26,
+                        "unloaded":{
+                            "from":8.05,
+                            "to":8.05
+                        },
+                        "lifetime":1231.20
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.90,
+                        "renewal":8.51,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            } 
