@@ -5751,6 +5751,8 @@ Operations on existing Comparison associated with Application.
 
 In order to get quote values for the Comparison PUT method has to be used to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
 
+Any expired quotes will requoted when Comparison is requested with PUT method. In order to check whether quotes have expired, first use the GET method to retrieve the Comparison.
+
 Until all Enquiries are closed Comparison contains only estimated decisions and quotes.
 
 JSON response has following structure:
@@ -7061,6 +7063,188 @@ JSON response has following structure:
                 ]
             }
 
++ Request Comparison containing an expired item (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "estimated":true,
+                "items":[
+                    {
+                        "provider":"PLR",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Doe",
+                                    "refersTo":"4085"
+                                }
+                            ]
+                        },
+                        "decision":{
+                            "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4085",
+                                        "name":"John",
+                                        "surname":"Doe"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"STANDARD",
+                                            "componentType":"LIFE",
+                                            "optional":false,
+                                            "extraMorbidityContributions":[
+                                                {
+                                                    "contributor":{
+                                                        "enquiryLine":"Arthritis",
+                                                        "triggerTag":"Arthritis"
+                                                    },
+                                                    "value":{
+                                                        "duration":"P3Y",
+                                                        "sum":2
+                                                    }
+                                                }
+                                            ],
+                                            "permilleContributions":[
+                                                {
+                                                    "contributor":{
+                                                        "enquiryLine":"Arthritis",
+                                                        "triggerTag":"Arthritis"
+                                                    },
+                                                    "value":{
+                                                        "duration":"P1Y",
+                                                        "sum":1
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"SUCCEEDED",
+                            "date":"2015-01-01T00:00:00.000",
+                            "expiryDate":"2014-02-01",
+                            "expired":true,
+                            "premium":{
+                                "from":9.84,
+                                "to":9.84,
+                                "lifetime":1180.80
+                            },
+                            "sumAssured":120000,
+                            "commission":{
+                                "initial":30.61,
+                                "renewal":8.17,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        },
+                        "rating":{
+                            "value":5,
+                            "description":"<strong>Recommended</strong>"
+                        },
+                        "details":{
+                            "keyFacts":"http://plr.com/term/key-facts.pdf",
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                        },
+                        "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "product":{
+                            "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Doe",
+                                    "refersTo":"4085"
+                                }
+                            ]
+                        },
+                        "decision":{
+                            "type":"STANDARD",
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "details":[
+                                {
+                                    "customer":{
+                                        "id":"4085",
+                                        "name":"John",
+                                        "surname":"Doe"
+                                    },
+                                    "decisions":[
+                                        {
+                                            "type":"STANDARD",
+                                            "componentType":"LIFE",
+                                            "optional":false,
+                                            "extraMorbidityContributions":[
+                                                {
+                                                    "contributor":{
+                                                        "enquiryLine":"Arthritis",
+                                                        "triggerTag":"Arthritis"
+                                                    },
+                                                    "value":{
+                                                        "sum":2
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "quote":{
+                            "state":"SUCCEEDED",
+                            "date":"2015-01-01T00:00:00.000",
+                            "expiryDate":"2015-02-01",
+                            "premium":{
+                                "from":9.84,
+                                "to":9.84,
+                                "lifetime":1180.80
+                            },
+                            "sumAssured":120000,
+                            "commission":{
+                                "initial":30.61,
+                                "renewal":8.17,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
+                        },
+                        "rating":{
+                            "value":4,
+                            "description":"Good"
+                        },
+                        "details":{
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                        },
+                        "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
+                    }
+                ]
+            }
 
 ## Item [/application/{applicationId}/comparison/item/{itemId}]
 Operations on single Comparison Item associated with Application.
@@ -7113,6 +7297,7 @@ JSON response has following structure:
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
     - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
+    - ***expired*** `boolean` *(optional)* - Flag to mark whether this quote has expired.
     - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
@@ -7564,6 +7749,107 @@ Code and description:
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
+            
++ Request Single Comparison Item with standard decision and expired quote. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336"
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2014-02-01",
+                    "expired":true,
+                    "premium":{
+                        "from":10.26,
+                        "to":10.26,
+                        "unloaded":{
+                            "from":8.05,
+                            "to":8.05
+                        },
+                        "lifetime":1231.20
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.90,
+                        "renewal":8.51,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            } 
 
 # Group Basket
 Basket related resources of the **UnderwriteMe API**.
@@ -7572,6 +7858,7 @@ Basket consist of Basket Items. Basket Items correspond to Comparison Items. Sam
 
 Operations on Basket Items always result in returning Basket state after operation has been made.
 
+Any invalid (data the Items quote was based on has changed) or expired Basket Items are removed from the basket.
 ## List [/application/{applicationId}/basket]
 Operations on existing Basket associated with Application.
 
@@ -7897,6 +8184,156 @@ Operations on Basket Item associated with Application.
 + Response 200
 
             {}
+
+# Group Declaration-of-Health
+Declaration-of-Health related resources of the **UnderwriteMe API**.
+
+When a Comparison Item has expired, the Declaration of Health should be presented to the user before requoting. This can be either confirmed or denied.
+## Existing [/application/{applicationId}/declaration/declaration-of-health]
+Operations on existing Declaration-of-Health associated with Application.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve Declaration-of-Health [GET]
++ Request Declaration-of-Health for application with no expired Comparison Items (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Declaration-of-Health for application with expired Comparison Items (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "question": "<p>HTML formatted Declaration-of-Health text.</p>",
+                "requiredFor": [
+                    {
+                        "id": "392",
+                        "enquiryId": "ff6921fc-0565-4088-a12a-85d13821cf2a",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com",
+                        "contactDetails": {
+                            "telephoneNumber": "01234 567890",
+                            "address": {
+                                "line1": "1 Road",
+                                "town": "Town",
+                                "county": "County",
+                                "postcode": "SW1E1RS"
+                            }
+                        }
+                    }
+                ]
+            }				
+
+### Confirm Declaration-of-Health [PUT]
++ Request Confirm Declaration-of-Health (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "answered": true
+            }
+
++ Response 200
+
+            {
+                "question": "<p>HTML formatted Declaration-of-Health text.</p>",
+                "requiredFor": [
+                    {
+                        "id": "392",
+                        "enquiryId": "ff6921fc-0565-4088-a12a-85d13821cf2a",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com",
+                        "contactDetails": {
+                            "telephoneNumber": "01234 567890",
+                            "address": {
+                                "line1": "1 Road",
+                                "town": "Town",
+                                "county": "County",
+                                "postcode": "SW1E1RS"
+                            }
+                        }
+                    }
+                ]
+            }				
+
++ Request Decline Declaration-of-Health (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "answered": false
+            }
+
++ Response 200
+
+            {
+                "question": "<p>HTML formatted Declaration-of-Health text.</p>",
+                "requiredFor": [
+                    {
+                        "id": "392",
+                        "enquiryId": "ff6921fc-0565-4088-a12a-85d13821cf2a",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com",
+                        "contactDetails": {
+                            "telephoneNumber": "01234 567890",
+                            "address": {
+                                "line1": "1 Road",
+                                "town": "Town",
+                                "county": "County",
+                                "postcode": "SW1E1RS"
+                            }
+                        }
+                    }
+                ]
+            }			
+            
++ Request Confirm Declaration-of-Health for Application with no expired quotes  (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "answered": true
+            }
+
++ Response 404
+           	
 
 # Group Doctor
 Doctor related resources of the **UnderwriteMe API**.
