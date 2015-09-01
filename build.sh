@@ -59,6 +59,9 @@ append basket/list
 append basket/items
 append basket/item
 
+append declaration-of-health/overview
+append declaration-of-health/existing
+
 append doctor/overview
 append doctor/existing
 
