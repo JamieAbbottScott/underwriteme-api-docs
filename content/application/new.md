@@ -38,6 +38,7 @@ Creating new Application based on sent Customers and Products JSON data.
         - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
         - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- ***owner*** `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
@@ -114,8 +115,10 @@ Creating new Application based on sent Customers and Products JSON data.
                         ]
                     }
                 ],
-                "paymentBasis": "MONTHLY"
+                "paymentBasis": "MONTHLY",
+                "owner": "authenticated-user"
             }
+
 
 + Request Customer name cannot contain numbers. (application/json)
 
@@ -333,5 +336,134 @@ Creating new Application based on sent Customers and Products JSON data.
                         ]
                     }
                 ],
-                "paymentBasis": "MONTHLY"
+                "paymentBasis": "MONTHLY",
+                "owner": "authenticated-user"
             }
+
++ Request Valid Application with the owner specified. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "customers": [
+                    {
+                        "referenceId": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
+                        "livesAssured": [
+                            { "refersTo": "cus-001" }
+                        ]
+                    }
+                ],
+                "owner": "existing-user"
+            }
+
++ Response 201 (application/json)
+
+            {
+                "id": "1502181407123020690",
+                "customers": [
+                    {
+                        "id": "1001",
+                        "referenceId": "cus-001",
+                        "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
+                        "livesAssured": [
+                            { "refersTo": "1001" }
+                        ]
+                    }
+                ],
+                "paymentBasis": "MONTHLY",
+                "owner": "existing-user"
+            }
+
++ Request Valid Application with a non-existing owner. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "customers": [
+                    {
+                        "referenceId": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
+                        "livesAssured": [
+                            { "refersTo": "cus-001" }
+                        ]
+                    }
+                ],
+                "owner": "non-existing-user"
+            }
+
++ Response 400 (application/json)
+
+           {
+               "owner": {
+                   "errorMessage": "Unknown owner non-existing-user"
+               }
+           }
+
