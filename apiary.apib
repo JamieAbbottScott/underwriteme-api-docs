@@ -15,6 +15,7 @@ FORMAT: 1A
   * **Post-Declaration** - Confirming Application Post-Declaration in order to finish filling in Customer Enquiries.
   * **Comparison** - Requesting and retrieving Decisions and Quotes for Products.
   * **Basket** - Choosing Products for Activation.
+  * **Declaration-of-Health** - Confirming that the health disclosures have not changed for a Customer with expired Comparison Items.
   * **Doctor** - Filling in Doctor details if Provider Products require that.
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
@@ -5886,7 +5887,7 @@ Operations on existing Comparison associated with Application.
 
 In order to get quote values for the Comparison PUT method has to be used to request it. Quoting is done in asynchronous way which means that values may not come back straight away. Use GET method to query the comparison for updated quote state.
 
-Any expired quotes will requoted when Comparison is requested with PUT method. In order to check whether quotes have expired, first use the GET method to retrieve the Comparison.
+Any expired quotes will be requoted when Comparison is requested with PUT method. In order to check whether quotes have expired, first use the GET method to retrieve the Comparison.
 
 Until all Enquiries are closed Comparison contains only estimated decisions and quotes.
 
