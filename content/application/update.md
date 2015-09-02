@@ -53,5 +53,6 @@ Operations on existing Application details. Updates Payment Basis.
                         ]
                     }
                 ],
-                "paymentBasis": "ANNUAL"
+                "paymentBasis": "ANNUAL",
+                "owner": "owner"
             }
