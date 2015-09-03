@@ -75,3 +75,6 @@ append legals/third-party-marketing-preference
 
 append message/overview
 append message/list
+
+append payment/read
+append payment/update
