@@ -67,6 +67,7 @@ append doctor/existing
 
 append payment/overview
 append payment/existing
+append payment/update
 append payment/restriction/read
 
 append legals/overview

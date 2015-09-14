@@ -8798,6 +8798,45 @@ JSON request and response have following structure:
                 ]
             }
 
++ Request not required date. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount": {
+                    "sortCode": "112233",
+                    "number": "11223344",
+                    "holders": [
+                        { "refersTo": "existing-customer-id" }
+                    ]
+                },
+                "paymentDays": [
+                    {
+                        "provider": "RL",
+                        "dayOfMonth": 1
+                    }
+                ],
+                "startDates": [
+                    {
+                        "refersTo": "rl-9a86037f-f20e-4143-a1d9-b01eb69cfaa5}",
+                        "basis": "TO_BE_ADVISED",
+                        "date": "2015-03-31"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+             {
+                 "startDates": {
+                     "errorMessage": "Start dates are not required"
+                 }
+             }
+
 ## Read [/application/{id}/payment/restriction]
 Read Payment details restriction for Provider Product associated with Application.
 
