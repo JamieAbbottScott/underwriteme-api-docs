@@ -1,4 +1,4 @@
-## Update [/application/{existingApplicationId}/customer/{customerId}]
+## Update [/application/{id}/customer/{customerId}]
 Update operations on Customer identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.

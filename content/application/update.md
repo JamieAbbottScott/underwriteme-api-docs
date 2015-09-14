@@ -1,9 +1,9 @@
-## Update [/application/{existingApplicationId}]
+## Update [/application/{id}]
 Operations on existing Application details. Updates Payment Basis.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Update existing Application [PUT]
 + Request Valid Application. (application/json)

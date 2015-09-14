@@ -1,9 +1,9 @@
-## Delete [/application/{existingApplicationId}/customer/{customerId}]
+## Delete [/application/{id}/customer/{customerId}]
 Remove operations on Customer identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove existing Customer from Application [DELETE]

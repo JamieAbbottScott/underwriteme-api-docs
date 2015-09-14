@@ -1,9 +1,9 @@
-## List [/application/{existingApplicationId}/customer]
+## List [/application/{id}/customer]
 Operations on existing Customers associated with Application identified by unique ID .
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Retrieve existing Customers for Application [GET]
 + Request Retrieve existing Customer. (application/json)
