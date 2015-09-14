@@ -8598,6 +8598,260 @@ JSON request and response have following structure:
             }
 
 
+# Group Payment
+Payment related resources of the **UnderwriteMe API**.
+
+
+## Existing [/application/{id}/payment]
+Operations on existing Payment details for Provider Product associated with Application.
+
+JSON request and response have following structure:
+
+- ***bankAccount*** `object` *(required)* - Bank account.
+    - ***sortCode*** `string` *(required)* - Bank sort code.
+    - ***number*** `string` *(required)* - Bank account number.
+    - ***holders*** `array` *(required)* - Bank account holders.
+        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
+- ***paymentDays*** `array` *(required)* - Payment days.
+    - ***provider*** `string` *(required)* - Unique Provider ID.
+    - ***dayOfMonth*** `number` *(required/optional)* - Payment day of month.
+- ***startDates*** `array` *(required)* - Payment start dates.
+    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
+    - ***provider*** `string` *(optional)* - Unique Provider ID.
+    - ***productId*** `string` *(required)* - Unique Product ID.
+    - ***date*** `string` *(required/optional)* - Payment start date. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
+    - ***basis*** `string` *(required/optional)* - Start date basis. Allowed values: `PROVIDED`, `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`.
+
++ Parameters
+
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve Payment details for Provider Product [GET]
++ Request Retrieve existing Payment details for Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "paymentDays": [
+                    {
+                        "provider": "PLR"
+                    }
+                ],
+                "startDates": [
+                    {
+                        "provider": "PLR",
+                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "productId": "0ea872c8-5ea2-4ef0-a824-08116dfb7c03"
+                    }
+                ]
+            }
+
++ Request Not existing Payment details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+### Update existing Payment details for Provider Product [PUT]
++ Request Valid Payment. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount": {
+                    "sortCode": "112233",
+                    "number": "11223344",
+                    "holders": [
+                        { "refersTo": "existing-customer-id" }
+                    ]
+                },
+                "paymentDays": [
+                    {
+                        "provider": "PLR",
+                        "dayOfMonth": 1
+                    }
+                ],
+                "startDates": [
+                    {
+                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date": "2015-01-07"
+                    }
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "paymentDays": [
+                    {
+                        "dayOfMonth": 1,
+                        "provider": "PLR"
+                    }
+                ],
+                "startDates": [
+                    {
+                        "provider": "PLR",
+                        "date": "2015-01-07",
+                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "productId": "0ea872c8-5ea2-4ef0-a824-08116dfb7c03"
+                    }
+                ],
+                "bankAccount": {
+                    "holders": [
+                        {
+                            "refersTo": "395"
+                        }
+                    ],
+                    "sortCode": "112233",
+                    "number": "11223344"
+                }
+            }
+
++ Request Not required payment day for provider. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount": {
+                    "sortCode": "112233",
+                    "number": "11223344",
+                    "holders": [
+                        { "refersTo": "existing-customer-id" }
+                    ]
+                },
+                "paymentDays": [
+                    {
+                        "provider": "InsurerX",
+                        "dayOfMonth": 1
+                    }
+                ],
+                "startDates": [
+                    {
+                        "refersTo": "insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date": "2015-01-07"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "paymentDays": {
+                    "errorMessage": "Payment days are not required"
+                }
+            }
+
++ Request wrong start dates offset. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount": {
+                    "sortCode": "112233",
+                    "number": "11223344",
+                    "holders": [
+                        { "refersTo": "existing-customer-id" }
+                    ]
+                },
+                "paymentDays": [
+                    {
+                        "provider": "PLR",
+                        "dayOfMonth": 1
+                    }
+                ],
+                "startDates": [
+                    {
+                        "refersTo": "plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date": "2015-01-08"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+             {
+                "startDates": [
+                    {
+                        "date": {
+                            "errorMessage": "Please supply a start date between  01/01/2015 and  07/01/2015"
+                        },
+                        "refersTo": "plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5"
+                    }
+                ]
+            }
+
+## Read [/application/{id}/payment/restriction]
+Read Payment details restriction for Provider Product associated with Application.
+
++ Parameters
+
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Retrieve Payment details restriction for Provider Product [GET]
++ Request Retrieve existing Payment details restriction for Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "paymentDays": [
+                    {
+                        "dayOfMonth": {
+                            "required": true
+                        },
+                        "provider": "PLR"
+                    }
+                ],
+                "startDates": [
+                    {
+                        "basis": {
+                            "required": false
+                        },
+                        "provider": "PLR",
+                        "date": {
+                            "required": true
+                        },
+                        "refersTo": "plr-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "productId": "1f1cd0a4-fb06-431a-8c57-bcf61596dac2"
+                    }
+                ],
+                "bankAccount": {
+                    "holders": {
+                        "max": 2
+                    }
+                }
+            }
+
++ Request Not existing Payment details restriction. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+
 # Group Legals
 Legal Declarations related resources of the **UnderwriteMe API**.
 
