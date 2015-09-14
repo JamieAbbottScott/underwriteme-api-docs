@@ -1,24 +1,3 @@
-## Update [/application/{id}/customer/{customerId}]
-Update operations on Customer identified by unique ID associated with Application.
-
-- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-- ***name*** `string` *(required)* - Customer name.
-- ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-- ***email*** `string` *(required)* - Customer email address.
-- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-        - ***line1*** `string` *(optional)* - Address first line.
-        - ***line2*** `string` *(optional)* - Address second line.
-        - ***town*** `string` *(optional)* - Address town.
-        - ***county*** `string` *(optional)* - Address county.
-        - ***postcode*** `string` *(required)* - Address postcode.
-
 ### Update existing Customer for Application [PUT]
 + Request Valid Customer. (application/json)
 
