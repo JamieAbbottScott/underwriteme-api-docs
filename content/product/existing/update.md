@@ -1,4 +1,4 @@
-## Update [/application/{id}/product/{productId}]
+## Existing [/application/{id}/product/{productId}]
 Update operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.

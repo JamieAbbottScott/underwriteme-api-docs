@@ -608,13 +608,6 @@ Operations on existing Application identified by unique ID.
 + Response 404
 
 
-## Update [/application/{id}]
-Operations on existing Application details. Updates Payment Basis.
-
-+ Parameters
-
-    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-
 ### Update existing Application [PUT]
 + Request Valid Application. (application/json)
 
@@ -671,7 +664,7 @@ Operations on existing Application details. Updates Payment Basis.
 # Group Customer
 Customer related resources of the **UnderwriteMe API**.
 
-## Create and List [/application/{id}/customer]
+## Create [/application/{id}/customer]
 Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
@@ -755,7 +748,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 }
             }
 
-## List [/application/{id}/customer]
+## List [/application/{id}/customer/]
 Operations on existing Customers associated with Application identified by unique ID .
 
 + Parameters
@@ -846,27 +839,6 @@ Operations on existing Customer identified by unique ID associated with Applicat
 + Response 404
 
 
-## Update [/application/{id}/customer/{customerId}]
-Update operations on Customer identified by unique ID associated with Application.
-
-- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-- ***name*** `string` *(required)* - Customer name.
-- ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-- ***email*** `string` *(required)* - Customer email address.
-- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-        - ***line1*** `string` *(optional)* - Address first line.
-        - ***line2*** `string` *(optional)* - Address second line.
-        - ***town*** `string` *(optional)* - Address town.
-        - ***county*** `string` *(optional)* - Address county.
-        - ***postcode*** `string` *(required)* - Address postcode.
-
 ### Update existing Customer for Application [PUT]
 + Request Valid Customer. (application/json)
 
@@ -930,14 +902,6 @@ Update operations on Customer identified by unique ID associated with Applicatio
                 }
             }
 
-
-## Delete [/application/{id}/customer/{customerId}]
-Remove operations on Customer identified by unique ID associated with Application.
-
-+ Parameters
-
-    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove existing Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
@@ -1135,7 +1099,7 @@ Creating new Product based on sent JSON data.
             }
 
 
-## List For Customer [/application/{id}/product{?lifeAssured}]
+## List [/application/{id}/product{?lifeAssured}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
@@ -1185,7 +1149,7 @@ Operations on existing Products and Customer associated with Application identif
                 }
             ]
 
-+ Lists Products for not existing Application. (application/json)
++ Request Not existing Products for Application. (application/json)
 
     + Headers
 
@@ -1236,7 +1200,7 @@ Operations on existing Product identified by unique ID associated with Applicati
 + Response 404
 
 
-## Update [/application/{id}/product/{productId}]
+## Existing [/application/{id}/product/{productId}]
 Update operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -1388,14 +1352,6 @@ Update operations on existing Product identified by unique ID associated with Ap
                 }
             }
 
-
-## Delete [/application/{id}/product/{productId}]
-Delete operations on existing Product identified by unique ID associated with Application.
-
-+ Parameters
-
-    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove existing Product from Application [DELETE]
 + Request Removing Product from not existing Application. (application/json)

@@ -1,4 +1,4 @@
-## List For Customer [/application/{id}/product{?lifeAssured}]
+## List [/application/{id}/product{?lifeAssured}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
@@ -48,7 +48,7 @@ Operations on existing Products and Customer associated with Application identif
                 }
             ]
 
-+ Lists Products for not existing Application. (application/json)
++ Request Not existing Products for Application. (application/json)
 
     + Headers
 
