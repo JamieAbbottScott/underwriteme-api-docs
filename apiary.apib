@@ -608,12 +608,12 @@ Operations on existing Application identified by unique ID.
 + Response 404
 
 
-## Update [/application/{existingApplicationId}]
+## Update [/application/{id}]
 Operations on existing Application details. Updates Payment Basis.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Update existing Application [PUT]
 + Request Valid Application. (application/json)
@@ -671,7 +671,7 @@ Operations on existing Application details. Updates Payment Basis.
 # Group Customer
 Customer related resources of the **UnderwriteMe API**.
 
-## Create and List [/application/{existingApplicationId}/customer]
+## Create and List [/application/{id}/customer]
 Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
@@ -755,12 +755,12 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 }
             }
 
-## List [/application/{existingApplicationId}/customer]
+## List [/application/{id}/customer]
 Operations on existing Customers associated with Application identified by unique ID .
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Retrieve existing Customers for Application [GET]
 + Request Retrieve existing Customer. (application/json)
@@ -807,12 +807,12 @@ Operations on existing Customers associated with Application identified by uniqu
 + Response 404
 
 
-## Existing [/application/{existingApplicationId}/customer/{customerId}]
+## Existing [/application/{id}/customer/{customerId}]
 Operations on existing Customer identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
 ### Retrieve existing Customer for Application [GET]
@@ -846,7 +846,7 @@ Operations on existing Customer identified by unique ID associated with Applicat
 + Response 404
 
 
-## Update [/application/{existingApplicationId}/customer/{customerId}]
+## Update [/application/{id}/customer/{customerId}]
 Update operations on Customer identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
@@ -931,12 +931,12 @@ Update operations on Customer identified by unique ID associated with Applicatio
             }
 
 
-## Delete [/application/{existingApplicationId}/customer/{customerId}]
+## Delete [/application/{id}/customer/{customerId}]
 Remove operations on Customer identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove existing Customer from Application [DELETE]
@@ -982,7 +982,7 @@ Remove operations on Customer identified by unique ID associated with Applicatio
 # Group Product
 Product related resources of the **UnderwriteMe API**.
 
-## Create [/application/{existingApplicationId}/product]
+## Create [/application/{id}/product]
 Creating new Product based on sent JSON data.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -1135,13 +1135,13 @@ Creating new Product based on sent JSON data.
             }
 
 
-## List For Customer [/application/{existingApplicationId}/product{?lifeAssured}]
+## List For Customer [/application/{id}/product{?lifeAssured}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Product Life Assured. If not specified, list all Life Assured For Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Life Assured for Customer.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
@@ -1194,12 +1194,12 @@ Operations on existing Products and Customer associated with Application identif
 + Response 404
 
 
-## Existing [/application/{existingApplicationId}/product/{productId}]
+## Existing [/application/{id}/product/{productId}]
 Operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
 
 ### Retrieve existing Product for Application [GET]
@@ -1236,7 +1236,7 @@ Operations on existing Product identified by unique ID associated with Applicati
 + Response 404
 
 
-## Update [/application/{existingApplicationId}/product/{productId}]
+## Update [/application/{id}/product/{productId}]
 Update operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -1389,12 +1389,12 @@ Update operations on existing Product identified by unique ID associated with Ap
             }
 
 
-## Delete [/application/{existingApplicationId}/product/{productId}]
+## Delete [/application/{id}/product/{productId}]
 Delete operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove existing Product from Application [DELETE]
