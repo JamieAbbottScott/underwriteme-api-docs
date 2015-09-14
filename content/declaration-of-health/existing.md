@@ -46,7 +46,7 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }				
+            }
 
 ### Confirm Declaration-of-Health [PUT]
 + Request Confirm Declaration-of-Health (application/json)
@@ -87,7 +87,7 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }				
+            }
 
 + Request Decline Declaration-of-Health (application/json)
 
@@ -127,8 +127,8 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }			
-            
+            }
+
 + Request Confirm Declaration-of-Health for Application with no expired quotes  (application/json)
 
     + Headers
@@ -142,4 +142,3 @@ Operations on existing Declaration-of-Health associated with Application.
             }
 
 + Response 404
-           	

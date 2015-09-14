@@ -21,8 +21,10 @@ FORMAT: 1A
   * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Requesting and retrieving Activation state of selected Products.
   * **Message** - Retrieve all i18n messages.
+
 # Group Authentication
 Authentication related resources of the **UnderwriteMe API**.
+
 
 ## Authenticate [/auth]
 Logging in and retrieving access token that must be added to each request made to **UnderwriteMe API** resources.
@@ -70,8 +72,10 @@ Expected authentication JSON format:
 
 + Response 401
 
+
 # Group Application
 Application related resources of the **UnderwriteMe API**.
+
 
 ## New [/application]
 Creating new Application based on sent Customers and Products JSON data.
@@ -543,6 +547,7 @@ Creating new Application based on sent Customers and Products JSON data.
            }
 
 
+
 ## Existing [/application/{id}]
 Operations on existing Application identified by unique ID.
 
@@ -602,12 +607,6 @@ Operations on existing Application identified by unique ID.
 
 + Response 404
 
-## Update [/application/{existingApplicationId}]
-Operations on existing Application details. Updates Payment Basis.
-
-+ Parameters
-
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Update existing Application [PUT]
 + Request Valid Application. (application/json)
@@ -661,9 +660,11 @@ Operations on existing Application details. Updates Payment Basis.
                 "owner": "owner"
             }
 
+
 # Group Customer
 Customer related resources of the **UnderwriteMe API**.
-## Create and List [/application/{existingApplicationId}/customer]
+
+## Create [/application/{id}/customer]
 Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
@@ -746,12 +747,13 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                     "errorMessage": "Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
                 }
             }
-## List [/application/{existingApplicationId}/customer]
+
+## List [/application/{id}/customer/]
 Operations on existing Customers associated with Application identified by unique ID .
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
 ### Retrieve existing Customers for Application [GET]
 + Request Retrieve existing Customer. (application/json)
@@ -797,12 +799,13 @@ Operations on existing Customers associated with Application identified by uniqu
 
 + Response 404
 
-## Existing [/application/{existingApplicationId}/customer/{customerId}]
+
+## Existing [/application/{id}/customer/{customerId}]
 Operations on existing Customer identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + customerId  (required, string, `1502181407123020689`) ... Unique ID of existing Customer.
 
 ### Retrieve existing Customer for Application [GET]
@@ -835,26 +838,6 @@ Operations on existing Customer identified by unique ID associated with Applicat
 
 + Response 404
 
-## Update [/application/{existingApplicationId}/customer/{customerId}]
-Update operations on Customer identified by unique ID associated with Application.
-
-- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-- ***name*** `string` *(required)* - Customer name.
-- ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-- ***email*** `string` *(required)* - Customer email address.
-- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-        - ***line1*** `string` *(optional)* - Address first line.
-        - ***line2*** `string` *(optional)* - Address second line.
-        - ***town*** `string` *(optional)* - Address town.
-        - ***county*** `string` *(optional)* - Address county.
-        - ***postcode*** `string` *(required)* - Address postcode.
 
 ### Update existing Customer for Application [PUT]
 + Request Valid Customer. (application/json)
@@ -919,13 +902,6 @@ Update operations on Customer identified by unique ID associated with Applicatio
                 }
             }
 
-## Delete [/application/{existingApplicationId}/customer/{customerId}]
-Remove operations on Customer identified by unique ID associated with Application.
-
-+ Parameters
-
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + customerId (required, string, `eae35b32-4841-4620-aed4-d06cf1cf8057`) ... Unique ID of existing Customer.
 
 ### Remove existing Customer from Application [DELETE]
 + Request Removing Customer from not existing Application. (application/json)
@@ -966,9 +942,11 @@ Remove operations on Customer identified by unique ID associated with Applicatio
             }
 
 
+
 # Group Product
 Product related resources of the **UnderwriteMe API**.
-## Create [/application/{existingApplicationId}/product]
+
+## Create [/application/{id}/product]
 Creating new Product based on sent JSON data.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -1120,13 +1098,14 @@ Creating new Product based on sent JSON data.
                 }
             }
 
-## List For Customer [/application/{existingApplicationId}/product{?lifeAssured}]
+
+## List [/application/{id}/product{?lifeAssured}]
 Operations on existing Products and Customer associated with Application identified by unique ID.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Product Life Assured. If not specified, list all Life Assured For Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Life Assured for Customer.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
@@ -1170,7 +1149,7 @@ Operations on existing Products and Customer associated with Application identif
                 }
             ]
 
-+ Lists Products for not existing Application. (application/json)
++ Request Not existing Products for Application. (application/json)
 
     + Headers
 
@@ -1178,12 +1157,13 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 404
 
-## Existing [/application/{existingApplicationId}/product/{productId}]
+
+## Existing [/application/{id}/product/{productId}]
 Operations on existing Product identified by unique ID associated with Application.
 
 + Parameters
 
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
     + productId  (required, string, `1502181407123020689`) ... Unique ID of existing Product.
 
 ### Retrieve existing Product for Application [GET]
@@ -1219,7 +1199,8 @@ Operations on existing Product identified by unique ID associated with Applicati
 
 + Response 404
 
-## Update [/application/{existingApplicationId}/product/{productId}]
+
+## Existing [/application/{id}/product/{productId}]
 Update operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -1371,13 +1352,6 @@ Update operations on existing Product identified by unique ID associated with Ap
                 }
             }
 
-## Delete [/application/{existingApplicationId}/product/{productId}]
-Delete operations on existing Product identified by unique ID associated with Application.
-
-+ Parameters
-
-    + existingApplicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + productId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb743`) ... Unique ID of existing Product.
 
 ### Remove existing Product from Application [DELETE]
 + Request Removing Product from not existing Application. (application/json)
@@ -1420,8 +1394,10 @@ Delete operations on existing Product identified by unique ID associated with Ap
                 ]
             }
 
+
 # Group Pre-Declaration
 Pre-Declaration related resources of the **UnderwriteMe API**.
+
 
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}/pre-declaration]
 Operations on existing Pre-Declaration associated with Application and Customer Enquiry.
@@ -1459,8 +1435,10 @@ Operations on existing Pre-Declaration associated with Application and Customer 
                 "text": "<p>HTML formatted Pre-Declaration text.</p>"
             }
 
+
 # Group Enquiry
 Enquiry related resources of the **UnderwriteMe API**.
+
 
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}]
 Operations on existing Enquiry associated with Application.
@@ -5714,8 +5692,10 @@ In order to read or update Enquiry a Pre-Declaration has to be confirmed.
                 }
             }
 
+
 # Group Question
 Question related resources of the **UnderwriteMe API**.
+
 
 ## Definition [/enquiry/question/{branch}/{tag}/{name}]
 Operations on Question Definition.
@@ -5744,6 +5724,7 @@ Operations on Question Definition.
                 "isLenient": false,
                 "isBounded": false
             }
+
 
 ## Option List [/enquiry/option-list/{branch}/{tag}/{name}]
 Operations on Question Option List.
@@ -5808,6 +5789,7 @@ Operations on Question Option List.
                 }
             ]
 
+
 ## Option Lookup [/enquiry/question-option-lookup/{branch}/{tag}/{name}/{stem}]
 Operations on Question Option Lookup.
 
@@ -5837,8 +5819,10 @@ Operations on Question Option Lookup.
                 "Propman"
             ]
 
+
 # Group Post-Declaration
 Post-Declaration related resources of the **UnderwriteMe API**.
+
 
 ## Existing [/application/{applicationId}/post-declaration]
 Operations on existing Post-Declaration associated with Application.
@@ -5879,8 +5863,10 @@ Confirming Post-Declaration means closing all Customer Enquiries. Any changes to
                 "text": "<p>HTML formatted Post-Declaration text.</p>"
             }
 
+
 # Group Comparison
 Comparison related resources of the **UnderwriteMe API**.
+
 
 ## List [/application/{applicationId}/comparison]
 Operations on existing Comparison associated with Application.
@@ -7382,6 +7368,7 @@ JSON response has following structure:
                 ]
             }
 
+
 ## Item [/application/{applicationId}/comparison/item/{itemId}]
 Operations on single Comparison Item associated with Application.
 
@@ -7987,6 +7974,7 @@ Code and description:
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             } 
 
+
 # Group Basket
 Basket related resources of the **UnderwriteMe API**.
 
@@ -7995,6 +7983,7 @@ Basket consist of Basket Items. Basket Items correspond to Comparison Items. Sam
 Operations on Basket Items always result in returning Basket state after operation has been made.
 
 Any invalid (data the Items quote was based on has changed) or expired Basket Items are removed from the basket.
+
 ## List [/application/{applicationId}/basket]
 Operations on existing Basket associated with Application.
 
@@ -8173,6 +8162,7 @@ Operations on existing Basket associated with Application.
                 "paymentBasis":"MONTHLY"
             }
 
+
 ## Items [/application/{applicationId}/basket/item]
 Operations on Basket Items associated with Application.
 
@@ -8286,6 +8276,7 @@ Operations on Basket Items associated with Application.
 
             {}
 
+
 ## Item [/application/{applicationId}/basket/item/{itemId}]
 Operations on Basket Item associated with Application.
 
@@ -8321,10 +8312,12 @@ Operations on Basket Item associated with Application.
 
             {}
 
+
 # Group Declaration-of-Health
 Declaration-of-Health related resources of the **UnderwriteMe API**.
 
 When a Comparison Item has expired, the Declaration of Health should be presented to the user before requoting. This can be either confirmed or denied.
+
 ## Existing [/application/{applicationId}/declaration/declaration-of-health]
 Operations on existing Declaration-of-Health associated with Application.
 
@@ -8373,7 +8366,7 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }				
+            }
 
 ### Confirm Declaration-of-Health [PUT]
 + Request Confirm Declaration-of-Health (application/json)
@@ -8414,7 +8407,7 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }				
+            }
 
 + Request Decline Declaration-of-Health (application/json)
 
@@ -8454,8 +8447,8 @@ Operations on existing Declaration-of-Health associated with Application.
                         }
                     }
                 ]
-            }			
-            
+            }
+
 + Request Confirm Declaration-of-Health for Application with no expired quotes  (application/json)
 
     + Headers
@@ -8469,10 +8462,11 @@ Operations on existing Declaration-of-Health associated with Application.
             }
 
 + Response 404
-           	
+
 
 # Group Doctor
 Doctor related resources of the **UnderwriteMe API**.
+
 
 ## Existing [/application/{applicationId}/customer/{customerId}/doctor]
 Operations on existing Doctor details associated with Application Customer.
@@ -8603,8 +8597,10 @@ JSON request and response have following structure:
                 }
             }
 
+
 # Group Legals
 Legal Declarations related resources of the **UnderwriteMe API**.
+
 
 ## Advised Sale Declaration [/application/{applicationId}/declaration/advised-sale]
 Operations on Advised Sale Declaration associated with Application.
@@ -8666,6 +8662,7 @@ JSON request and response have following structure:
                 "answer": true
             }
 
+
 ## Money Laundering Checked Declaration [/application/{applicationId}/declaration/money-laundering-checked]
 Operations on Money Laundering Checked Declaration associated with Application.
 
@@ -8726,6 +8723,7 @@ JSON request and response have following structure:
                 "answer": true
             }
 
+
 ## Adviser Declaration [/application/{applicationId}/declaration/adviser]
 Operations on Adviser Declaration associated with Application.
 
@@ -8752,6 +8750,7 @@ JSON request and response have following structure:
                 "question":"<ul>\n    <li>I confirm that this application has been completed in accordance with the current intermediary terms of business with the insurer(s).</li>\n    <li>I agree that I am acting on the client’s behalf as their agent.</li>\n    <li>I confirm that I am responsible for providing, and have provided, to the client the information that must be provided by an intermediary to a consumer under ICOBS, including the scope of my service and product information.</li>\n    <li>I confirm that I have clearly read out all the application questions and warnings on the screen to the client/s, and I have accurately recorded everything that the client/s told me on the application form.</li>\n    <li>I confirm that taking the total of the covers in the policy(ies) in this application, the covers do not exceed £20 million of life insurance cover.</li>\n    <li>I have read out the Client Declaration to the client/s and notified the client/s that if they do not understand anything, they must ask me for clarification or further information. The client/s have provided confirmation that each of the statements in the client declaration is correct. I have answered all of the client's requests for clarification or further information.</li>\n    <li>I have provided an accurate translation of the client's responses to the underwriting questions in completing this application.</li>\n    <li>I have obtained all necessary consents to the processing of sensitive personal data.</li>\n</ul>"
             }
 
+
 ## Client Declaration [/application/{applicationId}/declaration/client]
 Operations on Client Declaration associated with Application.
 
@@ -8777,6 +8776,7 @@ JSON request and response have following structure:
             {
                 "question":"<p>Before completing the sale of the policy that you have chosen, you must confirm the following:</p>\n\n<ul>\n    <li>You have answered all the questions honestly and have taken reasonable care that your answers are accurate and complete and all other information provided by you has been provided honestly and accurately. If you have not done so, your policy may be cancelled and/or the insurer may not pay out in the event of a claim. This information will not be checked and the insurer will rely on your answers and information you provide being accurate.</li>\n    <li>You consent to each participating insurer and intermediary processing your personal data (including sensitive personal data, such as medical information) for the purposes of providing you with a quote, underwriting your policy and assessing any claims.</li>\n    <li>You consent to your personal data (including sensitive personal data such as medical information) being shared with other insurers to whom you apply in the future, reinsurers, medical professionals and/or healthcare management companies, regulatory bodies (the Financial Conduct Authority, HM Revenue and Customs, etc.) and any other relevant third-parties. All such parties will be described as “Interested Parties” for the purposes of this application.</li>\n    <li>Interested Parties may transfer your personal data (including sensitive personal data such as medical information) to countries outside the European Economic Area in order to provide services connected with your policy, however, any such transfer must always comply with the Data Protection Act.</li>\n    <li>You consent to your GP providing medical information to your insurers and their claim handlers to support any claim you make (or which is made on your behalf).</li>\n    <li>You are a UK resident, excluding Channel Islands and the Isle of Man.</li>\n    <li>If there is a change to your circumstances and / or any answer to a question or other information provided is not correct, you must inform your insurer as soon as possible. The insurer will then request any further details required by it. This may affect the insurer's assessment of the risk.</li>\n</ul>"
             }
+
 
 ## Insurer Marketing Preference [/application/{applicationId}/customer/{customerId}/marketing-preference/insurer]
 Operations on Insurer Marketing Preference associated with Application Customer.
@@ -8843,6 +8843,7 @@ JSON request and response have following structure:
                 "answer": true
             }
 
+
 ## Third Party Marketing Preference [/application/{applicationId}/customer/{customerId}/marketing-preference/third-party]
 Operations on Third Party Marketing Preference associated with Application Customer.
 
@@ -8908,8 +8909,10 @@ JSON request and response have following structure:
                 "answer": true
             }
 
+
 # Group Message
 Message related resources of the **UnderwriteMe API**.
+
 
 ## List [/message]
 
@@ -8934,5 +8937,4 @@ Message related resources of the **UnderwriteMe API**.
                     "text": "Value is not a valid postcode (eg. AB1 2CD)"
                 }
             ]
-
 

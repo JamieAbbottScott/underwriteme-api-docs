@@ -2,7 +2,7 @@
 
 function append {
     cat content/$1.md >> apiary.apib
-    echo "" >> apiary.apib
+    echo "\n" >> apiary.apib
 }
 
 function clear {
