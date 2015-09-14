@@ -4,7 +4,7 @@ Operations on existing Products and Customer associated with Application identif
 + Parameters
 
     + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
-    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Product Life Assured. If not specified, list all Life Assured For Application.
+    + lifeAssured  (required, string, `1502181407123020689`) ... Optional unique ID of existing Life Assured for Customer.
 
 ### Retrieve existing Products associated with Customer for the Application [GET]
 + Request Retrieve existing Product for Customer. (application/json)
