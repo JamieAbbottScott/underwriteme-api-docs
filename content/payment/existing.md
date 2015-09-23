@@ -1,5 +1,5 @@
 ## Existing [/application/{id}/payment]
-Operations on existing Payment details for Provider Product associated with Application.
+Operations on existing Payment details for Provider Product from the Basket associated with Application.
 
 JSON request and response have following structure:
 
@@ -14,9 +14,9 @@ JSON request and response have following structure:
 - ***startDates*** `array` *(required)* - Payment start dates.
     - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
     - ***provider*** `string` *(optional)* - Unique Provider ID.
-    - ***productId*** `string` *(required)* - Unique Product ID.
+    - ***productId*** `string` *(optional)* - Unique Product ID.
     - ***date*** `string` *(required/optional)* - Payment start date. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`. Depends on Provider Restrictions.
-    - ***basis*** `string` *(required/optional)* - Start date basis. Allowed values: `PROVIDED`, `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Depends on Provider Restrictions.
+    - ***basis*** `string` *(required/optional)* - Start date basis. Allowed values: `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Depends on Provider Restrictions.
 
 + Parameters
 

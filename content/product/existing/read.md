@@ -17,7 +17,7 @@ Operations on existing Product identified by unique ID associated with Applicati
 
            {
                "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
-               "referenceId": "pro-001",read.md
+               "referenceId": "pro-001",
                "type": "TERM",
                "coverBasis": "LEVEL",
                "coverPeriod": 20,

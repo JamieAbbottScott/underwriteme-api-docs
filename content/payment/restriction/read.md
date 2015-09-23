@@ -1,5 +1,5 @@
-## Read [/application/{id}/payment/restriction]
-Read Payment details restriction for Provider Product associated with Application.
+## Restriction [/application/{id}/payment/restriction]
+Payment details restriction for Provider Product from the Basket associated with Application.
 
 + Parameters
 

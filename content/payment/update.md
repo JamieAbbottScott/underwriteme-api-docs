@@ -95,7 +95,7 @@
                 }
             }
 
-+ Request wrong start dates offset. (application/json)
++ Request Wrong start dates offset. (application/json)
 
     + Headers
 
@@ -156,13 +156,13 @@
                 },
                 "paymentDays": [
                     {
-                        "provider": "RL",
+                        "provider": "InsurerY",
                         "dayOfMonth": 1
                     }
                 ],
                 "startDates": [
                     {
-                        "refersTo": "rl-9a86037f-f20e-4143-a1d9-b01eb69cfaa5}",
+                        "refersTo": "insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5}",
                         "basis": "TO_BE_ADVISED",
                         "date": "2015-03-31"
                     }
