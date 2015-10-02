@@ -65,6 +65,13 @@ append declaration-of-health/existing
 append doctor/overview
 append doctor/existing
 
+append payment/overview
+append payment/restriction/overview
+append payment/restriction/read
+append payment/existing/overview
+append payment/existing/read
+append payment/existing/update
+
 append legals/overview
 append legals/advised-sale-declaration
 append legals/money-laundering-checked-declaration
