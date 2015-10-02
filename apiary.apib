@@ -8601,33 +8601,21 @@ JSON request and response have following structure:
 # Group Payment
 Payment related resources of the **UnderwriteMe API**.
 
+Allows to pass on payment related details like: bank account information, payment days per Provider and start dates of the selected Provider Products sitting in the Basket.
 
-## Existing [/application/{id}/payment]
-Operations on existing Payment details for Provider Product from the Basket associated with Application.
+Since each Provider might have different requirements for payment days and start dates depending on various conditions, Payment Restriction resource is available. It describes if a particular field is required or not and in what capacity. Follow examples in Payment Restriction section for details.
 
-JSON request and response have following structure:
 
-- ***bankAccount*** `object` *(required)* - Bank account.
-    - ***sortCode*** `string` *(required)* - Bank sort code.
-    - ***number*** `string` *(required)* - Bank account number.
-    - ***holders*** `array` *(required)* - Bank account holders.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-- ***paymentDays*** `array` *(required)* - Payment days.
-    - ***provider*** `string` *(required)* - Unique Provider ID.
-    - ***dayOfMonth*** `number` *(required/optional)* - Payment day of month. Depends on Provider Restrictions.
-- ***startDates*** `array` *(required)* - Payment start dates.
-    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-    - ***provider*** `string` *(optional)* - Unique Provider ID.
-    - ***productId*** `string` *(optional)* - Unique Product ID.
-    - ***date*** `string` *(required/optional)* - Payment start date. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`. Depends on Provider Restrictions.
-    - ***basis*** `string` *(required/optional)* - Start date basis. Allowed values: `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Depends on Provider Restrictions.
+## Restriction [/application/{id}/payment/restriction]
+Payment Restriction for Application based on Provider Products available in the Basket.
 
 + Parameters
 
     + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
-### Retrieve Payment details for Provider Product [GET]
-+ Request Retrieve existing Payment details for Application. (application/json)
+
+### Retrieve Payment Restriction [GET]
++ Request Payment Restriction for Application with one Provider Product in the Basket. (application/json)
 
     + Headers
 
@@ -8636,21 +8624,89 @@ JSON request and response have following structure:
 + Response 200
 
             {
-                "paymentDays": [
+                "bankAccount":{
+                    "holders":{
+                        "max":2
+                    }
+                },
+                "paymentDays":[
                     {
-                        "provider": "PLR"
+                        "provider":"PLR",
+                        "dayOfMonth":{
+                            "required":true
+                        }
                     }
                 ],
-                "startDates": [
+                "startDates":[
                     {
-                        "provider": "PLR",
-                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
-                        "productId": "0ea872c8-5ea2-4ef0-a824-08116dfb7c03"
+                        "refersTo":"plr-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "provider":"PLR",
+                        "productId":"1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "date":{
+                            "required":true
+                        },
+                        "basis":{
+                            "required":false
+                        }
                     }
                 ]
             }
 
-+ Request Not existing Payment details. (application/json)
++ Request Payment Restriction for Application with two Provider Products in the Basket and the number of bank account holders restricted to 1. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount":{
+                    "holders":{
+                        "max":1
+                    }
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":{
+                            "required":true
+                        }
+                    },
+                    {
+                        "provider":"InsurerX",
+                        "dayOfMonth":{
+                            "required":false
+                        }
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "provider":"PLR",
+                        "productId":"1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "date":{
+                            "required":true
+                        },
+                        "basis":{
+                            "required":false
+                        }
+                    },
+                    {
+                        "refersTo":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                        "provider":"InsurerX",
+                        "productId":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
+                        "date":{
+                            "required":false
+                        },
+                        "basis":{
+                            "required":true
+                        }
+                    }
+                ]
+            }
+
++ Request Payment Restriction for not existing Application. (application/json)
 
     + Headers
 
@@ -8658,194 +8714,42 @@ JSON request and response have following structure:
 
 + Response 404
 
-### Update existing Payment details for Provider Product [PUT]
-+ Request Valid Payment. (application/json)
++ Request Payment Restriction for Application with empty Basket. (application/json)
 
     + Headers
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
-    + Body
++ Response 404
 
-            {
-                "bankAccount": {
-                    "sortCode": "112233",
-                    "number": "11223344",
-                    "holders": [
-                        { "refersTo": "existing-customer-id" }
-                    ]
-                },
-                "paymentDays": [
-                    {
-                        "provider": "PLR",
-                        "dayOfMonth": 1
-                    }
-                ],
-                "startDates": [
-                    {
-                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
-                        "date": "2015-01-07"
-                    }
-                ]
-            }
 
-+ Response 200 (application/json)
+## Existing [/application/{id}/payment]
+Operations on existing Payment for Application based on Provider Products available in the Basket.
 
-            {
-                "paymentDays": [
-                    {
-                        "dayOfMonth": 1,
-                        "provider": "PLR"
-                    }
-                ],
-                "startDates": [
-                    {
-                        "provider": "PLR",
-                        "date": "2015-01-07",
-                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
-                        "productId": "0ea872c8-5ea2-4ef0-a824-08116dfb7c03"
-                    }
-                ],
-                "bankAccount": {
-                    "holders": [
-                        {
-                            "refersTo": "395"
-                        }
-                    ],
-                    "sortCode": "112233",
-                    "number": "11223344"
-                }
-            }
+JSON request and response have following structure:
 
-+ Request Not required payment day for provider. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-    + Body
-
-            {
-                "bankAccount": {
-                    "sortCode": "112233",
-                    "number": "11223344",
-                    "holders": [
-                        { "refersTo": "existing-customer-id" }
-                    ]
-                },
-                "paymentDays": [
-                    {
-                        "provider": "InsurerX",
-                        "dayOfMonth": 1
-                    }
-                ],
-                "startDates": [
-                    {
-                        "refersTo": "insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
-                        "date": "2015-01-07"
-                    }
-                ]
-            }
-
-+ Response 400 (application/json)
-
-            {
-                "paymentDays": {
-                    "errorMessage": "Payment days are not required"
-                }
-            }
-
-+ Request Wrong start dates offset. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-    + Body
-
-            {
-                "bankAccount": {
-                    "sortCode": "112233",
-                    "number": "11223344",
-                    "holders": [
-                        { "refersTo": "existing-customer-id" }
-                    ]
-                },
-                "paymentDays": [
-                    {
-                        "provider": "PLR",
-                        "dayOfMonth": 1
-                    }
-                ],
-                "startDates": [
-                    {
-                        "refersTo": "plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
-                        "date": "2015-01-08"
-                    }
-                ]
-            }
-
-+ Response 400 (application/json)
-
-             {
-                "startDates": [
-                    {
-                        "date": {
-                            "errorMessage": "Please supply a start date between  01/01/2015 and  07/01/2015"
-                        },
-                        "refersTo": "plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5"
-                    }
-                ]
-            }
-
-+ Request not required date. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-    + Body
-
-            {
-                "bankAccount": {
-                    "sortCode": "112233",
-                    "number": "11223344",
-                    "holders": [
-                        { "refersTo": "existing-customer-id" }
-                    ]
-                },
-                "paymentDays": [
-                    {
-                        "provider": "InsurerY",
-                        "dayOfMonth": 1
-                    }
-                ],
-                "startDates": [
-                    {
-                        "refersTo": "insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5}",
-                        "basis": "TO_BE_ADVISED",
-                        "date": "2015-03-31"
-                    }
-                ]
-            }
-
-+ Response 400 (application/json)
-
-             {
-                 "startDates": {
-                     "errorMessage": "Start dates are not required"
-                 }
-             }
-
-## Restriction [/application/{id}/payment/restriction]
-Payment details restriction for Provider Product from the Basket associated with Application.
+- ***bankAccount*** `object` *(required)* - Bank account details.
+    - ***sortCode*** `string` *(required)* - Bank account sort code.
+    - ***number*** `string` *(required)* - Bank account number.
+    - ***holders*** `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
+        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
+- ***paymentDays*** `array` *(required/optional)* - List of payment days by Provider. List cannot be empty if at least one Provider requires payment day. If no Provider requires payment day then there is no need to supply value for this property.
+    - ***provider*** `string` *(required)* - Unique Provider ID.
+    - ***dayOfMonth*** `number` *(required/optional)* - Day of month when payment should be taken from the bank account. Allowed values: `1` to `28`. Requirement depends on Payment Restriction.
+- ***startDates*** `array` *(required)* - List of start dates by Provider Product.
+    - ***refersTo*** `string` *(required)* - Unique ID of existing Provider Product in the Basket.
+    - ***provider*** `string` *(optional)* - Unique Provider ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
+    - ***productId*** `string` *(optional)* - Unique Product ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
+    - ***date*** `string` *(required/optional)* - Date when Provider Product cover starts. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`. Requirement depends on Payment Restriction.
+    - ***basis*** `string` *(required/optional)* - Basis on which Provider Product cover starts. Allowed values: `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Requirement depends on Payment Restriction.
 
 + Parameters
 
     + id (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
-### Retrieve Payment details restriction for Provider Product [GET]
-+ Request Retrieve existing Payment details restriction for Application. (application/json)
+
+### Retrieve existing Payment [GET]
++ Request Empty Payment for Application with one Provider Product in the Basket. (application/json)
 
     + Headers
 
@@ -8854,39 +8758,616 @@ Payment details restriction for Provider Product from the Basket associated with
 + Response 200
 
             {
-                "paymentDays": [
+                "paymentDays":[
                     {
-                        "dayOfMonth": {
-                            "required": true
-                        },
-                        "provider": "PLR"
+                        "provider":"PLR"
                     }
                 ],
-                "startDates": [
+                "startDates":[
                     {
-                        "basis": {
-                            "required": false
-                        },
-                        "provider": "PLR",
-                        "date": {
-                            "required": true
-                        },
-                        "refersTo": "plr-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
-                        "productId": "1f1cd0a4-fb06-431a-8c57-bcf61596dac2"
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03"
                     }
-                ],
-                "bankAccount": {
-                    "holders": {
-                        "max": 2
-                    }
-                }
+                ]
             }
 
-+ Request Not existing Payment details restriction. (application/json)
++ Request Payment for Application with two Provider Products in the Basket. Only one of the Providers requires payment day. (application/json)
 
     + Headers
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":5
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"insurerx-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "provider":"InsurerX",
+                        "productId":"eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "basis":"TO_START_IMMEDIATELY"
+                    }
+                ]
+            }
+
++ Request Payment for Application with one Provider Product in the Basket. Provider does not require payment day. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    }
+                ]
+            }
+
++ Request Payment for Application with two Provider Products in the Basket. Both Provider Products are from the same Provider. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        },
+                        {
+                            "refersTo":"4321"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":4
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "provider":"PLR",
+                        "productId":"eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "date":"2015-11-11"
+                    }
+                ]
+            }
+
++ Request Payment for Application with two Provider Products in the Basket. Both Provider Products are from the same Provider. Provider does not require payment day. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        },
+                        {
+                            "refersTo":"4321"
+                        }
+                    ]
+                },
+                "startDates":[
+                    {
+                        "refersTo":"insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"InsurerX",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "basis":"TO_START_IMMEDIATELY"
+                    },
+                    {
+                        "refersTo":"insurerx-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "provider":"InsurerX",
+                        "productId":"eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "basis":"TO_BE_ADVISED"
+                    }
+                ]
+            }
+
++ Request Payment for Application with two Provider Product in the Basket and bank account details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "bankAccount": {
+                    "sortCode": "112233",
+                    "number": "****3344",
+                    "holders": [
+                        { "refersTo": "1234" }
+                    ]
+                },
+                "paymentDays": [
+                    {
+                        "provider": "PLR",
+                        "dayOfMonth": 5
+                    },
+                    {
+                        "provider": "InsurerX",
+                        "dayOfMonth": 3
+                    }
+                ],
+                "startDates": [
+                    {
+                        "refersTo": "plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider": "PLR",
+                        "productId": "0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date": "2015-10-10"
+                    },
+                    {
+                        "refersTo": "insurerx-eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "provider": "InsurerX",
+                        "productId": "eae35b32-4841-4620-aed4-d06cf1cf8057",
+                        "basis": "TO_START_IMMEDIATELY"
+                    }
+                ]
+            }
+
++ Request Payment for not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Payment for Application with empty Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+
+### Update existing Payment [PUT]
++ Request Payment for Application with one Provider Product in the Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    }
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    }
+                ]
+            }
+
++ Request Payment for Application with two Provider Products in the Basket. One of the Providers does not require payment day or start date. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":28
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"insurerx-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "basis":"TO_BE_ADVISED"
+                    }
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":28
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"PLR",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"insurerx-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "provider":"InsurerX",
+                        "productId":"1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "basis":"TO_BE_ADVISED"
+                    }
+                ]
+            }
+
++ Request Payment for Application with two Provider Products in the Basket. None of the Providers require payment day. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        },
+                        {
+                            "refersTo":"4321"
+                        }
+                    ]
+                }
+                "startDates":[
+                    {
+                        "refersTo":"insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"insurerx-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "date":"2015-10-10"
+                    }
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"****3344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        },
+                        {
+                            "refersTo":"4321"
+                        }
+                    ]
+                }
+                "startDates":[
+                    {
+                        "refersTo":"insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "provider":"InsurerX",
+                        "productId":"0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-10-10"
+                    },
+                    {
+                        "refersTo":"insurerx-1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "provider":"InsurerX",
+                        "productId":"1f1cd0a4-fb06-431a-8c57-bcf61596dac2",
+                        "date":"2015-10-11"
+                    }
+                ]
+            }
+
++ Request Rejected Payment. Provider does not require payment day. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"InsurerX",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"insurerx-0ea872c8-5ea2-4ef0-a824-08116dfb7c03",
+                        "date":"2015-01-07"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "paymentDays":{
+                    "errorMessage":"Payment days are not required"
+                }
+            }
+
++ Request Rejected Payment. Invalid start date value. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"PLR",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date":"2015-01-08"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+                "startDates":[
+                    {
+                        "refersTo":"plr-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date":{
+                            "errorMessage":"Please supply a start date between  01/01/2015 and  07/01/2015"
+                        }
+                    }
+                ]
+            }
+
++ Request Rejected Payment. Provider does not require start date. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"InsurerY",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date":"2015-03-31",
+                        "basis":"TO_BE_ADVISED"
+                    }
+                ]
+            }
+
++ Response 400 (application/json)
+
+            {
+               "startDates":{
+                   "refersTo":"insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                   "date":{
+                       "errorMessage":"Value not required"
+                   }
+               }
+            }
+
++ Request Payment for not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"InsurerY",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date":"2015-03-31"
+                    }
+                ]
+            }
+
++ Response 404
+
++ Request Payment for Application with empty Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "bankAccount":{
+                    "sortCode":"112233",
+                    "number":"11223344",
+                    "holders":[
+                        {
+                            "refersTo":"1234"
+                        }
+                    ]
+                },
+                "paymentDays":[
+                    {
+                        "provider":"InsurerY",
+                        "dayOfMonth":1
+                    }
+                ],
+                "startDates":[
+                    {
+                        "refersTo":"insurery-9a86037f-f20e-4143-a1d9-b01eb69cfaa5",
+                        "date":"2015-03-31"
+                    }
+                ]
+            }
 
 + Response 404
 

@@ -66,9 +66,11 @@ append doctor/overview
 append doctor/existing
 
 append payment/overview
-append payment/existing
-append payment/update
+append payment/restriction/overview
 append payment/restriction/read
+append payment/existing/overview
+append payment/existing/read
+append payment/existing/update
 
 append legals/overview
 append legals/advised-sale-declaration
