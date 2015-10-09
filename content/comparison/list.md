@@ -385,7 +385,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4084"
+                                    "refersTo":"4084",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -442,7 +443,30 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "state":"PENDING"
+                            "state":"SUCCEEDED",
+                            "date":"2015-08-13T10:45:31.000",
+                            "premium":{
+                                "from":45.44,
+                                "to":45.44,
+                                "unloaded":{
+                                    "from":45.44,
+                                    "to":45.44
+                                },
+                                "lives":{
+                                    "refersTo":"4084",
+                                    "waiverOfPremium":1.02
+                                },
+                                "lifetime":5452.85
+                            },
+                            "sumAssured":110000,
+                            "commission":{
+                                "initial":959.25,
+                                "renewal":1.14,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
                         },
                         "rating":{
                             "value":5,
@@ -467,7 +491,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4084"
+                                    "refersTo":"4084",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -480,7 +505,8 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"4084",
                                         "name":"John",
-                                        "surname":"Doe"
+                                        "surname":"Doe",
+                                        "waiverOfPremium":true
                                     },
                                     "decisions":[
                                         {
@@ -738,7 +764,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4086"
+                                    "refersTo":"4086",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -849,7 +876,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4086"
+                                    "refersTo":"4086",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -862,7 +890,8 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"4086",
                                         "name":"John",
-                                        "surname":"Doe"
+                                        "surname":"Doe",
+                                        "waiverOfPremium":true
                                     },
                                     "decisions":[
                                         {

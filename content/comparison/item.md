@@ -57,6 +57,9 @@ JSON response has following structure:
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
+        - ***lives*** `array` *(optional)* - List of live premiums  (represented as `object` type).
+            - ***refersTo*** `string` *(required)* - Unique Customer ID.
+            - ***waiverOfPremium*** `number` (required) - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -579,6 +582,111 @@ Code and description:
                         "unloaded":{
                             "from":8.05,
                             "to":8.05
+                        },
+                        "lifetime":1231.20
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.90,
+                        "renewal":8.51,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }
+
++ Request Single Comparison Item with WoP. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336",
+                            "waiverOfPremium":true
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
+                    "premium":{
+                        "from":10.26,
+                        "to":10.26,
+                        "unloaded":{
+                            "from":8.05,
+                            "to":8.05
+                        },
+                        "lives":{
+                            "refersTo":"4336",
+                            "waiverOfPremium":1.0
                         },
                         "lifetime":1231.20
                     },
