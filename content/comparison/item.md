@@ -668,6 +668,31 @@ Code and description:
                                             }
                                         }
                                     ]
+                                },
+                                {
+                                    "type":"STANDARD",
+                                    "disabilityDefinition":"Own Occupation",
+                                    "optional":true,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
