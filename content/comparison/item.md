@@ -670,7 +670,8 @@ Code and description:
                                     ]
                                 },
                                 {
-                                    "type":"STANDARD",
+                                    "type":"STANDARD", 
+                                    "componentType":"WOP",
                                     "disabilityDefinition":"Own Occupation",
                                     "optional":true,
                                     "extraMorbidityContributions":[
