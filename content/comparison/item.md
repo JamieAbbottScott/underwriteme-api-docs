@@ -155,7 +155,12 @@ Code and description:
                             "from":7.84,
                             "to":7.84
                         },
-                        "lifetime":1180.80
+                        "lifetime":1180.80,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -311,7 +316,12 @@ Code and description:
                             "from":7.00,
                             "to":6.00
                         },
-                        "lifetime":3120.00
+                        "lifetime":3120.00,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -411,7 +421,12 @@ Code and description:
                             "from":8.05,
                             "to":8.05
                         },
-                        "lifetime":1231.20
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -583,7 +598,12 @@ Code and description:
                             "from":8.05,
                             "to":8.05
                         },
-                        "lifetime":1231.20
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -710,11 +730,13 @@ Code and description:
                             "from":8.05,
                             "to":8.05
                         },
-                        "lives":{
-                            "refersTo":"4336",
-                            "waiverOfPremium":1.0
-                        },
-                        "lifetime":1231.20
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336",
+                                "waiverOfPremium":1.02
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{

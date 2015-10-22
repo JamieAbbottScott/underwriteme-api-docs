@@ -124,7 +124,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4083"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -452,11 +457,13 @@ JSON response has following structure:
                                     "from":45.44,
                                     "to":45.44
                                 },
-                                "lives":{
-                                    "refersTo":"4084",
-                                    "waiverOfPremium":1.02
-                                },
-                                "lifetime":5452.85
+                                "lifetime":5452.85,
+                                "lives":[
+                                    {
+                                        "refersTo":"4084",
+                                        "waiverOfPremium":1.02
+                                    }
+                                ]
                             },
                             "sumAssured":110000,
                             "commission":{
@@ -1258,7 +1265,12 @@ JSON response has following structure:
                                     "from":45.44,
                                     "to":45.44
                                 },
-                                "lifetime":5452.85
+                                "lifetime":5452.85,
+                                "lives":[
+                                    {
+                                        "refersTo":"527"
+                                    }
+                                ]
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1327,7 +1339,12 @@ JSON response has following structure:
                                     "from":53.86,
                                     "to":53.86
                                 },
-                                "lifetime":6463.50
+                                "lifetime":6463.50,
+                                "lives":[
+                                    {
+                                        "refersTo":"527"
+                                    }
+                                ]
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1425,7 +1442,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4085"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -1503,7 +1525,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4085"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
