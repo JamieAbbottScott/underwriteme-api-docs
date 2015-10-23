@@ -79,6 +79,7 @@ append legals/adviser-declaration
 append legals/client-declaration
 append legals/insurer-marketing-preference
 append legals/third-party-marketing-preference
+append legals/provider-legal-confirmation
 
 append message/overview
 append message/list
