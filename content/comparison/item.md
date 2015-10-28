@@ -64,6 +64,12 @@ JSON response has following structure:
         - ***sacrifice*** `object` *(required)* - Commission sacrifice which drives commission.
             - ***initial*** `number` *(required)* - Initial commission sacrifice. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
             - ***renewal*** `number` *(required)* - Renewal commission value. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+- ***rating*** `object` *(optional)* - Provider Product specific rating.
+    - ***value*** `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
+    - ***description*** `string` *(optional)* - HTML formatted description text of the rating.
+- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts and Terms & Conditions documents links.
+    - ***keyFacts*** `string` *(optional)* - Key Facts document link.
+    - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
 
 Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
@@ -501,7 +507,7 @@ Code and description:
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
-            
+
 + Request Single Comparison Item with standard decision and expired quote. (application/json)
 
     + Headers
@@ -601,4 +607,4 @@ Code and description:
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
-            } 
+            }
