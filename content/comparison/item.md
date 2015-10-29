@@ -59,7 +59,7 @@ JSON response has following structure:
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
         - ***lives*** `array` *(optional)* - List of live premiums  (represented as `object` type).
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
-            - ***waiverOfPremium*** `number` (required) - Allocated Waiver of Premium premium for the given life.
+            - ***wopContribution*** `number` (required) - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -740,7 +740,7 @@ Code and description:
                         "lives":[
                             {
                                 "refersTo":"4336",
-                                "waiverOfPremium":1.02
+                                "wopContribution":1.02
                             }
                         ]
                     },

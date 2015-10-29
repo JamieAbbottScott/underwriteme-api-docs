@@ -461,7 +461,7 @@ JSON response has following structure:
                                 "lives":[
                                     {
                                         "refersTo":"4084",
-                                        "waiverOfPremium":1.02
+                                        "wopContribution":1.02
                                     }
                                 ]
                             },
