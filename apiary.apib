@@ -7484,9 +7484,9 @@ JSON response has following structure:
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
-        - ***lives*** `array` *(optional)* - List of live premiums  (represented as `object` type).
+        - ***lives*** `array` *(required)* - List of Life specific premiums (represented as `object` type).
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
-            - ***wopContribution*** `number` (required) - Allocated Waiver of Premium premium for the given life.
+            - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -8123,7 +8123,7 @@ Code and description:
                                     ]
                                 },
                                 {
-                                    "type":"STANDARD", 
+                                    "type":"STANDARD",
                                     "componentType":"WOP",
                                     "disabilityDefinition":"Own Occupation",
                                     "optional":true,
