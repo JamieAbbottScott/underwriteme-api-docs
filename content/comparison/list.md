@@ -124,7 +124,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4083"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -385,7 +390,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4084"
+                                    "refersTo":"4084",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -442,7 +448,32 @@ JSON response has following structure:
                             ]
                         },
                         "quote":{
-                            "state":"PENDING"
+                            "state":"SUCCEEDED",
+                            "date":"2015-08-13T10:45:31.000",
+                            "premium":{
+                                "from":45.44,
+                                "to":45.44,
+                                "unloaded":{
+                                    "from":45.44,
+                                    "to":45.44
+                                },
+                                "lifetime":5452.85,
+                                "lives":[
+                                    {
+                                        "refersTo":"4084",
+                                        "wopContribution":1.02
+                                    }
+                                ]
+                            },
+                            "sumAssured":110000,
+                            "commission":{
+                                "initial":959.25,
+                                "renewal":1.14,
+                                "sacrifice":{
+                                    "initial":0,
+                                    "renewal":2.50
+                                }
+                            }
                         },
                         "rating":{
                             "value":5,
@@ -467,7 +498,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4084"
+                                    "refersTo":"4084",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -480,7 +512,8 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"4084",
                                         "name":"John",
-                                        "surname":"Doe"
+                                        "surname":"Doe",
+                                        "waiverOfPremium":true
                                     },
                                     "decisions":[
                                         {
@@ -738,7 +771,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4086"
+                                    "refersTo":"4086",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -849,7 +883,8 @@ JSON response has following structure:
                                 {
                                     "name":"John",
                                     "surname":"Doe",
-                                    "refersTo":"4086"
+                                    "refersTo":"4086",
+                                    "waiverOfPremium":true
                                 }
                             ]
                         },
@@ -862,7 +897,8 @@ JSON response has following structure:
                                     "customer":{
                                         "id":"4086",
                                         "name":"John",
-                                        "surname":"Doe"
+                                        "surname":"Doe",
+                                        "waiverOfPremium":true
                                     },
                                     "decisions":[
                                         {
@@ -1229,7 +1265,12 @@ JSON response has following structure:
                                     "from":45.44,
                                     "to":45.44
                                 },
-                                "lifetime":5452.85
+                                "lifetime":5452.85,
+                                "lives":[
+                                    {
+                                        "refersTo":"527"
+                                    }
+                                ]
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1298,7 +1339,12 @@ JSON response has following structure:
                                     "from":53.86,
                                     "to":53.86
                                 },
-                                "lifetime":6463.50
+                                "lifetime":6463.50,
+                                "lives":[
+                                    {
+                                        "refersTo":"527"
+                                    }
+                                ]
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1396,7 +1442,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4085"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -1474,7 +1525,12 @@ JSON response has following structure:
                             "premium":{
                                 "from":9.84,
                                 "to":9.84,
-                                "lifetime":1180.80
+                                "lifetime":1180.80,
+                                "lives":[
+                                    {
+                                        "refersTo":"4085"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
