@@ -78,6 +78,7 @@ Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the contributor is derived.
 - ***value*** `object` *(required)* - Contribution value (represented as `object` type).
     - ***sum*** `number` *(required)* - Numeric value of Contribution.
     - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
@@ -284,7 +285,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false 
                                             },
                                             "value":{
                                                 "from":150,
@@ -296,7 +298,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false 
                                             },
                                             "value":[
                                                 {
@@ -395,7 +398,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false 
                                             },
                                             "value":{
                                                 "sum":25
@@ -404,7 +408,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true 
                                             },
                                             "value":{
                                                 "sum":-25
@@ -500,7 +505,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false 
                                             },
                                             "value":[
                                                 {
@@ -571,7 +577,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -580,7 +587,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -678,7 +686,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -687,7 +696,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -704,7 +714,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -713,7 +724,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25

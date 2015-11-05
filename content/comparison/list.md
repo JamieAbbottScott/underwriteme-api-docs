@@ -415,7 +415,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":50
@@ -432,7 +433,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -524,7 +526,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":50
@@ -535,7 +538,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Suicide",
-                                                        "triggerTag":"Suicide attempt"
+                                                        "triggerTag":"Suicide attempt",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "from":5,
@@ -547,7 +551,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Suicide",
-                                                        "triggerTag":"Suicide attempt"
+                                                        "triggerTag":"Suicide attempt",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -567,7 +572,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -645,7 +651,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P3Y",
@@ -657,7 +664,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P1Y",
@@ -720,7 +728,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":2
@@ -802,7 +811,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -822,7 +832,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -841,7 +852,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -915,7 +927,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -935,7 +948,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -954,7 +968,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -1409,7 +1424,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P3Y",
@@ -1421,7 +1437,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P1Y",
@@ -1506,7 +1523,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":2
