@@ -28,7 +28,7 @@ JSON response has following structure:
         - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***status*** `object` *(required)* - Information about the activation process
-    - ***state*** `string` *(required)* - Activation state. Possible values: `NOT_ATTEMPTED`, `PENDING`, `SUCCEEDED`, `FAILED`.
+    - ***state*** `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
     - ***successMessage*** `string` *(required/optional)* - Provider specific success message. Available if ***state*** is `SUCCEEDED`.
     - ***errors*** `array` *(required/optional)* - Provider specific error messages. Available if ***state*** is `FAILED`.
         - ***reason*** `string` *(required)* - Reason of the error.
