@@ -776,3 +776,111 @@ Code and description:
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
+
++ Request Single Comparison Item with Non Medical Limits contributor. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"LiverpoolVictoria",
+                "product":{
+                    "id":"00999a1a-e2d7-4bbc-bcb9-ae6845e4492f",
+                    "type":"TERM",
+                    "coverBasis":"LEVEL",
+                    "coverPeriod":12,
+                    "coverAmount":1200000,
+                    "commissionSacrifice":{
+                        "initial":0,
+                        "renewal":2.50
+                    },
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"1112"
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"EVIDENCE_REQUIRED",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"1112",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"EVIDENCE_REQUIRED",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "evidenceContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Non Medical Limits",
+                                                "triggerTag":"Non Medical Limits",
+                                                "derived":true
+                                            },
+                                            "value":[
+                                                {
+                                                    "code":"GPR",
+                                                    "description":"GP report"
+                                                },
+                                                {
+                                                    "code":"HIV",
+                                                    "description":"HIV test"
+                                                },
+                                                {
+                                                    "code":"GPR",
+                                                    "description":"GP report"
+                                                },
+                                                {
+                                                    "code":"HIV",
+                                                    "description":"HIV test"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "immediateCover":false,
+                    "nonIndicative":false
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-11-06T06:56:38.000",
+                    "premium":{
+                        "from":34.81,
+                        "to":34.81,
+                        "unloaded":{
+                            "from":34.81,
+                            "to":34.81
+                        },
+                        "lifetime":5012.64,
+                        "lives":[
+                            {
+                                "refersTo":"1112"
+                            }
+                        ]
+                    },
+                    "sumAssured":1200000,
+                    "commission":{
+                        "initial":0.00,
+                        "renewal":0.87,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    },
+                    "expiryDate":"2015-11-21"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }
+
