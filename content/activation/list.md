@@ -1,6 +1,11 @@
 ## List [/api/application/{applicationId}/activation]
 Operations on existing Activation associated with Application.
 
+JSON response has following structure:
+
+- ***items*** `array` *(required)* - List of Activation Items (represented as `object` type).
+Detailed structure of Activation Item can be found in the following Activation / Item section.
+
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
