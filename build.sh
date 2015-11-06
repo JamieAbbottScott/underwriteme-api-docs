@@ -83,3 +83,7 @@ append legals/provider-legal-confirmation
 
 append message/overview
 append message/list
+
+append activation/overview
+append activation/create
+append activation/list
