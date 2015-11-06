@@ -9761,35 +9761,35 @@ Operations on existing Activation associated with Application.
 JSON response has following structure:
 
 - ***items*** `array` *(required)* - List of Activation Items (represented as `object` type).
-- ***providerInfo*** `object` *(required)* - Information specific to the Provider.
-    - ***provider*** `string` *(required)* - Unique ID of existing Provider.
-    - ***policyNumber*** `string` *(optional)* - Unique provider specific policy number.
-    - ***amraDocumentLink*** `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
-- ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
-    - ***id*** `string` *(required)* - Unique Product ID.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
-    - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***name*** `string` *(required)* - Customer name.
-        - ***surname*** `string` *(required)* - Customer surname.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-- ***status*** `object` *(required)* - Information about the activation process
-    - ***state*** `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
-    - ***successMessage*** `string` *(required/optional)* - Provider specific success message. Available if ***state*** is `SUCCEEDED`.
-    - ***errors*** `array` *(required/optional)* - Provider specific error messages. Available if ***state*** is `FAILED`.
-        - ***reason*** `string` *(required)* - Reason of the error.
-        - ***description*** `string` *(optional)* - Detailed description of the error.
+    - ***providerInfo*** `object` *(required)* - Information specific to the Provider.
+        - ***provider*** `string` *(required)* - Unique ID of existing Provider.
+        - ***policyNumber*** `string` *(optional)* - Unique provider specific policy number.
+        - ***amraDocumentLink*** `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
+    - ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
+        - ***id*** `string` *(required)* - Unique Product ID.
+        - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+        - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+        - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
+        - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
+        - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
+        - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
+        - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
+        - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
+        - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+        - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+        - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+            - ***name*** `string` *(required)* - Customer name.
+            - ***surname*** `string` *(required)* - Customer surname.
+            - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
+            - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+            - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+            - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+    - ***status*** `object` *(required)* - Information about the activation process
+        - ***state*** `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
+        - ***successMessage*** `string` *(required/optional)* - Provider specific success message. Available if ***state*** is `SUCCEEDED`.
+        - ***errors*** `array` *(required/optional)* - Provider specific error messages. Available if ***state*** is `FAILED`.
+            - ***reason*** `string` *(required)* - Reason of the error.
+            - ***description*** `string` *(optional)* - Detailed description of the error.
 
 + Parameters
 
@@ -9801,7 +9801,6 @@ JSON response has following structure:
     + Headers
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
 
 + Response 200
 
@@ -9864,7 +9863,7 @@ JSON response has following structure:
                     }
                 ]
             }
-            
+
 ### Request Activation of existing Application [PUT]
 + Request Activation of existing Application. (application/json)
 
@@ -9950,6 +9949,11 @@ JSON response has following structure:
 
 + Response 400
 
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
+
 + Request Activation for Application with estimated products in the Basket. (application/json)
 
     + Headers
@@ -9957,6 +9961,11 @@ JSON response has following structure:
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
 + Response 400
+
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
 
 + Request Activation for Application with expired products in the Basket. (application/json)
 
@@ -9966,6 +9975,11 @@ JSON response has following structure:
 
 + Response 400
 
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
+
 + Request Activation for Application without Payment Details. (application/json)
 
     + Headers
@@ -9973,6 +9987,11 @@ JSON response has following structure:
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
 + Response 400
+
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
 
 + Request Activation for Application without required Doctor Details. (application/json)
 
@@ -9982,6 +10001,11 @@ JSON response has following structure:
 
 + Response 400
 
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
+
 + Request Activation for Application without Legals confirmed. (application/json)
 
     + Headers
@@ -9990,6 +10014,11 @@ JSON response has following structure:
 
 + Response 400
 
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
+
 + Request Activation for an already activated Application. (application/json)
 
     + Headers
@@ -9997,6 +10026,11 @@ JSON response has following structure:
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
 + Response 400
+
+            {
+                "errorMessage":"Error message...",
+                "stackTrace":"Stacktrace..."
+            }
 
 # Group Message
 Message related resources of the **UnderwriteMe API**.
