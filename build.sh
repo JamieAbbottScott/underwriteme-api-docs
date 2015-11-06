@@ -82,7 +82,6 @@ append legals/third-party-marketing-preference
 append legals/provider-legal-confirmation
 
 append activation/overview
-append activation/item
 append activation/list
 
 append message/overview
