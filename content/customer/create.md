@@ -9,10 +9,10 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
 - ***email*** `string` *(required)* - Customer email address.
-- ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
+- ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
+    - ***address*** `object` *(required)* - Customer address details.
         - ***line1*** `string` *(optional)* - Address first line.
         - ***line2*** `string` *(optional)* - Address second line.
         - ***town*** `string` *(optional)* - Address town.
