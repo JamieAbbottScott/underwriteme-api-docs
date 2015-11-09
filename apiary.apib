@@ -10033,6 +10033,156 @@ JSON response has following structure:
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
+### Request Activation [PUT]
++ Request Activation of existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "items":[
+                    {
+                        "providerInfo":{
+                            "provider":"INSURER_X",
+                            "policyNumber":"987654321",
+                            "amraDocumentLink":"http://amra-document-link"
+                        },
+                        "product":{
+                            "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
+                            "referenceId":"pro-001",
+                            "type":"TERM",
+                            "coverBasis":"DECREASING",
+                            "coverPeriod":10,
+                            "coverAmount":110000,
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Doe",
+                                    "refersTo":"4336"
+                                }
+                            ]
+                        },
+                        "status":{
+                            "state":"PENDING"
+                        }
+                    },
+                    {
+                        "providerInfo":{
+                            "provider":"INSURER_Y"
+                        },
+                        "product":{
+                            "id":"173c6b6d-0381-4e05-a532-895557c9a67a",
+                            "referenceId":"pro-002",
+                            "type":"CRITICAL_ILLNESS",
+                            "coverBasis":"LEVEL",
+                            "coverPeriod":20,
+                            "coverAmount":100000,
+                            "livesAssured":[
+                                {
+                                    "name":"John",
+                                    "surname":"Doe",
+                                    "refersTo":"4336"
+                                }
+                            ]
+                        },
+                        "status":{
+                            "state":"PENDING"
+                        }
+                    }
+                ]
+            }
+
++ Request Activation for not existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Activation for Application without Products in the Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Activation for Application with estimated products in the Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate application with estimated provider product in the basket"
+            }
+
++ Request Activation for Application with expired products in the Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate application with expired or invalid provider product in the basket"
+            }
+
++ Request Activation for Application without Payment Details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate application if there are no payment details"
+            }
+
++ Request Activation for Application without required Doctor Details. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate application if there are no required doctor details"
+            }
+
++ Request Activation for Application without Legals confirmed. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate application if legals are not confirmed"
+            }
+
++ Request Activation for an already activated Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 400
+
+            {
+                "errorMessage":"Cannot activate an already activated application"
+            }
+
 ### Retrieve Activation [GET]
 + Request Retrieve Activation. (application/json)
 
@@ -10102,173 +10252,6 @@ JSON response has following structure:
                 ]
             }
 
-### Request Activation of existing Application [PUT]
-+ Request Activation of existing Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 200
-
-            {
-                "items":[
-                    {
-                        "providerInfo":{
-                            "provider":"INSURER_X",
-                            "policyNumber":"987654321",
-                            "amraDocumentLink":"http://amra-document-link"
-                        },
-                        "product":{
-                            "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
-                            "referenceId":"pro-001",
-                            "type":"TERM",
-                            "coverBasis":"DECREASING",
-                            "coverPeriod":10,
-                            "coverAmount":110000,
-                            "livesAssured":[
-                                {
-                                    "name":"John",
-                                    "surname":"Doe",
-                                    "refersTo":"4336"
-                                }
-                            ]
-                        },
-                        "status":{
-                            "state":"SUCCEEDED",
-                            "successMessage":"You will receive a full copy of all policy documentation by post to keep for your records."
-                        }
-                    },
-                    {
-                        "providerInfo":{
-                            "provider":"INSURER_Y"
-                        },
-                        "product":{
-                            "id":"173c6b6d-0381-4e05-a532-895557c9a67a",
-                            "referenceId":"pro-002",
-                            "type":"CRITICAL_ILLNESS",
-                            "coverBasis":"LEVEL",
-                            "coverPeriod":20,
-                            "coverAmount":100000,
-                            "livesAssured":[
-                                {
-                                    "name":"John",
-                                    "surname":"Doe",
-                                    "refersTo":"4336"
-                                }
-                            ]
-                        },
-                        "status":{
-                            "state":"FAILED",
-                            "errors":[
-                                {
-                                    "reason":"Problem with activation call",
-                                    "description":"An error occurred while activating the product"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-
-+ Request Activation for not existing Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 404
-
-+ Request Activation for Application without Products in the Basket. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for Application with estimated products in the Basket. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for Application with expired products in the Basket. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for Application without Payment Details. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for Application without required Doctor Details. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for Application without Legals confirmed. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
-
-+ Request Activation for an already activated Application. (application/json)
-
-    + Headers
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
-
-+ Response 400
-
-            {
-                "errorMessage":"Error message...",
-                "stackTrace":"Stacktrace..."
-            }
 
 # Group Message
 Message related resources of the **UnderwriteMe API**.
