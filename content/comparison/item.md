@@ -78,7 +78,7 @@ Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
-    - ***derived*** `boolean` *(required)* - Flag to indicate whether the contributor is derived.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `object` *(required)* - Contribution value (represented as `object` type).
     - ***sum*** `number` *(required)* - Numeric value of Contribution.
     - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
@@ -286,7 +286,7 @@ Code and description:
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
                                                 "triggerTag":"Rheumatoid arthritis",
-                                                "derived":false 
+                                                "derived":false
                                             },
                                             "value":{
                                                 "from":150,
@@ -299,7 +299,7 @@ Code and description:
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
                                                 "triggerTag":"Rheumatoid arthritis",
-                                                "derived":false 
+                                                "derived":false
                                             },
                                             "value":[
                                                 {
@@ -399,7 +399,7 @@ Code and description:
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
                                                 "triggerTag":"Asthma",
-                                                "derived":false 
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -409,7 +409,7 @@ Code and description:
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
                                                 "triggerTag":"Min Loading",
-                                                "derived":true 
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -506,7 +506,7 @@ Code and description:
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
                                                 "triggerTag":"Rheumatoid arthritis",
-                                                "derived":false 
+                                                "derived":false
                                             },
                                             "value":[
                                                 {
@@ -883,4 +883,3 @@ Code and description:
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
-
