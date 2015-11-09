@@ -57,6 +57,9 @@ JSON response has following structure:
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
+        - ***lives*** `array` *(required)* - List of Life specific premiums (represented as `object` type).
+            - ***refersTo*** `string` *(required)* - Unique Customer ID.
+            - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -64,6 +67,12 @@ JSON response has following structure:
         - ***sacrifice*** `object` *(required)* - Commission sacrifice which drives commission.
             - ***initial*** `number` *(required)* - Initial commission sacrifice. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
             - ***renewal*** `number` *(required)* - Renewal commission value. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+- ***rating*** `object` *(optional)* - Provider Product specific rating.
+    - ***value*** `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
+    - ***description*** `string` *(optional)* - HTML formatted description text of the rating.
+- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts and Terms & Conditions documents links.
+    - ***keyFacts*** `string` *(optional)* - Key Facts document link.
+    - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
 
 Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
@@ -152,7 +161,12 @@ Code and description:
                             "from":7.84,
                             "to":7.84
                         },
-                        "lifetime":1180.80
+                        "lifetime":1180.80,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -308,7 +322,12 @@ Code and description:
                             "from":7.00,
                             "to":6.00
                         },
-                        "lifetime":3120.00
+                        "lifetime":3120.00,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -408,7 +427,12 @@ Code and description:
                             "from":8.05,
                             "to":8.05
                         },
-                        "lifetime":1231.20
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -501,7 +525,7 @@ Code and description:
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
-            
+
 + Request Single Comparison Item with standard decision and expired quote. (application/json)
 
     + Headers
@@ -580,7 +604,12 @@ Code and description:
                             "from":8.05,
                             "to":8.05
                         },
-                        "lifetime":1231.20
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336"
+                            }
+                        ]
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -601,4 +630,137 @@ Code and description:
                     "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
-            } 
+            }
+
++ Request Single Comparison Item with WoP. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336",
+                            "waiverOfPremium":true
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"WOP",
+                                    "disabilityDefinition":"Own Occupation",
+                                    "optional":true,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma"
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading"
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-01-01T00:00:00.000",
+                    "expiryDate":"2015-02-01",
+                    "premium":{
+                        "from":10.26,
+                        "to":10.26,
+                        "unloaded":{
+                            "from":8.05,
+                            "to":8.05
+                        },
+                        "lifetime":1231.20,
+                        "lives":[
+                            {
+                                "refersTo":"4336",
+                                "wopContribution":1.02
+                            }
+                        ]
+                    },
+                    "sumAssured":120000,
+                    "commission":{
+                        "initial":31.90,
+                        "renewal":8.51,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    }
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }

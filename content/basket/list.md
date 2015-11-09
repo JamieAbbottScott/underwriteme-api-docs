@@ -51,7 +51,12 @@ Operations on existing Basket associated with Application.
                             "date":"2015-01-01T00:00:00.000",
                             "premium":{
                                 "from":9.84,
-                                "to":9.84
+                                "to":9.84,
+                                "lives":[
+                                    {
+                                        "refersTo":"4336"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -112,7 +117,12 @@ Operations on existing Basket associated with Application.
                             "date":"2015-01-01T00:00:00.000",
                             "premium":{
                                 "from":9.84,
-                                "to":9.84
+                                "to":9.84,
+                                "lives":[
+                                    {
+                                        "refersTo":"4336"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -149,7 +159,12 @@ Operations on existing Basket associated with Application.
                             "date":"2015-01-01T00:00:00.000",
                             "premium":{
                                 "from":30.14,
-                                "to":30.14
+                                "to":30.14,
+                                "lives":[
+                                    {
+                                        "refersTo":"4336"
+                                    }
+                                ]
                             },
                             "sumAssured":120000,
                             "commission":{
