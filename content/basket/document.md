@@ -1,15 +1,15 @@
-## New [/api/application/{applicationId}/basket/document]
+## Document [/api/application/{applicationId}/basket/document]
 Generate new Basket comparison document associated with Application.
 
 JSON response has following structure:
 
-- ***documentId*** `string` *(required)* - Unique ID of the document.
+- ***id*** `string` *(required)* - Unique ID of the document.
 
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
 
-### Request Activation [POST]
+### Request Generation of new Basket comparison document associated with Application [POST]
 + Request Generation of new Basket comparison document associated with Application. (application/json)
 
     + Headers
@@ -20,7 +20,7 @@ JSON response has following structure:
 
 
             {
-                "documentId":"b9466af5-7a0f-448f-84ec-bfe2156b1423"
+                "id":"b9466af5-7a0f-448f-84ec-bfe2156b1423"
             }
 
 + Request Generation of new Basket comparison document for non existing Application. (application/json)
