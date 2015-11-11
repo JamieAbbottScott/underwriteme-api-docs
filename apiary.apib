@@ -20,6 +20,7 @@ FORMAT: 1A
   * **Payment** - Filling in Payment details for Provider Products.
   * **Legals** - Filling in and retrieving Legal declarations.
   * **Activation** - Requesting and retrieving Activation state of selected Products.
+  * **Document** - Requesting and retrieving documents.
   * **Message** - Retrieve all i18n messages.
 
 # Group Authentication
@@ -8551,6 +8552,48 @@ Operations on Basket Item associated with Application.
             {}
 
 
+## Document [/api/application/{applicationId}/basket/document]
+Generate new Basket comparison document associated with Application.
+
+JSON response has following structure:
+
+- ***id*** `string` *(required)* - Unique ID of the document.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+
+### Request Generation of new Basket comparison document associated with Application [POST]
++ Request Generation of new Basket comparison document associated with Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 202
+
+
+            {
+                "id":"b9466af5-7a0f-448f-84ec-bfe2156b1423"
+            }
+
++ Request Generation of new Basket comparison document for non existing Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
++ Request Generation of new Basket comparison document for Application without Products in the Basket. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+
 # Group Declaration-of-Health
 Declaration-of-Health related resources of the **UnderwriteMe API**.
 
@@ -10251,6 +10294,65 @@ JSON response has following structure:
                     }
                 ]
             }
+
+
+# Group Document
+Document related resources of the **UnderwriteMe API**.
+
+
+## Existing [/api/application/{applicationId}/document/{documentId}]
+Operations on existing Application Document identified by unique Application and Document ID.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + documentId (required, string, `b9466af5-7a0f-448f-84ec-bfe2156b1423`) ... Unique ID of existing Document.
+
+### Retrieve Document status [HEAD]
++ Request Retrieve Document status in pending state. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 202
+
++ Request Retrieve Document status in ready state. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
++ Request Retrieve Document status for a non existing document ID. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
+
+### Retrieve Document content [GET]
++ Request Retrieve Document content. (application/pdf)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            { 
+                    "body": "..."
+            }
+            
++ Request Retrieve Application Document content for a non existing document ID. (application/pdf)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 404
 
 
 # Group Message
