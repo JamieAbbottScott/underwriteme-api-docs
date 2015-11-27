@@ -54,6 +54,7 @@ JSON response has following structure:
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
         - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
+        - ***discount*** `number` *(required)* - Total amount discounted from the premium value.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
@@ -166,7 +167,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -327,7 +329,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -432,7 +435,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -609,7 +613,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -742,7 +747,8 @@ Code and description:
                                 "refersTo":"4336",
                                 "wopContribution":1.02
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{

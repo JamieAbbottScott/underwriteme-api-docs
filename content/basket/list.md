@@ -61,7 +61,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -132,7 +133,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -179,7 +181,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{

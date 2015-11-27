@@ -6,3 +6,5 @@ Basket consist of Basket Items. Basket Items correspond to Comparison Items. Sam
 Operations on Basket Items always result in returning Basket state after operation has been made.
 
 Any invalid (data the Items quote was based on has changed) or expired Basket Items are removed from the basket.
+
+For discounts, Comparison must be requested again after adding Basket Items to get the discounted price.
