@@ -7540,6 +7540,7 @@ Number range:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `object` *(required)* - Contribution range (represented as `object` type).
     - ***from*** `number` *(required)* - Start of the range.
     - ***to*** `number` *(required)* - End of the range.
@@ -7548,6 +7549,7 @@ Code and description:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
     - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to proper value.
     - ***description*** `string` *(required)* - Human readable description.
