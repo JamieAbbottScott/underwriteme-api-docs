@@ -37,6 +37,7 @@ JSON response has following structure:
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
             - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
             - ***disabilityDefinition*** `string` *(optional)* - Disability definition value. Possible values: `Own Occupation`, `Suited Occupation`, `Any Occupation`, `Work Tasks`, `Activities Of Daily Living`, `Functional Abilities Test`, `Look After Yourself`, `Comprehensive`, `Core`.
+            - ***message*** `string` *(optional)* - Decision specific message value.
             - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
@@ -235,7 +236,8 @@ Code and description:
                                 {
                                     "type":"DECLINE",
                                     "componentType":"CI",
-                                    "optional":false
+                                    "optional":false,
+                                    "message":"decline message"
                                 }
                             ]
                         }
