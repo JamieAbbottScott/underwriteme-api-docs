@@ -58,6 +58,7 @@ append basket/overview
 append basket/list
 append basket/items
 append basket/item
+append basket/document
 
 append declaration-of-health/overview
 append declaration-of-health/existing
@@ -83,6 +84,9 @@ append legals/provider-legal-confirmation
 
 append activation/overview
 append activation/list
+
+append document/overview
+append document/existing
 
 append message/overview
 append message/list

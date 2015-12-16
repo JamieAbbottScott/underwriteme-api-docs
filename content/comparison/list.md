@@ -129,7 +129,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4083"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -465,7 +466,8 @@ JSON response has following structure:
                                         "refersTo":"4084",
                                         "wopContribution":1.02
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":110000,
                             "commission":{
@@ -1285,7 +1287,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1359,7 +1362,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1464,7 +1468,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -1548,7 +1553,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{

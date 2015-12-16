@@ -31,6 +31,11 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
+                        "decision":{
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "type":"STANDARD"
+                        },
                         "product":{
                             "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
                             "referenceId":"pro-001",
@@ -56,7 +61,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -97,6 +103,11 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
+                        "decision":{
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "type":"STANDARD"
+                        },
                         "product":{
                             "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
                             "referenceId":"pro-001",
@@ -122,7 +133,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -138,6 +150,11 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                         "provider":"InsurerX",
+                        "decision":{
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "type":"STANDARD"
+                        },
                         "product":{
                             "id":"ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                             "referenceId":"pro-002",
@@ -164,7 +181,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{

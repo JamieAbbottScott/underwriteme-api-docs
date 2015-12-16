@@ -53,6 +53,11 @@ Operations on Basket Items associated with Application.
                     {
                         "id": "plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
+                        "decision":{
+                            "immediateCover":true,
+                            "nonIndicative":false,
+                            "type":"STANDARD"
+                        },
                         "product":{
                             "id":"eae35b32-4841-4620-aed4-d06cf1cf8057",
                             "referenceId":"pro-001",
