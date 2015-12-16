@@ -6000,7 +6000,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4083"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -6336,7 +6337,8 @@ JSON response has following structure:
                                         "refersTo":"4084",
                                         "wopContribution":1.02
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":110000,
                             "commission":{
@@ -7156,7 +7158,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -7230,7 +7233,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -7335,7 +7339,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -7419,7 +7424,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -7500,6 +7506,7 @@ JSON response has following structure:
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
         - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
+        - ***discount*** `number` *(required)* - Total amount discounted from the premium value.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
@@ -7613,7 +7620,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -7776,7 +7784,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -7883,7 +7892,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -8063,7 +8073,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -8200,7 +8211,8 @@ Code and description:
                                 "refersTo":"4336",
                                 "wopContribution":1.02
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -8340,6 +8352,8 @@ Operations on Basket Items always result in returning Basket state after operati
 
 Any invalid (data the Items quote was based on has changed) or expired Basket Items are removed from the basket.
 
+For discounts, Comparison must be requested again after adding Basket Items to get the discounted price.
+
 ## List [/application/{applicationId}/basket]
 Operations on existing Basket associated with Application.
 
@@ -8403,7 +8417,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -8474,7 +8489,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -8521,7 +8537,8 @@ Operations on existing Basket associated with Application.
                                     {
                                         "refersTo":"4336"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
