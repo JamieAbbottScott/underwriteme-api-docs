@@ -237,7 +237,7 @@ Code and description:
                                     "type":"DECLINE",
                                     "componentType":"CI",
                                     "optional":false,
-                                    "message":"decline message"
+                                    "message":"Unfortunately PLR is unable to provide you with Life Insurance"
                                 }
                             ]
                         }

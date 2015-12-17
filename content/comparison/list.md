@@ -183,7 +183,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"LIFE",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately InsurerY is unable to provide you with Life Insurance"
                                         }
                                     ]
                                 }
@@ -1150,7 +1151,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"CI",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately InsurerX is unable to provide you with Life Insurance"
                                         },
                                         {
                                             "type":"UNKNOWN",
@@ -1201,7 +1203,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"CI",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately PLR is unable to provide you with Life Insurance"
                                         },
                                         {
                                             "type":"UNKNOWN",
