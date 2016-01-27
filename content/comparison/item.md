@@ -61,6 +61,13 @@ JSON response has following structure:
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
             - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
+    - ***notes*** `array` *(optional)* - Notes on quote from provider (represented as `object` type).
+        - ***description*** `string` *(required)* - Note description.
+        - ***reason*** `string` *(required)* - Note reason.
+    - ***variations*** `array` *(optional)* - Variations applied by the provider.
+        - ***newValue*** `string` *(required)* - New value proposed in the Variation.
+        - ***originalValue*** `string` *(required)* - Value originally requested in the Variation.
+        - ***reason*** `string` *(required)* - Reason for the Variation.
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
         - ***renewal*** `number` *(required)* - Renewal commission value.

@@ -139,7 +139,21 @@ JSON response has following structure:
                                     "initial":0,
                                     "renewal":2.50
                                 }
-                            }
+                            },
+                            "notes": [
+                                {
+                                    "description":"Invalid Agent",
+                                    "reason":"The adviser id that has been supplied was either blank or invalid"
+                                }
+                            ],
+                            "variations": [
+                                {
+                                    "originalValue":"Not Included",
+                                    "newValue":"Included",
+                                    "reason":"We include terminal illness cover automatically"
+                                }
+
+                            ]                            
                         },
                         "rating":{
                             "value":4,
