@@ -37,6 +37,7 @@ JSON response has following structure:
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
             - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
             - ***disabilityDefinition*** `string` *(optional)* - Disability definition value. Possible values: `Own Occupation`, `Suited Occupation`, `Any Occupation`, `Work Tasks`, `Activities Of Daily Living`, `Functional Abilities Test`, `Look After Yourself`, `Comprehensive`, `Core`.
+            - ***message*** `string` *(optional)* - Decision specific message value.
             - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as number with duration.
             - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
@@ -54,6 +55,7 @@ JSON response has following structure:
         - ***from*** `number` *(required)* - Lower bound of the premium value.
         - ***to*** `number` *(required)* - Upper bound of the premium value.
         - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
+        - ***discount*** `number` *(required)* - Total amount discounted from the premium value.
         - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
             - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
             - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
@@ -61,6 +63,7 @@ JSON response has following structure:
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
             - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
+    - ***errors*** `array` *(optional)* - List of errors in the quote response (represented as `string` type).
     - ***notes*** `array` *(optional)* - Notes on quote from provider (represented as `object` type).
         - ***description*** `string` *(required)* - Note description.
         - ***reason*** `string` *(required)* - Note reason.
@@ -85,6 +88,7 @@ Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `object` *(required)* - Contribution value (represented as `object` type).
     - ***sum*** `number` *(required)* - Numeric value of Contribution.
     - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
@@ -93,6 +97,7 @@ Number range:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `object` *(required)* - Contribution range (represented as `object` type).
     - ***from*** `number` *(required)* - Start of the range.
     - ***to*** `number` *(required)* - End of the range.
@@ -101,6 +106,7 @@ Code and description:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
+    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
 - ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
     - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to proper value.
     - ***description*** `string` *(required)* - Human readable description.
@@ -173,7 +179,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -237,7 +244,8 @@ Code and description:
                                 {
                                     "type":"DECLINE",
                                     "componentType":"CI",
-                                    "optional":false
+                                    "optional":false,
+                                    "message":"Unfortunately PLR is unable to provide you with Life Insurance"
                                 }
                             ]
                         }
@@ -291,7 +299,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "from":150,
@@ -303,7 +312,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false
                                             },
                                             "value":[
                                                 {
@@ -334,7 +344,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -402,7 +413,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -411,7 +423,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -439,7 +452,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -507,7 +521,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Rheumatoid Arthritis",
-                                                "triggerTag":"Rheumatoid arthritis"
+                                                "triggerTag":"Rheumatoid arthritis",
+                                                "derived":false
                                             },
                                             "value":[
                                                 {
@@ -578,7 +593,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -587,7 +603,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -616,7 +633,8 @@ Code and description:
                             {
                                 "refersTo":"4336"
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -685,7 +703,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -694,7 +713,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -711,7 +731,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Asthma",
-                                                "triggerTag":"Asthma"
+                                                "triggerTag":"Asthma",
+                                                "derived":false
                                             },
                                             "value":{
                                                 "sum":25
@@ -720,7 +741,8 @@ Code and description:
                                         {
                                             "contributor":{
                                                 "enquiryLine":"Min Loading",
-                                                "triggerTag":"Min Loading"
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
                                             },
                                             "value":{
                                                 "sum":-25
@@ -749,7 +771,8 @@ Code and description:
                                 "refersTo":"4336",
                                 "wopContribution":1.02
                             }
-                        ]
+                        ],
+                        "discount": 0.00
                     },
                     "sumAssured":120000,
                     "commission":{
@@ -771,3 +794,196 @@ Code and description:
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
+
++ Request Single Comparison Item with Non Medical Limits contributor. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"LiverpoolVictoria",
+                "product":{
+                    "id":"00999a1a-e2d7-4bbc-bcb9-ae6845e4492f",
+                    "type":"TERM",
+                    "coverBasis":"LEVEL",
+                    "coverPeriod":12,
+                    "coverAmount":1200000,
+                    "commissionSacrifice":{
+                        "initial":0,
+                        "renewal":2.50
+                    },
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"1112"
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"EVIDENCE_REQUIRED",
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"1112",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"EVIDENCE_REQUIRED",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "evidenceContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Non Medical Limits",
+                                                "triggerTag":"Non Medical Limits",
+                                                "derived":true
+                                            },
+                                            "value":[
+                                                {
+                                                    "code":"GPR",
+                                                    "description":"GP report"
+                                                },
+                                                {
+                                                    "code":"HIV",
+                                                    "description":"HIV test"
+                                                },
+                                                {
+                                                    "code":"GPR",
+                                                    "description":"GP report"
+                                                },
+                                                {
+                                                    "code":"HIV",
+                                                    "description":"HIV test"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "immediateCover":false,
+                    "nonIndicative":false
+                },
+                "quote":{
+                    "state":"SUCCEEDED",
+                    "date":"2015-11-06T06:56:38.000",
+                    "premium":{
+                        "from":34.81,
+                        "to":34.81,
+                        "unloaded":{
+                            "from":34.81,
+                            "to":34.81
+                        },
+                        "lifetime":5012.64,
+                        "lives":[
+                            {
+                                "refersTo":"1112"
+                            }
+                        ]
+                    },
+                    "sumAssured":1200000,
+                    "commission":{
+                        "initial":0.00,
+                        "renewal":0.87,
+                        "sacrifice":{
+                            "initial":0,
+                            "renewal":2.50
+                        }
+                    },
+                    "expiryDate":"2015-11-21"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }
+
+ Request Single Comparison Item with standard decision and fixed premium when quote fails. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "provider":"PLR",
+                "product":{
+                    "id":"96402071-3646-4c75-b50a-f06586516fed",
+                    "referenceId":"pro-001",
+                    "type":"TERM",
+                    "coverBasis":"DECREASING",
+                    "coverPeriod":10,
+                    "coverAmount":110000,
+                    "livesAssured":[
+                        {
+                            "name":"John",
+                            "surname":"Doe",
+                            "refersTo":"4336"
+                        }
+                    ]
+                },
+                "decision":{
+                    "type":"STANDARD",
+                    "immediateCover":true,
+                    "nonIndicative":false,
+                    "details":[
+                        {
+                            "customer":{
+                                "id":"4336",
+                                "name":"John",
+                                "surname":"Doe"
+                            },
+                            "decisions":[
+                                {
+                                    "type":"STANDARD",
+                                    "componentType":"LIFE",
+                                    "optional":false,
+                                    "extraMorbidityContributions":[
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Asthma",
+                                                "triggerTag":"Asthma",
+                                                "derived":false
+                                            },
+                                            "value":{
+                                                "sum":25
+                                            }
+                                        },
+                                        {
+                                            "contributor":{
+                                                "enquiryLine":"Min Loading",
+                                                "triggerTag":"Min Loading",
+                                                "derived":true
+                                            },
+                                            "value":{
+                                                "sum":-25
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "quote":{
+                    "state":"FAILED",
+                    "errors":[
+                        "Problem with quote provider call"
+                    ]
+                },
+                "rating":{
+                    "value":5,
+                    "description":"<strong>Recommended</strong>"
+                },
+                "details":{
+                    "keyFacts":"http://plr.com/term/key-facts.pdf",
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                },
+                "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
+            }
+

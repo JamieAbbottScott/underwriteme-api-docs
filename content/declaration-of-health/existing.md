@@ -58,7 +58,7 @@ Operations on existing Declaration-of-Health associated with Application.
     + Body
 
             {
-                "answered": true
+                "answer": true
             }
 
 + Response 200
@@ -98,7 +98,7 @@ Operations on existing Declaration-of-Health associated with Application.
     + Body
 
             {
-                "answered": false
+                "answer": false
             }
 
 + Response 200
@@ -138,7 +138,7 @@ Operations on existing Declaration-of-Health associated with Application.
     + Body
 
             {
-                "answered": true
+                "answer": true
             }
 
 + Response 404

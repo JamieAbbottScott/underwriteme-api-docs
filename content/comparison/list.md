@@ -129,7 +129,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4083"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -153,7 +154,7 @@ JSON response has following structure:
                                     "reason":"We include terminal illness cover automatically"
                                 }
 
-                            ]                            
+                            ]
                         },
                         "rating":{
                             "value":4,
@@ -196,7 +197,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"LIFE",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately InsurerY is unable to provide you with Life Insurance"
                                         }
                                     ]
                                 }
@@ -429,7 +431,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":50
@@ -446,7 +449,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -477,7 +481,8 @@ JSON response has following structure:
                                         "refersTo":"4084",
                                         "wopContribution":1.02
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":110000,
                             "commission":{
@@ -538,7 +543,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":50
@@ -549,7 +555,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Suicide",
-                                                        "triggerTag":"Suicide attempt"
+                                                        "triggerTag":"Suicide attempt",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "from":5,
@@ -561,7 +568,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Suicide",
-                                                        "triggerTag":"Suicide attempt"
+                                                        "triggerTag":"Suicide attempt",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -581,7 +589,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Family History Parkinsons Disease",
-                                                        "triggerTag":"Family History Parkinsons Disease"
+                                                        "triggerTag":"Family History Parkinsons Disease",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -659,7 +668,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P3Y",
@@ -671,7 +681,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P1Y",
@@ -734,7 +745,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":2
@@ -816,7 +828,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -836,7 +849,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -855,7 +869,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -929,7 +944,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -949,7 +965,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -968,7 +985,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Detached Retina",
-                                                        "triggerTag":"Blindness in one eye"
+                                                        "triggerTag":"Blindness in one eye",
+                                                        "derived": false
                                                     },
                                                     "value":[
                                                         {
@@ -1147,7 +1165,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"CI",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately InsurerX is unable to provide you with Life Insurance"
                                         },
                                         {
                                             "type":"UNKNOWN",
@@ -1198,7 +1217,8 @@ JSON response has following structure:
                                         {
                                             "type":"DECLINE",
                                             "componentType":"CI",
-                                            "optional":false
+                                            "optional":false,
+                                            "message":"Unfortunately PLR is unable to provide you with Life Insurance"
                                         },
                                         {
                                             "type":"UNKNOWN",
@@ -1284,7 +1304,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1358,7 +1379,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"527"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":1000,
                             "commission":{
@@ -1423,7 +1445,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P3Y",
@@ -1435,7 +1458,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "duration":"P1Y",
@@ -1461,7 +1485,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
@@ -1520,7 +1545,8 @@ JSON response has following structure:
                                                 {
                                                     "contributor":{
                                                         "enquiryLine":"Arthritis",
-                                                        "triggerTag":"Arthritis"
+                                                        "triggerTag":"Arthritis",
+                                                        "derived": false
                                                     },
                                                     "value":{
                                                         "sum":2
@@ -1544,7 +1570,8 @@ JSON response has following structure:
                                     {
                                         "refersTo":"4085"
                                     }
-                                ]
+                                ],
+                                "discount": 0.00
                             },
                             "sumAssured":120000,
                             "commission":{
