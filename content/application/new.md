@@ -10,6 +10,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
+    - ***occupation*** `string` *(optional)* - Customer occupation.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -59,6 +60,7 @@ Creating new Application based on sent Customers and Products JSON data.
                         "gender": "MALE",
                         "dateOfBirth": "1980-01-01",
                         "smoker": false,
+                        "occupation": "underwriter",
                         "email": "john.doe@domain.com"
                     }
                 ],
@@ -466,4 +468,3 @@ Creating new Application based on sent Customers and Products JSON data.
                    "errorMessage": "Unknown owner non-existing-user"
                }
            }
-
