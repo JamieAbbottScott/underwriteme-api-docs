@@ -7,7 +7,7 @@ Assigning a Plan to an activated Application based on JSON data
 + Request a Plan assignment to an Application. (application/json)
 
             {
-                "plan-id":"LVPLAN001"
+                "plan-id":"PLAN001"
             }
 
 + Response 204
@@ -15,7 +15,7 @@ Assigning a Plan to an activated Application based on JSON data
 + Request a Plan assignment to an Application when the authenticated user has no permission to assign. (application/json)
 
             {
-                "plan-id":"LVPLAN001"
+                "plan-id":"PLAN001"
             }
 
 + Response 401 (application/json)
@@ -27,7 +27,7 @@ Assigning a Plan to an activated Application based on JSON data
 + Request a Plan assignment to an Application when the application is not activated. (application/json)
 
             {
-                "plan-id":"LVPLAN001"
+                "plan-id":"PLAN001"
             }
 
 + Response 500 (application/json)
