@@ -84,6 +84,7 @@ append legals/provider-legal-confirmation
 
 append activation/overview
 append activation/list
+append activation/plan
 
 append document/overview
 append document/existing
