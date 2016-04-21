@@ -73,9 +73,10 @@ JSON response has following structure:
 - ***rating*** `object` *(optional)* - Provider Product specific rating.
     - ***value*** `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
     - ***description*** `string` *(optional)* - HTML formatted description text of the rating.
-- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts and Terms & Conditions documents links.
+- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts, Terms & Conditions documents links and product description.
     - ***keyFacts*** `string` *(optional)* - Key Facts document link.
     - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
+    - ***shortDescription*** `string` *(optional)* - Product description (may differ on the basis of logged-in user's firm distribution channel).
 
 Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
@@ -191,7 +192,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
             }
@@ -356,7 +358,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-0fc0b51a-82ba-4508-838e-86aea8110a48"
             }
@@ -464,7 +467,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -536,7 +540,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
@@ -645,7 +650,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -783,7 +789,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -975,7 +982,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
