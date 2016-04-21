@@ -75,7 +75,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -195,7 +196,8 @@ JSON response has following structure:
                             "description":"Good"
                         },
                         "details":{
-                            "keyFacts":"http://insurery.com/term/key-facts.pdf"
+                            "keyFacts":"http://insurery.com/term/key-facts.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"insurery-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -311,7 +313,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -486,7 +489,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -690,7 +694,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -880,7 +885,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/ci/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/ci/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/ci/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -1109,7 +1115,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-acf83c43-2079-4b5e-a6f9-2a9421536cc4"
                     },
@@ -1490,7 +1497,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -1574,7 +1582,8 @@ JSON response has following structure:
                             "description":"Good"
                         },
                         "details":{
-                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
