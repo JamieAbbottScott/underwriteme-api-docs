@@ -85,8 +85,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
     - ***name*** `string` *(required)* - Customer name.
     - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`, `MX`, `OTHER`.
-    - ***otherTitle*** `string` - only required when selecting `OTHER` in title
+    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
     - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
@@ -611,6 +610,7 @@ Operations on existing Application identified by unique ID.
 
 + Response 404
 
+
 ### Update existing Application [PUT]
 + Request Valid Application. (application/json)
 
@@ -663,6 +663,7 @@ Operations on existing Application identified by unique ID.
                 "owner": "owner"
             }
 
+
 # Group Customer
 Customer related resources of the **UnderwriteMe API**.
 
@@ -672,8 +673,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
 - ***name*** `string` *(required)* - Customer name.
 - ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`, `MX`, `OTHER`.
-- ***otherTitle*** `string` - only required when selecting `OTHER` in title
+- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
 - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
@@ -1160,27 +1160,9 @@ Operations on existing Products and Customer associated with Application identif
 
 + Response 404
 
+
 ## Existing [/application/{id}/product/{productId}]
 Operations on existing Product identified by unique ID associated with Application.
-
-- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-- ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`.
-- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-- ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 + Parameters
 
@@ -1219,6 +1201,29 @@ Operations on existing Product identified by unique ID associated with Applicati
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
 
 + Response 404
+
+
+## Existing [/application/{id}/product/{productId}]
+Update operations on existing Product identified by unique ID associated with Application.
+
+- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
+- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
+- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
+- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`.
+- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+- ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
+    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Update existing Product for Application [PUT]
 + Request Valid Product. (application/json)
@@ -5943,7 +5948,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6063,7 +6069,8 @@ JSON response has following structure:
                             "description":"Good"
                         },
                         "details":{
-                            "keyFacts":"http://insurery.com/term/key-facts.pdf"
+                            "keyFacts":"http://insurery.com/term/key-facts.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"insurery-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6179,7 +6186,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6354,7 +6362,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6558,7 +6567,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6748,7 +6758,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/ci/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/ci/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/ci/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -6977,7 +6988,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-acf83c43-2079-4b5e-a6f9-2a9421536cc4"
                     },
@@ -7358,7 +7370,8 @@ JSON response has following structure:
                         },
                         "details":{
                             "keyFacts":"http://plr.com/term/key-facts.pdf",
-                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                            "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"plr-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     },
@@ -7442,7 +7455,8 @@ JSON response has following structure:
                             "description":"Good"
                         },
                         "details":{
-                            "keyFacts":"http://insurerx.com/term/key-facts.pdf"
+                            "keyFacts":"http://insurerx.com/term/key-facts.pdf",
+                            "shortDescription":"Some more information about this term product"
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
@@ -7525,9 +7539,10 @@ JSON response has following structure:
 - ***rating*** `object` *(optional)* - Provider Product specific rating.
     - ***value*** `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
     - ***description*** `string` *(optional)* - HTML formatted description text of the rating.
-- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts and Terms & Conditions documents links.
+- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts, Terms & Conditions documents links and product description.
     - ***keyFacts*** `string` *(optional)* - Key Facts document link.
     - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
+    - ***shortDescription*** `string` *(optional)* - Product description (may differ on the basis of logged-in user's firm distribution channel).
 
 Number with duration:
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
@@ -7643,7 +7658,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057"
             }
@@ -7808,7 +7824,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-0fc0b51a-82ba-4508-838e-86aea8110a48"
             }
@@ -7916,7 +7933,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -7988,7 +8006,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-50418718-acb5-4b4e-a4e5-60cb4320f5d5"
             }
@@ -8097,7 +8116,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -8235,7 +8255,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -8427,7 +8448,8 @@ Code and description:
                 },
                 "details":{
                     "keyFacts":"http://plr.com/term/key-facts.pdf",
-                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf"
+                    "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                    "shortDescription":"Some more information about this term product"
                 },
                 "id":"plr-96402071-3646-4c75-b50a-f06586516fed"
             }
@@ -10686,3 +10708,4 @@ Message related resources of the **UnderwriteMe API**.
                     "text": "Value is not a valid postcode (eg. AB1 2CD)"
                 }
             ]
+
