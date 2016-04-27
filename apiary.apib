@@ -551,6 +551,90 @@ Creating new Application based on sent Customers and Products JSON data.
            }
 
 
+## Pre-Populate [/application/pre-populate]
+Creating new Application based on sent Customers and Products JSON data but allowing the Customer name to be omitted.
+
+See **New application** for format details
+
+### Create new Application [POST]
++ Request Valid Application. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "customers": [
+                    {
+                        "referenceId": "cus-001",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "occupation": "underwriter",
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
+                        "livesAssured": [
+                            { "refersTo": "cus-001" }
+                        ]
+                    }
+                ]
+            }
+
++ Response 201 (application/json)
+
+            {
+                "id": "1502181407123020689",
+                "customers": [
+                    {
+                        "id": "1001",
+                        "referenceId": "cus-001",
+                        "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0
+                        },
+                        "livesAssured": [
+                            { "refersTo": "1001" }
+                        ]
+                    }
+                ],
+                "paymentBasis": "MONTHLY",
+                "owner": "authenticated-user"
+            }
+
+
 ## Existing [/application/{id}]
 Operations on existing Application identified by unique ID.
 
