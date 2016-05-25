@@ -25,7 +25,8 @@ Operations on existing Customers associated with Application identified by uniqu
                     "gender": "MALE",
                     "dateOfBirth": "1980-01-01",
                     "smoker": false,
-                    "email": "john.doe@domain.com"
+                    "email": "john.doe@domain.com",
+                    "maritalStatus": "SINGLE"
                 },
                 {
                     "id": "1002",
@@ -37,7 +38,8 @@ Operations on existing Customers associated with Application identified by uniqu
                     "gender": "FEMALE",
                     "dateOfBirth": "1970-01-01",
                     "smoker": false,
-                    "email": "merry.jones@domain.com"
+                    "email": "merry.jones@domain.com",
+                    "maritalStatus": "SINGLE"
                 }
             ]
 

@@ -26,7 +26,8 @@
                         "gender": "MALE",
                         "dateOfBirth": "1980-01-01",
                         "smoker": false,
-                        "email": "john.doe@domain.com"
+                        "email": "john.doe@domain.com",
+                        "maritalStatus": "SINGLE"
                     }
                 ],
                 "products": [

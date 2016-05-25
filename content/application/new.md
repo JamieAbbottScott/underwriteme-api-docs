@@ -20,6 +20,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
+    - ***maritalStatus*** `string` *(required)* - - Marital Status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
