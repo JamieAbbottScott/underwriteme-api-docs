@@ -18,7 +18,6 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
         - ***town*** `string` *(optional)* - Address town.
         - ***county*** `string` *(optional)* - Address county.
         - ***postcode*** `string` *(required)* - Address postcode.
-- ***maritalStatus*** `string` *(required)* - - Marital Status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 
 ### Create new Customer for Application [POST]
 + Request Valid Customer. (application/json)
@@ -37,8 +36,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com",
-                "maritalStatus": "SINGLE"
+                "email": "john.doe@domain.com"
             }
 
 + Response 201 (application/json)
@@ -53,8 +51,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com",
-                "maritalStatus": "SINGLE"
+                "email": "john.doe@domain.com"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -73,8 +70,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com",
-                "maritalStatus": "SINGLE"
+                "email": "john.doe@domain.com"
             }
 
 + Response 400 (application/json)
