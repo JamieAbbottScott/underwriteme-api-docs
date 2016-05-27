@@ -91,6 +91,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
+    - ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -99,7 +100,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+            - ***postcode*** `string` *(required)* - Address postcode.    
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
@@ -121,6 +122,8 @@ Creating new Application based on sent Customers and Products JSON data.
         - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 - ***owner*** `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
 - ***quoteEffectiveDate*** `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
+- ***originatorId*** `string` *(optional)* - The id of the portal the application originated from.
+
 
 ### Create new Application [POST]
 + Request Valid Application. (application/json)
@@ -714,7 +717,8 @@ Operations on existing Application identified by unique ID.
                         "gender": "MALE",
                         "dateOfBirth": "1980-01-01",
                         "smoker": false,
-                        "email": "john.doe@domain.com"
+                        "email": "john.doe@domain.com",
+                        "maritalStatus": "SINGLE"
                     }
                 ],
                 "products": [
@@ -773,7 +777,8 @@ Operations on existing Application identified by unique ID.
                         "gender": "MALE",
                         "dateOfBirth": "1980-01-01",
                         "smoker": false,
-                        "email": "john.doe@domain.com"
+                        "email": "john.doe@domain.com",
+                        "maritalStatus": "SINGLE"
                     }
                 ],
                 "products": [
@@ -812,6 +817,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
 - ***email*** `string` *(required)* - Customer email address.
+- ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -839,7 +845,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 201 (application/json)
@@ -854,7 +861,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -873,7 +881,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 400 (application/json)
@@ -912,7 +921,8 @@ Operations on existing Customers associated with Application identified by uniqu
                     "gender": "MALE",
                     "dateOfBirth": "1980-01-01",
                     "smoker": false,
-                    "email": "john.doe@domain.com"
+                    "email": "john.doe@domain.com",
+                    "maritalStatus": "SINGLE"
                 },
                 {
                     "id": "1002",
@@ -924,7 +934,8 @@ Operations on existing Customers associated with Application identified by uniqu
                     "gender": "FEMALE",
                     "dateOfBirth": "1970-01-01",
                     "smoker": false,
-                    "email": "merry.jones@domain.com"
+                    "email": "merry.jones@domain.com",
+                    "maritalStatus": "SINGLE"
                 }
             ]
 
@@ -964,7 +975,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Not existing Customer for the Application. (application/json)
@@ -993,7 +1005,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 200 (application/json)
@@ -1008,7 +1021,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -1027,7 +1041,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 400 (application/json)
@@ -1075,7 +1090,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 

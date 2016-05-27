@@ -15,7 +15,8 @@
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 200 (application/json)
@@ -30,7 +31,8 @@
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -49,7 +51,8 @@
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 400 (application/json)
