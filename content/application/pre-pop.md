@@ -11,6 +11,7 @@ Creating new Application based on sent Customers and Products JSON data but allo
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
+    - ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -73,6 +74,22 @@ Creating new Application based on sent Customers and Products JSON data but allo
                         "smoker": false,
                         "occupation": "underwriter",
                         "email": "john.doe@domain.com"
+                        "drDetails": {
+                            "name": "Adam Smith",
+                            "surgery": {
+                                "name": "Adam Smith Surgery",
+                                "contactDetails": {
+                                    "telephoneNumber": "01234 567890",
+                                    "address": {
+                                        "line1": "21 King's Road",
+                                        "line2": "Queen Avenue",
+                                        "town": "London",
+                                        "county": "London",
+                                        "postcode": "AB1 2CD"
+                                    }
+                                }
+                            }
+                        }
                     }
                 ],
                 "products": [
@@ -90,7 +107,18 @@ Creating new Application based on sent Customers and Products JSON data but allo
                             { "refersTo": "cus-001" }
                         ]
                     }
-                ]
+                ],
+                "paymentDetails": {
+                    "bankAccount":{
+                        "sortCode":"112233",
+                        "number":"11223344",
+                        "holders":[
+                            {
+                                "refersTo":"cus-001"
+                            }
+                        ]
+                  },
+                }
             }
 
 + Response 201 (application/json)
