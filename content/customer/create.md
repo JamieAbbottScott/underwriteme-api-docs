@@ -9,6 +9,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
 - ***email*** `string` *(required)* - Customer email address.
+- ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -36,7 +37,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 201 (application/json)
@@ -51,7 +53,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Customer name cannot contain numbers. (application/json)
@@ -70,7 +73,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Response 400 (application/json)

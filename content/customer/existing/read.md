@@ -25,7 +25,8 @@ Operations on existing Customer identified by unique ID associated with Applicat
                 "gender": "MALE",
                 "dateOfBirth": "1980-01-01",
                 "smoker": false,
-                "email": "john.doe@domain.com"
+                "email": "john.doe@domain.com",
+                "maritalStatus": "SINGLE"
             }
 
 + Request Not existing Customer for the Application. (application/json)
