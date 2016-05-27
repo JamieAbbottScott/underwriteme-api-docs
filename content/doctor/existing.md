@@ -1,3 +1,4 @@
+<a name="def-doctor-details"></a>
 ## Existing [/application/{applicationId}/customer/{customerId}/doctor]
 Operations on existing Doctor details associated with Application Customer.
 
