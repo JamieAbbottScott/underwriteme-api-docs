@@ -1,5 +1,5 @@
 ## Pre-Populate [/application/pre-populate]
-Creating new Application based on sent Customers and Products JSON data but allowing the Customer name to be omitted.
+Creating a new Application with relaxed validation to allow for portal handover.
 
 - ***customers*** `array` *(required)* - List of Customers (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
@@ -30,6 +30,7 @@ Creating new Application based on sent Customers and Products JSON data but allo
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
+    - ***earnings*** `string` *(optional)* - Earnings.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Only valid if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
@@ -47,11 +48,11 @@ Creating new Application based on sent Customers and Products JSON data but allo
         - ***number*** `string` *(required)* - Bank account number.
         - ***holders*** `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
             - ***refersTo*** `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
-- ***owner*** `string` *(optional/reuired)* - Owner of the application.
-- ***frn*** `string` *(optional/required)* - Firm reference number of the application. If either (owner and frn) are provided owner take precedence.
+- ***owner*** `string` *(optional/required)* - Owner of the application.
+- ***frn*** `string` *(optional/required)* - Firm reference number of the firm that owns the application. Must be provided if no specific individual owner is provided. If both owner and frn are present then ower takes precedence and frn is ignored.
 - ***adviserReferenceNumber*** `string` *(optional)* - Firm reference number of the application. If either (owner and frn) are provided owner take precedence.
-- ***originatorId*** `string` *(optional)* - Portal the app is originated from.
-- ***quoteEffectiveDate*** `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
+- ***originatorId*** `string` *(optional)* - Portal that the application originated from.
+- ***quoteEffectiveDate*** `string` *(optional)* - The quote effective date. Must match ISO 8601 date format (YYYY-MM-DD) e.g: 1980-01-01.
 
 ### Create new Application [POST]
 
