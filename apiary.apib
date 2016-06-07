@@ -92,6 +92,8 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
     - ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+    - ***ukResident*** `boolean` *(optional)* - Customer residency. Whether a customer is resident in the UK
+    - ***gpRegistered*** `boolean` *(optional)* - GP Registered. Whether a customer is registered with a GP in the UK
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -10888,4 +10890,3 @@ Message related resources of the **UnderwriteMe API**.
                     "text": "Value is not a valid postcode (eg. AB1 2CD)"
                 }
             ]
-
