@@ -46,6 +46,7 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+- ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`, `UNQUOTABLE`.
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
@@ -246,6 +247,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": false,
                 "id":"plr-bf8ac9c5-5d8e-4991-8028-8768eef2b94d"
             }
 
@@ -323,6 +325,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
@@ -432,6 +435,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
@@ -534,6 +538,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": false,
                 "rating":{
                     "value":5,
                     "description":"<strong>Recommended</strong>"
@@ -614,6 +619,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
@@ -753,6 +759,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-01-01T00:00:00.000",
@@ -871,6 +878,7 @@ Code and description:
                     "immediateCover":false,
                     "nonIndicative":false
                 },
+                "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
                     "date":"2015-11-06T06:56:38.000",
@@ -970,6 +978,7 @@ Code and description:
                         }
                     ]
                 },
+                "quotable": true,
                 "quote":{
                     "state":"FAILED",
                     "errors":[
