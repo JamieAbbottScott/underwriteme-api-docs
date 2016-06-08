@@ -22,6 +22,7 @@ append application/new
 append application/pre-pop
 append application/existing
 append application/update
+append application/state
 
 append customer/overview
 append customer/create
