@@ -6,7 +6,7 @@ Creating new Product based on sent JSON data.
 - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
 - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
 - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION` or `PERSONAL_SICK_PAY`. Allowed values: `LEVEL`, `AGE_COSTED`.
+- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
 - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
 - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
 - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
