@@ -48,7 +48,7 @@ JSON response has following structure:
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
-    - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`, `UNQUOTABLE`.
+    - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`
     - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
     - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
     - ***expired*** `boolean` *(optional)* - Flag to mark whether this quote has expired.
