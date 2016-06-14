@@ -1,4 +1,5 @@
-### Update Application Payment Basis [PUT]
+## Update Application Payment Basis [/application/{id}/payment-basis]
+### Update Payment Basis. [PUT]
 + Update Payment Basis. (application/json)
 
     + Headers
