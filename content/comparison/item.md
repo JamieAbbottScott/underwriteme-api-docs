@@ -33,7 +33,6 @@ JSON response has following structure:
             - ***name*** `string` *(required)* - Customer name.
             - ***surname*** `string` *(required)* - Customer surname.
             - ***gender*** 'string' *(required)* - Customer gender.
-            - ***smokingRisk*** 'number' *(required)* - Customer smoking risk.
         - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
