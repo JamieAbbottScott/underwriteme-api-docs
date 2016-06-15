@@ -577,7 +577,18 @@ Creating a new Application with relaxed validation to allow for portal handover.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
             - ***postcode*** `string` *(required)* - Address postcode.
-    - ***drDetails*** `object` *(optional)* - Doctor details (see [Doctor details](#def-doctor-details))
+    - ***drDetails*** `object` *(optional)* - Doctor details.
+        - ***name*** `string` *(required)* - Doctor's name.
+        - ***surgery*** `object` *(required)* - Surgery details.
+            - ***name*** `string` *(required)* - Surgery's name.
+            - ***contactDetails*** `object` *(required)* - Surgery contact details.
+                - ***telephoneNumber*** `string` *(optional)* - Surgery telephone number.
+                - ***address*** `object` *(required)* - Surgery address details.
+                    - ***line1*** `string` *(optional)* - Address first line.
+                    - ***line2*** `string` *(optional)* - Address second line.
+                    - ***town*** `string` *(optional)* - Address town.
+                    - ***county*** `string` *(optional)* - Address county.
+                    - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
@@ -829,6 +840,27 @@ Operations on existing Application identified by unique ID.
                 ],
                 "paymentBasis": "ANNUAL",
                 "owner": "owner"
+            }
+
+
+## Update Application Payment Basis [/application/{id}/payment-basis]
+### Update Payment Basis. [PUT]
++ Update Payment Basis. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "paymentBasis": "ANNUAL"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "paymentBasis": "ANNUAL"
             }
 
 
@@ -7697,6 +7729,7 @@ JSON response has following structure:
             - ***id*** `string` *(required)* - Unique Customer ID.
             - ***name*** `string` *(required)* - Customer name.
             - ***surname*** `string` *(required)* - Customer surname.
+            - ***gender*** 'string' *(required)* - Customer gender.
         - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
