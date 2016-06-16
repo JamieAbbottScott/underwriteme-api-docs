@@ -23,7 +23,7 @@ append application/pre-pop
 append application/existing
 append application/update
 append application/state
-
+append application/update-payment-basis
 append customer/overview
 append customer/create
 append customer/list
