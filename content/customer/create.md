@@ -9,7 +9,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
 - ***email*** `string` *(required)* - Customer email address.
-- ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+- ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
