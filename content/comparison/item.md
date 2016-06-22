@@ -40,14 +40,15 @@ JSON response has following structure:
             - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
             - ***disabilityDefinition*** `string` *(optional)* - Disability definition value. Possible values: `Own Occupation`, `Suited Occupation`, `Any Occupation`, `Work Tasks`, `Activities Of Daily Living`, `Functional Abilities Test`, `Look After Yourself`, `Comprehensive`, `Core`.
             - ***message*** `string` *(optional)* - Decision specific message value.
-            - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as number with duration.
-            - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as number with duration.
-            - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
-            - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as number range.
-            - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as number range.
-            - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
+            - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
+            - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
+            - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
+            - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
+            - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
+            - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+        - ***productExclusionContributions*** `array` *(optional)* - List of Product Decisions (represented as `object` type). Mutually exclusive to *exclusionContributions* . Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
 - ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
@@ -83,7 +84,7 @@ JSON response has following structure:
     - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
     - ***shortDescription*** `string` *(optional)* - Product description (may differ on the basis of logged-in user's firm distribution channel).
 
-Number with duration:
+#### DurationableOptions (Number with duration):
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
@@ -92,7 +93,7 @@ Number with duration:
     - ***sum*** `number` *(required)* - Numeric value of Contribution.
     - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
 
-Number range:
+#### RangedOptions (Number range):
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
@@ -101,7 +102,7 @@ Number range:
     - ***from*** `number` *(required)* - Start of the range.
     - ***to*** `number` *(required)* - End of the range.
 
-Code and description:
+#### ExclusionOptions (Code and description):
 - ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
     - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
     - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
