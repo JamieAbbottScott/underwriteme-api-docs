@@ -11,7 +11,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***email*** `string` *(required)* - Customer email address.
 - ***occupation*** `string` *(optional)* - Customer occupation.
 - ***earnings*** `string` *(optional)* - Customer earnings.
-- ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+- ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
