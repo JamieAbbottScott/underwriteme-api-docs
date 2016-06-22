@@ -101,7 +101,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+            - ***postcode*** `string` *(required)* - Address postcode.    
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
@@ -7764,6 +7764,7 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+        - ***productExclusionContributions*** `array` *(optional)* - List of Product Decisions (represented as `object` type). Mutually exclusive to *exclusionContributions* . Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
 - ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
@@ -10946,10 +10947,10 @@ Operations on existing Application Document identified by unique Application and
 
 + Response 200
 
-            {
+            { 
                     "body": "..."
             }
-
+            
 + Request Retrieve Application Document content for a non existing document ID. (application/pdf)
 
     + Headers

@@ -48,6 +48,7 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+        - ***productExclusionContributions*** `array` *(optional)* - List of Product Decisions (represented as `object` type). Mutually exclusive to *exclusionContributions* . Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
 - ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
