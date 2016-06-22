@@ -66,6 +66,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -119,6 +120,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
                         "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
@@ -193,6 +195,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "rating":{
                             "value":4,
@@ -242,6 +245,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"FAILED"
@@ -308,6 +312,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -361,6 +366,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -460,6 +466,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
                         "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
@@ -602,6 +609,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -1317,6 +1325,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":959.25,
                                 "renewal":1.14,
@@ -1393,6 +1402,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":1137.04,
                                 "renewal":1.35,
@@ -1500,6 +1510,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
@@ -1587,6 +1598,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
