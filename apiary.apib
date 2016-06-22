@@ -101,7 +101,7 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.    
+            - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
@@ -7749,6 +7749,7 @@ JSON response has following structure:
             - ***name*** `string` *(required)* - Customer name.
             - ***surname*** `string` *(required)* - Customer surname.
             - ***gender*** 'string' *(required)* - Customer gender.
+            - ***atRiskOfSmoking*** 'boolean' *(required)* - Flag indicating if the customer is a non-smoker with a smoking risk.
         - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
             - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
             - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
@@ -10945,10 +10946,10 @@ Operations on existing Application Document identified by unique Application and
 
 + Response 200
 
-            { 
+            {
                     "body": "..."
             }
-            
+
 + Request Retrieve Application Document content for a non existing document ID. (application/pdf)
 
     + Headers
