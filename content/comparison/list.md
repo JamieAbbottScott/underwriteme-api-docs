@@ -66,6 +66,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
+                        "quotable": true,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -118,6 +120,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
+                        "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
                             "date":"2015-01-01T00:00:00.000",
@@ -191,6 +195,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
+                        "quotable": true,
                         "rating":{
                             "value":4,
                             "description":"Good"
@@ -239,6 +245,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
+                        "quotable": true,
                         "quote":{
                             "state":"FAILED"
                         },
@@ -304,6 +312,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
+                        "quotable": true,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -356,6 +366,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
+                        "quotable": true,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -454,6 +466,8 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
+                        "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
                             "date":"2015-08-13T10:45:31.000",
@@ -595,9 +609,11 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":4,
                             "description":"Good"
@@ -688,6 +704,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":5,
                             "description":"<strong>Recommended</strong>"
@@ -749,6 +766,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "quotable": true,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -879,6 +897,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":5,
                             "description":"<strong>Recommended</strong>"
@@ -996,6 +1015,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":4,
                             "description":"Good"
@@ -1059,6 +1079,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":4,
                             "description":"Good"
@@ -1109,6 +1130,7 @@ JSON response has following structure:
                         "quote":{
                             "state":"PENDING"
                         },
+                        "quotable": true,
                         "rating":{
                             "value":5,
                             "description":"<strong>Recommended</strong>"
@@ -1170,6 +1192,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "quotable": false,
                         "id":"insurerx-7044b1fa-6fb5-46fb-b8fc-d785cac42112"
                     },
                     {
@@ -1222,6 +1245,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "quotable": false,
                         "id":"plr-7044b1fa-6fb5-46fb-b8fc-d785cac42112"
                     }
                 ]
@@ -1301,6 +1325,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":959.25,
                                 "renewal":1.14,
@@ -1310,6 +1335,7 @@ JSON response has following structure:
                                 }
                             }
                         },
+                        "quotable": true,
                         "id":"insurerx-153a6779-cf28-4d9e-a906-91594652c939"
                     },
                     {
@@ -1376,6 +1402,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":1137.04,
                                 "renewal":1.35,
@@ -1385,6 +1412,7 @@ JSON response has following structure:
                                 }
                             }
                         },
+                        "quotable": true,
                         "id":"plr-153a6779-cf28-4d9e-a906-91594652c939"
                     }
                 ]
@@ -1482,6 +1510,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
@@ -1491,6 +1520,7 @@ JSON response has following structure:
                                 }
                             }
                         },
+                        "quotable": true,
                         "rating":{
                             "value":5,
                             "description":"<strong>Recommended</strong>"
@@ -1568,6 +1598,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
@@ -1577,6 +1608,7 @@ JSON response has following structure:
                                 }
                             }
                         },
+                        "quotable": true,
                         "rating":{
                             "value":4,
                             "description":"Good"
