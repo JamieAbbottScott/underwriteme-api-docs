@@ -11,6 +11,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
+    - ***earnings*** `string` *(optional)* - Customer earnings.
     - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
@@ -41,7 +42,6 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***earnings*** `string` *(optional)* - Earnings.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Only valid if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.

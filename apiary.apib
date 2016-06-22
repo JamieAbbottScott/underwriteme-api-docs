@@ -91,7 +91,8 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
-    - ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+    - ***earnings*** `string` *(optional)* - Customer earnings.
+    - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -100,13 +101,14 @@ Creating new Application based on sent Customers and Products JSON data.
             - ***line2*** `string` *(optional)* - Address second line.
             - ***town*** `string` *(optional)* - Address town.
             - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.    
+            - ***postcode*** `string` *(required)* - Address postcode.
 - ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
     - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
     - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+    - ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
@@ -567,6 +569,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
+    - ***earnings*** `string` *(optional)* - Customer earnings.
     - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
@@ -597,7 +600,6 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***earnings*** `string` *(optional)* - Earnings.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
     - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Only valid if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
     - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
@@ -878,7 +880,9 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
 - ***email*** `string` *(required)* - Customer email address.
-- ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+- ***occupation*** `string` *(optional)* - Customer occupation.
+- ***earnings*** `string` *(optional)* - Customer earnings.
+- ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
 - ***contactDetails*** `object` *(required)* - Customer contact details.
     - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
     - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -954,6 +958,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
                     "errorMessage": "Value must be a valid name. Must start with a letter. Can contain letters (A to Z), hyphens (-), apostrophes (') and spaces."
                 }
             }
+
 
 ## List [/application/{id}/customer/]
 Operations on existing Customers associated with Application identified by unique ID .
@@ -1168,6 +1173,7 @@ Creating new Product based on sent JSON data.
 - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
 - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
 - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
 - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
 - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
 - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
@@ -1422,6 +1428,7 @@ Update operations on existing Product identified by unique ID associated with Ap
 - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
 - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
 - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
 - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
 - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
 - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
@@ -6150,6 +6157,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -6203,6 +6211,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
                         "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
@@ -6277,6 +6286,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "rating":{
                             "value":4,
@@ -6326,6 +6336,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"FAILED"
@@ -6392,6 +6403,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -6445,6 +6457,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quotable": true,
                         "quote":{
                             "state":"PENDING"
@@ -6544,6 +6557,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": true,
                         "quotable": true,
                         "quote":{
                             "state":"SUCCEEDED",
@@ -6686,6 +6700,7 @@ JSON response has following structure:
                                 }
                             ]
                         },
+                        "purchasable": false,
                         "quote":{
                             "state":"PENDING"
                         },
@@ -7401,6 +7416,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":959.25,
                                 "renewal":1.14,
@@ -7477,6 +7493,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":1000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":1137.04,
                                 "renewal":1.35,
@@ -7584,6 +7601,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
@@ -7671,6 +7689,7 @@ JSON response has following structure:
                                 "discount": 0.00
                             },
                             "sumAssured":120000,
+                            "anonymousQuote":false,
                             "commission":{
                                 "initial":30.61,
                                 "renewal":8.17,
@@ -7745,6 +7764,7 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+- ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`
@@ -7763,6 +7783,7 @@ JSON response has following structure:
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
             - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
+    - ***anonymousQuote*** `array` *(optional)* - Indicates if the quote was undertaken by a user without an agent id for the Provider
     - ***errors*** `array` *(optional)* - List of errors in the quote response (represented as `string` type).
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -7877,6 +7898,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":true,
                     "commission":{
                         "initial":30.61,
                         "renewal":8.17,
@@ -7946,6 +7968,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": false,
                 "id":"plr-bf8ac9c5-5d8e-4991-8028-8768eef2b94d"
             }
@@ -8024,6 +8047,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -8045,6 +8069,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":80.86,
                         "renewal":21.58,
@@ -8134,6 +8159,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -8155,6 +8181,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -8237,6 +8264,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": false,
                 "rating":{
                     "value":5,
@@ -8318,6 +8346,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -8340,6 +8369,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -8458,6 +8488,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -8480,6 +8511,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -8577,6 +8609,7 @@ Code and description:
                     "immediateCover":false,
                     "nonIndicative":false
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -8596,6 +8629,7 @@ Code and description:
                         ]
                     },
                     "sumAssured":1200000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":0.00,
                         "renewal":0.87,
@@ -8677,6 +8711,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": true,
                 "quote":{
                     "state":"FAILED",
@@ -10911,10 +10946,10 @@ Operations on existing Application Document identified by unique Application and
 
 + Response 200
 
-            { 
+            {
                     "body": "..."
             }
-            
+
 + Request Retrieve Application Document content for a non existing document ID. (application/pdf)
 
     + Headers

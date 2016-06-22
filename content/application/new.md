@@ -11,7 +11,8 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
     - ***email*** `string` *(required)* - Customer email address.
     - ***occupation*** `string` *(optional)* - Customer occupation.
-    - ***maritalStatus*** `string` *(required)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+    - ***earnings*** `string` *(optional)* - Customer earnings.
+    - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
         - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
@@ -27,6 +28,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
     - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
     - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+    - ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
     - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
     - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
     - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
