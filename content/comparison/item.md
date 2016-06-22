@@ -47,6 +47,7 @@ JSON response has following structure:
             - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `ExclusionOptions`.
             - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
             - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+- ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
 - ***quotable*** `boolean`  - Does provider quote?
 - ***quote*** `object` *(optional)* - Provider quote.
     - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`
@@ -65,6 +66,7 @@ JSON response has following structure:
             - ***refersTo*** `string` *(required)* - Unique Customer ID.
             - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
     - ***sumAssured*** `number` *(optional)* - Quote sum assured.
+    - ***anonymousQuote*** `array` *(optional)* - Indicates if the quote was undertaken by a user without an agent id for the Provider
     - ***errors*** `array` *(optional)* - List of errors in the quote response (represented as `string` type).
     - ***commission*** `object` *(optional)* - Commission value.
         - ***initial*** `number` *(required)* - Initial commission value.
@@ -179,6 +181,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":true,
                     "commission":{
                         "initial":30.61,
                         "renewal":8.17,
@@ -248,6 +251,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": false,
                 "id":"plr-bf8ac9c5-5d8e-4991-8028-8768eef2b94d"
             }
@@ -326,6 +330,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -347,6 +352,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":80.86,
                         "renewal":21.58,
@@ -436,6 +442,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -457,6 +464,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -539,6 +547,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": false,
                 "rating":{
                     "value":5,
@@ -620,6 +629,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -642,6 +652,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -760,6 +771,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -782,6 +794,7 @@ Code and description:
                         "discount": 0.00
                     },
                     "sumAssured":120000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":31.90,
                         "renewal":8.51,
@@ -879,6 +892,7 @@ Code and description:
                     "immediateCover":false,
                     "nonIndicative":false
                 },
+                "purchasable": true,
                 "quotable": true,
                 "quote":{
                     "state":"SUCCEEDED",
@@ -898,6 +912,7 @@ Code and description:
                         ]
                     },
                     "sumAssured":1200000,
+                    "anonymousQuote":false,
                     "commission":{
                         "initial":0.00,
                         "renewal":0.87,
@@ -979,6 +994,7 @@ Code and description:
                         }
                     ]
                 },
+                "purchasable": false,
                 "quotable": true,
                 "quote":{
                     "state":"FAILED",
