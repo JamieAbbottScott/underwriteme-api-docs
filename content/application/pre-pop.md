@@ -13,7 +13,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***occupation*** `string` *(optional)* - Customer occupation.
     - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
+        - ***telephoneNumber*** `string` *(optional)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
         - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
             - ***line1*** `string` *(optional)* - Address first line.
