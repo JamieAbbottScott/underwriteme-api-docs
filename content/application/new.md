@@ -5,8 +5,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
     - ***name*** `string` *(required)* - Customer name.
     - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
+    - ***title*** `string` *(required)* - Customer title. Default allowed values are: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.  This list of default titles can be customized by specifying the desired list in `underwriteme.available.titles` in the application configuration.  If `OTHER` is included in this list, custom titles can be both passed via this API and specified by the customer from within the application.
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
     - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
