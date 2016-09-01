@@ -86,6 +86,7 @@ Creating new Application based on sent Customers and Products JSON data.
     - ***name*** `string` *(required)* - Customer name.
     - ***surname*** `string` *(required)* - Customer surname.
     - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+    - ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
     - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
@@ -564,6 +565,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***name*** `string` *(optional)* - Customer name.
     - ***surname*** `string` *(required)* - Customer surname.
     - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+    - ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
     - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
     - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
     - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
@@ -572,7 +574,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - ***earnings*** `string` *(optional)* - Customer earnings.
     - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
     - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
+        - ***telephoneNumber*** `string` *(optional)* - Customer main telephone number.
         - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
         - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
             - ***line1*** `string` *(optional)* - Address first line.
@@ -876,6 +878,7 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
 - ***name*** `string` *(required)* - Customer name.
 - ***surname*** `string` *(required)* - Customer surname.
 - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+- ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
 - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
 - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
 - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
@@ -1644,6 +1647,42 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 
 ### Confirm Pre-Declaration [PUT]
 + Request Confirm Pre-Declaration (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "confirmed": true,
+                "text": "<p>HTML formatted Pre-Declaration text.</p>"
+            }
+          
+## Existing [/application/{applicationId}/enquiry/{enquiryId}/pre-declaration/teleinterview]
+Operations on existing teleinterview Pre-Declaration associated with Application and Customer Enquiry.
+
++ Parameters
+
+    + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
+    + enquiryId (required, string, `029ab8d8-0a62-423e-8e84-6e8d505bb742`) ... Unique ID of existing Enquiry associated with Application Customer.
+
+### Retrieve teleinterview Pre-Declaration [GET]
++ Request Valid teleinterview Pre-Declaration (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 200
+
+            {
+                "confirmed": false,
+                "text": "<p>HTML formatted teleinterview Pre-Declaration text.</p>"
+            }
+
+### Confirm teleinterview Pre-Declaration [PUT]
++ Request Confirm teleinterview Pre-Declaration (application/json)
 
     + Headers
 
@@ -6102,6 +6141,7 @@ JSON response has following structure:
 
 - ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
 - ***items*** `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
+- ***quickQuotes*** `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
 
 + Parameters
 
@@ -6471,7 +6511,63 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                 "quickQuotes" :[
+                     {
+                         "provider":"InsurerA",
+                         "product":{
+                             "id":"fsdsfsd-1ads-3w12-au1z-223d0f1cbb61",
+                             "referenceId":"pro-001",
+                             "type":"TERM",
+                             "coverBasis":"DECREASING",
+                             "coverPeriod":10,
+                             "coverAmount":200000,
+                             "livesAssured":[
+                                 {
+                                     "name":"Jane",
+                                     "surname":"Doe",
+                                     "refersTo":"4083"
+                                 }
+                             ]
+                         },
+                         "decision":{
+                             "type":"UNKNOWN",
+                             "immediateCover":true,
+                             "nonIndicative":false,
+                             "details":[
+                                 {
+                                     "customer":{
+                                         "id":"4083",
+                                         "name":"Jane",
+                                         "surname":"Doe"
+                                     },
+                                     "decisions":[
+                                         {
+                                             "type":"UNKNOWN",
+                                             "componentType":"LIFE",
+                                             "optional":false
+                                         }
+                                     ]
+                                 }
+                             ]
+                         },
+                         "purchasable": false,
+                         "quotable": true,
+                         "quote":{
+                             "state":"PENDING"
+                         },
+                         "rating":{
+                             "value":5,
+                             "description":"<strong>Recommended</strong>"
+                         },
+                         "details":{
+                             "keyFacts":"http://plr.com/term/key-facts.pdf",
+                             "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                             "shortDescription":"Some more information about this term product"
+                         },
+                         "id":"plr-fsdsfsd-1ads-3w12-au1z-223d0f1cbb61"
+                     }
+                 ]
             }
 
 + Request Estimated Comparison with referred decisions for not-satisfied Enquiry (application/json)
@@ -6714,7 +6810,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Estimated Comparison with standard decisions for satisfied Enquiry (application/json)
@@ -6870,7 +6967,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Valid Comparison with standard decisions for satisfied and closed Enquiry (application/json)
@@ -7116,7 +7214,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Valid Comparison for 2 Products with refer and decline decisions. (application/json)
@@ -7339,7 +7438,8 @@ JSON response has following structure:
                         "quotable": false,
                         "id":"plr-7044b1fa-6fb5-46fb-b8fc-d785cac42112"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Comparison for an IP product. (application/json)
@@ -7506,7 +7606,8 @@ JSON response has following structure:
                         "quotable": true,
                         "id":"plr-153a6779-cf28-4d9e-a906-91594652c939"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Comparison containing an expired item (application/json)
@@ -7710,7 +7811,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 
