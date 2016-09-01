@@ -11,6 +11,7 @@ JSON response has following structure:
 
 - ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
 - ***items*** `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
+- ***quickQuotes*** `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
 
 + Parameters
 
@@ -380,7 +381,63 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                 "quickQuotes" :[
+                     {
+                         "provider":"InsurerA",
+                         "product":{
+                             "id":"fsdsfsd-1ads-3w12-au1z-223d0f1cbb61",
+                             "referenceId":"pro-001",
+                             "type":"TERM",
+                             "coverBasis":"DECREASING",
+                             "coverPeriod":10,
+                             "coverAmount":200000,
+                             "livesAssured":[
+                                 {
+                                     "name":"Jane",
+                                     "surname":"Doe",
+                                     "refersTo":"4083"
+                                 }
+                             ]
+                         },
+                         "decision":{
+                             "type":"UNKNOWN",
+                             "immediateCover":true,
+                             "nonIndicative":false,
+                             "details":[
+                                 {
+                                     "customer":{
+                                         "id":"4083",
+                                         "name":"Jane",
+                                         "surname":"Doe"
+                                     },
+                                     "decisions":[
+                                         {
+                                             "type":"UNKNOWN",
+                                             "componentType":"LIFE",
+                                             "optional":false
+                                         }
+                                     ]
+                                 }
+                             ]
+                         },
+                         "purchasable": false,
+                         "quotable": true,
+                         "quote":{
+                             "state":"PENDING"
+                         },
+                         "rating":{
+                             "value":5,
+                             "description":"<strong>Recommended</strong>"
+                         },
+                         "details":{
+                             "keyFacts":"http://plr.com/term/key-facts.pdf",
+                             "termsAndConditions":"http://plr.com/term/terms-and-conditions.pdf",
+                             "shortDescription":"Some more information about this term product"
+                         },
+                         "id":"plr-fsdsfsd-1ads-3w12-au1z-223d0f1cbb61"
+                     }
+                 ]
             }
 
 + Request Estimated Comparison with referred decisions for not-satisfied Enquiry (application/json)
@@ -623,7 +680,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Estimated Comparison with standard decisions for satisfied Enquiry (application/json)
@@ -779,7 +837,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Valid Comparison with standard decisions for satisfied and closed Enquiry (application/json)
@@ -1025,7 +1084,8 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Valid Comparison for 2 Products with refer and decline decisions. (application/json)
@@ -1248,7 +1308,8 @@ JSON response has following structure:
                         "quotable": false,
                         "id":"plr-7044b1fa-6fb5-46fb-b8fc-d785cac42112"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Comparison for an IP product. (application/json)
@@ -1415,7 +1476,8 @@ JSON response has following structure:
                         "quotable": true,
                         "id":"plr-153a6779-cf28-4d9e-a906-91594652c939"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
 
 + Request Comparison containing an expired item (application/json)
@@ -1619,5 +1681,6 @@ JSON response has following structure:
                         },
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80"
                     }
-                ]
+                ],
+                "quickQuotes": []
             }
