@@ -40,7 +40,8 @@
                         "coverAmount": 120000,
                         "commissionSacrifice": {
                             "initial": 10,
-                            "renewal": 1.0
+                            "renewal": 1.0,
+                            "nilBased": false
                         },
                         "livesAssured": [
                             { "refersTo": "1001" }

@@ -25,7 +25,8 @@ Operations on existing Products and Customer associated with Application identif
                     "coverAmount": 120000,
                     "commissionSacrifice": {
                         "initial": 10,
-                        "renewal": 1.0
+                        "renewal": 1.0,
+                        "nilBased": false
                     },
                     "livesAssured": [
                         { "refersTo": "1001" }
@@ -40,7 +41,8 @@ Operations on existing Products and Customer associated with Application identif
                     "coverAmount": 130000,
                     "commissionSacrifice": {
                         "initial": 0,
-                        "renewal": 1.0
+                        "renewal": 1.0,
+                        "nilBased": false
                     },
                     "livesAssured": [
                         { "refersTo": "1002" }
