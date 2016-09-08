@@ -15,6 +15,7 @@ Update operations on existing Product identified by unique ID associated with Ap
 - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
     - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
     - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+    - ***nilBased***  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
 - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
     - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
     - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
@@ -38,7 +39,8 @@ Update operations on existing Product identified by unique ID associated with Ap
                 "coverAmount": 120000,
                 "commissionSacrifice": {
                     "initial": 10,
-                    "renewal": 1.0
+                    "renewal": 1.0,
+                    "nilBased": false
                 },
                 "livesAssured": [
                     { "refersTo": "existing-customer-id" }
@@ -56,7 +58,8 @@ Update operations on existing Product identified by unique ID associated with Ap
                 "coverAmount": 120000,
                 "commissionSacrifice": {
                     "initial": 10,
-                    "renewal": 1.0
+                    "renewal": 1.0,
+                    "nilBased": false
                 },
                 "livesAssured": [
                     { "refersTo": "1001" }

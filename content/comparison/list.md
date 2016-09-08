@@ -1334,7 +1334,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "commissionSacrifice":{
                                 "initial":0,
-                                "renewal":2.50
+                                "renewal":2.50, 
+                                "nilBased": false
                             },
                             "extendedCoverType":"FULL",
                             "livesAssured":[
@@ -1411,7 +1412,8 @@ JSON response has following structure:
                             "premiumBasis":"GUARANTEED",
                             "commissionSacrifice":{
                                 "initial":0,
-                                "renewal":2.50
+                                "renewal":2.50, 
+                                "nilBased": false
                             },
                             "extendedCoverType":"FULL",
                                  "livesAssured":[
