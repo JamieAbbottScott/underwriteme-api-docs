@@ -1,4 +1,4 @@
-## Existing [/application/{id}/product/{productId}]
+### Update existing Product for Application [PUT]
 Update operations on existing Product identified by unique ID associated with Application.
 
 - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
@@ -22,7 +22,6 @@ Update operations on existing Product identified by unique ID associated with Ap
     - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
     - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
-### Update existing Product for Application [PUT]
 + Request Valid Product. (application/json)
 
     + Headers
