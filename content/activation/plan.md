@@ -1,7 +1,7 @@
 ## Plan [/api/application/{applicationId}/activation/plan]
 Assigning a Plan to an activated Application based on JSON data
 
-- ***plan-id*** `string` *(required)* - The ID of the Plan to be assigned to an activated Application.
+- _**plan-id**_ `string` *(required)* - The ID of the Plan to be assigned to an activated Application.
 
 ### Assign a Plan to an Application [PUT]
 + Request a Plan assignment to an Application. (application/json)

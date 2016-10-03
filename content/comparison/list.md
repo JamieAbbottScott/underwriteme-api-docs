@@ -9,9 +9,9 @@ Until all Enquiries are closed Comparison contains only estimated decisions and 
 
 JSON response has following structure:
 
-- ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
-- ***items*** `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
-- ***quickQuotes*** `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
+- _**estimated**_ `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
+- _**items**_ `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
+- _**quickQuotes**_ `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
 
 + Parameters
 

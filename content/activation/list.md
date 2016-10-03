@@ -3,36 +3,36 @@ Operations on existing Activation associated with Application.
 
 JSON response has following structure:
 
-- ***items*** `array` *(required)* - List of Activation Items (represented as `object` type).
-    - ***providerInfo*** `object` *(required)* - Information specific to the Provider.
-        - ***provider*** `string` *(required)* - Unique ID of existing Provider.
-        - ***policyNumber*** `string` *(optional)* - Unique provider specific policy number.
-        - ***amraDocumentLink*** `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
-    - ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
-        - ***id*** `string` *(required)* - Unique Product ID.
-        - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-        - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-        - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
-        - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
-        - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
-        - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
-        - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
-        - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
-        - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-        - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-        - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-            - ***name*** `string` *(required)* - Customer name.
-            - ***surname*** `string` *(required)* - Customer surname.
-            - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-            - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-            - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-            - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-    - ***status*** `object` *(required)* - Information about the activation process
-        - ***state*** `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
-        - ***successMessage*** `string` *(required/optional)* - Provider specific success message. Available if ***state*** is `SUCCEEDED`.
-        - ***errors*** `array` *(required/optional)* - Provider specific error messages. Available if ***state*** is `FAILED`.
-            - ***reason*** `string` *(required)* - Reason of the error.
-            - ***description*** `string` *(optional)* - Detailed description of the error.
+- _**items**_ `array` *(required)* - List of Activation Items (represented as `object` type).
+    - _**providerInfo**_ `object` *(required)* - Information specific to the Provider.
+        - _**provider**_ `string` *(required)* - Unique ID of existing Provider.
+        - _**policyNumber**_ `string` *(optional)* - Unique provider specific policy number.
+        - _**amraDocumentLink**_ `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
+    - _**product**_ `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
+        - _**id**_ `string` *(required)* - Unique Product ID.
+        - _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+        - _**type**_ `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+        - _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Available if _**premium**_ not specified.
+        - _**premium**_ `number` *(required/optional)* - Product premium. Available if _**coverAmount**_ not specified.
+        - _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Available if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
+        - _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Available if _**coverUntilAge**_ not specified.
+        - _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Available if _**coverPeriod**_ not specified.
+        - _**coverBasis**_ `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
+        - _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+        - _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+        - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+            - _**name**_ `string` *(required)* - Customer name.
+            - _**surname**_ `string` *(required)* - Customer surname.
+            - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer.
+            - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+            - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+            - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+    - _**status**_ `object` *(required)* - Information about the activation process
+        - _**state**_ `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
+        - _**successMessage**_ `string` *(required/optional)* - Provider specific success message. Available if _**state**_ is `SUCCEEDED`.
+        - _**errors**_ `array` *(required/optional)* - Provider specific error messages. Available if _**state**_ is `FAILED`.
+            - _**reason**_ `string` *(required)* - Reason of the error.
+            - _**description**_ `string` *(optional)* - Detailed description of the error.
 
 + Parameters
 

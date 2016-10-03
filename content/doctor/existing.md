@@ -6,17 +6,17 @@ Doctor details are required if any of Provider Products in the Basket have super
 
 JSON request and response have following structure:
 
-- ***name*** `string` *(required)* - Doctor's name.
-- ***surgery*** `object` *(required)* - Surgery details.
-    - ***name*** `string` *(required)* - Surgery's name.
-    - ***contactDetails*** `object` *(required)* - Surgery contact details.
-        - ***telephoneNumber*** `string` *(required)* - Surgery telephone number.
-        - ***address*** `object` *(required)* - Surgery address details.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+- _**name**_ `string` *(required)* - Doctor's name.
+- _**surgery**_ `object` *(required)* - Surgery details.
+    - _**name**_ `string` *(required)* - Surgery's name.
+    - _**contactDetails**_ `object` *(required)* - Surgery contact details.
+        - _**telephoneNumber**_ `string` *(required)* - Surgery telephone number.
+        - _**address**_ `object` *(required)* - Surgery address details.
+            - _**line1*** `string` *(optional)* - Address first line.
+            - _**line2*** `string` *(optional)* - Address second line.
+            - _**town**_ `string` *(optional)* - Address town.
+            - _**county**_ `string` *(optional)* - Address county.
+            - _**postcode**_ `string` *(required)* - Address postcode.
 
 + Parameters
 

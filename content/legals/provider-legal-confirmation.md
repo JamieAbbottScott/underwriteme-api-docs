@@ -5,9 +5,9 @@ Activation will not be possible without confirming legal terms and conditions, f
 
 JSON request and response have following structure:
 
-- ***declarationText*** `string` *(required)* - Provider declaration text.
-- ***legalDocumentLink*** `string` *(required)* - Valid URL that contains a document with the legal terms and conditions.
-- ***answer*** `boolean` *(optional)* - Answer to declaration. If not available it means answer was not given (nor `true` or `false`).
+- _**declarationText**_ `string` *(required)* - Provider declaration text.
+- _**legalDocumentLink**_ `string` *(required)* - Valid URL that contains a document with the legal terms and conditions.
+- _**answer**_ `boolean` *(optional)* - Answer to declaration. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
