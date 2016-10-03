@@ -5,8 +5,8 @@ Activation will not be possible without giving an answer to this Declaration.
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 

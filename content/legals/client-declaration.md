@@ -5,7 +5,7 @@ Answer does not have to be provided for this Declaration.
 
 JSON request and response have following structure:
 
-- ***text*** `string` *(required)* - HTML formatted Declaration text.
+- _**text**_ `string` *(required)* - HTML formatted Declaration text.
 
 + Parameters
 

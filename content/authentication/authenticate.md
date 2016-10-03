@@ -9,8 +9,8 @@ In order to authenticate using retrieved access token send it along with your re
 
 Expected authentication JSON format:
 
-- ***username*** `string` *(required)* - User's login in the system.
-- ***password*** `string` *(required)* - User's password in the system.
+- _**username**_ `string` *(required)* - User's login in the system.
+- _**password**_ `string` *(required)* - User's password in the system.
 
 ### Login and retrieve access token [POST]
 + Request Valid Authentication. (application/json)

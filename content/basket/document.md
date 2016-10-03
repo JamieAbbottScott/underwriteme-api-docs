@@ -3,7 +3,7 @@ Generate new Basket comparison document associated with Application.
 
 JSON response has following structure:
 
-- ***id*** `string` *(required)* - Unique ID of the document.
+- _**id**_ `string` *(required)* - Unique ID of the document.
 
 + Parameters
 

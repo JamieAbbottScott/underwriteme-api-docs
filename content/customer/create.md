@@ -1,27 +1,27 @@
 ## Create [/application/{id}/customer]
 Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
-- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-- ***name*** `string` *(required)* - Customer name.
-- ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-- ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
-- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-- ***email*** `string` *(required)* - Customer email address.
-- ***occupation*** `string` *(optional)* - Customer occupation.
-- ***earnings*** `string` *(optional)* - Customer earnings.
-- ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
-- ***contactDetails*** `object` *(required)* - Customer contact details.
-    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(required)* - Customer address details.
-        - ***line1*** `string` *(optional)* - Address first line.
-        - ***line2*** `string` *(optional)* - Address second line.
-        - ***town*** `string` *(optional)* - Address town.
-        - ***county*** `string` *(optional)* - Address county.
-        - ***postcode*** `string` *(required)* - Address postcode.
+- _**referenceId**_ `string` *(required)* - Temporary ID of the Customer to be used when referencing to _**livesAsssured**_ for the Product and to identify them if any validation errors occur.
+- _**name**_ `string` *(required)* - Customer name.
+- _**surname**_ `string` *(required)* - Customer surname.
+- _**title**_ `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+- _**otherTitle**_ `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
+- _**gender**_ `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+- _**dateOfBirth**_ `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+- _**smoker**_ `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+- _**email**_ `string` *(required)* - Customer email address.
+- _**occupation**_ `string` *(optional)* - Customer occupation.
+- _**earnings**_ `string` *(optional)* - Customer earnings.
+- _**maritalStatus**_ `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+- _**contactDetails**_ `object` *(required)* - Customer contact details.
+    - _**telephoneNumber**_ `string` *(required)* - Customer main telephone number.
+    - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
+    - _**address**_ `object` *(required)* - Customer address details.
+        - _**line1*** `string` *(optional)* - Address first line.
+        - _**line2*** `string` *(optional)* - Address second line.
+        - _**town**_ `string` *(optional)* - Address town.
+        - _**county**_ `string` *(optional)* - Address county.
+        - _**postcode**_ `string` *(required)* - Address postcode.
 
 ### Create new Customer for Application [POST]
 + Request Valid Customer. (application/json)

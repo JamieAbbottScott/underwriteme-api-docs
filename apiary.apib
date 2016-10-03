@@ -38,8 +38,8 @@ In order to authenticate using retrieved access token send it along with your re
 
 Expected authentication JSON format:
 
-- ***username*** `string` *(required)* - User's login in the system.
-- ***password*** `string` *(required)* - User's password in the system.
+- _**username**_ `string` *(required)* - User's login in the system.
+- _**password**_ `string` *(required)* - User's password in the system.
 
 ### Login and retrieve access token [POST]
 + Request Valid Authentication. (application/json)
@@ -81,52 +81,52 @@ Application related resources of the **UnderwriteMe API**.
 ## New [/application]
 Creating new Application based on sent Customers and Products JSON data.
 
-- ***customers*** `array` *(required)* - List of Customers (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-    - ***name*** `string` *(required)* - Customer name.
-    - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
-    - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-    - ***email*** `string` *(required)* - Customer email address.
-    - ***occupation*** `string` *(optional)* - Customer occupation.
-    - ***earnings*** `string` *(optional)* - Customer earnings.
-    - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
-    - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-        - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-        - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.    
-- ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-    - ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Only valid if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-        - ***nilBased***  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-- ***owner*** `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
-- ***quoteEffectiveDate*** `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
-- ***originatorId*** `string` *(optional)* - The id of the portal the application originated from.
+- _**customers**_ `array` *(required)* - List of Customers (represented as `object`) for the Application.
+    - _**referenceId**_ `string` *(required)* - Temporary ID of the Customer to be used when referencing to _**livesAsssured**_ for the Product and to identify them if any validation errors occur.
+    - _**name**_ `string` *(required)* - Customer name.
+    - _**surname**_ `string` *(required)* - Customer surname.
+    - _**title**_ `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+    - _**otherTitle**_ `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
+    - _**gender**_ `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+    - _**dateOfBirth**_ `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+    - _**smoker**_ `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+    - _**email**_ `string` *(required)* - Customer email address.
+    - _**occupation**_ `string` *(optional)* - Customer occupation.
+    - _**earnings**_ `string` *(optional)* - Customer earnings.
+    - _**maritalStatus**_ `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+    - _**contactDetails**_ `object` *(optional)* - Customer contact details. Not required but cannot be empty.
+        - _**telephoneNumber**_ `string` *(required)* - Customer main telephone number.
+        - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
+        - _**address**_ `object` *(optional)* - Customer address details. Not required but cannot be empty.
+            - _**line1*** `string` *(optional)* - Address first line.
+            - _**line2*** `string` *(optional)* - Address second line.
+            - _**town**_ `string` *(optional)* - Address town.
+            - _**county**_ `string` *(optional)* - Address county.
+            - _**postcode**_ `string` *(required)* - Address postcode.    
+- _**products**_ `array` *(required)* - List of Products (represented as `object`) for the Application.
+    - _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+    - _**type**_ `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+    - _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Required if _**premium**_ not specified. Does not allow decimals.
+    - _**premium**_ `number` *(required/optional)* - Product premium. Required if _**coverAmount**_ not specified. Allows decimals.
+    - _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Required if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+    - _**premiumStyle**_ `string` *(required/optional)* - Product premium style. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
+    - _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Required if _**coverUntilAge**_ not specified. Does not allow decimals.
+    - _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Required if _**coverPeriod**_ not specified.  Does not allow decimals.
+    - _**coverBasis**_ `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Only valid if _**type**_ is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+    - _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - _**commissionSacrifice**_ `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+        - _**initial**_  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+        - _**renewal**_  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+        - _**nilBased**_  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
+    - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in _**customers**_ list.
+        - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+        - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- _**owner**_ `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
+- _**quoteEffectiveDate**_ `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
+- _**originatorId**_ `string` *(optional)* - The id of the portal the application originated from.
 
 
 ### Create new Application [POST]
@@ -570,71 +570,71 @@ Creating new Application based on sent Customers and Products JSON data.
 ## Pre-Populate [/application/pre-populate]
 Creating a new Application with relaxed validation to allow for portal handover.
 
-- ***customers*** `array` *(required)* - List of Customers (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-    - ***name*** `string` *(optional)* - Customer name.
-    - ***surname*** `string` *(required)* - Customer surname.
-    - ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-    - ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
-    - ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-    - ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-    - ***email*** `string` *(required)* - Customer email address.
-    - ***occupation*** `string` *(optional)* - Customer occupation.
-    - ***earnings*** `string` *(optional)* - Customer earnings.
-    - ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
-    - ***contactDetails*** `object` *(optional)* - Customer contact details. Not required but cannot be empty.
-        - ***telephoneNumber*** `string` *(optional)* - Customer main telephone number.
-        - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-        - ***address*** `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
-    - ***drDetails*** `object` *(optional)* - Doctor details.
-        - ***name*** `string` *(required)* - Doctor's name.
-        - ***surgery*** `object` *(required)* - Surgery details.
-            - ***name*** `string` *(required)* - Surgery's name.
-            - ***contactDetails*** `object` *(required)* - Surgery contact details.
-                - ***telephoneNumber*** `string` *(optional)* - Surgery telephone number.
-                - ***address*** `object` *(required)* - Surgery address details.
-                    - ***line1*** `string` *(optional)* - Address first line.
-                    - ***line2*** `string` *(optional)* - Address second line.
-                    - ***town*** `string` *(optional)* - Address town.
-                    - ***county*** `string` *(optional)* - Address county.
-                    - ***postcode*** `string` *(required)* - Address postcode.
-- ***products*** `array` *(required)* - List of Products (represented as `object`) for the Application.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-    - ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Only valid if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-        - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-        - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-        - ***nilBased***  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-- ***paymentDetails*** `object` *(optional)* - Payment details.
-    - ***bankAccount*** `object` *(required)* - Bank account details.
-        - ***sortCode*** `string` *(required)* - Bank account sort code.
-        - ***number*** `string` *(required)* - Bank account number.
-        - ***holders*** `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
-            - ***refersTo*** `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
-- ***owner*** `string` *(optional/required)* - Owner of the application.
-- ***frn*** `string` *(optional/required)* - Firm reference number of the firm that owns the application. Must be provided if no specific individual owner is provided. If both owner and frn are present then ower takes precedence and frn is ignored.
-- ***adviserReferenceNumber*** `string` *(optional)* - Firm reference number of the application. If either (owner and frn) are provided owner take precedence.
-- ***originatorId*** `string` *(optional)* - Portal that the application originated from.
-- ***quoteEffectiveDate*** `string` *(optional)* - The quote effective date. Must match ISO 8601 date format (YYYY-MM-DD) e.g: 1980-01-01.
+- _**customers**_ `array` *(required)* - List of Customers (represented as `object`) for the Application.
+    - _**referenceId**_ `string` *(required)* - Temporary ID of the Customer to be used when referencing to _**livesAsssured**_ for the Product and to identify them if any validation errors occur.
+    - _**name**_ `string` *(optional)* - Customer name.
+    - _**surname**_ `string` *(required)* - Customer surname.
+    - _**title**_ `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+    - _**otherTitle**_ `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
+    - _**gender**_ `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+    - _**dateOfBirth**_ `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+    - _**smoker**_ `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+    - _**email**_ `string` *(required)* - Customer email address.
+    - _**occupation**_ `string` *(optional)* - Customer occupation.
+    - _**earnings**_ `string` *(optional)* - Customer earnings.
+    - _**maritalStatus**_ `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+    - _**contactDetails**_ `object` *(optional)* - Customer contact details. Not required but cannot be empty.
+        - _**telephoneNumber**_ `string` *(optional)* - Customer main telephone number.
+        - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
+        - _**address**_ `object` *(optional)* - Customer address details. Not required but cannot be empty.
+            - _**line1*** `string` *(optional)* - Address first line.
+            - _**line2*** `string` *(optional)* - Address second line.
+            - _**town**_ `string` *(optional)* - Address town.
+            - _**county**_ `string` *(optional)* - Address county.
+            - _**postcode**_ `string` *(required)* - Address postcode.
+    - _**drDetails**_ `object` *(optional)* - Doctor details.
+        - _**name**_ `string` *(required)* - Doctor's name.
+        - _**surgery**_ `object` *(required)* - Surgery details.
+            - _**name**_ `string` *(required)* - Surgery's name.
+            - _**contactDetails**_ `object` *(required)* - Surgery contact details.
+                - _**telephoneNumber**_ `string` *(optional)* - Surgery telephone number.
+                - _**address**_ `object` *(required)* - Surgery address details.
+                    - _**line1*** `string` *(optional)* - Address first line.
+                    - _**line2*** `string` *(optional)* - Address second line.
+                    - _**town**_ `string` *(optional)* - Address town.
+                    - _**county**_ `string` *(optional)* - Address county.
+                    - _**postcode**_ `string` *(required)* - Address postcode.
+- _**products**_ `array` *(required)* - List of Products (represented as `object`) for the Application.
+    - _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+    - _**type**_ `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+    - _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Required if _**premium**_ not specified. Does not allow decimals.
+    - _**premium**_ `number` *(required/optional)* - Product premium. Required if _**coverAmount**_ not specified. Allows decimals.
+    - _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Required if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+    - _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Required if _**coverUntilAge**_ not specified. Does not allow decimals.
+    - _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Required if _**coverPeriod**_ not specified.  Does not allow decimals.
+    - _**coverBasis**_ `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Only valid if _**type**_ is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+    - _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - _**commissionSacrifice**_ `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+        - _**initial**_  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+        - _**renewal**_  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+        - _**nilBased**_  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
+    - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in _**customers**_ list.
+        - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+        - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- _**paymentDetails**_ `object` *(optional)* - Payment details.
+    - _**bankAccount**_ `object` *(required)* - Bank account details.
+        - _**sortCode**_ `string` *(required)* - Bank account sort code.
+        - _**number**_ `string` *(required)* - Bank account number.
+        - _**holders**_ `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
+            - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
+- _**owner**_ `string` *(optional/required)* - Owner of the application.
+- _**frn**_ `string` *(optional/required)* - Firm reference number of the firm that owns the application. Must be provided if no specific individual owner is provided. If both owner and frn are present then ower takes precedence and frn is ignored.
+- _**adviserReferenceNumber**_ `string` *(optional)* - Firm reference number of the application. If either (owner and frn) are provided owner take precedence.
+- _**originatorId**_ `string` *(optional)* - Portal that the application originated from.
+- _**quoteEffectiveDate**_ `string` *(optional)* - The quote effective date. Must match ISO 8601 date format (YYYY-MM-DD) e.g: 1980-01-01.
 
 ### Create new Application [POST]
 
@@ -889,27 +889,27 @@ Customer related resources of the **UnderwriteMe API**.
 ## Create [/application/{id}/customer]
 Creating new Customer for Application based on JSON data. Lists all Customers for Application.
 
-- ***referenceId*** `string` *(required)* - Temporary ID of the Customer to be used when referencing to ***livesAsssured*** for the Product and to identify them if any validation errors occur.
-- ***name*** `string` *(required)* - Customer name.
-- ***surname*** `string` *(required)* - Customer surname.
-- ***title*** `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
-- ***otherTitle*** `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
-- ***gender*** `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
-- ***dateOfBirth*** `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-- ***smoker*** `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
-- ***email*** `string` *(required)* - Customer email address.
-- ***occupation*** `string` *(optional)* - Customer occupation.
-- ***earnings*** `string` *(optional)* - Customer earnings.
-- ***maritalStatus*** `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
-- ***contactDetails*** `object` *(required)* - Customer contact details.
-    - ***telephoneNumber*** `string` *(required)* - Customer main telephone number.
-    - ***alternativeTelephoneNumber*** `string` *(optional)* - Customer alternative telephone number.
-    - ***address*** `object` *(required)* - Customer address details.
-        - ***line1*** `string` *(optional)* - Address first line.
-        - ***line2*** `string` *(optional)* - Address second line.
-        - ***town*** `string` *(optional)* - Address town.
-        - ***county*** `string` *(optional)* - Address county.
-        - ***postcode*** `string` *(required)* - Address postcode.
+- _**referenceId**_ `string` *(required)* - Temporary ID of the Customer to be used when referencing to _**livesAsssured**_ for the Product and to identify them if any validation errors occur.
+- _**name**_ `string` *(required)* - Customer name.
+- _**surname**_ `string` *(required)* - Customer surname.
+- _**title**_ `string` *(required)* - Customer title. Allowed values: `MR`, `MRS`, `MISS`, `MS`, `DR`, `REV`.
+- _**otherTitle**_ `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
+- _**gender**_ `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
+- _**dateOfBirth**_ `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
+- _**smoker**_ `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+- _**email**_ `string` *(required)* - Customer email address.
+- _**occupation**_ `string` *(optional)* - Customer occupation.
+- _**earnings**_ `string` *(optional)* - Customer earnings.
+- _**maritalStatus**_ `string` *(optional)* - Customer marital status. Allowed values: `MARRIED`, `SINGLE`, `SEPARATED`, `DIVORCED`, `WIDOWED`, `CIVIL_PARTNER`.
+- _**contactDetails**_ `object` *(required)* - Customer contact details.
+    - _**telephoneNumber**_ `string` *(required)* - Customer main telephone number.
+    - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
+    - _**address**_ `object` *(required)* - Customer address details.
+        - _**line1*** `string` *(optional)* - Address first line.
+        - _**line2*** `string` *(optional)* - Address second line.
+        - _**town**_ `string` *(optional)* - Address town.
+        - _**county**_ `string` *(optional)* - Address county.
+        - _**postcode**_ `string` *(required)* - Address postcode.
 
 ### Create new Customer for Application [POST]
 + Request Valid Customer. (application/json)
@@ -1186,25 +1186,25 @@ Product related resources of the **UnderwriteMe API**.
 ## Create [/application/{id}/product]
 Creating new Product based on sent JSON data.
 
-- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
-- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-    - ***nilBased***  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
-- ***livesAssured*** `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is.
-    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- _**type**_ `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Required if _**premium**_ not specified. Does not allow decimals.
+- _**premium**_ `number` *(required/optional)* - Product premium. Required if _**coverAmount**_ not specified. Allows decimals.
+- _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Required if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- _**premiumStyle**_ `string` *(required/optional)* - Product premium style. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
+- _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Required if _**coverUntilAge**_ not specified. Does not allow decimals.
+- _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Required if _**coverPeriod**_ not specified.  Does not allow decimals.
+- _**coverBasis**_ `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- _**commissionSacrifice**_ `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - _**initial**_  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+    - _**renewal**_  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+    - _**nilBased**_  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
+- _**livesAssured**_ `array` *(optional)* - List of Customers (represented as `object`) for whom the Product is.
+    - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in _**customers**_ list.
+    - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 ### Create new Product [POST]
 + Request Valid Product. (application/json)
@@ -1447,26 +1447,26 @@ Operations on existing Product identified by unique ID associated with Applicati
 ### Update existing Product for Application [PUT]
 Update operations on existing Product identified by unique ID associated with Application.
 
-- ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-- ***type*** `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-- ***coverAmount*** `number` *(required/optional)* - Product cover amount. Required if ***premium*** not specified. Does not allow decimals.
-- ***premium*** `number` *(required/optional)* - Product premium. Required if ***coverAmount*** not specified. Allows decimals.
-- ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Required if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
-- ***premiumStyle*** `string` *(required/optional)* - Product premium style. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
-- ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Required if ***coverUntilAge*** not specified. Does not allow decimals.
-- ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Required if ***coverPeriod*** not specified.  Does not allow decimals.
-- ***coverBasis*** `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
-- ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`.
-- ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Required if ***type*** is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-- ***commissionSacrifice*** `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
-    - ***initial***  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-    - ***renewal***  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-    - ***nilBased***  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
-- ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-    - ***refersTo*** `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in ***customers*** list.
-    - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-    - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-    - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+- _**type**_ `string` *(required)* - Product type. Allowed values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+- _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Required if _**premium**_ not specified. Does not allow decimals.
+- _**premium**_ `number` *(required/optional)* - Product premium. Required if _**coverAmount**_ not specified. Allows decimals.
+- _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Required if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Allowed values: `GUARANTEED`, `REVIEWABLE`.
+- _**premiumStyle**_ `string` *(required/optional)* - Product premium style. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `LEVEL`, `AGE_COSTED`.
+- _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Required if _**coverUntilAge**_ not specified. Does not allow decimals.
+- _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Required if _**coverPeriod**_ not specified.  Does not allow decimals.
+- _**coverBasis**_ `string` *(required)* - Product cover basis. Allowed values: `DECREASING`, `LEVEL`, `INCREASING`.
+- _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Available if _**type**_ is `INCOME_PROTECTION`. Allowed values: `FULL`, `BUDGET`.
+- _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Required if _**type**_ is `INCOME_PROTECTION`. Allowed values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+- _**commissionSacrifice**_ `object` *(optional)* - Commission sacrifice. Not required but cannot be empty.
+    - _**initial**_  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+    - _**renewal**_  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+    - _**nilBased**_  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
+- _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+    - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in _**customers**_ list.
+    - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+    - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+    - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
 
 + Request Valid Product. (application/json)
 
@@ -6163,9 +6163,9 @@ Until all Enquiries are closed Comparison contains only estimated decisions and 
 
 JSON response has following structure:
 
-- ***estimated*** `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
-- ***items*** `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
-- ***quickQuotes*** `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
+- _**estimated**_ `boolean` *(optional)* - Flag stating that all decisions and quotes are estimated. This flag is shown in the response if enquiries are not closed.
+- _**items**_ `array` *(required)* - List of Comparison Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section.
+- _**quickQuotes**_ `array` *(required)* - List of Quick Quote Items (represented as `object` type) containing decision, quote and other Provider specific details for particular Product. Detailed structure of Comparison Item can be found in the following Comparison / Item section. Note quick quote items should not be treated as standard Comparison Items.
 
 + Parameters
 
@@ -7847,113 +7847,113 @@ Operations on single Comparison Item associated with Application.
 
 JSON response has following structure:
 
-- ***provider*** `string` *(required)* - Unique Provider ID.
-- ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
-    - ***id*** `string` *(required)* - Unique Product ID.
-    - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-    - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-    - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
-    - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
-    - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
-    - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
-    - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
-    - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
-    - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-    - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-    - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-        - ***name*** `string` *(required)* - Customer name.
-        - ***surname*** `string` *(required)* - Customer surname.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-        - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-        - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-        - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-- ***decision*** `object` *(required)* - Underwriting Decision.
-    - ***type*** `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
-    - ***immediateCover*** `boolean` *(required)* - Flag to indicate whether cover is immediately available.
-    - ***nonIndicative*** `boolean` *(required)* - Flag to indicate whether this decision is non indicative.
-    - ***details*** `array` *(required)* - Decision details. It consists of Product Component Decisions per Customer (represented as `object` type).
-        - ***customer*** `object` *(required)* - Subset of Application Customer properties created at the beginning of the underwriting process.
-            - ***id*** `string` *(required)* - Unique Customer ID.
-            - ***name*** `string` *(required)* - Customer name.
-            - ***surname*** `string` *(required)* - Customer surname.
-            - ***gender*** 'string' *(required)* - Customer gender.
-            - ***atRiskOfSmoking*** 'boolean' *(required)* - Flag indicating if the customer is a non-smoker with a smoking risk.
-        - ***decisions*** `array` *(required)* - List of Product Component Decisions (represented as `object` type).
-            - ***type*** `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
-            - ***componentType*** `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
-            - ***optional*** `boolean` *(required)* - Flag to indicate whether this is an optional component.
-            - ***disabilityDefinition*** `string` *(optional)* - Disability definition value. Possible values: `Own Occupation`, `Suited Occupation`, `Any Occupation`, `Work Tasks`, `Activities Of Daily Living`, `Functional Abilities Test`, `Look After Yourself`, `Comprehensive`, `Core`.
-            - ***message*** `string` *(optional)* - Decision specific message value.
-            - ***extraMorbidityContributions*** `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
-            - ***permilleContributions*** `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
-            - ***exclusionContributions*** `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
-            - ***indicativeExtraMorbidityContributions*** `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
-            - ***indicativePermilleContributions*** `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
-            - ***indicativeExclusionContributions*** `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
-            - ***evidenceContributions*** `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
-            - ***durationContributions*** `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
-        - ***productExclusionContributions*** `array` *(optional)* - List of Product Decisions (represented as `object` type). Mutually exclusive to *exclusionContributions* . Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
-- ***purchasable*** `boolean`  - Flag to indicate if the product can be purchased.
-- ***quotable*** `boolean`  - Does provider quote?
-- ***quote*** `object` *(optional)* - Provider quote.
-    - ***state*** `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`
-    - ***date*** `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
-    - ***expiryDate*** `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
-    - ***expired*** `boolean` *(optional)* - Flag to mark whether this quote has expired.
-    - ***premium*** `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
-        - ***from*** `number` *(required)* - Lower bound of the premium value.
-        - ***to*** `number` *(required)* - Upper bound of the premium value.
-        - ***lifetime*** `number` *(required)* - Total premium to be paid over time.
-        - ***discount*** `number` *(required)* - Total amount discounted from the premium value.
-        - ***unloaded*** `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
-            - ***from*** `number` *(required)* - Lower bound of the premium unloaded price value.
-            - ***to*** `number` *(required)* - Upper bound of the premium unloaded price value.
-        - ***lives*** `array` *(required)* - List of Life specific premiums (represented as `object` type).
-            - ***refersTo*** `string` *(required)* - Unique Customer ID.
-            - ***wopContribution*** `number` *(required)* - Allocated Waiver of Premium premium for the given life.
-    - ***sumAssured*** `number` *(optional)* - Quote sum assured.
-    - ***anonymousQuote*** `array` *(optional)* - Indicates if the quote was undertaken by a user without an agent id for the Provider
-    - ***errors*** `array` *(optional)* - List of errors in the quote response (represented as `string` type).
-    - ***commission*** `object` *(optional)* - Commission value.
-        - ***initial*** `number` *(required)* - Initial commission value.
-        - ***renewal*** `number` *(required)* - Renewal commission value.
-        - ***sacrifice*** `object` *(required)* - Commission sacrifice which drives commission.
-            - ***initial*** `number` *(required)* - Initial commission sacrifice. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
-            - ***renewal*** `number` *(required)* - Renewal commission value. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
-- ***rating*** `object` *(optional)* - Provider Product specific rating.
-    - ***value*** `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
-    - ***description*** `string` *(optional)* - HTML formatted description text of the rating.
-- ***details*** `object` *(optional)* - Provider Product specific details like Key Facts, Terms & Conditions documents links and product description.
-    - ***keyFacts*** `string` *(optional)* - Key Facts document link.
-    - ***termsAndConditions*** `string` *(optional)* - Terms & Conditions document link.
-    - ***shortDescription*** `string` *(optional)* - Product description (may differ on the basis of logged-in user's firm distribution channel).
+- _**provider**_ `string` *(required)* - Unique Provider ID.
+- _**product**_ `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
+    - _**id**_ `string` *(required)* - Unique Product ID.
+    - _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+    - _**type**_ `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+    - _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Available if _**premium**_ not specified.
+    - _**premium**_ `number` *(required/optional)* - Product premium. Available if _**coverAmount**_ not specified.
+    - _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Available if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
+    - _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Available if _**coverUntilAge**_ not specified.
+    - _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Available if _**coverPeriod**_ not specified.
+    - _**coverBasis**_ `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
+    - _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+    - _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+    - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+        - _**name**_ `string` *(required)* - Customer name.
+        - _**surname**_ `string` *(required)* - Customer surname.
+        - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer.
+        - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+        - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+        - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+- _**decision**_ `object` *(required)* - Underwriting Decision.
+    - _**type**_ `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
+    - _**immediateCover**_ `boolean` *(required)* - Flag to indicate whether cover is immediately available.
+    - _**nonIndicative**_ `boolean` *(required)* - Flag to indicate whether this decision is non indicative.
+    - _**details**_ `array` *(required)* - Decision details. It consists of Product Component Decisions per Customer (represented as `object` type).
+        - _**customer**_ `object` *(required)* - Subset of Application Customer properties created at the beginning of the underwriting process.
+            - _**id**_ `string` *(required)* - Unique Customer ID.
+            - _**name**_ `string` *(required)* - Customer name.
+            - _**surname**_ `string` *(required)* - Customer surname.
+            - _**gender**_ 'string' *(required)* - Customer gender.
+            - _**atRiskOfSmoking**_ 'boolean' *(required)* - Flag indicating if the customer is a non-smoker with a smoking risk.
+        - _**decisions**_ `array` *(required)* - List of Product Component Decisions (represented as `object` type).
+            - _**type**_ `string` *(required)* - Product Component Decision type. Same as regular Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
+            - _**componentType**_ `string` *(required)* - Product Component type. Possible values: `LIFE`, `CI`, `LIFE_DECREASING`, `CI_DECREASING`, `IP_0`, `IP_4`, `IP_8`, `IP_13`, `IP_26`, `IP_52`, `TPD`, `WOP`.
+            - _**optional**_ `boolean` *(required)* - Flag to indicate whether this is an optional component.
+            - _**disabilityDefinition**_ `string` *(optional)* - Disability definition value. Possible values: `Own Occupation`, `Suited Occupation`, `Any Occupation`, `Work Tasks`, `Activities Of Daily Living`, `Functional Abilities Test`, `Look After Yourself`, `Comprehensive`, `Core`.
+            - _**message**_ `string` *(optional)* - Decision specific message value.
+            - _**extraMorbidityContributions**_ `array` *(optional)* - List of extra morbidity Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
+            - _**permilleContributions**_ `array` *(optional)* - List of permille Contributions (represented as `object` type). Object structure described below as [DurationableOptions](#DurationableOptions).
+            - _**exclusionContributions**_ `array` *(optional)* - List of exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
+            - _**indicativeExtraMorbidityContributions**_ `array` *(optional)* - List of indicative extra morbidity Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
+            - _**indicativePermilleContributions**_ `array` *(optional)* - List of indicative permille Contributions (represented as `object` type). Object structure described below as [RangedOptions](#RangedOptions).
+            - _**indicativeExclusionContributions**_ `array` *(optional)* - List of indicative exclusion Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
+            - _**evidenceContributions**_ `array` *(optional)* - List of evidence Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `EvidenceCodesOptions`.
+            - _**durationContributions**_ `array` *(optional)* - List of duration Contributions (represented as `object` type). Object structure described below as code with description. Option List name for possible values is `PostponeCodeOptions`.
+        - _**productExclusionContributions**_ `array` *(optional)* - List of Product Decisions (represented as `object` type). Mutually exclusive to *exclusionContributions* . Option List name for possible values is [ExclusionOptions](#ExclusionOptions).
+- _**purchasable**_ `boolean`  - Flag to indicate if the product can be purchased.
+- _**quotable**_ `boolean`  - Does provider quote?
+- _**quote**_ `object` *(optional)* - Provider quote.
+    - _**state**_ `string` *(required)* - State of the quote request. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`
+    - _**date**_ `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
+    - _**expiryDate**_ `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
+    - _**expired**_ `boolean` *(optional)* - Flag to mark whether this quote has expired.
+    - _**premium**_ `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
+        - _**from**_ `number` *(required)* - Lower bound of the premium value.
+        - _**to**_ `number` *(required)* - Upper bound of the premium value.
+        - _**lifetime**_ `number` *(required)* - Total premium to be paid over time.
+        - _**discount**_ `number` *(required)* - Total amount discounted from the premium value.
+        - _**unloaded**_ `object` *(optional)* - Quote premium unloaded price. Can be a fixed or ranged value.
+            - _**from**_ `number` *(required)* - Lower bound of the premium unloaded price value.
+            - _**to**_ `number` *(required)* - Upper bound of the premium unloaded price value.
+        - _**lives**_ `array` *(required)* - List of Life specific premiums (represented as `object` type).
+            - _**refersTo**_ `string` *(required)* - Unique Customer ID.
+            - _**wopContribution**_ `number` *(required)* - Allocated Waiver of Premium premium for the given life.
+    - _**sumAssured**_ `number` *(optional)* - Quote sum assured.
+    - _**anonymousQuote**_ `array` *(optional)* - Indicates if the quote was undertaken by a user without an agent id for the Provider
+    - _**errors**_ `array` *(optional)* - List of errors in the quote response (represented as `string` type).
+    - _**commission**_ `object` *(optional)* - Commission value.
+        - _**initial**_ `number` *(required)* - Initial commission value.
+        - _**renewal**_ `number` *(required)* - Renewal commission value.
+        - _**sacrifice**_ `object` *(required)* - Commission sacrifice which drives commission.
+            - _**initial**_ `number` *(required)* - Initial commission sacrifice. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
+            - _**renewal**_ `number` *(required)* - Renewal commission value. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
+- _**rating**_ `object` *(optional)* - Provider Product specific rating.
+    - _**value**_ `number` *(optional)* - Numerical value of the rating. Possible value is an integer value between `0` and `5`.
+    - _**description**_ `string` *(optional)* - HTML formatted description text of the rating.
+- _**details**_ `object` *(optional)* - Provider Product specific details like Key Facts, Terms & Conditions documents links and product description.
+    - _**keyFacts**_ `string` *(optional)* - Key Facts document link.
+    - _**termsAndConditions**_ `string` *(optional)* - Terms & Conditions document link.
+    - _**shortDescription**_ `string` *(optional)* - Product description (may differ on the basis of logged-in user's firm distribution channel).
 
 #### DurationableOptions (Number with duration):
-- ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
-    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
-    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
-    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
-- ***value*** `object` *(required)* - Contribution value (represented as `object` type).
-    - ***sum*** `number` *(required)* - Numeric value of Contribution.
-    - ***duration*** `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
+- _**contributor**_ `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+    - _**enquiryLine**_ `string` *(required)* - Contributor enquiry line.
+    - _**triggerTag**_ `string` *(required)* - Contributor trigger tag.
+    - _**derived**_ `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
+- _**value**_ `object` *(required)* - Contribution value (represented as `object` type).
+    - _**sum**_ `number` *(required)* - Numeric value of Contribution.
+    - _**duration**_ `string` *(optional)* - Duration of value. ISO 8601 duration format (`PnYnMnDTnHnMnS`). Example: `P3Y`.
 
 #### RangedOptions (Number range):
-- ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
-    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
-    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
-    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
-- ***value*** `object` *(required)* - Contribution range (represented as `object` type).
-    - ***from*** `number` *(required)* - Start of the range.
-    - ***to*** `number` *(required)* - End of the range.
+- _**contributor**_ `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+    - _**enquiryLine**_ `string` *(required)* - Contributor enquiry line.
+    - _**triggerTag**_ `string` *(required)* - Contributor trigger tag.
+    - _**derived**_ `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
+- _**value**_ `object` *(required)* - Contribution range (represented as `object` type).
+    - _**from**_ `number` *(required)* - Start of the range.
+    - _**to**_ `number` *(required)* - End of the range.
 
 #### ExclusionOptions (Code and description):
-- ***contributor*** `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
-    - ***enquiryLine*** `string` *(required)* - Contributor enquiry line.
-    - ***triggerTag*** `string` *(required)* - Contributor trigger tag.
-    - ***derived*** `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
-- ***value*** `array` *(required)* - List of code and description pair values (represented as `object` type).
-    - ***code*** `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to proper value.
-    - ***description*** `string` *(required)* - Human readable description.
+- _**contributor**_ `object` *(required)* - Information which underwriting Question contributed to Decision (represented as `object` type).
+    - _**enquiryLine**_ `string` *(required)* - Contributor enquiry line.
+    - _**triggerTag**_ `string` *(required)* - Contributor trigger tag.
+    - _**derived**_ `boolean` *(required)* - Flag to indicate whether the Contributor is derived and is likely to be hidden.
+- _**value**_ `array` *(required)* - List of code and description pair values (represented as `object` type).
+    - _**code**_ `string` *(required)* - Option value code. Full list can be retrieved using Question / Option List endpoint with `name` path param set to proper value.
+    - _**description**_ `string` *(required)* - Human readable description.
 
 + Parameters
 
@@ -9250,7 +9250,7 @@ Generate new Basket comparison document associated with Application.
 
 JSON response has following structure:
 
-- ***id*** `string` *(required)* - Unique ID of the document.
+- _**id**_ `string` *(required)* - Unique ID of the document.
 
 + Parameters
 
@@ -9450,17 +9450,17 @@ Doctor details are required if any of Provider Products in the Basket have super
 
 JSON request and response have following structure:
 
-- ***name*** `string` *(required)* - Doctor's name.
-- ***surgery*** `object` *(required)* - Surgery details.
-    - ***name*** `string` *(required)* - Surgery's name.
-    - ***contactDetails*** `object` *(required)* - Surgery contact details.
-        - ***telephoneNumber*** `string` *(required)* - Surgery telephone number.
-        - ***address*** `object` *(required)* - Surgery address details.
-            - ***line1*** `string` *(optional)* - Address first line.
-            - ***line2*** `string` *(optional)* - Address second line.
-            - ***town*** `string` *(optional)* - Address town.
-            - ***county*** `string` *(optional)* - Address county.
-            - ***postcode*** `string` *(required)* - Address postcode.
+- _**name**_ `string` *(required)* - Doctor's name.
+- _**surgery**_ `object` *(required)* - Surgery details.
+    - _**name**_ `string` *(required)* - Surgery's name.
+    - _**contactDetails**_ `object` *(required)* - Surgery contact details.
+        - _**telephoneNumber**_ `string` *(required)* - Surgery telephone number.
+        - _**address**_ `object` *(required)* - Surgery address details.
+            - _**line1*** `string` *(optional)* - Address first line.
+            - _**line2*** `string` *(optional)* - Address second line.
+            - _**town**_ `string` *(optional)* - Address town.
+            - _**county**_ `string` *(optional)* - Address county.
+            - _**postcode**_ `string` *(required)* - Address postcode.
 
 + Parameters
 
@@ -9703,20 +9703,20 @@ Operations on existing Payment for Application based on Provider Products availa
 
 JSON request and response have following structure:
 
-- ***bankAccount*** `object` *(required)* - Bank account details.
-    - ***sortCode*** `string` *(required)* - Bank account sort code.
-    - ***number*** `string` *(required)* - Bank account number.
-    - ***holders*** `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
-        - ***refersTo*** `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
-- ***paymentDays*** `array` *(required/optional)* - List of payment days by Provider. List cannot be empty if at least one Provider requires payment day. If no Provider requires payment day then there is no need to supply value for this property.
-    - ***provider*** `string` *(required)* - Unique Provider ID.
-    - ***dayOfMonth*** `number` *(required/optional)* - Day of month when payment should be taken from the bank account. Allowed values: `1` to `28`. Requirement depends on Payment Restriction.
-- ***startDates*** `array` *(required)* - List of start dates by Provider Product.
-    - ***refersTo*** `string` *(required)* - Unique ID of existing Provider Product in the Basket.
-    - ***provider*** `string` *(optional)* - Unique Provider ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
-    - ***productId*** `string` *(optional)* - Unique Product ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
-    - ***date*** `string` *(required/optional)* - Date when Provider Product cover starts. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`. Requirement depends on Payment Restriction.
-    - ***basis*** `string` *(required/optional)* - Basis on which Provider Product cover starts. Allowed values: `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Requirement depends on Payment Restriction.
+- _**bankAccount**_ `object` *(required)* - Bank account details.
+    - _**sortCode**_ `string` *(required)* - Bank account sort code.
+    - _**number**_ `string` *(required)* - Bank account number.
+    - _**holders**_ `array` *(required)* - Bank account holders. Number of allowed holders depends on Payment Restriction.
+        - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer who is a holder of the account.
+- _**paymentDays**_ `array` *(required/optional)* - List of payment days by Provider. List cannot be empty if at least one Provider requires payment day. If no Provider requires payment day then there is no need to supply value for this property.
+    - _**provider**_ `string` *(required)* - Unique Provider ID.
+    - _**dayOfMonth**_ `number` *(required/optional)* - Day of month when payment should be taken from the bank account. Allowed values: `1` to `28`. Requirement depends on Payment Restriction.
+- _**startDates**_ `array` *(required)* - List of start dates by Provider Product.
+    - _**refersTo**_ `string` *(required)* - Unique ID of existing Provider Product in the Basket.
+    - _**provider**_ `string` *(optional)* - Unique Provider ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
+    - _**productId**_ `string` *(optional)* - Unique Product ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
+    - _**date**_ `string` *(required/optional)* - Date when Provider Product cover starts. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`. Requirement depends on Payment Restriction.
+    - _**basis**_ `string` *(required/optional)* - Basis on which Provider Product cover starts. Allowed values: `TO_BE_ADVISED`, `TO_START_IMMEDIATELY`. Requirement depends on Payment Restriction.
 
 + Parameters
 
@@ -10358,8 +10358,8 @@ Activation will not be possible without giving an answer to this Declaration.
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
@@ -10419,8 +10419,8 @@ Activation will not be possible without giving an answer to this Declaration.
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Declaration. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
@@ -10480,7 +10480,7 @@ Answer does not have to be provided for this Declaration.
 
 JSON request and response have following structure:
 
-- ***text*** `string` *(required)* - HTML formatted Declaration text.
+- _**text**_ `string` *(required)* - HTML formatted Declaration text.
 
 + Parameters
 
@@ -10507,7 +10507,7 @@ Answer does not have to be provided for this Declaration.
 
 JSON request and response have following structure:
 
-- ***text*** `string` *(required)* - HTML formatted Declaration text.
+- _**text**_ `string` *(required)* - HTML formatted Declaration text.
 
 + Parameters
 
@@ -10534,9 +10534,9 @@ Activation will not be possible without giving an answer this Marketing Preferen
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***helpText*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**helpText**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
@@ -10600,9 +10600,9 @@ Activation will not be possible without giving an answer this Marketing Preferen
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***helpText*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**helpText**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
@@ -10666,9 +10666,9 @@ Activation will not be possible without confirming legal terms and conditions, f
 
 JSON request and response have following structure:
 
-- ***declarationText*** `string` *(required)* - Provider declaration text.
-- ***legalDocumentLink*** `string` *(required)* - Valid URL that contains a document with the legal terms and conditions.
-- ***answer*** `boolean` *(optional)* - Answer to declaration. If not available it means answer was not given (nor `true` or `false`).
+- _**declarationText**_ `string` *(required)* - Provider declaration text.
+- _**legalDocumentLink**_ `string` *(required)* - Valid URL that contains a document with the legal terms and conditions.
+- _**answer**_ `boolean` *(optional)* - Answer to declaration. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
@@ -10735,36 +10735,36 @@ Operations on existing Activation associated with Application.
 
 JSON response has following structure:
 
-- ***items*** `array` *(required)* - List of Activation Items (represented as `object` type).
-    - ***providerInfo*** `object` *(required)* - Information specific to the Provider.
-        - ***provider*** `string` *(required)* - Unique ID of existing Provider.
-        - ***policyNumber*** `string` *(optional)* - Unique provider specific policy number.
-        - ***amraDocumentLink*** `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
-    - ***product*** `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
-        - ***id*** `string` *(required)* - Unique Product ID.
-        - ***referenceId*** `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
-        - ***type*** `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
-        - ***coverAmount*** `number` *(required/optional)* - Product cover amount. Available if ***premium*** not specified.
-        - ***premium*** `number` *(required/optional)* - Product premium. Available if ***coverAmount*** not specified.
-        - ***premiumBasis*** `string` *(required/optional)* - Product premium basis. Available if ***type*** is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
-        - ***coverPeriod*** `number` *(required/optional)* - Product cover period in years. Available if ***coverUntilAge*** not specified.
-        - ***coverUntilAge*** `number` *(required/optional)* - Product cover until age in years. Available if ***coverPeriod*** not specified.
-        - ***coverBasis*** `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
-        - ***extendedCoverType*** `number` *(optional)* - Product extended cover type. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
-        - ***deferredPeriodInWeeks*** `number` *(required/optional)* - Product deferred period in weeks. Available if ***type*** is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
-        - ***livesAssured*** `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
-            - ***name*** `string` *(required)* - Customer name.
-            - ***surname*** `string` *(required)* - Customer surname.
-            - ***refersTo*** `string` *(required)* - Reference to ID of the Customer.
-            - ***waiverOfPremium*** `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
-            - ***determinesCeaseAge*** `boolean` *(optional)* - Flag to mark which customer determines the cease age.
-            - ***totalPermanentDisability*** `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
-    - ***status*** `object` *(required)* - Information about the activation process
-        - ***state*** `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
-        - ***successMessage*** `string` *(required/optional)* - Provider specific success message. Available if ***state*** is `SUCCEEDED`.
-        - ***errors*** `array` *(required/optional)* - Provider specific error messages. Available if ***state*** is `FAILED`.
-            - ***reason*** `string` *(required)* - Reason of the error.
-            - ***description*** `string` *(optional)* - Detailed description of the error.
+- _**items**_ `array` *(required)* - List of Activation Items (represented as `object` type).
+    - _**providerInfo**_ `object` *(required)* - Information specific to the Provider.
+        - _**provider**_ `string` *(required)* - Unique ID of existing Provider.
+        - _**policyNumber**_ `string` *(optional)* - Unique provider specific policy number.
+        - _**amraDocumentLink**_ `string` *(optional)* - Access to Medical Records Act 1998 (AMRA) document URL.
+    - _**product**_ `object` *(required)* - Application Product properties created at the beginning of the underwriting process.
+        - _**id**_ `string` *(required)* - Unique Product ID.
+        - _**referenceId**_ `string` *(required)* - Temporary ID of the Product to identify it if any validation errors occur.
+        - _**type**_ `string` *(required)* - Product type. Possible values: `TERM`, `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER`, `INCOME_PROTECTION`.
+        - _**coverAmount**_ `number` *(required/optional)* - Product cover amount. Available if _**premium**_ not specified.
+        - _**premium**_ `number` *(required/optional)* - Product premium. Available if _**coverAmount**_ not specified.
+        - _**premiumBasis**_ `string` *(required/optional)* - Product premium basis. Available if _**type**_ is `CRITICAL_ILLNESS`, `CRITICAL_ILLNESS_WITH_LIFE_COVER` or `INCOME_PROTECTION`. Possible values: `GUARANTEED`, `REVIEWABLE`.
+        - _**coverPeriod**_ `number` *(required/optional)* - Product cover period in years. Available if _**coverUntilAge**_ not specified.
+        - _**coverUntilAge**_ `number` *(required/optional)* - Product cover until age in years. Available if _**coverPeriod**_ not specified.
+        - _**coverBasis**_ `string` *(required)* - Product cover basis. Possible values: `DECREASING`, `LEVEL`, `INCREASING`.
+        - _**extendedCoverType**_ `number` *(optional)* - Product extended cover type. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `FULL`, `BUDGET`. `FULL` is used by default if no value is specified.
+        - _**deferredPeriodInWeeks**_ `number` *(required/optional)* - Product deferred period in weeks. Available if _**type**_ is `INCOME_PROTECTION`. Possible values: `0`, `1`, `4`, `8`, `13`, `26`, `52`.
+        - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
+            - _**name**_ `string` *(required)* - Customer name.
+            - _**surname**_ `string` *(required)* - Customer surname.
+            - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer.
+            - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
+            - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
+            - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+    - _**status**_ `object` *(required)* - Information about the activation process
+        - _**state**_ `string` *(required)* - Activation state. Possible values: `PENDING`, `SUCCEEDED`, `FAILED`.
+        - _**successMessage**_ `string` *(required/optional)* - Provider specific success message. Available if _**state**_ is `SUCCEEDED`.
+        - _**errors**_ `array` *(required/optional)* - Provider specific error messages. Available if _**state**_ is `FAILED`.
+            - _**reason**_ `string` *(required)* - Reason of the error.
+            - _**description**_ `string` *(optional)* - Detailed description of the error.
 
 + Parameters
 
@@ -10993,7 +10993,7 @@ JSON response has following structure:
 ## Plan [/api/application/{applicationId}/activation/plan]
 Assigning a Plan to an activated Application based on JSON data
 
-- ***plan-id*** `string` *(required)* - The ID of the Plan to be assigned to an activated Application.
+- _**plan-id**_ `string` *(required)* - The ID of the Plan to be assigned to an activated Application.
 
 ### Assign a Plan to an Application [PUT]
 + Request a Plan assignment to an Application. (application/json)

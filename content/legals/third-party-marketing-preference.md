@@ -5,9 +5,9 @@ Activation will not be possible without giving an answer this Marketing Preferen
 
 JSON request and response have following structure:
 
-- ***question*** `string` *(required)* - Declaration question text.
-- ***helpText*** `string` *(required)* - Declaration question text.
-- ***answer*** `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
+- _**question**_ `string` *(required)* - Declaration question text.
+- _**helpText**_ `string` *(required)* - Declaration question text.
+- _**answer**_ `boolean` *(optional)* - Answer to Marketing Preference. If not available it means answer was not given (nor `true` or `false`).
 
 + Parameters
 
