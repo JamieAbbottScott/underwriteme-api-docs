@@ -18,8 +18,8 @@ Creating a new Application with relaxed validation to allow for portal handover.
         - _**telephoneNumber**_ `string` *(optional)* - Customer main telephone number.
         - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
         - _**address**_ `object` *(optional)* - Customer address details. Not required but cannot be empty.
-            - _**line1*** `string` *(optional)* - Address first line.
-            - _**line2*** `string` *(optional)* - Address second line.
+            - _**line1**_ `string` *(optional)* - Address first line.
+            - _**line2**_ `string` *(optional)* - Address second line.
             - _**town**_ `string` *(optional)* - Address town.
             - _**county**_ `string` *(optional)* - Address county.
             - _**postcode**_ `string` *(required)* - Address postcode.
@@ -30,8 +30,8 @@ Creating a new Application with relaxed validation to allow for portal handover.
             - _**contactDetails**_ `object` *(required)* - Surgery contact details.
                 - _**telephoneNumber**_ `string` *(optional)* - Surgery telephone number.
                 - _**address**_ `object` *(required)* - Surgery address details.
-                    - _**line1*** `string` *(optional)* - Address first line.
-                    - _**line2*** `string` *(optional)* - Address second line.
+                    - _**line1**_ `string` *(optional)* - Address first line.
+                    - _**line2**_ `string` *(optional)* - Address second line.
                     - _**town**_ `string` *(optional)* - Address town.
                     - _**county**_ `string` *(optional)* - Address county.
                     - _**postcode**_ `string` *(required)* - Address postcode.

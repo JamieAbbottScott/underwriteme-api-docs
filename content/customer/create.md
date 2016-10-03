@@ -17,8 +17,8 @@ Creating new Customer for Application based on JSON data. Lists all Customers fo
     - _**telephoneNumber**_ `string` *(required)* - Customer main telephone number.
     - _**alternativeTelephoneNumber**_ `string` *(optional)* - Customer alternative telephone number.
     - _**address**_ `object` *(required)* - Customer address details.
-        - _**line1*** `string` *(optional)* - Address first line.
-        - _**line2*** `string` *(optional)* - Address second line.
+        - _**line1**_ `string` *(optional)* - Address first line.
+        - _**line2**_ `string` *(optional)* - Address second line.
         - _**town**_ `string` *(optional)* - Address town.
         - _**county**_ `string` *(optional)* - Address county.
         - _**postcode**_ `string` *(required)* - Address postcode.
