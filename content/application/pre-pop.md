@@ -9,7 +9,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
     - _**otherTitle**_ `string` *(optional)* - Customer custom title (if `title` offers nothing suitable).
     - _**gender**_ `string` *(required)* - Customer gender. Allowed values: `FEMALE`, `MALE`.
     - _**dateOfBirth**_ `string` *(required)* - Customer date of birth. ISO 8601 date format (`YYYY-MM-DD`) required. Example: `1980-01-01`.
-    - _**smoker**_ `boolean` *(required)* - `true` if Customer smokes, `false` otherwise.
+    - _**smoker**_ `boolean` *(optional)* - `true` if Customer smokes, `false` otherwise.
     - _**email**_ `string` *(required)* - Customer email address.
     - _**occupation**_ `string` *(optional)* - Customer occupation.
     - _**earnings**_ `string` *(optional)* - Customer earnings.
