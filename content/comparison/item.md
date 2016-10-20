@@ -56,6 +56,14 @@ JSON response has following structure:
     - _**date**_ `string` *(optional)* - Date and time quote request was made. ISO 8601 date format (`YYYY-MM-DDThh:mm:ss.SSS`). Example: `2015-04-11T12:33:12.321`.
     - _**expiryDate**_ `string` *(optional)* - Date the quote expires. ISO 8601 date format (`YYYY-MM-DD`). Example: `2015-04-11`.
     - _**expired**_ `boolean` *(optional)* - Flag to mark whether this quote has expired.
+    - _**notes**_ `array` *(optional)* - Notes relating to a quote.
+        - _**important**_ `boolean` *(required)* - Is this an important note.
+        - _**reason**_ `string` *(optional)* - Reason attached to note.
+        - _**description**_ `string` *(required)* - Note description.
+    - _**variations**_ `array` *(optional)* - Variations relating to a quote.
+        - _**originalValue**_ `string` *(required)* - Original value before variation.
+        - _**newValue**_ `string` *(required)* - New value after variation.
+        - _**reason**_ `string` *(optional)* - Reason attached to the variation.
     - _**premium**_ `object` *(optional)* - Quote premium. Can be a fixed or ranged value.
         - _**from**_ `number` *(required)* - Lower bound of the premium value.
         - _**to**_ `number` *(required)* - Upper bound of the premium value.
@@ -182,6 +190,30 @@ JSON response has following structure:
                         ],
                         "discount": 0.00
                     },
+                    "notes": [
+                      {
+                        "description": "description1",
+                        "reason": "note1",
+                        "important": false
+                      },
+                      {
+                        "description": "description2",
+                        "reason": "note2",
+                        "important": false
+                      }
+                    ],
+                    "variations": [
+                      {
+                        "originalValue": "originalValue1",
+                        "newValue": "newValue1",
+                        "reason": "reason1"
+                      },
+                      {
+                        "originalValue": "originalValue2",
+                        "newValue": "newValue2",
+                        "reason": "reason2"
+                      }
+                    ],
                     "sumAssured":120000,
                     "anonymousQuote":true,
                     "commission":{
@@ -353,6 +385,30 @@ JSON response has following structure:
                         ],
                         "discount": 0.00
                     },
+                    "notes": [
+                      {
+                        "description": "description1",
+                        "reason": "note1",
+                        "important": false
+                      },
+                      {
+                        "description": "description2",
+                        "reason": "note2",
+                        "important": false
+                      }
+                    ],
+                    "variations": [
+                      {
+                        "originalValue": "originalValue1",
+                        "newValue": "newValue1",
+                        "reason": "reason1"
+                      },
+                      {
+                        "originalValue": "originalValue2",
+                        "newValue": "newValue2",
+                        "reason": "reason2"
+                      }
+                    ],                    
                     "sumAssured":120000,
                     "anonymousQuote":false,
                     "commission":{
@@ -465,6 +521,30 @@ JSON response has following structure:
                         ],
                         "discount": 0.00
                     },
+                    "notes": [
+                      {
+                        "description": "description1",
+                        "reason": "note1",
+                        "important": false
+                      },
+                      {
+                        "description": "description2",
+                        "reason": "note2",
+                        "important": false
+                      }
+                    ],
+                    "variations": [
+                      {
+                        "originalValue": "originalValue1",
+                        "newValue": "newValue1",
+                        "reason": "reason1"
+                      },
+                      {
+                        "originalValue": "originalValue2",
+                        "newValue": "newValue2",
+                        "reason": "reason2"
+                      }
+                    ],
                     "sumAssured":120000,
                     "anonymousQuote":false,
                     "commission":{
@@ -653,6 +733,30 @@ JSON response has following structure:
                         ],
                         "discount": 0.00
                     },
+                    "notes": [
+                      {
+                        "description": "some really important description",
+                        "reason": "",
+                        "important": true
+                      },
+                      {
+                        "description": "description2",
+                        "reason": "note2",
+                        "important": false
+                      }
+                    ],
+                    "variations": [
+                      {
+                        "originalValue": "originalValue1",
+                        "newValue": "newValue1",
+                        "reason": "reason1"
+                      },
+                      {
+                        "originalValue": "originalValue2",
+                        "newValue": "newValue2",
+                        "reason": "reason2"
+                      }
+                    ],                    
                     "sumAssured":120000,
                     "anonymousQuote":false,
                     "commission":{
