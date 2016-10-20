@@ -138,6 +138,30 @@ JSON response has following structure:
                                 ],
                                 "discount": 0.00
                             },
+                            "notes": [
+                              {
+                                "description": "description1",
+                                "reason": "note1",
+                                "important": false
+                              },
+                              {
+                                "description": "description2",
+                                "reason": "note2",
+                                "important": false
+                              }
+                            ],
+                            "variations": [
+                              {
+                                "originalValue": "originalValue1",
+                                "newValue": "newValue1",
+                                "reason": "reason1"
+                              },
+                              {
+                                "originalValue": "originalValue2",
+                                "newValue": "newValue2",
+                                "reason": "reason2"
+                              }
+                            ],                            
                             "sumAssured":120000,
                             "commission":{
                                 "initial":30.61,
