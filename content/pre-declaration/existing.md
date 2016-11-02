@@ -1,6 +1,14 @@
 ## Existing [/application/{applicationId}/enquiry/{enquiryId}/pre-declaration]
 Operations on existing Pre-Declaration associated with Application and Customer Enquiry.
 
+JSON response has following structure:
+
+- _**confirmed**_ `boolean` *(required)* - Flag to indicate whether the declaration has been confirmed.
+- _**text**_ `string` *(required)* - HTML formatted default Pre-Declaration text.
+- _**jointLifeUnderwritingText**_ `string` *(optional)* - HTML formatted joint life underwriting text.
+- _**dataProtectionActText**_ `string` *(optional)* - HTML formatted data protection act text.
+- _**geneticsTestingText**_ `string` *(optional)* - HTML formatted genetics testing text.
+
 + Parameters
 
     + applicationId (required, string, `1502181407123020689`) ... Unique ID of existing Application.
@@ -17,7 +25,10 @@ Operations on existing Pre-Declaration associated with Application and Customer 
 
             {
                 "confirmed": false,
-                "text": "<p>HTML formatted Pre-Declaration text.</p>"
+                "text": "<p>HTML formatted Pre-Declaration text.</p>",
+                "jointLifeUnderwritingText": "<p>HTML formatted joint life underwriting text</p>",
+                "dataProtectionActText": "<p>HTML formatted data protection act text</p>",
+                "geneticsTestingText": "<p>HTML formatted genetics testing text</p>"
             }
 
 ### Confirm Pre-Declaration [PUT]
