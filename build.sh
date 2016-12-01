@@ -23,6 +23,7 @@ append application/pre-pop
 append application/existing
 append application/update
 append application/update-payment-basis
+append application/update-commission-profile.md
 
 append customer/overview
 append customer/create

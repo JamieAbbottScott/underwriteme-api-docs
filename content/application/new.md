@@ -39,6 +39,7 @@ Creating new Application based on sent Customers and Products JSON data.
         - _**initial**_  `number` *(required)* - Initial commission sacrifice. Does not allow decimals. The lower this value is the higher initial commission will be. Value is a percent represented as integer value between `0` and `100`.
         - _**renewal**_  `number` *(optional)* - Renewal commission sacrifice. Allows decimals. The lower this value is the lower renewal commission will be. Value is a percent represented as decimal value between `0` and `2.5`.
         - _**nilBased**_  `boolean` *(optional)* - Nil based commission. Defaults to false. If set to true then values for initial and renewal will be overridden to 100 and 0.0.
+	- _**commissionStyle**_ `string` *(optional)* - Commission Style, if not specificed default value is set to application owner's Firm Default. Allowed values: `INDEMNITY`, `NON_INDEMNITY`
     - _**livesAssured**_ `array` *(required)* - List of Customers (represented as `object`) for whom the Product is.
         - _**refersTo**_ `string` *(required)* - Reference to ID of the Customer. Object with the same value must be available in _**customers**_ list.
         - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
@@ -82,7 +83,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
@@ -120,7 +122,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "1001" }
@@ -163,7 +166,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
@@ -216,7 +220,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
@@ -279,7 +284,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             {
@@ -337,7 +343,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured":[
                             {
@@ -387,7 +394,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "cus-001" }
@@ -426,7 +434,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "1001" }
@@ -468,7 +477,8 @@ Creating new Application based on sent Customers and Products JSON data.
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "cus-001" }

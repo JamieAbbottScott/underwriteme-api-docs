@@ -41,7 +41,8 @@
                         "commissionSacrifice": {
                             "initial": 10,
                             "renewal": 1.0,
-                            "nilBased": false
+                            "nilBased": false,
+                            "commissionStyle": "INDEMNITY"
                         },
                         "livesAssured": [
                             { "refersTo": "1001" }
