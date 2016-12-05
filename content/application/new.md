@@ -47,6 +47,16 @@ Creating new Application based on sent Customers and Products JSON data.
 - _**owner**_ `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
 - _**quoteEffectiveDate**_ `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
 - _**originatorId**_ `string` *(optional)* - The id of the portal the application originated from.
+- _**overrides**_ `object` *(optional)* - Placeholder to specify overrides for the application.
+    - _**user**_ `object` *(optional)* - Placeholder to specify overrides for the user creating the application.
+        - _**name**_ `string` *(optional)* - The name of the agent (first name and last name).
+        - _**firm**_ `object` *(optional)* - Placeholder to specify overrides for the firm.
+            - _**name**_ `string` *(optional)* - The name of the firm
+            - _**frn**_ `string` *(optional)* - The firm reference number
+        - _**providerAgentDetails**_ `array` *(optional)* - List of agent number overrides. It allows to specify an agent number per provider and commission style (represented as `object`).
+            - _**commissionStyle**_ `string` *(required)* - The commission style. Possible values are `INDEMNITY` or `NON_INDEMNITY`.
+            - _**providerId**_ `string` *(required)* - The ID of the provider, e.g. `TRUE_POTENTIAL`.
+            - _**agentNumber**_ `string` *(required)* - The agent number.
 
 
 ### Create new Application [POST]
