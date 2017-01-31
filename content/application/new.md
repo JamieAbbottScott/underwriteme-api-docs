@@ -47,6 +47,16 @@ Creating new Application based on sent Customers and Products JSON data.
 - _**owner**_ `string` *(optional)* - Owner of the application. If not specified, the authenticated user is used.
 - _**quoteEffectiveDate**_ `string` *(optional)* - The quote effective date. ISO 8601 date format (YYYY-MM-DD) required. Example: 1980-01-01.
 - _**originatorId**_ `string` *(optional)* - The id of the portal the application originated from.
+- _**overrides**_ `object` *(optional)* - Placeholder to specify overrides for the application, that are used on quote and activation messages. If not specified, messages will be built based on the authenticated user (e.g., username, firm name, frn).
+    - _**user**_ `object` *(optional)* - Placeholder to specify overrides for the user creating the application.
+        - _**name**_ `string` *(optional)* - The name of the agent (first name and last name).
+        - _**firm**_ `object` *(optional)* - Placeholder to specify overrides for the firm.
+            - _**name**_ `string` *(optional)* - The name of the firm
+            - _**frn**_ `string` *(optional)* - The firm reference number
+        - _**providerAgentDetails**_ `array` *(optional)* - List of agent number overrides. It allows a user to specify an agent number per provider and commission style (represented as `object`).
+            - _**commissionStyle**_ `string` *(required)* - The commission style. Possible values are `INDEMNITY` or `NON_INDEMNITY`.
+            - _**providerId**_ `string` *(required)* - The ID of the provider, e.g. `TRUE_POTENTIAL`.
+            - _**agentNumber**_ `string` *(required)* - The agent number.
 
 
 ### Create new Application [POST]
@@ -485,3 +495,117 @@ Creating new Application based on sent Customers and Products JSON data.
                    "errorMessage": "Unknown owner non-existing-user"
                }
            }
+
++ Request Valid Application with overrides. (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
+    + Body
+
+            {
+                "customers": [
+                    {
+                        "referenceId": "cus-001",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "occupation": "underwriter",
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0,
+                            "nilBased": false
+                        },
+                        "livesAssured": [
+                            { "refersTo": "cus-001" }
+                        ]
+                    }
+                ],
+                "overrides": {
+                    "user": {
+                        "name": "Michel O'Brian",
+                        "firm": {
+                            "name": "True Potential",
+                            "frn": "1235432"
+                        },
+                        "providerAgentDetails": [
+                            {
+                                "commissionStyle": "INDEMNITY",
+                                "providerId": "TRUE_POTENTIAL",
+                                "agentNumber": "123004"
+                            }
+                        ]
+                    }
+                }
+            }
+
++ Response 201 (application/json)
+
+            {
+                "id": "1502181407123020689",
+                "customers": [
+                    {
+                        "id": "1001",
+                        "referenceId": "cus-001",
+                        "enquiryId": "029ab8d8-0a62-423e-8e84-6e8d505bb742",
+                        "name": "John",
+                        "surname": "Doe",
+                        "title": "MR",
+                        "gender": "MALE",
+                        "dateOfBirth": "1980-01-01",
+                        "smoker": false,
+                        "email": "john.doe@domain.com"
+                    }
+                ],
+                "products": [
+                    {
+                        "id": "029ab8d8-0a62-423e-8e84-6e8d505bb743",
+                        "referenceId": "pro-001",
+                        "type": "TERM",
+                        "coverBasis": "LEVEL",
+                        "coverPeriod": 20,
+                        "coverAmount": 120000,
+                        "commissionSacrifice": {
+                            "initial": 10,
+                            "renewal": 1.0,
+                            "nilBased": false
+                        },
+                        "livesAssured": [
+                            { "refersTo": "1001" }
+                        ]
+                    }
+                ],
+                "paymentBasis": "MONTHLY",
+                "owner": "authenticated-user",
+                "overrides": {
+                    "user": {
+                        "name": "Michel O'Brian",
+                        "firm": {
+                            "name": "True Potential",
+                            "frn": "1235432"
+                        },
+                        "providerAgentDetails": [
+                            {
+                                "commissionStyle": "INDEMNITY",
+                                "providerId": "TRUE_POTENTIAL",
+                                "agentNumber": "123004"
+                            }
+                        ]
+                    }
+                }
+            }
+
