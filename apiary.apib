@@ -1779,9 +1779,6 @@ JSON response has following structure:
 
 - _**confirmed**_ `boolean` *(required)* - Flag to indicate whether the declaration has been confirmed.
 - _**text**_ `string` *(required)* - HTML formatted default Pre-Declaration text.
-- _**jointLifeUnderwritingText**_ `string` *(optional)* - HTML formatted joint life underwriting text.
-- _**dataProtectionActText**_ `string` *(optional)* - HTML formatted data protection act text.
-- _**geneticsTestingText**_ `string` *(optional)* - HTML formatted genetics testing text.
 
 + Parameters
 
@@ -1799,10 +1796,7 @@ JSON response has following structure:
 
             {
                 "confirmed": false,
-                "text": "<p>HTML formatted Pre-Declaration text.</p>",
-                "jointLifeUnderwritingText": "<p>HTML formatted joint life underwriting text</p>",
-                "dataProtectionActText": "<p>HTML formatted data protection act text</p>",
-                "geneticsTestingText": "<p>HTML formatted genetics testing text</p>"
+                "text": "<p>HTML formatted Pre-Declaration text.</p>"
             }
 
 ### Confirm Pre-Declaration [PUT]
