@@ -66,8 +66,9 @@ Creating a new Application with relaxed validation to allow for portal handover.
 - _**adviserReferenceNumber**_ `string` *(optional)* - Firm reference number of the application. If either (owner and frn) are provided owner take precedence.
 - _**originatorId**_ `string` *(optional)* - Portal that the application originated from.
 - _**quoteEffectiveDate**_ `string` *(optional)* - The quote effective date. Must match ISO 8601 date format (YYYY-MM-DD) e.g: 1980-01-01.
+- _**paymentBasis**_ `string` *(optional)* - Payment basis for the application. Allowed values: `ANNUAL`, `MONTHLY`.
 
-### Create new Application [POST]
+### Pre-Populate new Application [POST]
 
 + Request Valid Application. (application/json)
 
@@ -133,7 +134,8 @@ Creating a new Application with relaxed validation to allow for portal handover.
                             }
                         ]
                   },
-                }
+                },
+		"paymentBasis": "MONTHLY"
             }
 
 + Response 201 (application/json)
