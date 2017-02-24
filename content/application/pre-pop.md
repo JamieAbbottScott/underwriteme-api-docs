@@ -135,7 +135,7 @@ Creating a new Application with relaxed validation to allow for portal handover.
                         ]
                   },
                 },
-		"paymentBasis": "MONTHLY"
+                "paymentBasis": "MONTHLY"
             }
 
 + Response 201 (application/json)
