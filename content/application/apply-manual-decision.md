@@ -47,3 +47,11 @@
                     }
                 ]
             }
+
++ Request Apply-Manual-Decision with user who does not have permission apply manual decision (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImV4cCI6MTQyMjU0MDAzMH0.oyMYL7t57jhBvw-A3vghOAXl6cixpaTsZW69wz3p5M8
+
++ Response 401 (application/json)
