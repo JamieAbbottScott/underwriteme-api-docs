@@ -11,7 +11,7 @@ JSON request and response have following structure:
 - _**paymentDays**_ `array` *(required/optional)* - List of payment days by Provider. List cannot be empty if at least one Provider requires payment day. If no Provider requires payment day then there is no need to supply value for this property.
     - _**provider**_ `string` *(required)* - Unique Provider ID.
     - _**dayOfMonth**_ `number` *(required/optional)* - Day of month when payment should be taken from the bank account. Allowed values: `1` to `28`. Requirement depends on Payment Restriction.
-- _**startDates**_ `array` *(required)* - List of start dates by Provider Product.
+- _**startDates**_ `array` *(required/optional)* - List of start dates by Provider Product. Optional if all products are referred to Underwriteme Worbkench.
     - _**refersTo**_ `string` *(required)* - Unique ID of existing Provider Product in the Basket.
     - _**provider**_ `string` *(optional)* - Unique Provider ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
     - _**productId**_ `string` *(optional)* - Unique Product ID. Read-only property. This value does not have to be provided when updating Payment. It will be returned after successful request.
