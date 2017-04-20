@@ -31,6 +31,7 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
+                        "canBeRemoved":true,
                         "decision":{
                             "immediateCover":true,
                             "nonIndicative":false,
@@ -103,6 +104,7 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"plr-eae35b32-4841-4620-aed4-d06cf1cf8057",
                         "provider":"PLR",
+                        "canBeRemoved":true,
                         "decision":{
                             "immediateCover":true,
                             "nonIndicative":false,
@@ -150,6 +152,7 @@ Operations on existing Basket associated with Application.
                     {
                         "id":"insurerx-ac33ac4f-5aea-4a49-af1a-817d0d1cbf80",
                         "provider":"InsurerX",
+                        "canBeRemoved":true,
                         "decision":{
                             "immediateCover":true,
                             "nonIndicative":false,
