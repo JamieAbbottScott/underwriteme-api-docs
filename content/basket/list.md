@@ -169,7 +169,8 @@ Operations on existing Basket associated with Application.
                                     "surname":"Doe",
                                     "refersTo":"4336"
                                 }
-                            ]
+                            ],
+                            "includesChildrensCI": "YES"
                         },
                         "quote":{
                             "state":"SUCCEEDED",

@@ -23,6 +23,7 @@ JSON response has following structure:
         - _**waiverOfPremium**_ `boolean` *(optional)* - Flag to mark waiver of premium for Customer.
         - _**determinesCeaseAge**_ `boolean` *(optional)* - Flag to mark which customer determines the cease age.
         - _**totalPermanentDisability**_ `boolean` *(optional)* - Flag to mark total permanent disability for Customer.
+    - _**includesChildrensCI**_ `string` *(optional)* - Identifies if the product includes Critical Illness for children. This is only returned for Critical Illness type of products. Possible values: `YES` or `NO`.
 - _**decision**_ `object` *(required)* - Underwriting Decision.
     - _**type**_ `string` *(required)* - Decision type. Possible values: `UNKNOWN`, `STANDARD`, `NON_STANDARD`, `REFER`, `EVIDENCE_REQUIRED`, `POSTPONE`, `DECLINE`.
     - _**immediateCover**_ `boolean` *(required)* - Flag to indicate whether cover is immediately available.
